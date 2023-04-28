@@ -1,0 +1,165 @@
+.test-progress {
+  position: fixed;
+  top: 14px;
+  left: 11.46vw;
+  right: 11.46vw;
+  z-index: 9;
+
+  @include media-breakpoint-down(xxl) {
+    left: 13.2vw;
+    right: 13.2vw;
+  }
+
+  @include media-breakpoint-down(xl) {
+    left: 40px;
+    right: 40px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    left: 20px;
+    right: 20px;
+    top: 7.4vh;
+  }
+
+  .progress {
+    display: none;
+    margin: 0 0 4.2vh;
+  }
+
+  .steps {
+    width: 100%;
+    height: 32px;
+    position: relative;
+    padding: 0 0 0 41px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    margin: 0 0 5.3vh;
+
+    &:before {
+      content: "";
+      background-color: #fff;
+      width: 100%;
+      height: 6px;
+      border-radius: 6px;
+      position: absolute;
+      left: 0;
+      top: 13px;
+    }
+
+    .step {
+      display: block;
+      position: relative;
+      z-index: 2;
+
+      &.active {
+        position: relative;
+
+        &:before {
+          content: "";
+          background-color: #f24eb6;
+          width: 100vw;
+          height: 6px;
+          border-radius: 6px;
+          position: absolute;
+          right: 50%;
+          top: 13px;
+        }
+        svg {
+          path {
+            fill: #f24eb6;
+          }
+        }
+      }
+    }
+  }
+
+  .btn-previous {
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+    font-family: $ff-kaisei;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    left: 11.2vw;
+    top: 10vh;
+    opacity: 0;
+    z-index: 9;
+
+    img {
+      margin-right: 30px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      font-size: 12px;
+
+      img {
+        width: 24px;
+        height: 9px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .steps {
+      height: 24px;
+      padding: 0 0 0 28px;
+      margin: 0 0 5vh;
+
+      &:before {
+        height: 4px;
+        top: 10px;
+      }
+
+      .step {
+        svg {
+          display: block;
+          width: 24px;
+          height: auto;
+        }
+        &.active {
+          &:before {
+            height: 4px;
+            top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .progress {
+      display: block;
+      height: 6px;
+      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.6);
+      position: relative;
+
+      .inner {
+        height: 100%;
+        width: 10%;
+        border-radius: 6px;
+        background-color: #fff;
+      }
+    }
+
+    .steps {
+      display: none;
+    }
+
+    .container {
+      .row {
+        flex-wrap: wrap;
+
+        .col {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

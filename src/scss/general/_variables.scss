@@ -1,0 +1,31 @@
+// Fonts
+$font-family-base: "graphik", sans-serif;
+$ff-kaisei: "Kaisei Decol", serif;
+
+// Colors
+$white: #fff;
+$black: #000;
+
+$primary: #b9ff1f;
+$primary-light: #84bf00;
+
+$text-color: $white;
+
+$placeholder-color: $text-color;
+$error: #ff4140;
+
+$red: #fe0100;
+$green: #b9ff1f;
+$yellow: #e9cc14;
+
+// Container
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1600px,
+  xxxl: 1920px,
+);

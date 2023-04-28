@@ -1,0 +1,177 @@
+.screen-07 {
+  position: relative;
+  min-height: 100vh;
+  color: #0a0517;
+  padding: 14.6vh 0 0;
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+
+      img {
+        display: block;
+        height: 100%;
+        width: auto;
+      }
+
+      &.el-01 {
+        right: 7vw;
+        top: 4.5vh;
+        height: 18vh;
+      }
+    }
+  }
+
+  .accordion {
+    .item {
+      border-bottom: 3px solid #0a0517;
+
+      &:last-child {
+        border: none;
+      }
+
+      .item-header {
+        button {
+          font-size: 2rem;
+          line-height: 1.1;
+          height: 2.46em;
+          display: flex;
+          align-items: center;
+          background: none;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          outline: none;
+          font-weight: 600;
+          text-transform: uppercase;
+          padding: 0 0.52em;
+          text-align: left;
+
+          &:before {
+            content: "";
+            background: url(../img/icons/star-dark.svg) no-repeat;
+            background-size: cover;
+            width: 1.146em;
+            height: 1.146em;
+            margin-right: 0.9375em;
+            transition: transform 0.3s ease;
+            flex: 0 0 auto;
+          }
+
+          &:hover {
+            font-weight: 900;
+          }
+        }
+      }
+
+      .item-body {
+        display: none;
+        line-height: 1.35;
+        padding: 0 13vw 6.2vh 5.2em;
+
+        p,
+        ul {
+          margin: 0 0 10px;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+
+        ul {
+          padding: 0;
+          list-style: none;
+
+          li {
+            padding: 0 0 0 35px;
+            background: url(../img/icons/star-dark.svg) 9.5px 8px no-repeat;
+            background-size: 17px auto;
+          }
+        }
+      }
+
+      &.active {
+        .item-header {
+          button {
+            &:before {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01 {
+          right: 9.5vw;
+          top: 4vh;
+        }
+      }
+    }
+    .accordion {
+      .item {
+        .item-header {
+          button {
+            font-size: 1.6rem;
+            height: 2.8em;
+            padding: 0 0.35em;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    min-height: 0;
+    padding: 100px 0 34px;
+
+    .elements {
+      .el {
+        &.el-01 {
+          right: 20px;
+          top: 12px;
+          height: 88px;
+        }
+      }
+    }
+
+    .accordion {
+      .item {
+        border-bottom-width: 2px;
+
+        .item-header {
+          button {
+            font-size: 1.5rem;
+            height: auto;
+            padding: 19px 0;
+            align-items: flex-start;
+
+            &:before {
+              width: 21px;
+              height: 21px;
+              margin-right: 9px;
+              margin-top: 2px;
+            }
+          }
+        }
+
+        .item-body {
+          line-height: 1.35;
+          padding: 0 0 40px 30px;
+
+          ul {
+            li {
+              padding: 0 0 0 22px;
+              background-position: 2px 6px;
+              background-size: 12px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}

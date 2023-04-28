@@ -1,0 +1,291 @@
+.screen-01 {
+  --cursor: #f24eb6;
+
+  background-color: rgb(249, 243, 233);
+  color: #fff;
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  padding: 0 0 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .fp-tableCell {
+    position: relative;
+  }
+
+  .container {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding-top: 17vh;
+
+    p {
+      margin: 0 0 20px;
+    }
+
+    h1 {
+      margin: 0 0 10.6vh;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin: 0 0 32px;
+
+      .btn {
+        &.btn-white {
+          display: none;
+        }
+        &.btn-outlined {
+          height: 3.17rem;
+          padding: 0 1.92rem;
+        }
+      }
+    }
+  }
+
+  .btn-scroll {
+    position: relative;
+    z-index: 9;
+  }
+
+  .bg {
+    @include abs(0, 50%, 0, 0);
+    background-image: radial-gradient(48.03% 32.86% at 50% 50%, #6f37fc 11.46%, rgba(248, 87, 193, 0.85) 44.27%, rgba(251, 98, 161, 0.49) 72.4%, rgba(255, 255, 255, 0) 100%);
+    transform: translateY(-58%) rotate(-30deg);
+    width: 100vw;
+    height: 100vw;
+    z-index: 0;
+  }
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+
+      img {
+        display: block;
+        height: 100%;
+        width: auto;
+      }
+
+      &.el-01 {
+        left: 6.7vw;
+        top: 23vh;
+        height: 9.3vh;
+      }
+      &.el-02 {
+        left: 2.1vw;
+        top: 44.7vh;
+        height: 13.8vh;
+      }
+      &.el-03 {
+        left: 13vw;
+        top: 68vh;
+        height: 21.6vh;
+      }
+      &.el-04 {
+        left: 24.3vw;
+        top: 87.3vh;
+        height: 5vh;
+      }
+      &.el-05 {
+        right: 15.1vw;
+        top: 22vh;
+        height: 21.6vh;
+      }
+      &.el-06 {
+        right: 7vw;
+        top: 40vh;
+        height: 2.24vh;
+      }
+      &.el-07 {
+        right: 16.5vw;
+        top: 51.7vh;
+        height: 9.3vh;
+      }
+      &.el-08 {
+        right: 11.6vw;
+        top: 73.3vh;
+        height: 14.4vh;
+      }
+      &.el-09 {
+        right: 30.7vw;
+        top: 84.3vh;
+        height: 2.24vh;
+      }
+    }
+  }
+
+  .text-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9;
+  }
+
+  @include media-breakpoint-between(xl, xxl) {
+    .container {
+      padding-top: 21vh;
+
+      p {
+        font-size: 0.94rem;
+        margin: 0 0 1em;
+      }
+      h1 {
+        font-size: 3.78rem;
+        margin: 0 0 1.05em;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01 {
+          left: 3.35vw;
+          top: 30vh;
+          height: 8.5vh;
+        }
+        &.el-03 {
+          left: 12.5vw;
+          top: 55.4vh;
+          height: 20vh;
+        }
+        &.el-04 {
+          display: none;
+        }
+        &.el-05 {
+          right: 9vw;
+          top: 32.2vh;
+          height: 18vh;
+        }
+        &.el-06 {
+          right: 1vw;
+          top: 50vh;
+        }
+        &.el-07 {
+          right: 10vw;
+          top: 55vh;
+          height: 8.5vh;
+        }
+        &.el-08 {
+          height: 10vh;
+        }
+      }
+    }
+    .container {
+      .buttons {
+        margin: 0 0 40px;
+
+        .btn {
+          &.btn-outlined {
+            height: 2.55rem;
+            padding: 0 1.75rem;
+          }
+        }
+      }
+    }
+    .btn-scroll {
+      width: 38px;
+      height: 38px;
+      padding: 0;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    overflow: hidden;
+    min-height: 0;
+
+    .elements {
+      .el {
+        position: absolute;
+        z-index: 2;
+
+        img {
+          display: block;
+          height: 100%;
+          width: auto;
+        }
+
+        &.el-01 {
+          left: 35px;
+          top: 161px;
+          height: 58px;
+        }
+        &.el-04 {
+          left: auto;
+          right: 41px;
+          top: 205px;
+          height: 37px;
+        }
+
+        &.el-07 {
+          right: 60px;
+          top: auto;
+          bottom: 127px;
+          height: 50px;
+        }
+        &.el-02,
+        &.el-03,
+        &.el-05,
+        &.el-06,
+        &.el-08,
+        &.el-09 {
+          display: none;
+        }
+      }
+    }
+
+    .bg {
+      @include abs(0, 0, 0, 0);
+      transform: translate3d(-32%, -35%, 0) rotate(0deg);
+      width: 437vw;
+      height: 437vw;
+    }
+
+    .container {
+      width: 100%;
+      padding-top: 30px;
+
+      p {
+        margin: 0 0 14px;
+      }
+
+      h1 {
+        margin: 0 0 72px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        row-gap: 26px;
+        margin: 0;
+
+        .btn {
+          align-self: center;
+
+          &.btn-white {
+            display: inline-flex;
+          }
+        }
+      }
+    }
+
+    .btn-scroll {
+      position: absolute;
+      left: 50%;
+      bottom: 9.85vh;
+      transform: translateX(-50%);
+    }
+  }
+}

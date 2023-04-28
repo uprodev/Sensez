@@ -1,0 +1,101 @@
+body {
+  --cursor: transparent;
+}
+
+.cursor-container {
+  cursor: none;
+
+  @include media-breakpoint-down(lg) {
+    cursor: auto;
+  }
+}
+
+.cursor {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 240px;
+    height: 240px;
+    transform: translate3d(-50%, -50%, 0);
+    background-color: var(--cursor);
+    filter: blur(60px);
+    border-radius: 200px;
+  }
+
+  @include media-breakpoint-down(lg) {
+    display: none;
+
+    &:before {
+      filter: none;
+      transform: none;
+    }
+  }
+}
+
+.marquee {
+  position: relative;
+  overflow: hidden;
+  --offset: 20vw;
+  --move-initial: calc(-20% + var(--offset));
+  --move-final: calc(-60% + var(--offset));
+
+  .marquee__wrap {
+    transform: translateX(0);
+    transition: all 1s ease-out;
+  }
+
+  .marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 30s linear infinite;
+    animation-play-state: running;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  span {
+    padding: 0 0 0 10px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(var(--move-initial), 0, 0);
+  }
+
+  100% {
+    transform: translate3d(var(--move-final), 0, 0);
+  }
+}
+
+@-webkit-keyframes jackInTheBox {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.1) rotate(30deg);
+    transform: scale(0.1) rotate(30deg);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  70% {
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
