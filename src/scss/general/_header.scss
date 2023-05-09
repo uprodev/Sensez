@@ -6,13 +6,21 @@
   z-index: 999;
   transition: transform 0.4s ease;
 
-  &.headroom--unpinned {
+  &.headroom--not-top {
     transform: translateY(-150%);
+
+    &.active {
+      transform: translateY(0);
+    }
   }
 
-  &.headroom--pinned {
-    transform: translateY(0);
-  }
+  // &.headroom--unpinned {
+  //   transform: translateY(-150%);
+  // }
+
+  // &.headroom--pinned {
+  //   transform: translateY(0);
+  // }
 
   .container {
     padding-top: 40px;

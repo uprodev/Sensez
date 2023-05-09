@@ -1,0 +1,390 @@
+.test-step {
+  &--type2 {
+    position: relative;
+
+    .test-options {
+      width: 740px;
+      position: fixed;
+      left: 11.46vw;
+      bottom: 11.2vh;
+      z-index: 99;
+
+      ul {
+        column-gap: 30px;
+        font-size: 20px;
+        text-align: center;
+
+        li {
+          width: 124px;
+
+          label {
+            color: #454fdb;
+
+            input {
+              &:checked {
+                & + span {
+                  z-index: 999;
+
+                  figure {
+                    svg {
+                      path {
+                        fill: #4953e9;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            span {
+              padding: 150px 0 0;
+            }
+
+            &.hover {
+              figure {
+                svg {
+                  path {
+                    &:nth-child(1) {
+                      transform: scale(1.1) rotate(-14.34deg) translate3d(-5%, -5%, 0);
+                    }
+                    &:nth-child(2) {
+                      transform: scale(1.1) rotate(16.47deg) translate3d(-10%, 5%, 0);
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          figure {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: 0;
+
+            svg {
+              transform-origin: center bottom;
+              path {
+                fill: #cbc7f7;
+                transition: all 0.3s;
+                transform-origin: center;
+                &:nth-child(1),
+                &:nth-child(2) {
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .disabled {
+        ul {
+          li,
+          label {
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    .test-scroller {
+      width: 66%;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          padding: 96px 0 0 0;
+          position: relative;
+          height: calc(93vh - 75px);
+          color: #454fdb;
+
+          .image {
+            display: none;
+          }
+
+          h3 {
+            font-size: 2rem;
+            line-height: 1.35;
+            filter: blur(6.5px);
+            transition: all 0.5s;
+            margin: 0 0 20px;
+
+            span {
+              display: inline-block;
+              padding: 0 0.4em;
+              position: relative;
+
+              &:before {
+                content: "";
+                border: 2px solid #454fdb;
+                border-radius: 40px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 1px;
+                height: 1.46em;
+              }
+            }
+          }
+
+          & > span {
+            display: block;
+            font-size: 0.833rem;
+          }
+
+          &.active {
+            h3 {
+              filter: blur(0px);
+            }
+          }
+        }
+      }
+    }
+
+    .images-scroller {
+      width: 50vw;
+      position: absolute;
+      top: 0;
+      right: -11.46vw;
+      height: 100vh;
+      overflow: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        height: 100%;
+
+        li {
+          height: 100%;
+
+          .image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            &:before,
+            &:after {
+              content: "";
+              position: absolute;
+              background: url(../img/icons/star-blue.svg) 0 / cover no-repeat;
+              z-index: 2;
+            }
+
+            img {
+              display: block;
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(xl) {
+      &:before {
+        content: "";
+        background: url(../img/icons/star-blue.svg) 0 / cover no-repeat;
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 6.2vw;
+        top: 51vh;
+      }
+    }
+
+    @include media-breakpoint-up(xxl) {
+      &:before {
+        width: 69px;
+        height: 69px;
+      }
+    }
+
+    @include media-breakpoint-down(xxl) {
+      .test-options {
+        bottom: 20px;
+      }
+      .test-scroller {
+        ul {
+          font-size: 16px;
+
+          li {
+            padding: 40px 0 0;
+            h3 {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-down(xl) {
+      .test-options {
+        left: 40px;
+      }
+    }
+
+    @include media-breakpoint-down(lg) {
+      opacity: 0;
+      .test-options {
+        opacity: 0;
+        width: auto;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+
+        ul {
+          font-size: 0.625rem;
+          font-weight: 400;
+          text-transform: none;
+          max-width: 341px;
+          margin: auto;
+          justify-content: space-between;
+          column-gap: 0;
+          padding: 0 0 8.7vh;
+
+          li {
+            width: auto;
+
+            label {
+              text-align: center;
+
+              span {
+                padding: 0;
+              }
+
+              &.hover {
+                figure {
+                  svg {
+                    path {
+                      &:nth-child(1) {
+                        transform: scale(1.1) rotate(-14.34deg) translate3d(15%, 0%, 0);
+                      }
+                      &:nth-child(2) {
+                        transform: scale(1.1) rotate(16.47deg) translate3d(-20%, 5%, 0);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            figure {
+              position: static;
+              width: 70px;
+              margin: 0 auto;
+              transform: none;
+
+              svg {
+                display: block;
+                width: 100%;
+                height: auto;
+                path {
+                  fill: #454fdb;
+                  transform-origin: center bottom;
+
+                  &:nth-child(1),
+                  &:nth-child(2) {
+                    opacity: 0.3;
+                  }
+                }
+              }
+            }
+
+            &:nth-child(2),
+            &:nth-child(4) {
+              figure {
+                svg {
+                  transform: scale(0.8) translateY(-3px);
+                }
+              }
+            }
+            &:nth-child(3) {
+              figure {
+                svg {
+                  transform: scale(0.68) translateY(-6px);
+                }
+              }
+            }
+          }
+        }
+
+        &.selected {
+          ul {
+            li {
+              label {
+                input {
+                  &:not(:checked) {
+                    & + span {
+                      figure {
+                        opacity: 0.3;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .images-scroller {
+        display: none;
+      }
+
+      .test-scroller {
+        width: 100%;
+
+        ul {
+          li {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 0 0;
+
+            .image {
+              display: block;
+              margin: 0 0 20px;
+
+              img {
+                display: block;
+                margin: auto;
+                height: auto;
+              }
+            }
+
+            h3 {
+              font-size: 24px;
+              line-height: 1.25;
+              margin: 0;
+
+              span {
+                display: inline;
+                padding: 0;
+                &:before {
+                  display: none;
+                }
+              }
+            }
+            & > span {
+              margin: 30px 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

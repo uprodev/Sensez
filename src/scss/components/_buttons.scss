@@ -54,6 +54,28 @@ button {
     }
   }
 
+  &.btn-black {
+    border: none;
+    height: 3.17rem;
+    background: #0a0517;
+    color: #fff;
+    border-radius: 60px;
+
+    svg {
+      display: block;
+      margin: 0 14px 0 0;
+    }
+
+    span {
+      display: block;
+      padding: 3px 0 0;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 15px #ffffff;
+    }
+  }
+
   &.btn-outlined {
     border: 3px solid #fff;
     height: 2.83rem;

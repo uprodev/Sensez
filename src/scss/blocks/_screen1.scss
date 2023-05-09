@@ -1,3 +1,7 @@
+// .screen {
+//   overflow: hidden;
+// }
+
 .screen-01 {
   --cursor: #f24eb6;
 
@@ -11,6 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   .fp-tableCell {
     position: relative;

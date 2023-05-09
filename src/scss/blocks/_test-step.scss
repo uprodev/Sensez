@@ -1,21 +1,119 @@
-[data-barba="container"] {
-  opacity: 0;
-}
+.step-main-wrapper {
+  --bg: #f9f3e9;
+  --step: #454fdb;
+  --step-start: #cbc7f7;
+  --prev: #454fdb;
 
-.test-main-container {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  background-color: var(--bg);
+
+  &.color-orange {
+    --bg: #ff9072;
+    --step: #fe5122;
+    --step-start: #fff;
+    --prev: #fff;
+
+    .test-step--type1 .test-options ul li figure {
+      background-image: url(../img/icons/selected-l.svg), url(../img/icons/selected-r.svg);
+    }
+  }
+
+  &.color-lightblue {
+    --bg: #949af6;
+    --step: #652feb;
+    --step-start: #fff;
+    --prev: #fff;
+  }
+
+  &.color-pink {
+    --bg: #ea92c4;
+    --step: #f24eb6;
+    --step-start: #fff;
+    --prev: #fff;
+  }
+
+  &.color-blue {
+    --bg: #652feb;
+    --step: #f24eb6;
+    --step-start: #fff;
+    --prev: #fff;
+  }
+
+  &.color-lightorange {
+    --bg: #fdab96;
+    --step: #fe5122;
+    --step-start: #fff;
+    --prev: #fff;
+  }
 }
 
 .test-step {
   width: 100%;
   height: 100vh;
-  overflow: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow: hidden;
+  position: relative;
+  padding-top: calc(75px + 7vh);
+  background-color: var(--bg);
+  transform: translateY(100vh);
 
-  &::-webkit-scrollbar {
-    display: none;
+  .test-step-inner {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .test-options {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      li {
+        label {
+          input {
+            display: none;
+          }
+
+          span {
+            display: block;
+            position: relative;
+          }
+        }
+
+        &:nth-child(2),
+        &:nth-child(4) {
+          figure {
+            svg {
+              transform: scale(0.8);
+            }
+          }
+        }
+        &:nth-child(3) {
+          figure {
+            svg {
+              transform: scale(0.68);
+            }
+          }
+        }
+      }
+    }
+
+    .disabled {
+      ul {
+        li,
+        label {
+          pointer-events: none;
+        }
+      }
+    }
   }
 }

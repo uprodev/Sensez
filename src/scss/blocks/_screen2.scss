@@ -7,9 +7,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  overflow: hidden;
   padding-left: 11.46vw;
   padding-right: 11.46vw;
+
+  &.fp-noscroll .fp-overflow {
+    overflow: visible !important;
+  }
 
   @include media-breakpoint-down(xxl) {
     padding-left: 13.2vw;

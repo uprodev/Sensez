@@ -1,10 +1,15 @@
 .screen-08 {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   color: #0a0517;
   display: flex;
   align-items: center;
   overflow: hidden;
+
+  &.fp-noscroll .fp-overflow {
+    overflow: visible !important;
+    width: 100%;
+  }
 
   .elements {
     .el {
@@ -50,8 +55,12 @@
     transform: translateX(50vw);
     transform-origin: center top;
 
-    &.rotating {
-      animation: rotating 2s linear 0s infinite forwards;
+    .inner {
+      width: 100%;
+      height: 100%;
+      &.rotating {
+        animation: rotating 2s linear 0s infinite forwards;
+      }
     }
 
     img {
@@ -88,7 +97,13 @@
     div {
       display: inline-block;
       position: relative;
-      left: 50%;
+      left: 35%;
+    }
+
+    & + .h1 {
+      div {
+        left: 26%;
+      }
     }
   }
 
