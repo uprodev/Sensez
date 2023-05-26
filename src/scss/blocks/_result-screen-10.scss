@@ -1,0 +1,221 @@
+.res-screen-10 {
+  background-color: #454fdb;
+
+  .fp-overflow {
+    padding: 100px 0 1px;
+  }
+
+  h2 {
+    text-align: center;
+    color: $white;
+    margin: 0 0 73px;
+  }
+
+  .recommendation {
+    margin: 0 0 120px;
+    opacity: 0;
+    transform: translateY(100px);
+    color: #0a0517;
+
+    &.color-orange {
+      --header: #ff9072;
+    }
+    &.color-pink {
+      --header: #f24eb6;
+    }
+    &.color-orange-light {
+      --header: #fdab96;
+    }
+
+    .block-header {
+      background-color: var(--header);
+      padding: 30px 50px 15px;
+      border-radius: 70px 70px 0px 0px;
+      position: relative;
+
+      .title {
+        font-weight: 600;
+        font-size: 2.083rem;
+        line-height: 150%;
+        text-align: center;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+
+      .tip {
+        width: 105px;
+        height: 105px;
+        background: url(../img/bg/bg-tip.svg) 0 / cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $white;
+        font-size: 26px;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+        line-height: 1;
+        position: absolute;
+        top: 65px;
+        right: 115px;
+        transform: rotate(-12deg);
+      }
+    }
+
+    .block-main {
+      background-color: $white;
+      border-radius: 0 0 70px 70px;
+      padding: 60px 8.4% 100px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      .headline {
+        width: 100%;
+        margin: 0 0 60px;
+        font-size: 2.083rem;
+        line-height: 150%;
+      }
+
+      .image {
+        width: 27.2%;
+
+        img {
+          display: block;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      .text {
+        width: 72.8%;
+        padding: 0 0 0 40px;
+        p {
+          font-size: 26px;
+          line-height: 1.5;
+          margin: 0 0 1.15em;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .fp-overflow {
+      padding: 80px 0 1px;
+    }
+
+    h2 {
+      margin: 0 0 40px;
+      font-size: 42px;
+    }
+
+    .recommendation {
+      margin: 0 0 80px;
+
+      .block-header {
+        padding: 14px 50px 12px;
+        border-radius: 40px 40px 0px 0px;
+
+        .title {
+          font-size: 1.67rem;
+        }
+
+        .tip {
+          width: 80px;
+          height: 80px;
+          font-size: 20px;
+          top: 55px;
+          right: 55px;
+        }
+      }
+
+      .block-main {
+        border-radius: 0 0 40px 40px;
+        padding: 40px 8.5% 60px;
+
+        .headline {
+          margin: 0 0 30px;
+          font-size: 1.67rem;
+          line-height: 155%;
+        }
+
+        .image {
+          width: 27.2%;
+        }
+
+        .text {
+          width: 72.8%;
+          padding: 0 0 0 28px;
+          p {
+            font-size: 20px;
+            margin: 0 0 0.8em;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .fp-overflow {
+      padding: 40px 0 1px;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    .recommendation {
+      margin: 0 0 40px;
+
+      .block-header {
+        padding: 15px 30px 10px;
+        border-radius: 20px 20px 0px 0px;
+
+        .title {
+          font-size: 24px;
+          line-height: 130%;
+        }
+
+        .tip {
+          display: none;
+        }
+      }
+
+      .block-main {
+        border-radius: 0 0 20px 20px;
+        padding: 30px 20px;
+        flex-direction: column;
+
+        .headline {
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 140%;
+        }
+
+        .image {
+          order: -1;
+          width: 100%;
+          padding: 0 20px;
+          margin: 0 0 30px;
+
+          img {
+            margin: auto;
+          }
+        }
+
+        .text {
+          width: 100%;
+          padding: 0;
+          p {
+            font-size: 16px;
+            margin: 0 0 0.8em;
+          }
+        }
+      }
+    }
+  }
+}

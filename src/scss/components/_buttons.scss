@@ -42,6 +42,9 @@ button {
     svg {
       display: block;
       margin: 0 14px 0 0;
+      path {
+        transition: all 0.3s;
+      }
     }
 
     span {
@@ -76,6 +79,22 @@ button {
     }
   }
 
+  &.btn-blue {
+    height: 3.17rem;
+    background: #652feb;
+    color: #fff;
+    border-radius: 60px;
+
+    &:hover {
+      background-color: #f24eb6;
+    }
+  }
+
+  &.btn-pink {
+    height: 3.17rem;
+    border-radius: 60px;
+  }
+
   &.btn-outlined {
     border: 3px solid #fff;
     height: 2.83rem;
@@ -84,6 +103,42 @@ button {
 
     &:hover {
       box-shadow: 0px 0px 15px #ffffff;
+    }
+  }
+
+  &.btn-start {
+    background-color: $white;
+    position: relative;
+    display: inline-block;
+    border: none;
+    height: 3.17rem;
+    background-color: #fff;
+    color: #0a0517;
+    border-radius: 60px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.25s;
+
+    .btn-main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 30px;
+      column-gap: 10px;
+      position: relative;
+      z-index: 1;
+
+      svg,
+      span {
+        display: block;
+      }
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px #0a0517;
     }
   }
 
@@ -134,7 +189,7 @@ button {
     svg {
       path {
         &.btn-scroll-bg {
-          fill: #f24eb6;
+          fill: #652feb;
         }
         &.btn-scroll-arrow {
           fill: #fff;

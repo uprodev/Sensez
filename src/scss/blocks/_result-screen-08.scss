@@ -1,0 +1,281 @@
+.res-screen-08 {
+  position: relative;
+  background-color: #949af6;
+  color: #fff;
+
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  h2 {
+    padding: 9vh 0 0;
+    flex: 0 0 auto;
+    opacity: 0;
+  }
+
+  .wrapper {
+    height: 655px;
+    overflow: hidden;
+    position: relative;
+    transform: translateY(-100vh);
+    margin: 0 -45px 0 -9px;
+  }
+
+  .btn-share {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    font-size: 2rem;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    svg {
+      @include abs;
+      width: 100%;
+      height: 100%;
+      path {
+        transition: all 0.3s;
+      }
+    }
+
+    .text {
+      display: block;
+      position: relative;
+      z-index: 9;
+    }
+
+    &.share-copy {
+      left: 6%;
+      bottom: 50.5%;
+      width: 17%;
+      color: $white;
+      transform: rotate(15deg);
+      display: block;
+
+      .inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100% 0 0;
+        position: relative;
+      }
+
+      .text {
+        @include abs-center;
+      }
+
+      &:hover {
+        svg path {
+          fill: #454fdb;
+        }
+      }
+    }
+
+    &.share-inst {
+      left: 0;
+      bottom: 6.5%;
+      width: 28%;
+      height: 38.5%;
+      color: $white;
+      background-color: #ff99c2;
+      transform: rotate(-15deg);
+      border-radius: 6.6rem;
+
+      &:hover {
+        background-color: #f24eb6;
+      }
+    }
+    &.share-reddit {
+      left: 29.5%;
+      bottom: 11%;
+      width: 17.5%;
+      height: 65.5%;
+      color: $white;
+      background-color: #fdab96;
+      transform: rotate(-30deg);
+      align-items: flex-end;
+      padding: 0 0 2px;
+
+      &:hover {
+        background-color: #652feb;
+      }
+    }
+    &.share-snapchat {
+      left: 45%;
+      bottom: 53%;
+      width: 26%;
+      height: 35%;
+      color: #0a0517;
+      background-color: #f9f3e9;
+      transform: rotate(-7deg);
+      border-radius: 6.6rem;
+
+      &:hover {
+        background-color: #ff9072;
+      }
+    }
+    &.share-twitter {
+      left: 53.5%;
+      bottom: 4%;
+      width: 20.2%;
+      color: #0a0517;
+      display: block;
+
+      .inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100% 0 0;
+        position: relative;
+      }
+
+      .text {
+        @include abs-center;
+      }
+
+      &:hover {
+        svg path {
+          fill: #f9f3e9;
+        }
+      }
+    }
+    &.share-facebook {
+      left: 71.2%;
+      bottom: 20.3%;
+      width: 28.1%;
+      height: 33.5%;
+      color: $white;
+      background-color: #454fdb;
+      transform: rotate(48.23deg);
+      align-items: flex-end;
+      padding: 0 0 26px;
+
+      &:hover {
+        background-color: #652feb;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    h2 {
+      font-size: 1.98rem;
+      padding: 9vh 0 0;
+    }
+
+    .wrapper {
+      height: 450px;
+    }
+
+    .btn-share {
+      font-size: 1.6rem;
+
+      &.share-copy {
+        left: 4.5%;
+        bottom: 48.5%;
+        width: 18.3%;
+        font-size: 1.51rem;
+      }
+
+      &.share-inst {
+        left: -2px;
+        bottom: 6.5%;
+        width: 31%;
+        height: 39.5%;
+      }
+      &.share-reddit {
+        left: 29%;
+        bottom: 20.5%;
+        width: 19.3%;
+        height: 68%;
+      }
+      &.share-snapchat {
+        left: 46.5%;
+        bottom: 61%;
+        width: 28%;
+        height: 36.5%;
+      }
+      &.share-twitter {
+        left: 54%;
+        bottom: 2%;
+        width: 22.5%;
+      }
+      &.share-facebook {
+        left: 69.5%;
+        bottom: 24.4%;
+        width: 30.5%;
+        height: 34.5%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    h2 {
+      text-align: center;
+      font-size: 38px;
+      padding: 40px 0 0;
+    }
+
+    .wrapper {
+      height: 600px;
+      width: 335px;
+      margin: auto;
+    }
+
+    .btn-share {
+      font-size: 24px;
+
+      &.share-copy {
+        left: auto;
+        bottom: 43.5%;
+        width: 39.5%;
+        font-size: 24px;
+        right: 1.5%;
+        font-size: 24px;
+      }
+
+      &.share-inst {
+        left: 0;
+        bottom: 43.5%;
+        width: 54.2%;
+        height: 18.6%;
+      }
+      &.share-reddit {
+        left: 9%;
+        bottom: 67%;
+        width: 36%;
+        height: 30%;
+        transform: rotate(23.5deg);
+      }
+      &.share-snapchat {
+        left: auto;
+        bottom: 67%;
+        width: 60%;
+        height: 19%;
+        transform: rotate(-31.5deg);
+        right: 0;
+      }
+      &.share-twitter {
+        left: 0;
+        bottom: 2%;
+        width: 48.5%;
+      }
+      &.share-facebook {
+        left: auto;
+        bottom: 15.7%;
+        width: 78%;
+        height: 21%;
+        transform: rotate(60deg);
+        align-items: center;
+        padding: 0;
+        right: -3%;
+      }
+    }
+  }
+}

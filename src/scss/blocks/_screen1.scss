@@ -1,7 +1,3 @@
-// .screen {
-//   overflow: hidden;
-// }
-
 .screen-01 {
   --cursor: #f24eb6;
 
@@ -41,7 +37,7 @@
       margin: 0 0 32px;
 
       .btn {
-        &.btn-white {
+        &.btn-start {
           display: none;
         }
         &.btn-outlined {
@@ -279,7 +275,7 @@
         .btn {
           align-self: center;
 
-          &.btn-white {
+          &.btn-start {
             display: inline-flex;
           }
         }

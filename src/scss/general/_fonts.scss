@@ -23,6 +23,13 @@
 
 @font-face {
   font-family: "graphik";
+  src: url("../fonts/graphikbold-webfont.woff2") format("woff2"), url("../fonts/graphikbold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "graphik";
   src: url("../fonts/graphikblack-webfont.woff2") format("woff2"), url("../fonts/graphikblack-webfont.woff") format("woff");
   font-weight: 900;
   font-style: normal;

@@ -1,0 +1,300 @@
+.res-screen-04 {
+  position: relative;
+  background-color: #1d1d1b;
+  color: #fdab96;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    width: 26.6vw;
+    height: 26.6vw;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translate3d(-50%, -33.6%, 0);
+    background: #fdab96;
+    filter: blur(200px);
+  }
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &.el-01 {
+        left: 4.53vw;
+        top: 6.73vh;
+        background-image: url(../img/elements/res01.svg);
+        width: 21.6vh;
+        height: 21.6vh;
+      }
+      &.el-02 {
+        right: 14.4vw;
+        bottom: 7.5vh;
+        background-image: url(../img/elements/res02.svg);
+        width: 21.6vh;
+        height: 21.6vh;
+      }
+    }
+  }
+
+  .fp-overflow {
+    overflow: visible;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    padding-left: 7.16vw;
+    padding-right: 7.16vw;
+
+    @include media-breakpoint-down(xxl) {
+      padding-left: 12.4vw;
+      padding-right: 12.4vw;
+    }
+
+    @include media-breakpoint-down(xl) {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @include media-breakpoint-up(xxxl) {
+      max-width: 1645px;
+      padding: 0;
+    }
+  }
+
+  h3 {
+    position: absolute;
+    left: 50%;
+    top: 8.16vh;
+    font-size: 1.083rem;
+    line-height: 125%;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    font-family: $font-family-base;
+    font-weight: 400;
+    color: $white;
+  }
+
+  .swiper-controls {
+    display: flex;
+    justify-content: center;
+    column-gap: 30px;
+    position: absolute;
+    bottom: 16vh;
+    left: 0;
+    right: 0;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: relative;
+    cursor: pointer;
+    z-index: 9;
+    width: 54px;
+    height: 54px;
+    position: static;
+    margin: 0;
+
+    &:after {
+      display: none;
+    }
+
+    svg {
+      display: block;
+      path {
+        transition: all 0.3s;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01 {
+          left: 3.4vw;
+          top: 6vh;
+          width: 21.7vh;
+          height: 21.7vh;
+        }
+        &.el-02 {
+          right: 8.4vw;
+          bottom: 9.5vh;
+          width: 21.7vh;
+          height: 21.7vh;
+        }
+      }
+    }
+
+    h3 {
+      top: 8.8vh;
+      font-size: 18px;
+    }
+
+    .swiper-controls {
+      column-gap: 20px;
+      bottom: 9vh;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 42px;
+      height: 42px;
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .elements {
+      .el {
+        &.el-01,
+        &.el-02 {
+          width: 17vh;
+          height: 17vh;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .elements {
+      .el {
+        &.el-01,
+        &.el-02 {
+          width: 116px;
+          height: 116px;
+        }
+        &.el-01 {
+          left: -58px;
+          top: 41px;
+        }
+        &.el-02 {
+          right: -48px;
+          bottom: 106px;
+        }
+      }
+    }
+
+    h3 {
+      font-size: 16px;
+      top: 40px;
+    }
+
+    .swiper-controls {
+      column-gap: 40px;
+      bottom: 6vh;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 46px;
+      height: 46px;
+    }
+  }
+}
+
+.reviews-swiper {
+  position: relative;
+
+  blockquote {
+    font-family: $ff-kaisei;
+    font-size: 3.333rem;
+    font-weight: 700;
+    line-height: 120%;
+    text-align: center;
+    margin: 0 0 2.5rem;
+    transition: all 0.5s;
+  }
+
+  p {
+    font-weight: 700;
+    font-size: 1.083rem;
+    line-height: 120%;
+    text-align: center;
+    margin: 0;
+    color: $white;
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 14vh 0 0;
+
+    blockquote {
+      font-size: 2.55rem;
+      margin: 0 0 0.74em;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    blockquote {
+      font-size: 2rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 4vh 0 0;
+
+    .swiper-slide {
+      transition: all 0.5s;
+
+      .item {
+        opacity: 0;
+        transform: scale(0) rotate(4deg);
+      }
+      &.swiper-slide-active {
+        .item {
+          animation: jack 1s linear 0s forwards;
+        }
+
+        @keyframes jack {
+          0% {
+            opacity: 0;
+            transform: scale(0) rotate(4deg);
+          }
+          30% {
+            opacity: 1;
+            transform: scale(1) rotate(-4deg);
+          }
+          60% {
+            opacity: 1;
+            transform: scale(1) rotate(4deg);
+          }
+          90% {
+            opacity: 1;
+            transform: scale(1) rotate(-2deg);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+          }
+        }
+      }
+    }
+
+    blockquote {
+      font-size: 39px;
+      line-height: 130%;
+      margin: 0 0 40px;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}

@@ -78,6 +78,7 @@
           &:nth-child(2) {
             img {
               max-width: 35%;
+              max-height: 80%;
             }
           }
         }
@@ -86,9 +87,12 @@
   }
 
   .screen-headlines {
+    position: relative;
+    z-index: 9;
+
     ul {
       margin: 0;
-      padding: 120px 0 320px;
+      padding: 20vh 0 40vh;
       list-style: none;
 
       li {

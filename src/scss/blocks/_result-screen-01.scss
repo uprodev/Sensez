@@ -1,0 +1,391 @@
+.res-screen-01 {
+  text-align: center;
+  position: relative;
+  color: var(--theme-text);
+
+  &.res-orange {
+    --theme: #{$orange};
+    --theme-text: #{$orange-text};
+
+    .el {
+      background-image: url(../img/icons/star-orange.svg);
+    }
+  }
+  &.res-blue {
+    --theme: #{$blue-res};
+    --theme-text: #{$blue-text};
+
+    .el {
+      background-image: url(../img/icons/star-blue-res.svg);
+    }
+  }
+  &.res-pink {
+    --theme: #{$pink};
+    --theme-text: #{$pink-text};
+
+    .el {
+      background-image: url(../img/icons/star-pink.svg);
+    }
+  }
+  &.res-yellow {
+    --theme: #{$yellow-res};
+    --theme-text: #{$yellow-text};
+
+    .el {
+      background-image: url(../img/icons/star-yellow.svg);
+    }
+  }
+
+  &:before {
+    content: "";
+    width: 50vw;
+    height: 50vw;
+    background-color: var(--theme);
+    filter: blur(200px);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate3d(-50%, 15%, 0);
+  }
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &.el-01 {
+        width: 84px;
+        height: 84px;
+        left: 9.8vw;
+        top: 43.8vh;
+      }
+      &.el-02 {
+        width: 53px;
+        height: 53px;
+        left: 7.7vw;
+        top: 55.5vh;
+      }
+      &.el-03 {
+        width: 78px;
+        height: 78px;
+        right: 12.6vw;
+        top: 8vh;
+      }
+      &.el-04 {
+        width: 53px;
+        height: 53px;
+        right: 10vw;
+        top: 19.5vh;
+      }
+    }
+  }
+
+  .fp-overflow {
+    overflow: visible;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .buttons {
+    display: none;
+  }
+
+  .logo {
+    width: 3.75rem;
+    margin: auto;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.333rem;
+    line-height: 125%;
+    margin: 2.5rem 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 5.833rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+  }
+
+  p {
+    margin: 0 0 2.5rem;
+    font-size: 1.083rem;
+    span {
+      display: inline-block;
+      border: 2px solid var(--theme-text);
+      border-radius: 50px;
+      background-color: $white;
+      padding: 6px 15px;
+    }
+  }
+
+  .graph {
+    width: 100%;
+    max-width: 1238px;
+    margin: auto;
+    position: relative;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .graph-scale,
+    .graph-scale-mobile {
+      transform: translate3d(-3px, 3px, 0);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    .graph-main--mobile,
+    .graph-scale-mobile,
+    .legend {
+      display: none;
+    }
+    .dots-box {
+      opacity: 0;
+    }
+
+    .path-title {
+      font-weight: 700;
+      font-size: 22px;
+      fill: #0a0517;
+      font-family: "Kaisei Decol", serif;
+      opacity: 0;
+
+      &--energy {
+        transform: translateX(-39px);
+      }
+      &--passion {
+        transform: translateX(-41px);
+      }
+      &--regulation {
+        transform: translateX(-84px);
+      }
+      &--mindfulness {
+        transform: translateX(-67px);
+      }
+    }
+
+    .btn-share {
+      position: absolute;
+      top: -20px;
+      right: 0;
+      z-index: 9;
+      width: 6.83rem;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01 {
+          width: 62px;
+          height: 62px;
+          left: 7.8vw;
+          top: 44.8vh;
+        }
+        &.el-02 {
+          width: 39px;
+          height: 39px;
+          left: 5.7vw;
+          top: 58vh;
+        }
+        &.el-03 {
+          width: 58px;
+          height: 58px;
+          right: 11.7vw;
+          top: 6vh;
+        }
+        &.el-04 {
+          width: 39px;
+          height: 39px;
+          right: 8.8vw;
+          top: 18.5vh;
+        }
+      }
+    }
+
+    .logo {
+      width: 3.35rem;
+    }
+
+    .subtitle {
+      font-size: 0.94rem;
+      margin: 30px 0 11px;
+    }
+
+    h1 {
+      font-size: 4.3rem;
+      margin: 0 0 15px;
+    }
+
+    p {
+      margin: 0 0 56px;
+      font-size: 0.85rem;
+      span {
+        padding: 4px 12px;
+      }
+    }
+
+    .graph {
+      max-width: 836px;
+
+      .btn-share {
+        width: 4.9rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .elements {
+      .el {
+        &.el-01 {
+          width: 50px;
+          height: 50px;
+          top: 35vh;
+        }
+        &.el-02 {
+          width: 30px;
+          height: 30px;
+          top: 45vh;
+        }
+        &.el-03 {
+          width: 50px;
+          height: 50px;
+        }
+        &.el-04 {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .elements {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &:before {
+      width: 100vw;
+      height: 100vw;
+      filter: blur(100px);
+      bottom: auto;
+      top: 0;
+      transform: translate3d(-50%, -44.8%, 0);
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      row-gap: 19px;
+      align-items: center;
+      padding: 30px 0 0;
+
+      .btn {
+        border-color: #652feb;
+        color: #652feb;
+        font-size: 1rem;
+        height: 48px;
+        svg {
+          margin-right: 9px;
+        }
+
+        &:hover {
+          background-color: #652feb;
+          color: $white;
+          svg path {
+            fill: $white;
+          }
+        }
+      }
+    }
+
+    .graph {
+      margin: 0 0 30px;
+
+      .graph-scale-mobile,
+      .graph-main--mobile {
+        display: block;
+      }
+      .graph-scale,
+      .graph-main--desktop,
+      .path-title,
+      .btn-share {
+        display: none;
+      }
+
+      .path-dot {
+        transform-origin: center;
+      }
+
+      .legend {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 90%;
+
+        ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          align-items: center;
+          height: 31px;
+          text-align: center;
+          font-family: $ff-kaisei;
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 1.25;
+          color: #0a0517;
+
+          li {
+            width: 34%;
+            margin: 0 -9% 0 0;
+          }
+        }
+      }
+    }
+
+    .logo {
+      width: 69px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      margin: 8.7vh 0 2.1vh;
+    }
+
+    h1 {
+      font-size: 3.75rem;
+      margin: 0 0 3.5vh;
+    }
+
+    p {
+      margin: 0 0 4.8vh;
+      font-size: 1rem;
+    }
+  }
+}

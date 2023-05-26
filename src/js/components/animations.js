@@ -340,7 +340,7 @@ jQuery(document).ready(function ($) {
           scrollTrigger: {
             scroller: ".test-step-inner",
             trigger: li,
-            start: "top 100",
+            start: "top 40%",
             end: "top top-=50",
             toggleClass: "active",
             onEnter: function () {
@@ -377,6 +377,10 @@ jQuery(document).ready(function ($) {
           if ($(".test-scroller .filled").length === totalQ) {
             $(".test-progress .steps .step.active").next().addClass("active");
             $("#testChoices").addClass("disabled");
+            gsap.to(".test-progress", {
+              opacity: 0,
+              duration: 0.5,
+            });
             if ($("#testChoices").length) {
               $("#testChoices").get(0).reset();
             }
@@ -537,6 +541,11 @@ jQuery(document).ready(function ($) {
             $("#testChoices").addClass("disabled");
             $(".test-progress .steps .step.active").next().addClass("active");
 
+            gsap.to(".test-progress", {
+              opacity: 0,
+              duration: 0.5,
+            });
+
             const timeline = gsap
               .timeline()
               .to(".test-scroller", {
@@ -579,40 +588,31 @@ jQuery(document).ready(function ($) {
               );
           } else {
             if ($(window).width() >= 1024) {
-              const timeline = gsap
-                .timeline()
-                .to(activeLabel.find("figure"), {
-                  scale: 1.8,
-                  transformOrigin: "center bottom",
-                  duration: 0.5,
-                  onComplete: function () {
-                    gsap.to(activeQ, {
-                      top: "-100%",
-                      duration: 1,
+              const timeline = gsap.timeline().to(activeLabel.find("figure"), {
+                scale: 2,
+                transformOrigin: "center bottom",
+                duration: 0.25,
+                onComplete: function () {
+                  gsap.to(activeLabel.find("figure"), {
+                    scale: 3,
+                    y: "-120vh",
+                    duration: 0.25,
+                  });
+                  $("#testChoices").get(0).reset();
+                  $(".images-scroller").animate({ scrollTop: $(".images-scroller").scrollTop() + $(window).height() }, 300);
+                  $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() + activeQ.outerHeight() }, 300, function () {
+                    gsap.to($(".test-scroller li.active").prev(), {
+                      top: 0,
+                      duration: 0,
                     });
-                  },
-                })
-                .to(activeLabel.find("figure"), {
-                  scale: 3,
-                  y: "-120vh",
-                  transformOrigin: "center bottom",
-                  duration: 1,
-                  onComplete: function () {
-                    $("#testChoices").get(0).reset();
-                    $(".images-scroller").animate({ scrollTop: $(".images-scroller").scrollTop() + $(window).height() }, 500);
-                    $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() + activeQ.outerHeight() }, 500, function () {
-                      gsap.to($(".test-scroller li.active").prev(), {
-                        top: 0,
-                        duration: 0,
-                      });
-                      gsap.to($(".test-options figure[style]"), {
-                        scale: 1,
-                        y: 0,
-                        duration: 0,
-                      });
+                    gsap.to($(".test-options figure[style]"), {
+                      scale: 1,
+                      y: 0,
+                      duration: 0,
                     });
-                  },
-                });
+                  });
+                },
+              });
             } else {
               setTimeout(() => {
                 $("#testChoices").get(0).reset();

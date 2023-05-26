@@ -49,7 +49,7 @@
   }
 }
 
-@mixin abs($l, $t, $r, $b) {
+@mixin abs($l: 0, $t: 0, $r: 0, $b: 0) {
   position: absolute;
   left: $l;
   top: $t;

@@ -8,19 +8,6 @@
     height: 100%;
   }
 
-  .container {
-    display: flex;
-    transition: all 0.2s;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
-    &.active {
-      top: 0;
-      transform: translateY(0);
-    }
-  }
-
   .elements {
     .el {
       position: absolute;
@@ -71,23 +58,27 @@
 
           span {
             transition: all 0.2s;
-            text-shadow: 0 0 #000;
           }
 
-          &:before {
-            content: "";
-            background: url(../img/icons/star-dark.svg) no-repeat;
-            background-size: cover;
+          svg {
+            display: block;
             width: 1.146em;
             height: 1.146em;
             margin-right: 0.9375em;
             transition: transform 0.3s ease;
             flex: 0 0 auto;
+
+            path {
+              transition: all 0.3s;
+            }
           }
 
           &:hover {
             span {
-              text-shadow: 0px 0px 1.5px #000, 0px 0px 1.5px #000;
+              color: #652feb;
+            }
+            svg path {
+              fill: #652feb;
             }
           }
         }
@@ -122,7 +113,7 @@
       &.active {
         .item-header {
           button {
-            &:before {
+            svg {
               transform: rotate(-45deg);
             }
           }
@@ -159,7 +150,7 @@
             height: 2.8em;
             padding: 0 0.35em;
 
-            &:after {
+            svg {
               left: 2.43em;
               right: 0.35em;
             }
@@ -194,7 +185,7 @@
             padding: 19px 0;
             align-items: flex-start;
 
-            &:before {
+            svg {
               width: 21px;
               height: 21px;
               margin-right: 9px;

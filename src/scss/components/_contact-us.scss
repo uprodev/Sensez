@@ -1,0 +1,47 @@
+.contact-us {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url(../img/bg/bg-contacts.svg) no-repeat;
+  background-size: cover;
+  width: 132px;
+  height: 132px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 130%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f9f3e9;
+  z-index: 9999;
+  opacity: 0;
+
+  .contact-us-close {
+    background: none;
+    border: none;
+    padding: 0;
+    position: absolute;
+    top: -4px;
+    right: 0;
+  }
+
+  @include media-breakpoint-down(xxl) {
+    width: 88px;
+    height: 88px;
+    font-size: 14px;
+
+    span img {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+}

@@ -3,19 +3,19 @@
     position: relative;
 
     .test-options {
-      width: 740px;
+      width: 755px;
       position: fixed;
       left: 11.46vw;
       bottom: 11.2vh;
-      z-index: 99;
+      z-index: 9999;
 
       ul {
-        column-gap: 30px;
+        column-gap: 20px;
         font-size: 20px;
         text-align: center;
 
         li {
-          width: 124px;
+          width: 135px;
 
           label {
             color: #454fdb;
@@ -179,7 +179,7 @@
             &:after {
               content: "";
               position: absolute;
-              background: url(../img/icons/star-blue.svg) 0 / cover no-repeat;
+              background: url(../img/icons/star-blue-test.svg) 0 / cover no-repeat;
               z-index: 2;
             }
 
@@ -195,7 +195,7 @@
     @include media-breakpoint-up(xl) {
       &:before {
         content: "";
-        background: url(../img/icons/star-blue.svg) 0 / cover no-repeat;
+        background: url(../img/icons/star-blue-test.svg) 0 / cover no-repeat;
         width: 40px;
         height: 40px;
         position: absolute;
@@ -213,8 +213,39 @@
 
     @include media-breakpoint-down(xxl) {
       .test-options {
-        bottom: 20px;
+        bottom: 40px;
+        width: 580px;
+
+        ul {
+          row-gap: 0;
+          font-size: 14px;
+
+          li {
+            width: 100px;
+            label {
+              span {
+                padding: 100px 0 0;
+              }
+            }
+            figure {
+              left: 50%;
+              transform: translateX(-50%);
+              width: 81px;
+
+              svg {
+                display: block;
+                width: 100%;
+                height: auto;
+              }
+            }
+          }
+        }
       }
+
+      .images-scroller {
+        width: 46vw;
+      }
+
       .test-scroller {
         ul {
           font-size: 16px;
@@ -248,15 +279,14 @@
         ul {
           font-size: 0.625rem;
           font-weight: 400;
-          text-transform: none;
-          max-width: 341px;
+          max-width: 500px;
           margin: auto;
           justify-content: space-between;
           column-gap: 0;
           padding: 0 0 8.7vh;
 
           li {
-            width: auto;
+            width: 80px;
 
             label {
               text-align: center;
@@ -288,9 +318,6 @@
               transform: none;
 
               svg {
-                display: block;
-                width: 100%;
-                height: auto;
                 path {
                   fill: #454fdb;
                   transform-origin: center bottom;
@@ -382,6 +409,18 @@
             & > span {
               margin: 30px 0 0;
             }
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      .test-options {
+        ul {
+          max-width: 350px;
+
+          li {
+            width: 70px;
           }
         }
       }

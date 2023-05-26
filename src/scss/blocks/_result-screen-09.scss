@@ -1,0 +1,167 @@
+.res-screen-09 {
+  position: relative;
+  background-color: #0a0517;
+  color: #fff;
+
+  .elements {
+    .el {
+      position: absolute;
+      background: url(../img/icons/star.svg) 0 / cover no-repeat;
+      width: 36px;
+      height: 36px;
+
+      &.el-01 {
+        left: 5.4%;
+        top: 20%;
+      }
+      &.el-02 {
+        top: 13%;
+        right: 14.4%;
+      }
+      &.el-03 {
+        bottom: 13.2%;
+        width: 54px;
+        height: 54px;
+        right: 18%;
+      }
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  .col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 83px 0 104px;
+
+    h2 {
+      margin: 0 0 31px;
+      flex: 0 0 auto;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0 0 62px;
+
+      .code {
+        cursor: pointer;
+      }
+    }
+
+    .btn {
+      align-self: flex-start;
+      margin-top: auto;
+      width: 16.6rem;
+
+      &.btn-white {
+        box-shadow: 4px 6px #f24eb6;
+      }
+
+      &.btn-blue {
+        &:hover {
+          background-color: #f24eb6;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        width: 32px;
+        height: 32px;
+
+        &.el-01 {
+          left: 4%;
+          top: 16%;
+        }
+        &.el-02 {
+          top: 10.2%;
+          right: 13.2%;
+        }
+        &.el-03 {
+          bottom: 18.2%;
+          width: 42px;
+          height: 42px;
+          right: 5.6%;
+        }
+      }
+    }
+
+    .wrapper {
+      display: flex;
+      column-gap: 20px;
+    }
+
+    .col {
+      padding: 60px 0;
+
+      h2 {
+        font-size: 1.983rem;
+        margin: 0 0 20px;
+      }
+
+      p {
+        font-size: 14px;
+        margin: 0 0 46px;
+      }
+
+      .btn {
+        width: 12rem;
+        font-size: 18px;
+        height: 55px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .elements {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .wrapper {
+      flex-direction: column;
+      margin: 0 -20px;
+    }
+
+    .col {
+      padding: 0 20px;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      h2 {
+        margin: 0 0 40px;
+      }
+
+      p {
+        display: none;
+      }
+
+      .btn {
+        width: 100%;
+        margin: 0;
+      }
+
+      &:last-child {
+        background: #652feb url(../img/bg/bg-question.svg) 50% bottom no-repeat;
+        background-size: 100% auto;
+
+        .btn {
+          background-color: transparent;
+          border: 2px solid $white;
+          color: $white;
+        }
+      }
+    }
+  }
+}

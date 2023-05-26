@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
             scroller: ".screen-03 .container",
             trigger: li,
             start: "center bottom",
-            end: "bottom -100vh",
+            end: "bottom -150vh",
             toggleActions: "play resume resume resume",
             scrub: true,
           },
@@ -153,10 +153,13 @@ jQuery(document).ready(function ($) {
           }
         );
       } else {
+        console.log(destination.index);
         $(".header").addClass("active");
-        setTimeout(() => {
-          $(".header").removeClass("active");
-        }, 2000);
+        if (destination.index !== 0) {
+          setTimeout(() => {
+            $(".header").removeClass("active");
+          }, 2000);
+        }
         gsap.fromTo(
           "body",
           { backgroundColor: origin.item.dataset.end },
@@ -175,10 +178,10 @@ jQuery(document).ready(function ($) {
           width: "102vw",
           height: "102vh",
           borderRadius: 0,
+          delay: 0.5,
         });
       }
       if (origin.index === 1 && direction === "up") {
-        console.log("screen2");
         gsap.to(".screen-02 .bg", {
           duration: 0.4,
           backgroundImage: "radial-gradient(81.17% 81.17% at 50% 0%, rgba(68, 32, 158, 0.4) 0%, rgba(0, 0, 0, 0) 100%)",
@@ -280,10 +283,13 @@ jQuery(document).ready(function ($) {
   $(".btn-scroll").on("click", function () {
     fullpage_api.moveSectionDown();
   });
+  $(".screen-01 .btn").on("click", function (e) {
+    e.preventDefault();
+    fullpage_api.moveSectionDown();
+  });
 
   document.querySelector(".screen-03 .container").addEventListener("scroll", (event) => {
     const { scrollHeight, scrollTop, clientHeight } = event.target;
-    console.log(scrollTop);
     if (Math.abs(scrollHeight - clientHeight - scrollTop) < 1) {
       fullpage_api.moveSectionDown();
     }
@@ -292,22 +298,30 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  function accPos() {
+    var container = $(".accordion");
+    if (container.outerHeight() < $(window).height()) {
+      container.css("padding-top", ($(window).height() - container.outerHeight()) / 2);
+    }
+  }
+  accPos();
+
+  $(window).on("resize", function () {
+    accPos();
+  });
+
   $(".accordion .item-header button").on("click", function () {
     if (!$(this).closest(".item").hasClass("active")) {
-      $(".accordion .item.active").find(".item-body").slideUp(300);
-      $(".accordion .item.active").removeClass("active");
       $(this)
         .closest(".item")
         .addClass("active")
         .find(".item-body")
         .slideDown(300, function () {
           setTimeout(() => {
-            $(".screen-07 .container").addClass("active");
             fullpage_api.reBuild();
           }, 100);
         });
     } else {
-      $(".screen-07 .container").removeClass("active");
       $(this)
         .closest(".item")
         .removeClass("active")
