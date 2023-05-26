@@ -4,8 +4,7 @@ include 'inc/ajax-actions.php'; // ajax
 include 'inc/enqueue.php';      // add styles and scripts
 include 'inc/acf.php';          // custom acf functions
 include 'inc/extras.php';       // custom functions
-include 'inc/woo.php';          // woocommerce functions
-include 'classes/walker.php';   // walker nav menu
+
 
 add_theme_support( 'post-thumbnails');
 add_theme_support( 'woocommerce');
