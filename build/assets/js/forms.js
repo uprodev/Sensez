@@ -1,0 +1,1 @@
+jQuery(document).ready((function(e){var a=e(".bar-inner"),n=e(".bar-icon");gsap.to(a,{width:"100%",duration:3,delay:1,ease:Power1.easeIn}),gsap.to(n,{left:"100%",duration:3,delay:1,ease:Power1.easeIn})}));

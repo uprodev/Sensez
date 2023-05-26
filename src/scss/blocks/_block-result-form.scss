@@ -1,0 +1,234 @@
+.block-result-form {
+  text-align: center;
+  background-color: #cbc7f7;
+  color: #0a0517;
+  padding: 40px 0;
+  position: relative;
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &.el-01 {
+        width: 10vw;
+        height: 10vw;
+        left: 7.2vw;
+        bottom: 141px;
+        background-image: url(../img/elements/res03.svg);
+      }
+    }
+  }
+
+  .logo {
+    width: 3.75rem;
+    margin: 0 auto;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.333rem;
+    line-height: 125%;
+    margin: 2.2em 0 1.25em;
+  }
+
+  h1 {
+    font-size: 2.833rem;
+    line-height: 1.25;
+    margin: 0 0 0.7em;
+  }
+
+  .text {
+    position: relative;
+
+    .label {
+      color: #ffffff;
+      transform: rotate(11deg);
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 125%;
+      text-align: center;
+      background: #652feb;
+      border-radius: 200px;
+      width: 342px;
+      height: 150px;
+      position: absolute;
+      top: -18px;
+      right: 69px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .bar {
+    background: rgba(#949af6, 0.3);
+    border-radius: 25px;
+    width: 980px;
+    height: 21px;
+    margin: 0 auto 3.2rem;
+    position: relative;
+
+    .bar-inner {
+      position: absolute;
+      width: 0;
+      height: 100%;
+      border-radius: 25px;
+      background: #949af6;
+    }
+
+    .bar-icon {
+      position: absolute;
+      left: 0;
+      top: 50%;
+
+      &:before {
+        content: "";
+        width: 55px;
+        height: 55px;
+        background: url(../img/icons/star-blue.svg) 0 / cover no-repeat;
+        @include abs-center;
+      }
+    }
+  }
+
+  .form {
+    max-width: 730px;
+    margin: auto;
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 36px 0;
+
+    .elements {
+      .el {
+        &.el-01 {
+          width: 9.5vw;
+          height: 9.5vw;
+          left: 12.6vw;
+          bottom: 100px;
+        }
+      }
+    }
+
+    .logo {
+      width: 70px;
+    }
+
+    .subtitle {
+      font-size: 0.94rem;
+      margin: 2.25em 0 0.6em;
+    }
+
+    h1 {
+      font-size: 1.889rem;
+      margin: 0 0 1em;
+    }
+
+    .text {
+      .label {
+        font-size: 20px;
+        width: 236px;
+        height: 100px;
+        top: -35px;
+        right: 98px;
+      }
+    }
+
+    .bar {
+      width: 664px;
+      height: 14px;
+      margin: 0 auto 2.46rem;
+
+      .bar-icon {
+        &:before {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+
+    .form {
+      max-width: 492px;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 40px 0;
+
+    .elements {
+      display: none;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      margin: 131px 0 12px;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 110%;
+      margin: 0 0 26px;
+    }
+
+    .text {
+      .label {
+        font-size: 14px;
+        width: 179px;
+        height: 100px;
+        top: -92px;
+        right: -15px;
+        transform: none;
+        background: url(../img/bg/bg-confidence.svg) no-repeat;
+
+        span {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          transform: rotate(11deg);
+          transform-origin: center;
+          padding: 10px 0 0;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .bar {
+      width: auto;
+      height: 6px;
+      margin: 0 auto 36px;
+
+      .bar-icon {
+        &:before {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    .form {
+      max-width: none;
+      position: relative;
+      padding: 0 0 64px;
+
+      .check-field {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 15px;
+      }
+    }
+  }
+}

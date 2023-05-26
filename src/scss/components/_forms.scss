@@ -1,0 +1,153 @@
+.field {
+  margin: 0 0 14px;
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 20.5px 36px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+    color: #0a0517;
+    border: 2px solid #0a0517;
+    border-radius: 80px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    @include placeholder-text(#0a0517, 0.4);
+  }
+}
+
+.check-field {
+  max-width: 320px;
+  margin: 23px auto 14px;
+  text-align: left;
+
+  label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 125%;
+
+    input {
+      display: none;
+
+      &:checked {
+        & + span {
+          &:before {
+            background: url(../img/bg/check.svg) 50% no-repeat;
+          }
+        }
+      }
+    }
+
+    span {
+      display: block;
+      position: relative;
+      padding: 0 0 0 32px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border: 1px solid #0a0517;
+      }
+    }
+  }
+}
+
+.submit {
+  padding: 26px 0 0;
+
+  .btn {
+    padding: 0 2.7rem;
+  }
+}
+
+@include media-breakpoint-down(xxl) {
+  .field {
+    margin: 0 0 10px;
+
+    input {
+      padding: 13px 23px;
+      font-size: 14px;
+    }
+  }
+
+  .check-field {
+    max-width: 340px;
+    margin: 0 auto 10px;
+
+    label {
+      font-size: 10px;
+
+      input {
+        &:checked {
+          & + span {
+            &:before {
+              background-size: 7px;
+            }
+          }
+        }
+      }
+
+      span {
+        padding: 0 0 0 20px;
+
+        &:before {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
+
+  .submit {
+    padding: 30px 0 0;
+
+    .btn {
+      padding: 0 1.5rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .field {
+    margin: 0 0 12px;
+
+    input {
+      padding: 12px 19px;
+      font-size: 16px;
+      border-width: 1px;
+    }
+  }
+
+  .check-field {
+    max-width: none;
+
+    label {
+      font-size: 12px;
+
+      input {
+        &:checked {
+          & + span {
+            &:before {
+              background-size: auto;
+            }
+          }
+        }
+      }
+
+      span {
+        padding: 0 0 0 32px;
+
+        &:before {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
