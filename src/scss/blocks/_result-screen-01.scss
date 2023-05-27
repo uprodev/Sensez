@@ -46,6 +46,7 @@
     left: 50%;
     bottom: 100%;
     transform: translate3d(-50%, 15%, 0);
+    border-radius: 100%;
   }
 
   .elements {
@@ -293,7 +294,7 @@
       filter: blur(100px);
       bottom: auto;
       top: 0;
-      transform: translate3d(-50%, -44.8%, 0);
+      transform: translate3d(-50%, -65%, 0);
     }
 
     .buttons {

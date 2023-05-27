@@ -1,0 +1,262 @@
+.block-payment {
+  text-align: center;
+  background-color: #f9f3e9;
+  color: #0a0517;
+  padding: 40px 0 0;
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 50vw;
+    height: 50vw;
+    background-color: #949af6;
+    filter: blur(200px);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate3d(-50%, 15%, 0);
+    border-radius: 100%;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 1;
+
+      img {
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+
+      &.el-01 {
+        left: 13.7vw;
+        top: 16.8vh;
+      }
+      &.el-02 {
+        left: 23.7vw;
+        bottom: 15%;
+      }
+      &.el-03 {
+        right: 6.5vw;
+        top: 20.7vh;
+      }
+      &.el-04 {
+        right: 16.1vw;
+        top: 35vh;
+      }
+      &.el-05 {
+        right: 7.7vw;
+        bottom: 13vh;
+      }
+      &.el-06 {
+        right: 27vw;
+        bottom: 17.3vh;
+      }
+    }
+  }
+
+  .logo {
+    width: 3.75rem;
+    margin: 0 auto 150px;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  h1 {
+    font-size: 2.833rem;
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+
+  p {
+    margin: 0 0 50px;
+    font-size: 1.33rem;
+    line-height: 130%;
+  }
+
+  .bar {
+    background: rgba(#949af6, 0.3);
+    border-radius: 25px;
+    width: 980px;
+    height: 21px;
+    margin: 0 auto 133px;
+    position: relative;
+
+    .bar-inner {
+      position: absolute;
+      width: 0;
+      height: 100%;
+      border-radius: 25px;
+      background: #949af6;
+    }
+
+    .bar-icon {
+      position: absolute;
+      left: 0;
+      top: 50%;
+
+      &:before {
+        content: "";
+        width: 55px;
+        height: 55px;
+        background: url(../img/icons/star-blue.svg) 0 / cover no-repeat;
+        @include abs-center;
+      }
+    }
+  }
+
+  .image {
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01 {
+          top: 10.8vh;
+          width: 58px;
+        }
+        &.el-02 {
+          left: 23.2vw;
+          bottom: 13%;
+          width: 38px;
+        }
+        &.el-03 {
+          right: 8.5vw;
+          top: 15.2vh;
+          width: 112px;
+        }
+        &.el-04 {
+          right: 18.1vw;
+          top: 31vh;
+          width: 64px;
+        }
+        &.el-05 {
+          right: 9.7vw;
+          bottom: 11vh;
+          width: 98px;
+        }
+        &.el-06 {
+          right: 28.3vw;
+          bottom: 15.6vh;
+          width: 66px;
+        }
+      }
+    }
+
+    .logo {
+      width: 70px;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 0 0 14px;
+    }
+
+    p {
+      font-size: 20px;
+      margin: 0 0 38px;
+    }
+
+    .bar {
+      width: 664px;
+      height: 14px;
+      margin: 0 auto 2rem;
+
+      .bar-icon {
+        &:before {
+          width: 34px;
+          height: 34px;
+        }
+      }
+    }
+
+    .image {
+      img {
+        width: 100%;
+        max-width: 394px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    &:before {
+      width: 100vw;
+      height: 100vw;
+      filter: blur(100px);
+      bottom: auto;
+      top: 0;
+      transform: translate3d(-50%, -65%, 0);
+    }
+
+    .elements {
+      .el {
+        &.el-01 {
+          top: auto;
+          bottom: 30px;
+          left: 61px;
+          width: 40px;
+        }
+        &.el-02 {
+          left: auto;
+          right: 56px;
+          bottom: 14px;
+          width: 33px;
+        }
+        &.el-04 {
+          right: 31px;
+          top: 163px;
+          width: 46px;
+        }
+        &.el-03,
+        &.el-05,
+        &.el-06 {
+          display: none;
+        }
+      }
+    }
+
+    .logo {
+      margin-bottom: 100px;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.1;
+      margin: 0 20px 10px;
+    }
+
+    p {
+      margin: 0 0 32px;
+      font-size: 1rem;
+    }
+
+    .bar {
+      width: auto;
+      height: 6px;
+      margin: 0 auto 56px;
+
+      .bar-icon {
+        &:before {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}

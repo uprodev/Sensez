@@ -166,4 +166,8 @@ jQuery(document).ready(function ($) {
     .on("mouseleave", function () {
       $(".res-screen-06").removeClass("hover");
     });
+
+  $(".contact-us-close").on("click", function () {
+    $(".contact-us").hide(200);
+  });
 });

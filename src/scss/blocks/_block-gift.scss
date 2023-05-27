@@ -1,0 +1,62 @@
+.block-gift {
+  .logo {
+    width: 3.75rem;
+    margin: 0 auto;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .link-back {
+    margin: 0 0 4.4rem;
+    text-align: left;
+    line-height: 1;
+
+    a {
+      display: inline-flex;
+      font-family: $ff-kaisei;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 110%;
+      text-transform: uppercase;
+      color: #0a0517;
+
+      img {
+        display: block;
+        margin: 0 16px 0 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .logo {
+      width: 70px;
+    }
+
+    .link-back {
+      margin: 0 0 2.5rem;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .link-back {
+      margin: 10px 0 44px;
+
+      a {
+        font-size: 12px;
+
+        span {
+          display: none;
+        }
+
+        img {
+          width: 26px;
+          height: auto;
+          margin: 0 8px 0 0;
+        }
+      }
+    }
+  }
+}

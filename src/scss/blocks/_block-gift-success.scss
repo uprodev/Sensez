@@ -1,0 +1,256 @@
+.block-gift-success {
+  text-align: center;
+  background-color: #f9f3e9;
+  color: #0a0517;
+  padding: 40px 0 25px;
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 50vw;
+    height: 50vw;
+    background-color: #949af6;
+    filter: blur(200px);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate3d(-50%, 15%, 0);
+    border-radius: 100%;
+  }
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(../img/icons/star-lightblue.svg);
+
+      &.el-01,
+      &.el-03,
+      &.el-04 {
+        width: 62px;
+        height: 63px;
+      }
+      &.el-05,
+      &.el-06 {
+        width: 52px;
+        height: 53px;
+      }
+      &.el-02,
+      &.el-07 {
+        width: 48px;
+        height: 49px;
+      }
+
+      &.el-01 {
+        left: 5vw;
+        top: 212px;
+      }
+      &.el-02 {
+        left: 16.8vw;
+        top: 390px;
+      }
+      &.el-03 {
+        left: 8.2vw;
+        top: 579px;
+      }
+      &.el-04 {
+        right: 11.3vw;
+        top: 85px;
+      }
+      &.el-05 {
+        right: 4.9vw;
+        top: 287px;
+      }
+      &.el-06 {
+        right: 22.4vw;
+        top: 439px;
+      }
+      &.el-07 {
+        right: 13.9vw;
+        top: 586px;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .gift-support {
+    position: absolute;
+    bottom: 20px;
+    right: 80px;
+    font-size: 14px;
+    line-height: 130%;
+    font-weight: 300;
+    text-align: right;
+
+    strong {
+      display: block;
+      font-weight: 500;
+      margin: 0 0 5px;
+    }
+  }
+
+  h1 {
+    font-size: 2.833rem;
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+
+  p {
+    margin: 0 0 50px;
+    font-size: 1.33rem;
+    line-height: 130%;
+    br {
+      display: none;
+    }
+  }
+
+  .code {
+    margin: 0 0 54px;
+
+    .code-value {
+      display: inline-block;
+      background: #949af6;
+      border-radius: 90px;
+      padding: 24px 85px;
+      font-weight: 600;
+      font-size: 1.33rem;
+      line-height: 130%;
+      text-align: center;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      margin: 0 0 10px;
+    }
+    .code-copy {
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      font-weight: 400;
+      font-size: 0.92rem;
+      line-height: 130%;
+      text-align: center;
+      color: #0a0517;
+    }
+  }
+
+  .image {
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01,
+        &.el-03,
+        &.el-04 {
+          width: 50px;
+          height: 50px;
+        }
+        &.el-05,
+        &.el-06 {
+          width: 40px;
+          height: 40px;
+        }
+        &.el-02,
+        &.el-07 {
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+
+    .gift-support {
+      right: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0 0 50px;
+      font-size: 1.13rem;
+    }
+
+    .code {
+      .code-value {
+        padding: 20px 65px;
+        font-size: 1.13rem;
+      }
+    }
+
+    .image {
+      img {
+        max-width: 300px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .elements {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding-bottom: 14px;
+
+    &:before {
+      width: 100vw;
+      height: 100vw;
+      filter: blur(100px);
+      bottom: auto;
+      top: 0;
+      transform: translate3d(-50%, -65%, 0);
+    }
+
+    .link-back {
+      margin: 10px 0 25px;
+    }
+
+    .gift-support {
+      position: static;
+      font-size: 10px;
+      text-align: left;
+      padding: 26px 20px 0;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.1;
+      margin: 0 20px 20px;
+    }
+
+    p {
+      margin: 0 0 18px;
+      font-size: 1rem;
+      br {
+        display: block;
+      }
+    }
+
+    .code {
+      margin: 0 0 22px;
+      .code-value {
+        padding: 18px 67px 14px;
+        font-size: 22px;
+        margin: 0 0 16px;
+      }
+      .code-copy {
+        font-size: 10px;
+      }
+    }
+  }
+}

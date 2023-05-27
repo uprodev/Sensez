@@ -1,0 +1,195 @@
+.block-gift-form {
+  text-align: center;
+  background-color: #cbc7f7;
+  color: #0a0517;
+  padding: 40px 0;
+  position: relative;
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(../img/icons/star-lightblue.svg);
+
+      &.el-01,
+      &.el-03 {
+        width: 62px;
+        height: 63px;
+      }
+
+      &.el-02,
+      &.el-06 {
+        width: 48px;
+        height: 49px;
+      }
+
+      &.el-01 {
+        left: 17.6vw;
+        top: 202px;
+      }
+      &.el-02 {
+        left: 3.4vw;
+        top: 49%;
+      }
+      &.el-03 {
+        left: 26.7vw;
+        bottom: 104px;
+      }
+      &.el-04 {
+        width: 51px;
+        height: 52px;
+        right: 6.66vw;
+        top: 202px;
+      }
+      &.el-05 {
+        width: 73px;
+        height: 75px;
+        right: 25.2vw;
+        bottom: 191px;
+      }
+      &.el-06 {
+        right: 12.2vw;
+        bottom: 87px;
+      }
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+    margin: 0 0 40px;
+
+    br {
+      display: none;
+    }
+  }
+
+  .form {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 66px;
+    max-width: 1920px;
+    margin: auto;
+
+    form {
+      width: 41%;
+    }
+
+    .submit {
+      padding: 100px 0 0;
+    }
+
+    .image {
+      width: 29.5%;
+
+      &:first-child {
+        padding: 74px 4% 0;
+      }
+      &:last-child {
+        padding: 33px 0 0 5%;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 36px 0;
+
+    .elements {
+      .el {
+        &.el-01,
+        &.el-03 {
+          width: 45px;
+          height: 45px;
+        }
+
+        &.el-02,
+        &.el-06 {
+          width: 40px;
+          height: 40px;
+        }
+
+        &.el-04 {
+          width: 40px;
+          height: 40px;
+          top: 150px;
+        }
+        &.el-05 {
+          width: 55px;
+          height: 55px;
+          bottom: 140px;
+        }
+        &.el-06 {
+          bottom: 50px;
+        }
+      }
+    }
+
+    .form {
+      .submit {
+        padding: 40px 0 0;
+      }
+      .image:first-child {
+        padding: 30px 4% 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 40px 0;
+
+    .elements {
+      display: none;
+    }
+
+    .form {
+      flex-direction: column-reverse;
+      padding: 0 20px;
+
+      form {
+        width: auto;
+      }
+
+      .image {
+        width: auto;
+
+        img {
+          margin: auto;
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 40px 0 24px;
+
+    h1 {
+      font-size: 38px;
+      line-height: 110%;
+      margin: 0 0 20px;
+      br {
+        display: block;
+      }
+    }
+
+    .form {
+      .image {
+        img {
+          max-width: 204px;
+        }
+      }
+    }
+  }
+}

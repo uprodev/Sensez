@@ -2,6 +2,13 @@
 
 @font-face {
   font-family: "graphik";
+  src: url("../fonts/graphiklight-webfont.woff2") format("woff2"), url("../fonts/graphiklight-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "graphik";
   src: url("../fonts/graphikregular-webfont.woff2") format("woff2"), url("../fonts/graphikregular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;

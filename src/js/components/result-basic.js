@@ -176,4 +176,8 @@ jQuery(document).ready(function ($) {
   copyBtn.addEventListener("click", function (event) {
     copyTextToClipboard(this.textContent);
   });
+
+  $(".contact-us-close").on("click", function () {
+    $(".contact-us").hide(200);
+  });
 });

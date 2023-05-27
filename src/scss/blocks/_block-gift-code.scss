@@ -1,0 +1,229 @@
+.block-gift-code {
+  text-align: center;
+  background-color: #cbc7f7;
+  color: #0a0517;
+  padding: 40px 0;
+  position: relative;
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(../img/icons/star-blue.svg);
+
+      &.el-01,
+      &.el-03,
+      &.el-04 {
+        width: 62px;
+        height: 63px;
+      }
+      &.el-05,
+      &.el-06 {
+        width: 52px;
+        height: 53px;
+      }
+      &.el-02,
+      &.el-07 {
+        width: 48px;
+        height: 49px;
+      }
+
+      &.el-01 {
+        left: 9.2vw;
+        top: 32%;
+      }
+      &.el-02 {
+        left: 21vw;
+        top: 52%;
+      }
+      &.el-03 {
+        left: 12.3vw;
+        top: 73%;
+      }
+      &.el-04 {
+        right: 11.3vw;
+        top: 18%;
+      }
+      &.el-05 {
+        right: 4.9vw;
+        top: 40%;
+      }
+      &.el-06 {
+        right: 22.4vw;
+        top: 57%;
+      }
+      &.el-07 {
+        right: 13.9vw;
+        top: 73%;
+      }
+    }
+  }
+
+  .contact-us {
+    position: absolute;
+    top: auto;
+    right: 14px;
+    bottom: 30px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .link-back {
+    margin-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: 2.833rem;
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+
+  p {
+    margin: 0 0 50px;
+    font-size: 1.33rem;
+    line-height: 130%;
+    br {
+      display: none;
+    }
+  }
+
+  .form {
+    max-width: 434px;
+    margin: auto;
+
+    .field {
+      input {
+        background: #652feb;
+        border: none;
+        border-radius: 90px;
+        color: $white;
+        font-weight: 600;
+        font-size: 32px;
+        text-align: center;
+        letter-spacing: 0.1em;
+        padding: 28px 36px;
+        @include placeholder-text(#fff, 1);
+      }
+    }
+
+    .submit {
+      padding: 85px 0 0;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01,
+        &.el-03,
+        &.el-04 {
+          width: 50px;
+          height: 50px;
+        }
+        &.el-05,
+        &.el-06 {
+          width: 40px;
+          height: 40px;
+        }
+        &.el-02,
+        &.el-07 {
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.13rem;
+    }
+
+    .form {
+      .field {
+        input {
+          font-size: 1.13rem;
+          padding: 25px 36px;
+        }
+      }
+
+      .submit {
+        padding: 50px 0 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .elements {
+      .el {
+        &.el-02 {
+          left: 5vw;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .elements {
+      .el {
+        &.el-01,
+        &.el-05,
+        &.el-06,
+        &.el-07 {
+          display: none;
+        }
+        &.el-02 {
+          width: 31px;
+          height: 31px;
+          top: auto;
+          left: 70%;
+          bottom: 16%;
+        }
+        &.el-03 {
+          width: 40px;
+          height: 40px;
+          top: auto;
+          left: 35%;
+          bottom: 4%;
+        }
+        &.el-04 {
+          width: 40px;
+          height: 40px;
+          top: 16%;
+        }
+      }
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1;
+      margin: 0 20px 20px;
+    }
+
+    p {
+      margin: 0 0 40px;
+      font-size: 1rem;
+      br {
+        display: block;
+      }
+    }
+
+    .form {
+      .field {
+        input {
+          font-size: 22px;
+          padding: 16px;
+        }
+      }
+
+      .submit {
+        padding: 20px 0 0;
+      }
+    }
+  }
+}
