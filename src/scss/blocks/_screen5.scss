@@ -1,6 +1,5 @@
 .screen-05 {
   position: relative;
-  height: 100vh;
   padding: 70px 0 0;
 
   &.fp-noscroll .fp-overflow {
@@ -35,7 +34,7 @@
   h2 {
     text-align: center;
     color: #0a0517;
-    margin: auto 0 65px;
+    margin: auto 0 35px;
   }
 
   .elements {
@@ -80,11 +79,10 @@
       display: flex;
       flex-wrap: wrap;
       margin: 0 -10px;
-      row-gap: 30px;
 
       .col {
         width: 33.3333%;
-        padding: 0 10px;
+        padding: 30px 10px 0;
       }
     }
 
@@ -216,16 +214,14 @@
     padding: 40px 0 0;
 
     h2 {
-      margin-bottom: 29px;
+      margin-bottom: 10px;
     }
 
     .cards {
       .row {
-        row-gap: 16px;
-
         .col {
           width: 100%;
-          padding: 0 10px;
+          padding: 16px 10px 0;
           opacity: 0;
           transform: translateY(50px);
         }
@@ -257,6 +253,37 @@
     .cards {
       .card {
         max-height: 200px;
+      }
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(lg) {
+    .screen-05 {
+      padding: 0;
+
+      h2 {
+        font-size: 30px;
+        margin-bottom: 0px;
+      }
+
+      .cards {
+        .row {
+          .col {
+            padding: 10px 10px 0;
+          }
+        }
+
+        .card {
+          height: auto;
+          font-size: 15px;
+          padding: 7px 10px;
+        }
+      }
+
+      .image {
+        padding: 30px 0 0;
       }
     }
   }

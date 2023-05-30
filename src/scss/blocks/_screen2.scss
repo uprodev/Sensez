@@ -8,26 +8,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding-left: 11.46vw;
-  padding-right: 11.46vw;
 
   &.fp-noscroll .fp-overflow {
     overflow: visible !important;
-  }
-
-  @include media-breakpoint-down(xxl) {
-    padding-left: 13.2vw;
-    padding-right: 13.2vw;
-  }
-
-  @include media-breakpoint-down(xl) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  @include media-breakpoint-down(lg) {
-    padding-left: 20px;
-    padding-right: 20px;
   }
 
   .container {
@@ -36,6 +19,7 @@
     max-width: 1480px;
     text-align: center;
     padding: 0;
+    margin: 0;
 
     .inner {
       padding: 50px;
@@ -182,8 +166,8 @@
 
   @include media-breakpoint-down(lg) {
     .container {
-      padding: 0;
-      margin: 0 24px;
+      margin: 0 20px;
+      width: auto;
 
       .inner {
         padding: 10.3vh 14px;
@@ -200,11 +184,14 @@
       .text-wrapper {
         display: flex;
         flex-direction: column;
-        row-gap: 20px;
 
         span {
           padding: 5px 26px 13px;
-          margin: 0;
+          margin: 0 0 20px;
+
+          &:last-child {
+            margin: 0;
+          }
 
           &.divider {
             display: none;
@@ -221,7 +208,7 @@
       @include abs(50%, 50%, 0, 0);
       background-color: #0b0618;
       background-image: none;
-      border-radius: 0;
+      border-radius: 0 !important;
       overflow: hidden;
 
       &:after {

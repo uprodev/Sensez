@@ -4,19 +4,22 @@ jQuery(document).ready(function ($) {
 
   gsap.to(barInner, {
     width: "100%",
-    duration: 3,
+    duration: 1.5,
     delay: 1,
     ease: Power1.easeIn,
   });
   gsap.to(barIcon, {
     left: "100%",
-    duration: 3,
+    duration: 1.5,
     delay: 1,
     ease: Power1.easeIn,
   });
 
   $(".code-copy").on("click", function () {
     copyTextToClipboard($(".code-value").text());
+  });
+  $(".code-value").on("click", function () {
+    copyTextToClipboard($(this).text());
   });
 
   $("#inputCode").mask("99999999999");

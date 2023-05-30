@@ -23,15 +23,15 @@ jQuery(document).ready(function ($) {
         });
       }
       if (destination.index === 4) {
-        gsap.to(".res-screen-08  .wrapper", {
+        gsap.to(".res-screen-08 .wrapper", {
           y: 0,
-          duration: 1,
+          duration: 0.5,
           delay: 0.5,
         });
-        gsap.to(".res-screen-08  h2", {
+        gsap.to(".res-screen-08 h2", {
           opacity: 1,
           duration: 0.5,
-          delay: 1.7,
+          delay: 1,
         });
       }
       if (destination.index === 1) {

@@ -77,3 +77,13 @@
     }
   }
 }
+
+.less-height {
+  @include media-breakpoint-down(lg) {
+    .header {
+      .logo {
+        width: 60px;
+      }
+    }
+  }
+}

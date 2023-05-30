@@ -1,6 +1,5 @@
 .screen-06 {
   position: relative;
-  min-height: 100vh;
   color: #fff;
   padding: 14px 0 85px;
 
@@ -272,9 +271,14 @@
     }
 
     ul {
-      row-gap: 14px;
+      row-gap: 0;
 
       li {
+        margin: 0 0 14px;
+
+        &:last-child {
+          margin: 0;
+        }
         a {
           padding: 10px 15px;
           border-width: 2px;
@@ -322,6 +326,38 @@
         .col {
           width: 100% !important;
         }
+      }
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(lg) {
+    .screen-06 {
+      padding: 0;
+
+      .progress {
+        margin: 0 0 30px;
+      }
+
+      h3 {
+        font-size: 24px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ul li a {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    .screen-06 {
+      h3 {
+        font-size: 20px;
       }
     }
   }

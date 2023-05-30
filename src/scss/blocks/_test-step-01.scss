@@ -86,6 +86,18 @@
       }
     }
 
+    .test-final {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      z-index: -1;
+
+      svg {
+        opacity: 0;
+      }
+    }
+
     .test-options {
       width: 365px;
       position: fixed;
@@ -100,66 +112,44 @@
 
       ul {
         flex-direction: column;
-        row-gap: 50px;
         font-size: 1rem;
 
         li {
+          margin: 0 0 50px;
+          &:last-child {
+            margin: 0;
+          }
+
           label {
             br {
               display: none;
             }
 
-            input {
-              &:checked {
-                & + span {
-                  figure {
-                    background-size: 26px 30px;
-                  }
-                }
-              }
-            }
-
             span {
               padding: 0 0 0 82px;
-            }
-
-            &.hover {
-              figure {
-                svg {
-                  path {
-                    &:nth-child(1) {
-                      transform: scale(1.06) rotate(-12.91deg) translate3d(-2px, 1px, 0);
-                    }
-                    &:nth-child(2) {
-                      transform: scale(1.06) rotate(4.28deg) translate3d(2px, -3px, 0);
-                    }
-                  }
-                }
-              }
             }
           }
 
           figure {
             position: absolute;
-            left: 0;
+            left: -30px;
             top: 50%;
-            transform: translateY(-50%);
+            width: 140px;
             margin: 0;
-            background-image: url(../img/icons/selected-l-w.svg), url(../img/icons/selected-r-w.svg);
-            background-position: 0 0, 43px 0;
-            background-repeat: no-repeat;
-            background-size: 0 0;
-            transition: background-size 0.3s;
+
+            lottie-player {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate3d(-50%, -50%, 0);
+            }
 
             svg {
-              path {
-                transition: all 0.3s;
-                transform-origin: center;
-                &:nth-child(1),
-                &:nth-child(2) {
-                  opacity: 0.6;
-                }
-              }
+              opacity: 0;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate3d(-50%, -50%, 0);
             }
           }
         }
@@ -242,10 +232,11 @@
         }
 
         ul {
-          row-gap: 37px;
           font-size: 14px;
 
           li {
+            margin: 0 0 42px;
+
             label {
               span {
                 padding: 0 0 0 50px;
@@ -253,8 +244,8 @@
             }
 
             figure {
-              transform: translateY(-50%) scale(0.65);
-              transform-origin: left center;
+              width: 120px;
+              left: -35px;
             }
           }
         }
@@ -321,41 +312,17 @@
                 display: block;
               }
 
-              input {
-                &:checked {
-                  & + span {
-                    figure {
-                      background-size: 0;
-                    }
-                  }
-                }
-              }
-
               span {
-                padding: 0;
-              }
-
-              &.hover {
-                figure {
-                  svg {
-                    path {
-                      &:nth-child(1) {
-                        transform: rotate(-8deg) translate3d(10%, -8px, 0);
-                      }
-                      &:nth-child(2) {
-                        transform: rotate(18.5deg) translate3d(-25%, -8px, 0);
-                      }
-                    }
-                  }
-                }
+                padding: 96px 0 0;
               }
             }
 
             figure {
-              position: static;
-              width: 70px;
+              width: 120px;
+              height: 68px;
+              left: -20px;
+              top: 8px;
               margin: 0 auto 19px;
-              transform: none;
 
               svg {
                 transform-origin: center bottom;
@@ -429,6 +396,10 @@
 
           li {
             width: 70px;
+
+            figure {
+              left: -25px;
+            }
           }
         }
       }

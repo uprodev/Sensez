@@ -1,6 +1,5 @@
 .screen-07 {
   position: relative;
-  min-height: 100vh;
   color: #0a0517;
   padding: 0;
 
@@ -211,6 +210,22 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(lg) {
+    .screen-07 {
+      padding: 80px 0 40px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .screen-07 {
+      .accordion .item .item-header button {
+        font-size: 1.2rem;
       }
     }
   }

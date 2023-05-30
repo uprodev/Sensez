@@ -4,7 +4,6 @@
   background-color: rgb(249, 243, 233);
   color: #fff;
   position: relative;
-  height: 100vh;
   text-align: center;
   padding: 0 0 3rem;
   display: flex;
@@ -221,20 +220,21 @@
 
         &.el-01 {
           left: 35px;
-          top: 161px;
+          top: 15vh;
           height: 58px;
         }
         &.el-04 {
+          display: block;
           left: auto;
           right: 41px;
-          top: 205px;
+          top: 23vh;
           height: 37px;
         }
 
         &.el-07 {
           right: 60px;
           top: auto;
-          bottom: 127px;
+          bottom: 15vh;
           height: 50px;
         }
         &.el-02,
@@ -269,7 +269,7 @@
 
       .buttons {
         flex-direction: column;
-        row-gap: 26px;
+        row-gap: 0;
         margin: 0;
 
         .btn {
@@ -277,6 +277,7 @@
 
           &.btn-start {
             display: inline-flex;
+            margin-bottom: 26px;
           }
         }
       }
@@ -287,6 +288,32 @@
       left: 50%;
       bottom: 9.85vh;
       transform: translateX(-50%);
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(lg) {
+    .screen-01 {
+      .elements {
+        .el {
+          &.el-01 {
+            left: 15px;
+            top: 80px;
+            height: 48px;
+          }
+          &.el-04 {
+            right: 10px;
+            top: 150px;
+            height: 30px;
+          }
+
+          &.el-07 {
+            bottom: 50px;
+            height: 40px;
+          }
+        }
+      }
     }
   }
 }

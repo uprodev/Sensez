@@ -2,6 +2,18 @@
   &--type2 {
     position: relative;
 
+    .test-final {
+      position: fixed;
+      left: 100%;
+      top: 100%;
+      transform: translate3d(-50%, -50%, 0);
+      z-index: -1;
+
+      svg {
+        opacity: 0;
+      }
+    }
+
     .test-options {
       width: 755px;
       position: fixed;
@@ -37,43 +49,50 @@
             }
 
             span {
-              padding: 150px 0 0;
-            }
-
-            &.hover {
-              figure {
-                svg {
-                  path {
-                    &:nth-child(1) {
-                      transform: scale(1.1) rotate(-14.34deg) translate3d(-5%, -5%, 0);
-                    }
-                    &:nth-child(2) {
-                      transform: scale(1.1) rotate(16.47deg) translate3d(-10%, 5%, 0);
-                    }
-                  }
-                }
-              }
+              padding: 130px 0 0;
             }
           }
 
           figure {
             position: absolute;
-            left: 0;
+            width: 210px;
+            height: 100px;
+            left: -37.5px;
             top: 0;
             margin: 0;
+            transform-origin: center bottom;
 
-            svg {
-              transform-origin: center bottom;
-              path {
+            lottie-player {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate3d(-50%, -50%, 0);
+
+              svg path {
                 fill: #cbc7f7;
-                transition: all 0.3s;
-                transform-origin: center;
-                &:nth-child(1),
-                &:nth-child(2) {
-                  opacity: 0.5;
-                }
               }
             }
+
+            & > svg {
+              opacity: 0;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate3d(-50%, -50%, 0);
+            }
+
+            // svg {
+            //   transform-origin: center bottom;
+            //   path {
+            //     fill: #cbc7f7;
+            //     transition: all 0.3s;
+            //     transform-origin: center;
+            //     &:nth-child(1),
+            //     &:nth-child(2) {
+            //       opacity: 0.5;
+            //     }
+            //   }
+            // }
           }
         }
       }

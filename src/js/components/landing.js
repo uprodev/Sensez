@@ -1,4 +1,15 @@
 jQuery(document).ready(function ($) {
+  if (window.visualViewport.height < 800) {
+    $(".page-wrapper").addClass("less-height");
+  }
+  $(window).on("resize", function () {
+    if (window.visualViewport.height < 800) {
+      $(".page-wrapper").addClass("less-height");
+    } else {
+      $(".page-wrapper").removeClass("less-height");
+    }
+  });
+
   var tooltip = $('<div class="tooltip" />');
   $(".screen-02").append(tooltip);
   $(".screen-02 .text")
@@ -113,7 +124,7 @@ jQuery(document).ready(function ($) {
         },
         transformOrigin: "center",
         ease: "none",
-        duration: 0.4,
+        duration: 0.8,
       });
     });
     gsap.utils.toArray(".screen-04-animation .text").forEach((txt, i) => {
@@ -121,7 +132,7 @@ jQuery(document).ready(function ($) {
         scaleX: 1,
         scaleY: 1,
         opacity: 1,
-        duration: 0.4,
+        duration: 0.8,
         transformOrigin: "center",
         ease: "none",
       });
@@ -130,7 +141,7 @@ jQuery(document).ready(function ($) {
       gsap.to(line.querySelectorAll("path"), {
         strokeDashoffset: 0,
         ease: "none",
-        duration: 0.4,
+        duration: 0.8,
       });
     });
   }
@@ -140,7 +151,7 @@ jQuery(document).ready(function ($) {
     scrollingSpeed: 500,
     normalScrollElements: ".screen-03 .container",
     fitToSectionDelay: false,
-    verticalCentered: false,
+    verticalCentered: true,
     onLeave: function (origin, destination, direction, trigger) {
       if (direction === "down") {
         $(".header").addClass("headroom--not-top").removeClass("active");
@@ -175,8 +186,8 @@ jQuery(document).ready(function ($) {
         gsap.to(".screen-02 .bg", {
           duration: 1,
           backgroundImage: "radial-gradient(81.17% 81.17% at 50% 0%, rgba(68, 32, 158, 0.4) 0%, rgba(0, 0, 0, 0) 100%)",
-          width: "102vw",
-          height: "102vh",
+          width: "110vw",
+          height: "110vh",
           borderRadius: 0,
           delay: 0.5,
         });

@@ -12,23 +12,23 @@ jQuery(document).ready(function ($) {
         $(this).addClass("active");
       }
     });
-    var progressWidth;
-    if (currentStep === 2) {
-      progressWidth = "5%";
-    } else {
-      progressWidth = (currentStep - 2) * 9.5 + 5 + "%";
+    var progressWidth = 0;
+    if (currentStep !== 1) {
+      if (document.querySelector(".test-step--type2")) {
+        progressWidth = (currentStep - 2) * 19 + 20.83 + "%";
+      } else if (document.querySelector(".test-step--type1")) {
+        progressWidth = (currentStep - 2) * 19 + 5 + "%";
+      }
     }
+
     $(".test-progress .steps .steps-progress .inner").css("width", progressWidth);
   }
   progressInit();
 
   function progress() {
-    var progressStep = 0.95;
+    var progressStep = 1.583;
     if ($(".four-steps-wrapper").length) {
       progressStep = 1.25;
-    }
-    if ($(".test-step--type2").length) {
-      progressStep = 4.75;
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
       progressNext = progressCurrent + progressStep + "%";
@@ -312,13 +312,28 @@ jQuery(document).ready(function ($) {
       }
       disableScroll();
 
-      $(".test-options ul li label")
-        .on("mouseenter", function () {
-          $(this).addClass("hover");
-        })
-        .on("mouseleave", function () {
-          $(this).removeClass("hover");
+      document.querySelectorAll(".test-options ul li label").forEach((label) => {
+        label.addEventListener("mouseenter", function () {
+          var lottiePlayer = this.querySelector(".hover");
+          lottiePlayer.play();
         });
+        label.addEventListener("mouseleave", function () {
+          var lottiePlayer = this.querySelector(".hover");
+          var lottiePlayerClick = this.querySelector(".click");
+          lottiePlayer.stop();
+          lottiePlayerClick.stop();
+        });
+        label.addEventListener("click", function () {
+          var lottiePlayer = this.querySelector(".hover");
+          lottiePlayer.style.opacity = 0;
+          var lottiePlayerClick = this.querySelector(".click");
+          lottiePlayerClick.play();
+          setTimeout(() => {
+            lottiePlayerClick.stop();
+            lottiePlayer.style.opacity = 1;
+          }, 500);
+        });
+      });
 
       gsap.to(".test-step", {
         y: 0,
@@ -366,7 +381,6 @@ jQuery(document).ready(function ($) {
         if (e.target.tagName === "INPUT" && !animating) {
           animating = true;
           progress();
-          $(this).removeClass("hover");
           var activeQ = $(".test-scroller li.active"),
             activeVal = $("[name=test]:checked").val(),
             totalQ = $(".test-scroller li").length;
@@ -375,7 +389,6 @@ jQuery(document).ready(function ($) {
             input.addClass("filled").val(activeVal);
           }
           if ($(".test-scroller .filled").length === totalQ) {
-            $(".test-progress .steps .step.active").next().addClass("active");
             $("#testChoices").addClass("disabled");
             gsap.to(".test-progress", {
               opacity: 0,
@@ -433,9 +446,17 @@ jQuery(document).ready(function ($) {
                     "-=0.5"
                   )
                   .to(
-                    ".test-options li:nth-child(1),.test-options li:nth-child(2),.test-options li:nth-child(3),.test-options li:nth-child(4)",
+                    ".test-options li:nth-child(1),.test-options li:nth-child(2),.test-options li:nth-child(3),.test-options li:nth-child(4), .test-options li:nth-child(5) lottie-player",
                     {
                       opacity: 0,
+                      duration: 0.1,
+                    },
+                    "-=0.1"
+                  )
+                  .to(
+                    ".test-options li:nth-child(5) svg",
+                    {
+                      opacity: 1,
                       duration: 0.1,
                     },
                     "-=0.1"
@@ -463,16 +484,22 @@ jQuery(document).ready(function ($) {
             } else {
               const timeline = gsap
                 .timeline()
-                .to(".test-options li path", {
-                  fill: "#F9F3E9",
+                .to(".test-final", {
+                  zIndex: 9999,
+                  duration: 0,
+                })
+                .to(".test-final svg", {
+                  opacity: 1,
                   duration: 0.5,
                 })
-                .to(".test-options li:nth-child(3) figure svg", {
-                  scale: 25,
-                  y: "35%",
-                  transformOrigin: "center bottom",
-                  duration: 2,
-                })
+                .to(
+                  ".test-final svg",
+                  {
+                    scale: 35,
+                    duration: 2,
+                  },
+                  "-=0.5"
+                )
                 .to(
                   ".step-main-wrapper",
                   {

@@ -3,11 +3,8 @@
 
   color: #1d1d1b;
   position: relative;
-  min-height: 100vh;
   padding: 30px 0;
   overflow: hidden;
-  display: flex;
-  align-items: center;
 
   &.fp-noscroll .fp-overflow {
     overflow: visible;
@@ -21,6 +18,7 @@
   .inner {
     width: 100%;
     text-align: center;
+    padding: 0 20px;
   }
 
   h2 {
@@ -356,6 +354,37 @@
       &.line-04 {
         right: 49%;
         top: 83%;
+      }
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(lg) {
+    .screen-04 {
+      padding: 15px 0;
+
+      h2 {
+        font-size: 30px;
+        margin: 0 20px;
+      }
+    }
+
+    .screen-04-animation {
+      margin: 25px 0;
+
+      .text {
+        padding: 7px 10px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (max-width: 460px) {
+    .screen-04 {
+      h2 {
+        font-size: 22px;
+        margin: 0 10px;
       }
     }
   }
