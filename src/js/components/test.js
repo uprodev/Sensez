@@ -330,7 +330,7 @@ jQuery(document).ready(function ($) {
           lottiePlayerClick.play();
           setTimeout(() => {
             lottiePlayerClick.stop();
-            lottiePlayer.style.opacity = 1;
+            lottiePlayer.removeAttribute("style");
           }, 500);
         });
       });
@@ -392,95 +392,98 @@ jQuery(document).ready(function ($) {
             $("#testChoices").addClass("disabled");
             gsap.to(".test-progress", {
               opacity: 0,
-              duration: 0.5,
+              duration: 0.3,
             });
             if ($("#testChoices").length) {
               $("#testChoices").get(0).reset();
             }
             if ($(window).width() >= 1024) {
-              $(".test-step-inner").animate({ scrollTop: $(".test-scroller").height() }, 1000, function () {
-                const timeline = gsap
-                  .timeline()
-                  .to(".test-options li span", {
-                    color: "transparent",
-                    duration: 0.5,
-                  })
-                  .to(
-                    ".test-options li path",
-                    {
-                      fill: "#F9F3E9",
-                      duration: 0.5,
-                    },
-                    "-=0.5"
-                  )
-                  .to(
-                    ".test-options li:nth-child(1)",
-                    {
-                      y: 160,
-                      duration: 0.5,
-                    },
-                    "-=1"
-                  )
-                  .to(
-                    ".test-options li:nth-child(2)",
-                    {
-                      y: 80,
-                      duration: 0.5,
-                    },
-                    "-=0.5"
-                  )
-                  .to(
-                    ".test-options li:nth-child(4)",
-                    {
-                      y: -80,
-                      duration: 0.4,
-                    },
-                    "-=0.5"
-                  )
-                  .to(
-                    ".test-options li:nth-child(5)",
-                    {
-                      y: -160,
-                      duration: 0.4,
-                    },
-                    "-=0.5"
-                  )
-                  .to(
-                    ".test-options li:nth-child(1),.test-options li:nth-child(2),.test-options li:nth-child(3),.test-options li:nth-child(4), .test-options li:nth-child(5) lottie-player",
-                    {
-                      opacity: 0,
-                      duration: 0.1,
-                    },
-                    "-=0.1"
-                  )
-                  .to(
-                    ".test-options li:nth-child(5) svg",
-                    {
-                      opacity: 1,
-                      duration: 0.1,
-                    },
-                    "-=0.1"
-                  )
-                  .to(".test-options li:nth-child(5) figure", {
-                    scale: 330,
-                    duration: 2,
-                  })
-                  .to(".step-main-wrapper", {
+              var spacer = 80;
+              if ($(window).width() >= 1024 && $(window).width() < 1600) {
+                spacer = 59;
+              }
+              $(".test-step-inner").animate({ scrollTop: $(".test-scroller").height() }, 300);
+              const timeline = gsap
+                .timeline()
+                .to(".test-options li span", {
+                  color: "transparent",
+                  duration: 0.3,
+                })
+                .to(
+                  ".test-options li path",
+                  {
+                    fill: "#F9F3E9",
+                    duration: 0.3,
+                  },
+                  "-=0.3"
+                )
+                .to(
+                  ".test-options li:nth-child(1)",
+                  {
+                    y: spacer * 2,
+                    duration: 0.3,
+                  },
+                  "-=0,6"
+                )
+                .to(
+                  ".test-options li:nth-child(2)",
+                  {
+                    y: spacer,
+                    duration: 0.3,
+                  },
+                  "-=0.3"
+                )
+                .to(
+                  ".test-options li:nth-child(4)",
+                  {
+                    y: spacer * -1,
+                    duration: 0.3,
+                  },
+                  "-=0.3"
+                )
+                .to(
+                  ".test-options li:nth-child(5)",
+                  {
+                    y: spacer * -2,
+                    duration: 0.3,
+                  },
+                  "-=0.3"
+                )
+                .to(
+                  ".test-options li:nth-child(1),.test-options li:nth-child(2),.test-options li:nth-child(3),.test-options li:nth-child(4), .test-options li:nth-child(5) lottie-player",
+                  {
                     opacity: 0,
-                    duration: 0.5,
-                  })
-                  .to(
-                    "body",
-                    {
-                      backgroundColor: "#F9F3E9",
-                      duration: 0.5,
-                      onComplete: function () {
-                        $(".btn-next").get(0).click();
-                      },
+                    duration: 0.1,
+                  },
+                  "-=0.3"
+                )
+                .to(
+                  ".test-options li:nth-child(5) svg",
+                  {
+                    opacity: 1,
+                    duration: 0.1,
+                  },
+                  "-=0.3"
+                )
+                .to(".test-options li:nth-child(5) figure", {
+                  scale: 330,
+                  duration: 1,
+                })
+                .to(".step-main-wrapper", {
+                  opacity: 0,
+                  duration: 0.3,
+                })
+                .to(
+                  "body",
+                  {
+                    backgroundColor: "#F9F3E9",
+                    duration: 0.3,
+                    onComplete: function () {
+                      $(".btn-next").get(0).click();
                     },
-                    "-=0.5"
-                  );
-              });
+                  },
+                  "-=0.3"
+                );
             } else {
               const timeline = gsap
                 .timeline()
@@ -490,34 +493,34 @@ jQuery(document).ready(function ($) {
                 })
                 .to(".test-final svg", {
                   opacity: 1,
-                  duration: 0.5,
+                  duration: 0.3,
                 })
                 .to(
                   ".test-final svg",
                   {
-                    scale: 35,
-                    duration: 2,
+                    scale: 1,
+                    duration: 1,
                   },
-                  "-=0.5"
+                  "-=0.3"
                 )
                 .to(
                   ".step-main-wrapper",
                   {
                     opacity: 0,
-                    duration: 0.5,
+                    duration: 0.3,
                   },
-                  "-=0.5"
+                  "-=0.3"
                 )
                 .to(
                   "body",
                   {
                     backgroundColor: "#F9F3E9",
-                    duration: 0.5,
+                    duration: 0.3,
                     onComplete: function () {
                       $(".btn-next").get(0).click();
                     },
                   },
-                  "-=0.5"
+                  "-=0.3"
                 );
             }
           } else {
@@ -553,10 +556,8 @@ jQuery(document).ready(function ($) {
       $(".test-step--type2 .test-options label").on("click", function (e) {
         if (e.target.tagName === "INPUT") {
           progress();
-          $(".test-options").addClass("selected");
           var activeLabel = $(this);
           var nextColor = $(".test-step").attr("data-nextcolor");
-          activeLabel.removeClass("hover");
           var activeQ = $(".test-scroller li.active"),
             activeVal = $("[name=test]:checked").val(),
             totalQ = $(".test-scroller li").length;
@@ -565,62 +566,76 @@ jQuery(document).ready(function ($) {
             input.addClass("filled").val(activeVal);
           }
           if ($(".test-scroller .filled").length === totalQ) {
-            $("#testChoices").addClass("disabled");
-            $(".test-progress .steps .step.active").next().addClass("active");
-
-            gsap.to(".test-progress", {
-              opacity: 0,
-              duration: 0.5,
-            });
-
-            const timeline = gsap
-              .timeline()
-              .to(".test-scroller", {
-                opacity: 0,
-                duration: 0.5,
-              })
-              .to(
-                activeLabel.find("path"),
-                {
-                  fill: "#454FDB",
-                  duration: 0.5,
-                },
-                "-=0.5"
-              )
-              .to(activeLabel.find("svg"), {
-                fill: nextColor,
-                scale: 30,
-                y: "-20vh",
-                transformOrigin: "center",
-                duration: 2,
-              })
-              .to(
-                ".step-main-wrapper",
-                {
+            setTimeout(() => {
+              $("#testChoices").addClass("disabled");
+              $(".test-progress .steps .step.active").next().addClass("active");
+              const timeline = gsap
+                .timeline()
+                .to(".test-progress, .test-scroller, .test-options", {
                   opacity: 0,
-                  duration: 0.5,
-                },
-                "-=0.5"
-              )
-              .to(
-                "body",
-                {
-                  backgroundColor: nextColor,
-                  duration: 0.5,
-                  onComplete: function () {
-                    $(".btn-next").get(0).click();
+                  duration: 0.3,
+                })
+                .to(
+                  ".test-final",
+                  {
+                    zIndex: 9999,
+                    duration: 0,
                   },
-                },
-                "-=0.5"
-              );
+                  "-=0.3"
+                )
+                .to(
+                  ".test-final svg",
+                  {
+                    opacity: 1,
+                    duration: 0.3,
+                  },
+                  "-=0.3"
+                )
+                .to(
+                  ".test-final svg",
+                  {
+                    scale: 2,
+                    duration: 1,
+                  },
+                  "-=0.3"
+                )
+                .to(
+                  ".test-final svg path",
+                  {
+                    fill: nextColor,
+                    duration: 1,
+                  },
+                  "-=1"
+                )
+                .to(
+                  "body",
+                  {
+                    backgroundColor: nextColor,
+                    duration: 0.5,
+                  },
+                  "-=1"
+                )
+                .to(
+                  ".step-main-wrapper",
+                  {
+                    opacity: 0,
+                    duration: 0.5,
+                    onComplete: function () {
+                      $(".btn-next").get(0).click();
+                    },
+                  },
+                  "-=0.2"
+                );
+            }, 600);
           } else {
             if ($(window).width() >= 1024) {
-              const timeline = gsap.timeline().to(activeLabel.find("figure"), {
+              const timeline = gsap.timeline().to(activeLabel.find("figure svg"), {
                 scale: 2,
                 transformOrigin: "center bottom",
                 duration: 0.25,
+                delay: 0.7,
                 onComplete: function () {
-                  gsap.to(activeLabel.find("figure"), {
+                  gsap.to(activeLabel.find("figure svg"), {
                     scale: 3,
                     y: "-120vh",
                     duration: 0.25,
@@ -632,7 +647,7 @@ jQuery(document).ready(function ($) {
                       top: 0,
                       duration: 0,
                     });
-                    gsap.to($(".test-options figure[style]"), {
+                    gsap.to($(".test-options figure  svg[style]"), {
                       scale: 1,
                       y: 0,
                       duration: 0,

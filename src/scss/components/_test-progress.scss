@@ -21,6 +21,10 @@
     top: 5vh;
   }
 
+  @include media-breakpoint-down(md) {
+    top: 2vh;
+  }
+
   .steps {
     width: 100%;
     height: 32px;

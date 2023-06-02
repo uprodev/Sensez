@@ -102,7 +102,7 @@
   }
 
   @include media-breakpoint-down(lg) {
-    padding-top: 16vh;
+    padding-top: 12vh;
 
     .elements {
       display: none;
@@ -298,7 +298,6 @@
     .container {
       .row {
         flex-direction: column;
-        row-gap: 45px;
 
         .col {
           width: 100%;
@@ -502,11 +501,11 @@
   }
 
   @include media-breakpoint-down(lg) {
-    padding-top: 16vh;
+    padding-top: 0;
 
     .col-text {
       left: 0;
-      top: calc(7.4vh + 62px);
+      top: calc(4vh + 62px);
       padding-left: 20px;
       transform: translateX(100vw);
     }
@@ -530,7 +529,7 @@
     }
 
     ul {
-      padding-top: 30vh;
+      padding-top: 25vh;
 
       li {
         transform: translateX(100vw);
@@ -544,9 +543,14 @@
           transform: scale(0.5);
 
           & > span {
-            padding: 0 3.7rem;
+            width: 100%;
+            padding: 0;
             font-size: 7.5rem;
             line-height: 1.2;
+
+            &:before {
+              width: 120%;
+            }
           }
         }
       }
@@ -723,6 +727,37 @@
       }
     }
   }
+
+  @include media-breakpoint-down(md) {
+    ul {
+      flex-direction: column;
+      row-gap: 12px;
+
+      li {
+        transform: translateX(100vw);
+
+        label {
+          input {
+            &:checked + span {
+              position: relative;
+              &:before {
+                content: "";
+                background: url(../img/bg/bg-4-selected.svg) 50% no-repeat;
+                @include abs-center;
+                width: 375px;
+                height: 500px;
+              }
+              figure,
+              .label-text {
+                position: relative;
+                z-index: 2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .four-steps-orientation {
@@ -870,10 +905,49 @@
             font-size: 18px;
             figure {
               height: 22.17vh;
+
+              img {
+                max-height: 80%;
+                width: auto;
+              }
             }
           }
         }
       }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    ul {
+      li {
+        label {
+          input {
+            &:checked + span {
+              position: relative;
+              &:before {
+                content: "";
+                background: url(../img/bg/bg-4-selected.svg) 50% no-repeat;
+                @include abs-center;
+                width: 375px;
+                height: 500px;
+              }
+              figure,
+              .label-text {
+                position: relative;
+                z-index: 2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(md) {
+    .four-steps-gender ul li label span figure {
+      height: 16vh;
     }
   }
 }

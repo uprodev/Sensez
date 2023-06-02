@@ -4,13 +4,14 @@
 
     .test-final {
       position: fixed;
-      left: 100%;
-      top: 100%;
+      left: 50%;
+      top: 50%;
       transform: translate3d(-50%, -50%, 0);
       z-index: -1;
 
       svg {
         opacity: 0;
+        transform: scale(0);
       }
     }
 
@@ -38,10 +39,15 @@
                   z-index: 999;
 
                   figure {
-                    svg {
-                      path {
-                        fill: #4953e9;
-                      }
+                    lottie-player {
+                      opacity: 0;
+                      transition: opacity 0.1s;
+                      transition-delay: 0.7s;
+                    }
+                    & > svg {
+                      opacity: 1;
+                      transition: opacity 0.1s;
+                      transition-delay: 0.7s;
                     }
                   }
                 }
@@ -79,20 +85,9 @@
               left: 50%;
               top: 50%;
               transform: translate3d(-50%, -50%, 0);
+              height: 106%;
+              width: auto;
             }
-
-            // svg {
-            //   transform-origin: center bottom;
-            //   path {
-            //     fill: #cbc7f7;
-            //     transition: all 0.3s;
-            //     transform-origin: center;
-            //     &:nth-child(1),
-            //     &:nth-child(2) {
-            //       opacity: 0.5;
-            //     }
-            //   }
-            // }
           }
         }
       }
@@ -234,6 +229,7 @@
       .test-options {
         bottom: 40px;
         width: 580px;
+        left: 13.2vw;
 
         ul {
           row-gap: 0;
@@ -243,19 +239,12 @@
             width: 100px;
             label {
               span {
-                padding: 100px 0 0;
+                padding: 110px 0 0;
               }
             }
             figure {
-              left: 50%;
-              transform: translateX(-50%);
-              width: 81px;
-
-              svg {
-                display: block;
-                width: 100%;
-                height: auto;
-              }
+              width: 170px;
+              left: -35px;
             }
           }
         }
@@ -287,6 +276,7 @@
 
     @include media-breakpoint-down(lg) {
       opacity: 0;
+
       .test-options {
         opacity: 0;
         width: auto;
@@ -302,7 +292,7 @@
           margin: auto;
           justify-content: space-between;
           column-gap: 0;
-          padding: 0 0 8.7vh;
+          padding: 0;
 
           li {
             width: 80px;
@@ -311,58 +301,17 @@
               text-align: center;
 
               span {
-                padding: 0;
-              }
-
-              &.hover {
-                figure {
-                  svg {
-                    path {
-                      &:nth-child(1) {
-                        transform: scale(1.1) rotate(-14.34deg) translate3d(15%, 0%, 0);
-                      }
-                      &:nth-child(2) {
-                        transform: scale(1.1) rotate(16.47deg) translate3d(-20%, 5%, 0);
-                      }
-                    }
-                  }
-                }
+                padding: 96px 0 0;
+                overflow: hidden;
               }
             }
 
             figure {
-              position: static;
-              width: 70px;
-              margin: 0 auto;
-              transform: none;
-
-              svg {
-                path {
-                  fill: #454fdb;
-                  transform-origin: center bottom;
-
-                  &:nth-child(1),
-                  &:nth-child(2) {
-                    opacity: 0.3;
-                  }
-                }
-              }
-            }
-
-            &:nth-child(2),
-            &:nth-child(4) {
-              figure {
-                svg {
-                  transform: scale(0.8) translateY(-3px);
-                }
-              }
-            }
-            &:nth-child(3) {
-              figure {
-                svg {
-                  transform: scale(0.68) translateY(-6px);
-                }
-              }
+              width: 120px;
+              height: 68px;
+              left: -20px;
+              top: 8px;
+              margin: 0 auto 19px;
             }
           }
         }
@@ -434,12 +383,21 @@
     }
 
     @include media-breakpoint-down(md) {
+      .test-final {
+        left: 100%;
+        top: 100%;
+      }
+
       .test-options {
         ul {
           max-width: 350px;
 
           li {
             width: 70px;
+
+            figure {
+              left: -25px;
+            }
           }
         }
       }

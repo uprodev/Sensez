@@ -20,10 +20,6 @@
           width: 35px;
         }
 
-        &.el-01 {
-          left: 48%;
-          top: 80px;
-        }
         &.el-02 {
           left: 76px;
           top: 748px;
@@ -71,6 +67,34 @@
           right: 79px;
           top: 3051px;
         }
+        &.el-14 {
+          left: 79px;
+          top: 3500px;
+        }
+        &.el-15 {
+          right: 100px;
+          top: 3900px;
+        }
+        &.el-16 {
+          left: 120px;
+          top: 4200px;
+        }
+        &.el-17 {
+          right: 80px;
+          top: 4500px;
+        }
+        &.el-18 {
+          left: 50px;
+          top: 4900px;
+        }
+        &.el-19 {
+          right: 100px;
+          top: 5200px;
+        }
+        &.el-20 {
+          right: 130px;
+          top: 5400px;
+        }
 
         @include media-breakpoint-down(xxl) {
           &.el-04 {
@@ -95,6 +119,7 @@
 
       svg {
         opacity: 0;
+        transform: scale(0);
       }
     }
 
@@ -200,7 +225,8 @@
         list-style: none;
 
         li {
-          padding: 120px 0;
+          padding: 120px 0 0;
+          height: 50vh;
 
           h3 {
             font-size: 2rem;
@@ -271,10 +297,6 @@
       .test-options {
         width: 300px;
         right: 40px;
-
-        ul {
-          font-size: 0.85rem;
-        }
       }
       .test-scroller {
         width: calc(100% - 350px);
@@ -301,7 +323,7 @@
           max-width: 500px;
           margin: auto;
           justify-content: space-between;
-          padding: 0 0 8.7vh;
+          padding: 0;
 
           li {
             width: 80px;
@@ -314,6 +336,7 @@
 
               span {
                 padding: 96px 0 0;
+                overflow: hidden;
               }
             }
 
@@ -323,16 +346,6 @@
               left: -20px;
               top: 8px;
               margin: 0 auto 19px;
-
-              svg {
-                transform-origin: center bottom;
-                g {
-                  transform: matrix(1, 0, 0, 1, 10, 18);
-                }
-                path {
-                  transform-origin: center bottom;
-                }
-              }
             }
           }
         }
@@ -365,7 +378,7 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            padding: 11vh 0 0;
+            padding: 7vh 0 0;
 
             h3 {
               font-size: 24px;
