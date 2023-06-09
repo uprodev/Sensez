@@ -1,4 +1,15 @@
 jQuery(document).ready(function ($) {
+  if (window.visualViewport.height < 800) {
+    $(".page-wrapper").addClass("less-height");
+  }
+  $(window).on("resize", function () {
+    if (window.visualViewport.height < 800) {
+      $(".page-wrapper").addClass("less-height");
+    } else {
+      $(".page-wrapper").removeClass("less-height");
+    }
+  });
+
   var bgBody;
   // fullpage
   new fullpage("#fullpage", {
@@ -22,7 +33,7 @@ jQuery(document).ready(function ($) {
           duration: 1,
         });
       }
-      if (destination.index === 5) {
+      if (destination.index === 4) {
         gsap.to(".res-screen-08 .wrapper", {
           y: 0,
           duration: 0.5,
@@ -52,56 +63,61 @@ jQuery(document).ready(function ($) {
     fullpage_api.moveSectionDown();
   });
 
-  var counters = document.querySelectorAll(".counter");
-  gsap.utils.toArray(counters).forEach(function (elem) {
-    gsap.from(elem, {
-      scrollTrigger: {
-        scroller: ".res-screen-02 .fp-overflow",
-        scrollTrigger: ".block-scales",
-      },
-      textContent: 0,
-      duration: 1,
-      delay: 1,
-      ease: Power1.easeIn,
-      snap: { textContent: 1 },
-      stagger: 1,
-    });
+  function isElementInViewport(el, offset = 0) {
+    var rect = el.getBoundingClientRect();
+    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset /* or $(window).height() */ && rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */;
+  }
+
+  document.querySelector(".res-screen-02 .fp-overflow").addEventListener("scroll", function () {
+    console.log(isElementInViewport(document.querySelector(".block-scales")));
+    if (isElementInViewport(document.querySelector(".block-scales")) && !scalesAnimated && !scalesAnimating) {
+      scales();
+    }
   });
 
-  var bars = document.querySelectorAll(".bar");
-  gsap.utils.toArray(bars).forEach(function (bar) {
-    var barInner = bar.querySelector(".bar-inner"),
-      barInnerW = barInner.dataset.width + "%",
-      barTtitle = bar.previousElementSibling;
-    gsap.to(barInner, {
-      scrollTrigger: {
-        scroller: ".res-screen-02 .fp-overflow",
-        scrollTrigger: ".block-scales",
-      },
-      width: barInnerW,
-      duration: 1,
-      delay: 1,
-      ease: Power1.easeIn,
-      snap: { textContent: 1 },
-      stagger: 1,
+  var scalesAnimated = false;
+  var scalesAnimating = false;
+  function scales() {
+    scalesAnimating = true;
+    var counters = document.querySelectorAll(".counter");
+    gsap.utils.toArray(counters).forEach(function (elem) {
+      gsap.to(elem, {
+        textContent: elem.dataset.text,
+        duration: 1,
+        ease: Power1.easeIn,
+        snap: { textContent: 1 },
+        stagger: 1,
+        onComplete: function () {
+          scalesAnimated = true;
+        },
+      });
     });
-    gsap.to(barTtitle, {
-      scrollTrigger: {
-        scroller: ".res-screen-02 .fp-overflow",
-        scrollTrigger: ".block-scales",
-      },
-      left: barInnerW,
-      duration: 1,
-      delay: 1,
-      ease: Power1.easeIn,
-      snap: { textContent: 1 },
-      stagger: 1,
+
+    var bars = document.querySelectorAll(".bar");
+    gsap.utils.toArray(bars).forEach(function (bar) {
+      var barInner = bar.querySelector(".bar-inner"),
+        barInnerW = barInner.dataset.width + "%",
+        barTtitle = bar.previousElementSibling;
+      gsap.to(barInner, {
+        width: barInnerW,
+        duration: 1,
+        ease: Power1.easeIn,
+        snap: { textContent: 1 },
+        stagger: 1,
+      });
+      gsap.to(barTtitle, {
+        left: barInnerW,
+        duration: 1,
+        ease: Power1.easeIn,
+        snap: { textContent: 1 },
+        stagger: 1,
+      });
     });
-  });
+  }
 
   gsap.utils.toArray(".block-scroll").forEach(function (elem) {
     ScrollTrigger.create({
-      scroller: ".res-screen-02 .fp-overflow",
+      scroller: ".res-screen-scroll-container .fp-overflow",
       trigger: elem,
       start: "top 90%",
       toggleActions: "play none none none",

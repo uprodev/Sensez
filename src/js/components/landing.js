@@ -117,6 +117,9 @@ jQuery(document).ready(function ($) {
       });
   }
   function screen4mobile() {
+    var d = 0,
+      d1 = 0,
+      d2 = 0.5;
     gsap.utils.toArray(".screen-04-animation .box").forEach((box, i) => {
       gsap.to(box, {
         keyframes: {
@@ -124,25 +127,31 @@ jQuery(document).ready(function ($) {
         },
         transformOrigin: "center",
         ease: "none",
-        duration: 0.8,
+        duration: 0.4,
+        delay: d,
       });
+      d += 0.7;
     });
     gsap.utils.toArray(".screen-04-animation .text").forEach((txt, i) => {
       gsap.to(txt, {
         scaleX: 1,
         scaleY: 1,
         opacity: 1,
-        duration: 0.8,
+        duration: 0.4,
         transformOrigin: "center",
         ease: "none",
+        delay: d1,
       });
+      d1 += 0.7;
     });
     gsap.utils.toArray(".screen-04-animation .line").forEach((line, i) => {
       gsap.to(line.querySelectorAll("path"), {
         strokeDashoffset: 0,
         ease: "none",
-        duration: 0.8,
+        duration: 0.3,
+        delay: d2,
       });
+      d2 += 0.8;
     });
   }
 
@@ -238,6 +247,19 @@ jQuery(document).ready(function ($) {
           });
         }
       } else {
+        if ($(window).width() < 768) {
+          // screen 02
+          if (destination.index === 1) {
+            gsap.to(".screen-02 h2, .screen-02 .text-wrapper span, .screen-02 p", {
+              y: 0,
+              opacity: 1,
+              duration: 1,
+              delay: 0.5,
+              stagger: 0.15,
+            });
+          }
+        }
+
         // screen 04
         if (destination.index === 2 && direction === "down") {
           setTimeout(() => {
@@ -260,7 +282,22 @@ jQuery(document).ready(function ($) {
 
         // screen 08
         if (destination.index === 7 && direction === "down") {
-          gsap.to(".screen-08 .el-01, .screen-08 .el-02, .screen-08 .bg-gradient, .screen-08 .h1", {
+          gsap.to(".screen-08 .bg-gradient", {
+            y: 0,
+            duration: 0.8,
+            delay: 0.5,
+          });
+          gsap.to(".screen-08 .el-01", {
+            x: 0,
+            duration: 0.8,
+            delay: 0.5,
+          });
+          gsap.to(".screen-08 .el-01", {
+            rotate: 360,
+            duration: 5,
+            delay: 0.5,
+          });
+          gsap.to(".screen-08 .h1", {
             duration: 0.8,
             delay: 0.5,
             x: 0,
@@ -268,24 +305,43 @@ jQuery(document).ready(function ($) {
           });
           gsap.to(".screen-08 .image", {
             duration: 0.8,
-            delay: 1,
-            x: 0,
+            delay: 0.5,
+            x: "5vw",
             y: 0,
             onComplete: function () {
               document.querySelector(".screen-08 .image .inner").classList.add("rotating");
             },
           });
-          gsap.to(".screen-08 .h1 div", {
-            duration: 0.8,
-            delay: 0.5,
-            left: 0,
-            x: 0,
+          gsap.to(".screen-08 .btn-wrapper", {
             y: 0,
+            delay: 0.5,
           });
-          gsap.to(".screen-08 .btn", {
-            opacity: 1,
-            delay: 1.5,
-          });
+          // gsap.to(".screen-08 .el-01, .screen-08 .el-02,  .screen-08 .h1", {
+          //   duration: 0.8,
+          //   delay: 0.5,
+          //   x: 0,
+          //   y: 0,
+          // });
+          // gsap.to(".screen-08 .image", {
+          //   duration: 0.8,
+          //   delay: 1,
+          //   x: 0,
+          //   y: 0,
+          //   onComplete: function () {
+          //     document.querySelector(".screen-08 .image .inner").classList.add("rotating");
+          //   },
+          // });
+          // gsap.to(".screen-08 .h1 div", {
+          //   duration: 0.8,
+          //   delay: 0.5,
+          //   left: 0,
+          //   x: 0,
+          //   y: 0,
+          // });
+          // gsap.to(".screen-08 .btn", {
+          //   opacity: 1,
+          //   delay: 1.5,
+          // });
         }
       }
     },
@@ -323,6 +379,14 @@ jQuery(document).ready(function ($) {
 
   $(".accordion .item-header button").on("click", function () {
     if (!$(this).closest(".item").hasClass("active")) {
+      $(".accordion .item.active")
+        .removeClass("active")
+        .find(".item-body")
+        .slideUp(300, function () {
+          setTimeout(() => {
+            fullpage_api.reBuild();
+          }, 100);
+        });
       $(this)
         .closest(".item")
         .addClass("active")

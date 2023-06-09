@@ -174,7 +174,7 @@
       }
 
       p {
-        margin: 40px 0 0;
+        margin: 10px 0 0;
       }
 
       h2 {
@@ -225,6 +225,21 @@
 
     .elements {
       display: none;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .bg {
+      height: 110vh;
+      width: 110vw;
+      background-image: radial-gradient(81.17% 81.17% at 50% 0%, rgba(68, 32, 158, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    h2,
+    .text-wrapper span,
+    p {
+      opacity: 0;
+      transform: translateY(50px);
     }
   }
 }

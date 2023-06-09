@@ -2,6 +2,24 @@
   color: #0a0517;
   background-color: #fdab96;
 
+  .bg {
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+      content: "";
+      height: 50vw;
+      width: 50vw;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      background: #652feb;
+      filter: blur(200px);
+      transform: translate3d(-50%, -59.6%, 0);
+      border-radius: 100%;
+    }
+  }
+
   .container {
     position: relative;
     z-index: 3;
@@ -156,20 +174,6 @@
   .cite {
     padding: 291px 0 249px;
     position: relative;
-    overflow: hidden;
-
-    &:before {
-      content: "";
-      height: 50vw;
-      width: 50vw;
-      position: absolute;
-      left: 50%;
-      top: 100%;
-      background: #652feb;
-      filter: blur(200px);
-      transform: translate3d(-50%, -59.6%, 0);
-      border-radius: 100%;
-    }
 
     &:after {
       content: "";
@@ -360,6 +364,14 @@
   }
 
   @include media-breakpoint-down(md) {
+    .bg {
+      &:before {
+        height: 516px;
+        width: 516px;
+        filter: blur(100px);
+        transform: translate3d(-50%, -306px, 0);
+      }
+    }
     .wrapper {
       position: relative;
       padding: 126px 0 40px;
@@ -438,13 +450,6 @@
 
     .cite {
       padding: 144px 0 60px;
-
-      &:before {
-        height: 516px;
-        width: 516px;
-        filter: blur(100px);
-        transform: translate3d(-50%, -306px, 0);
-      }
 
       &:after {
         width: 23px;

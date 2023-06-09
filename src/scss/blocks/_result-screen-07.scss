@@ -58,7 +58,7 @@
         align-self: flex-start;
 
         &:hover {
-          animation: tada 2s linear 0s forwards;
+          animation: tada 4s linear 0s forwards;
         }
       }
 
@@ -365,7 +365,7 @@
       display: block;
       text-align: center;
       color: $white;
-      margin: 40px 0;
+      margin: 0 0 40px;
     }
 
     .payment-variants {
@@ -414,6 +414,11 @@
           li {
             padding: 0 0 0 20px;
             margin: 0 0 0.7em;
+            font-weight: 500;
+
+            &:first-child {
+              font-weight: 400;
+            }
 
             &:last-child {
               margin-right: 20px;

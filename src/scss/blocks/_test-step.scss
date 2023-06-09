@@ -41,6 +41,13 @@
     --prev: #fff;
   }
 
+  &.color-white {
+    --bg: #652feb;
+    --step: #fff;
+    --step-start: rgba(255, 255, 255, 0.6);
+    --prev: #fff;
+  }
+
   .page-content {
     height: 100%;
   }
@@ -94,6 +101,11 @@
         figure {
           transform-origin: center;
           height: 0;
+
+          lottie-player {
+            width: 100%;
+            height: auto;
+          }
         }
 
         &:nth-child(2),

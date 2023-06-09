@@ -59,11 +59,15 @@
 
       &.btn-white {
         box-shadow: 4px 6px #f24eb6;
+        &:hover {
+          box-shadow: none;
+        }
       }
 
       &.btn-blue {
         &:hover {
-          background-color: #f24eb6;
+          background-color: #fff;
+          color: #0a0517;
         }
       }
     }
@@ -125,6 +129,14 @@
   }
 
   @include media-breakpoint-down(md) {
+    &.fp-auto-height.fp-section {
+      height: 100% !important;
+    }
+    .fp-overflow,
+    .container,
+    .wrapper {
+      height: 100%;
+    }
     .wrapper {
       flex-direction: column;
       margin: 0 -20px;
@@ -132,7 +144,7 @@
 
     .col {
       padding: 0 20px;
-      height: 50vh;
+      height: 50%;
       display: flex;
       flex-direction: column;
       align-items: center;

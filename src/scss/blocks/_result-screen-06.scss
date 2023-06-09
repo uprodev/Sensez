@@ -169,7 +169,7 @@
 
   @include media-breakpoint-down(md) {
     .wrapper {
-      padding: 40px 0 60px;
+      padding: 20px 0;
       flex-direction: column;
 
       .text {
@@ -192,10 +192,11 @@
       .image {
         width: 100%;
         border-radius: 30px;
-        padding: 52px 20px 40px;
+        padding: 30px 20px;
 
         figure {
           transform: none;
+          margin: 0 15px;
         }
 
         img {

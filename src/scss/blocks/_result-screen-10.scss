@@ -218,4 +218,17 @@
       }
     }
   }
+
+  @include media-breakpoint-down(md) {
+    .recommendation {
+      .block-main {
+        .headline {
+          font-family: $ff-kaisei;
+          font-weight: 500;
+          font-size: 22px;
+          line-height: 140%;
+        }
+      }
+    }
+  }
 }

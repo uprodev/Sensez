@@ -271,13 +271,26 @@
         flex-direction: column;
         row-gap: 0;
         margin: 0;
+        padding: 0 0 15px;
 
         .btn {
           align-self: center;
+          height: 48px;
+          font-size: 16px;
+          width: 300px;
+
+          svg {
+            width: 28px;
+          }
 
           &.btn-start {
             display: inline-flex;
             margin-bottom: 26px;
+          }
+
+          &.btn-outlined {
+            height: 48px;
+            border-width: 1px;
           }
         }
       }
@@ -288,6 +301,23 @@
       left: 50%;
       bottom: 9.85vh;
       transform: translateX(-50%);
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .elements {
+      display: none;
+    }
+
+    .fp-overflow {
+      width: 100%;
+    }
+    .container {
+      .buttons {
+        .btn {
+          width: 100%;
+        }
+      }
     }
   }
 }

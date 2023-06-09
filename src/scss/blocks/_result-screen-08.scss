@@ -224,7 +224,7 @@
 
     .wrapper {
       height: 600px;
-      width: 335px;
+      max-width: 335px;
       margin: auto;
     }
 
@@ -233,49 +233,64 @@
 
       &.share-copy {
         left: auto;
-        bottom: 43.5%;
-        width: 39.5%;
+        bottom: 37.5%;
+        width: 35.5%;
         font-size: 24px;
         right: 1.5%;
         font-size: 24px;
       }
 
       &.share-inst {
-        left: 0;
-        bottom: 43.5%;
-        width: 54.2%;
-        height: 18.6%;
+        left: 3%;
+        bottom: 41.5%;
+        width: 50%;
+        height: 20%;
       }
       &.share-reddit {
-        left: 9%;
+        left: 13%;
         bottom: 67%;
-        width: 36%;
+        width: 32.5%;
         height: 30%;
         transform: rotate(23.5deg);
       }
       &.share-snapchat {
         left: auto;
-        bottom: 67%;
-        width: 60%;
-        height: 19%;
+        bottom: 64%;
+        width: 55%;
+        height: 21.5%;
         transform: rotate(-31.5deg);
-        right: 0;
+        right: 4%;
       }
       &.share-twitter {
-        left: 0;
+        left: 3%;
         bottom: 2%;
-        width: 48.5%;
+        width: 39%;
       }
       &.share-facebook {
         left: auto;
-        bottom: 15.7%;
-        width: 78%;
-        height: 21%;
+        bottom: 13%;
+        width: 61%;
+        height: 24%;
         transform: rotate(60deg);
         align-items: center;
         padding: 0;
-        right: -3%;
+        right: 7%;
       }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    h2 {
+      padding: 40px 0 0;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .wrapper {
+      width: auto;
+      height: 531px;
+      max-width: none;
+      margin: 0 -20px;
     }
   }
 }

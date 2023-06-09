@@ -312,29 +312,6 @@ jQuery(document).ready(function ($) {
       }
       disableScroll();
 
-      document.querySelectorAll(".test-options ul li label").forEach((label) => {
-        label.addEventListener("mouseenter", function () {
-          var lottiePlayer = this.querySelector(".hover");
-          lottiePlayer.play();
-        });
-        label.addEventListener("mouseleave", function () {
-          var lottiePlayer = this.querySelector(".hover");
-          var lottiePlayerClick = this.querySelector(".click");
-          lottiePlayer.stop();
-          lottiePlayerClick.stop();
-        });
-        label.addEventListener("click", function () {
-          var lottiePlayer = this.querySelector(".hover");
-          lottiePlayer.style.opacity = 0;
-          var lottiePlayerClick = this.querySelector(".click");
-          lottiePlayerClick.play();
-          setTimeout(() => {
-            lottiePlayerClick.stop();
-            lottiePlayer.removeAttribute("style");
-          }, 500);
-        });
-      });
-
       gsap.to(".test-step", {
         y: 0,
         opacity: 1,
@@ -376,6 +353,26 @@ jQuery(document).ready(function ($) {
     }
 
     if (document.querySelector(".test-step--type1")) {
+      document.querySelectorAll(".test-options ul li label").forEach((label) => {
+        var lottieHover = label.querySelector(".hover");
+        var lottieClick = label.querySelector(".click");
+
+        label.addEventListener("mouseenter", function () {
+          lottieHover.play();
+        });
+        label.addEventListener("mouseleave", function () {
+          lottieHover.stop();
+        });
+        label.addEventListener("click", function () {
+          lottieHover.style.opacity = 0;
+          lottieClick.play();
+          setTimeout(() => {
+            lottieClick.stop();
+            lottieClick.removeAttribute("style");
+          }, 500);
+        });
+      });
+
       var animating = false;
       $(".test-step--type1 .test-options label").on("click", function (e) {
         if (e.target.tagName === "INPUT" && !animating) {
@@ -553,6 +550,30 @@ jQuery(document).ready(function ($) {
     }
 
     if (document.querySelector(".test-step--type2")) {
+      document.querySelectorAll(".test-options ul li label").forEach((label) => {
+        var lottieHover = label.querySelector(".flame-lightblue .hover");
+        var lottieClick = label.querySelector(".flame-lightblue .click");
+
+        if ($(window).width() < 768) {
+          (lottieHover = label.querySelector(".flame-blue .hover")), (lottieClick = label.querySelector(".flame-blue .click"));
+        }
+
+        label.addEventListener("mouseenter", function () {
+          lottieHover.play();
+        });
+        label.addEventListener("mouseleave", function () {
+          lottieHover.stop();
+        });
+        label.addEventListener("click", function () {
+          lottieHover.style.opacity = 0;
+          lottieClick.play();
+          setTimeout(() => {
+            lottieClick.stop();
+            lottieClick.removeAttribute("style");
+          }, 500);
+        });
+      });
+
       $(".test-step--type2 .test-options label").on("click", function (e) {
         if (e.target.tagName === "INPUT") {
           progress();
@@ -647,9 +668,10 @@ jQuery(document).ready(function ($) {
                       top: 0,
                       duration: 0,
                     });
-                    gsap.to($(".test-options figure  svg[style]"), {
+                    gsap.to($(".test-options figure svg"), {
                       scale: 1,
-                      y: 0,
+                      y: "-50%",
+                      x: "-50%",
                       duration: 0,
                     });
                   });

@@ -118,6 +118,7 @@ button {
     padding: 0;
     overflow: hidden;
     transition: all 0.25s;
+    box-shadow: 5px 5px #0a0517;
 
     .btn-main {
       width: 100%;
@@ -137,8 +138,7 @@ button {
     }
 
     &:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px #0a0517;
+      box-shadow: none;
     }
   }
 
@@ -170,6 +170,15 @@ button {
 
   @include media-breakpoint-down(md) {
     width: 100%;
+
+    &.btn-start {
+      height: 48px;
+      font-size: 16px;
+
+      svg {
+        width: 28px;
+      }
+    }
   }
 }
 

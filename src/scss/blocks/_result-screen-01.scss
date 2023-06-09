@@ -6,6 +6,7 @@
   &.res-orange {
     --theme: #{$orange};
     --theme-text: #{$orange-text};
+    --theme-bg: #{$orange};
 
     .el {
       background-image: url(../img/icons/star-orange.svg);
@@ -14,6 +15,7 @@
   &.res-blue {
     --theme: #{$blue-res};
     --theme-text: #{$blue-text};
+    --theme-bg: #{$blue-res};
 
     .el {
       background-image: url(../img/icons/star-blue-res.svg);
@@ -22,6 +24,7 @@
   &.res-pink {
     --theme: #{$pink};
     --theme-text: #{$pink-text};
+    --theme-bg: #{$pink};
 
     .el {
       background-image: url(../img/icons/star-pink.svg);
@@ -30,6 +33,7 @@
   &.res-yellow {
     --theme: #{$yellow-res};
     --theme-text: #{$yellow-text};
+    --theme-bg: #ffb436;
 
     .el {
       background-image: url(../img/icons/star-yellow.svg);
@@ -40,7 +44,7 @@
     content: "";
     width: 50vw;
     height: 50vw;
-    background-color: var(--theme);
+    background-color: var(--theme-bg);
     filter: blur(200px);
     position: absolute;
     left: 50%;
@@ -320,7 +324,7 @@
           }
         }
 
-        &.btn-start {
+        &.btn-outlined {
           margin-bottom: 19px;
         }
       }
@@ -387,9 +391,43 @@
       margin: 0 0 3.5vh;
     }
 
+    &.res-blue,
+    &.res-yellow {
+      h1 {
+        font-size: 2.6rem;
+      }
+    }
+
     p {
       margin: 0 0 4.8vh;
       font-size: 1rem;
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(md) {
+    .res-screen-01 {
+      .logo {
+        width: 60px;
+      }
+
+      .buttons {
+        padding: 20px 0 0;
+      }
+
+      .subtitle {
+        margin: 15px 0 10px;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin: 0 0 10px;
+      }
+
+      p {
+        margin: 0 0 20px;
+      }
     }
   }
 }

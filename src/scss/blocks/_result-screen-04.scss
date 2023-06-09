@@ -14,6 +14,7 @@
     transform: translate3d(-50%, -33.6%, 0);
     background: #fdab96;
     filter: blur(200px);
+    z-index: 0;
   }
 
   .elements {
@@ -47,7 +48,7 @@
 
   .container {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     padding-left: 7.16vw;
     padding-right: 7.16vw;
 
@@ -83,6 +84,7 @@
     font-family: $font-family-base;
     font-weight: 400;
     color: $white;
+    z-index: 3;
   }
 
   .swiper-controls {
@@ -170,6 +172,18 @@
   }
 
   @include media-breakpoint-down(md) {
+    &:before {
+      content: "";
+      width: 117vw;
+      height: 117vw;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate3d(-60%, -50%, 0);
+      background: #fdab96;
+      filter: blur(100px);
+    }
+
     .elements {
       .el {
         &.el-01,
@@ -288,7 +302,7 @@
     }
 
     blockquote {
-      font-size: 39px;
+      font-size: 31px;
       line-height: 130%;
       margin: 0 0 40px;
     }

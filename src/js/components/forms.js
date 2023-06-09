@@ -1,4 +1,15 @@
 jQuery(document).ready(function ($) {
+  if (window.visualViewport.height < 800) {
+    $(".page-wrapper").addClass("less-height");
+  }
+  $(window).on("resize", function () {
+    if (window.visualViewport.height < 800) {
+      $(".page-wrapper").addClass("less-height");
+    } else {
+      $(".page-wrapper").removeClass("less-height");
+    }
+  });
+
   var barInner = $(".bar-inner"),
     barIcon = $(".bar-icon");
 
@@ -27,6 +38,8 @@ jQuery(document).ready(function ($) {
   $(".contact-us-close").on("click", function () {
     $(".contact-us").hide(200);
   });
+
+  // $(".formGift .field:not(.field-optional) input").on('');
 });
 
 if (document.getElementById("textarea")) {

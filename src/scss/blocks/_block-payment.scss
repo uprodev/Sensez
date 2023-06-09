@@ -205,30 +205,31 @@
     }
 
     .elements {
-      .el {
-        &.el-01 {
-          top: auto;
-          bottom: 30px;
-          left: 61px;
-          width: 40px;
-        }
-        &.el-02 {
-          left: auto;
-          right: 56px;
-          bottom: 14px;
-          width: 33px;
-        }
-        &.el-04 {
-          right: 31px;
-          top: 163px;
-          width: 46px;
-        }
-        &.el-03,
-        &.el-05,
-        &.el-06 {
-          display: none;
-        }
-      }
+      display: none;
+      // .el {
+      //   &.el-01 {
+      //     top: auto;
+      //     bottom: 30px;
+      //     left: 61px;
+      //     width: 40px;
+      //   }
+      //   &.el-02 {
+      //     left: auto;
+      //     right: 56px;
+      //     bottom: 14px;
+      //     width: 33px;
+      //   }
+      //   &.el-04 {
+      //     right: 31px;
+      //     top: 163px;
+      //     width: 46px;
+      //   }
+      //   &.el-03,
+      //   &.el-05,
+      //   &.el-06 {
+      //     display: none;
+      //   }
+      // }
     }
 
     .logo {
@@ -256,6 +257,16 @@
           width: 18px;
           height: 18px;
         }
+      }
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(md) {
+    .block-payment {
+      .logo {
+        margin-bottom: 30px;
       }
     }
   }

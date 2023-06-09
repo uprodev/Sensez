@@ -706,12 +706,12 @@
   @include media-breakpoint-down(lg) {
     .text {
       transform: translateX(100vw);
-      margin: 0 0 30px;
+      margin: 0 0 22px;
     }
 
     ul {
       flex-direction: column;
-      row-gap: 12px;
+      row-gap: 8px;
 
       li {
         transform: translateX(100vw);
@@ -721,6 +721,7 @@
             font-size: 18px;
             figure {
               height: 18.5vh;
+              margin: 0 0 -4px;
             }
           }
         }

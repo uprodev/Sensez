@@ -77,6 +77,16 @@ body {
   }
 }
 
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(calc(-20% + 20vw), 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(calc(-60% + 20vw), 0, 0);
+  }
+}
+
 @-webkit-keyframes jackInTheBox {
   0% {
     opacity: 0;

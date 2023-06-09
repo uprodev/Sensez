@@ -25,14 +25,22 @@
       height: 72px;
       overflow: hidden;
     }
+
+    &.field-optional {
+      input,
+      textarea {
+        border: 2px solid #e1defc;
+        background-color: #e1defc;
+      }
+    }
   }
 
   .check-field {
-    max-width: 320px;
     margin: 23px auto 14px;
-    text-align: left;
+    text-align: center;
 
     label {
+      display: inline-block;
       font-weight: 400;
       font-size: 14px;
       line-height: 125%;

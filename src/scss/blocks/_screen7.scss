@@ -57,6 +57,7 @@
 
           span {
             transition: all 0.2s;
+            color: #0a0517;
           }
 
           svg {
@@ -207,6 +208,34 @@
               padding: 0 0 0 22px;
               background-position: 2px 6px;
               background-size: 12px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .accordion {
+      .item {
+        &.active {
+          .item-header {
+            button {
+              span {
+                color: #0a0517;
+              }
+              svg path {
+                fill: #0a0517;
+              }
+
+              &:hover {
+                span {
+                  color: #652feb;
+                }
+                svg path {
+                  fill: #652feb;
+                }
+              }
             }
           }
         }

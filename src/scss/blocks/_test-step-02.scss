@@ -68,6 +68,10 @@
             margin: 0;
             transform-origin: center bottom;
 
+            .flame-blue {
+              display: none;
+            }
+
             lottie-player {
               position: absolute;
               left: 50%;
@@ -283,7 +287,7 @@
         left: 0;
         right: 0;
         top: auto;
-        bottom: 0;
+        bottom: 30px;
 
         ul {
           font-size: 0.625rem;
@@ -397,6 +401,14 @@
 
             figure {
               left: -25px;
+
+              .flame-lightblue {
+                display: none;
+              }
+
+              .flame-blue {
+                display: block;
+              }
             }
           }
         }

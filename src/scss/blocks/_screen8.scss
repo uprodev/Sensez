@@ -85,14 +85,15 @@
   }
 
   .container {
-    position: relative;
-    z-index: 5;
     width: 100%;
     padding-bottom: 15px;
   }
 
   .h1 {
     margin: 15px 0;
+    position: relative;
+    z-index: 5;
+
     div {
       display: inline-block;
       position: relative;
@@ -108,6 +109,8 @@
 
   .btn-wrapper {
     text-align: left;
+    position: relative;
+    z-index: 5;
   }
 
   .btn-start {
@@ -144,6 +147,11 @@
       top: 20vh;
     }
   }
+  @include media-breakpoint-down(lg) {
+    .image {
+      right: -50px;
+    }
+  }
 
   @include media-breakpoint-down(md) {
     padding: 86px 0 72px;
@@ -153,38 +161,31 @@
     .elements {
       .el {
         &.el-01 {
+          height: 112px;
           right: auto;
-          left: -48px;
-          top: auto;
-          bottom: 153px;
-          height: 140px;
-          transform: translateX(63vw);
+          left: -45px;
+          top: 24vh;
+          transform: translateX(-60%);
         }
         &.el-02 {
-          right: auto;
-          left: 5px;
-          bottom: auto;
-          top: -101px;
-          height: 124px;
-          transform: translateY(228px);
+          display: none;
         }
       }
     }
 
     .bg-gradient {
-      width: 229vw;
-      height: 229vw;
+      width: 171vw;
+      height: 171vw;
       bottom: auto;
-      top: 32.7vh;
-      left: -132vw;
-      transform: translateY(-71.2vh);
+      top: -6.5vh;
+      left: -100vw;
+      transform: translateY(42.3vh);
+      opacity: 1;
     }
 
     .image {
       height: 51.6vh;
-      right: -155px;
-      top: auto;
-      bottom: 21vh;
+      position: static;
       transform: translateX(100vw);
     }
 
@@ -195,11 +196,23 @@
 
     .h1 {
       text-align: center;
-      transform: translateY(40vh);
+      transform: none;
       font-size: 2.875rem;
+      transform: translateX(100vw);
 
       div {
         left: 0;
+      }
+
+      & + .h1 div {
+        left: 0;
+      }
+
+      &.txt1 {
+        margin: 0;
+      }
+      &.txt2 {
+        margin: 0 0 36px;
       }
     }
 
@@ -208,12 +221,14 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 70px;
+      bottom: 40px;
       padding: 0 20px;
+      transform: translateY(200%);
     }
 
     .btn-start {
       margin: 0;
+      opacity: 1;
     }
   }
 
@@ -231,11 +246,6 @@
     .screen-08 {
       .h1 {
         font-size: 40px;
-      }
-
-      .image {
-        height: 45vh;
-        bottom: 18vh;
       }
     }
   }
