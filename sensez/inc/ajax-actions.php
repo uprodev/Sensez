@@ -9,8 +9,9 @@ $actions = [
     'apply_coupon',
     'order_viewed',
     'save_personal_data',
-    'add_ticket',
-    'add_to_fav',
+    'create_coupon',
+
+
     'add_to_cart'
 
 ];
@@ -110,64 +111,6 @@ function ajax_registration()
 
 add_filter('wp_new_user_notification_email', 'change_notification_message', 10, 3);
 
-function change_notification_message( $wp_new_user_notification_email, $user, $blogname ) {
-
-
-    $password =  wp_generate_password( 8, false );
-    wp_update_user([
-        'ID' => $user->ID,
-        'user_pass' => $password
-    ]);
-
-    $message  .= sprintf( __( 'Username: %s' ), $user->user_login ) . "\r\n\r\n";
-    $message = __( 'Пароль: ' ) . $password. "\r\n\r\n";
-
-    // Set the email's message
-    $wp_new_user_notification_email['message'] = $message;
-
-    return $wp_new_user_notification_email;
-}
-
-function ajax_login()
-{
-
-    // First check the nonce, if it fails the function will break
-    check_ajax_referer('ajax-login-nonce', 'security');
-
-    // Nonce is checked, get the POST data and sign user on
-    $email = $_POST['login'];
-    $password = $_POST['password'];
-
-    $auth = wp_authenticate($email, $password);
-
-    if (is_wp_error($auth)) {
-        $data = array(
-            'update' => false,
-            'status' => '<p class="error">' . __('Неверные логин или пароль', 'sage') . '</p>',
-        );
-    } else {
-
-
-        wp_set_current_user($auth->ID);
-        wp_set_auth_cookie($auth->ID, true);
-        do_action('wp_login', $auth->user_login, $auth);
-        $data = array(
-            'update' => true,
-            'status' => '<p class="success">' . __('Подождите...', 'sage') . '</p>',
-            'redirect' => '/',
-        );
-    }
-
-    if (empty($data))
-        $data = array(
-            'update' => false,
-            'status' => '<p class="error">' . __('Unknow error', 'sage') . '</p>',
-        );
-
-    echo json_encode($data);
-
-    wp_die();
-}
 
 
 function validate_email()
@@ -238,40 +181,38 @@ function ajax_reset()
 }
 
 
+function create_coupon() {
 
-function qty_cart()
-{
+    /**
+     * Create a coupon programatically
+     */
+    $coupon_code = rand(10000000000, 90000000000); // Code
+    $amount = '15.99'; // Amount
+    $discount_type = 'fixed_cart'; // Type: fixed_cart, percent, fixed_product, percent_product
 
-    $cart_item_key = $_POST['hash'];
-    $product_values = WC()->cart->get_cart_item($cart_item_key);
-    $product_quantity = apply_filters('woocommerce_stock_amount_cart_item', apply_filters('woocommerce_stock_amount', preg_replace("/[^0-9\.]/", '', filter_var($_POST['quantity'], FILTER_SANITIZE_NUMBER_INT))), $cart_item_key);
-    $passed_validation  = apply_filters('woocommerce_update_cart_validation', true, $cart_item_key, $product_values, $product_quantity);
+    $coupon = array(
+        'post_title' => $coupon_code,
+        'post_content' => '',
+        'post_status' => 'publish',
+        'post_author' => 1,
+        'post_type' => 'shop_coupon');
+
+    $new_coupon_id = wp_insert_post( $coupon );
+
+// Add meta
+    update_post_meta( $new_coupon_id, 'discount_type', $discount_type );
+    update_post_meta( $new_coupon_id, 'coupon_amount', $amount );
+    update_post_meta( $new_coupon_id, 'individual_use', 'yes' );
+    update_post_meta( $new_coupon_id, 'product_ids', '' );
+    update_post_meta( $new_coupon_id, 'exclude_product_ids', '' );
+    update_post_meta( $new_coupon_id, 'usage_limit', '1' );
+    update_post_meta( $new_coupon_id, 'expiry_date', '' );
+    update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
+    update_post_meta( $new_coupon_id, 'free_shipping', 'no' );
 
 
-    if ($passed_validation) {
-        WC()->cart->set_quantity($cart_item_key, $product_quantity, true);
-    }
-
-    die();
+    wp_send_json(['id' => $new_coupon_id]);
 }
-
-function remove_item_from_cart()
-{
-    $cart_item_keys = $_POST['hash'];
-
-    foreach ($cart_item_keys as $cart_item_key) {
-        WC()->cart->remove_cart_item($cart_item_key);
-        $count = WC()->cart->get_cart_contents_count();
-    }
-    wp_send_json(
-        [
-            'count' => $count,
-        ]
-    );
-    die();
-}
-
-
 function apply_coupon()
 {
     $coupon = $_POST['coupon'];
@@ -361,8 +302,6 @@ function order_viewed()
     );
     die();
 }
-
-
 
 function save_personal_data()
 {
@@ -479,15 +418,6 @@ function add_ticket() {
 
 }
 
-
-function add_to_fav() {
-    $user_id = $_POST['user_id'];
-    $fav = $_POST['fav'];
-    update_field('fav',$fav, 'user_'.$user_id);
-
-
-    wp_die();
-}
 
 /**
  * add_to_cart
