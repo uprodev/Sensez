@@ -213,7 +213,7 @@ jQuery(document).ready(function ($) {
           backgroundColor: "#FF9072",
           duration: 1,
           onComplete: function () {
-            $(".btn-next").get(0).click();
+            // $(".btn-next").get(0).click();
           },
         });
       });
@@ -476,7 +476,7 @@ jQuery(document).ready(function ($) {
                     backgroundColor: "#F9F3E9",
                     duration: 0.3,
                     onComplete: function () {
-                      $(".btn-next").get(0).click();
+                      // $(".btn-next").get(0).click();
                     },
                   },
                   "-=0.3"
@@ -514,7 +514,7 @@ jQuery(document).ready(function ($) {
                     backgroundColor: "#F9F3E9",
                     duration: 0.3,
                     onComplete: function () {
-                      $(".btn-next").get(0).click();
+                      // $(".btn-next").get(0).click();
                     },
                   },
                   "-=0.3"
@@ -642,7 +642,7 @@ jQuery(document).ready(function ($) {
                     opacity: 0,
                     duration: 0.5,
                     onComplete: function () {
-                      $(".btn-next").get(0).click();
+                      // $(".btn-next").get(0).click();
                     },
                   },
                   "-=0.2"
