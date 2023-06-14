@@ -7,4 +7,4 @@
 </head>
 
 <body>
-  <div class="page-wrapper">
+  <div class="page-wrapper<?php if(is_singular('result')) echo ' page-result' ?>">

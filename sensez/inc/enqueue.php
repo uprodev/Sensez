@@ -29,7 +29,13 @@ function add_scripts() {
         wp_enqueue_script( 'my-test', get_template_directory_uri() . '/assets/js/test.js', array(), false, true);
     }
 
-    wp_enqueue_script( 'my-add', get_template_directory_uri() . '/assets/js/add.js', array(), false, true);
+    if (is_singular('result')) {
+        wp_enqueue_script( 'my-fullpage', get_template_directory_uri() . '/assets/js/fullpage.js', array(), false, true);
+        wp_enqueue_script( 'my-graph', get_template_directory_uri() . '/assets/js/graph.js', array(), false, true);
+        wp_enqueue_script( 'my-result-advanced', get_template_directory_uri() . '/assets/js/result-advanced.js', array(), false, true);
+    }
+
+   wp_enqueue_script( 'my-add', get_template_directory_uri() . '/assets/js/add.js', array(), false, true);
 
 
 

@@ -18,7 +18,9 @@
 <body>
 
 <div class="page-wrapper single-screen">
-    <section class="section block-payment">
+    <section class=" <?php if ($_GET['key']) { ?> section <?php } ?> block-payment">
+
+        <?php if ($_GET['key']) { ?>
         <div class="elements">
             <div class="el el-01"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-01.svg" alt="" /></div>
             <div class="el el-02"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-02.svg" alt="" /></div>
@@ -27,6 +29,9 @@
             <div class="el el-05"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-05.svg" alt="" /></div>
             <div class="el el-06"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-06.svg" alt="" /></div>
         </div>
+        <?php } ?>
+
+
         <div class="container">
             <div class="logo">
                 <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.svg" alt="" /></a>

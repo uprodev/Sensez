@@ -14,7 +14,7 @@ div#payment {
 
 table.shop_table.woocommerce-checkout-review-order-table {
   border: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .payment_box.payment_method_stripe_cc.wc-stripe-no-methods:before {
