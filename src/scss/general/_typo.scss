@@ -4,6 +4,9 @@ html {
   @include media-breakpoint-up(xxxl) {
     font-size: 24px;
   }
+  @include media-breakpoint-down(md) {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -12,6 +15,14 @@ body {
   font-size: 1rem;
   line-height: 1.25;
   font-weight: 400;
+}
+
+html,
+body {
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
 }
 
 input,

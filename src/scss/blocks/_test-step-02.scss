@@ -414,5 +414,26 @@
         }
       }
     }
+
+    @media (max-width: 575px) and (max-height: 700px) {
+      .test-scroller {
+        ul {
+          li {
+            .image {
+              height: 100px;
+
+              img {
+                width: auto !important;
+                height: 100% !important;
+              }
+            }
+
+            h3 {
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
   }
 }

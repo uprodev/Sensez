@@ -207,4 +207,8 @@
       }
     }
   }
+
+  @media (max-width: 575px) and (max-height: 700px) {
+    padding-top: calc(75px + 2vh);
+  }
 }
