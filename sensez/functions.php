@@ -4,12 +4,12 @@ include 'inc/ajax-actions.php'; // ajax
 include 'inc/enqueue.php';      // add styles and scripts
 include 'inc/acf.php';          // custom acf functions
 include 'inc/extras.php';       // custom functions
-
+include 'inc/woo.php';
 
 add_theme_support( 'post-thumbnails');
 add_theme_support( 'woocommerce');
 add_theme_support( 'title-tag' );
-add_theme_support('html5'); 
+add_theme_support('html5');
 
 add_action('after_setup_theme', 'theme_register_nav_menu');
 function theme_register_nav_menu(){
@@ -54,11 +54,35 @@ function test_4_steps(){
     update_field('gender', array($_POST['gender']), $post_id);
     update_field('orientation', array($_POST['orientation']), $post_id);
 
-    if (((int)$_POST['gender'] == 10 && (int)$_POST['orientation'] == 19) || ((int)$_POST['gender'] == 11 && (int)$_POST['orientation'] == 19)) 
-        $gender_term_link = get_term_link((int)$_POST['gender']);
-    else $gender_term_link = get_term_link(12);
+    if ((int)$_POST['gender'] == 10 && (int)$_POST['orientation'] == 19)
+        $link = get_permalink(400);
+    elseif((int)$_POST['gender'] == 11 && (int)$_POST['orientation'] == 19)
+        $link = get_permalink(376);
+    else
+        $link = get_permalink(401);
 
-    echo $gender_term_link;
+    echo json_encode(array($post_id, $link));
+
+    die();
+}
+
+
+
+add_action('wp_ajax_test_questions', 'test_questions');
+add_action('wp_ajax_nopriv_test_questions', 'test_questions');
+function test_questions(){
+
+    $value = [];
+    for ($i = 0; $i < count($_POST['questions']); $i++) {
+        $value[] = array(
+            "question" => $_POST['questions'][$i],
+            "answer" => $_POST['answers'][$i],
+        );
+    }
+
+    update_field('answers', $value, $_COOKIE['result_id']);
+
+    echo 'https://google.com';
 
     die();
 }

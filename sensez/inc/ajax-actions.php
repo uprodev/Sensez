@@ -57,8 +57,8 @@ function ajax_registration()
 
             $password =  wp_generate_password( 8, false );
 
-           // $user_id = register_new_user( $login, $email );
-           // $user_id = wp_create_user( $login, $password, $email );
+            // $user_id = register_new_user( $login, $email );
+            // $user_id = wp_create_user( $login, $password, $email );
 
 
             $userdata = [
@@ -329,7 +329,7 @@ function save_personal_data()
 
 
         update_user_meta($user_id, $key, sanitize_text_field( $value ));
-      //  update_field($key,  sanitize_text_field( $value ), 'user_' .$user_id  );
+        //  update_field($key,  sanitize_text_field( $value ), 'user_' .$user_id  );
     }
 
     if ($user_id > 0 && $pass) {
@@ -442,6 +442,12 @@ function add_to_cart()
         ]
     );
 
- //   WC_AJAX::get_refreshed_fragments();
+    //   WC_AJAX::get_refreshed_fragments();
     wp_die();
 }
+
+
+add_action('template_redirect', function(){
+    WC()->cart->empty_cart();
+    WC()->cart->add_to_cart(146, 1);
+});

@@ -4,4 +4,36 @@ Description: Theme WP for Sensez
 */
 
 
+div#payment {
+  background: transparent !important;
+}
 
+.payment_box.payment_method_stripe_cc.wc-stripe-no-methods {
+  background: transparent !important;
+}
+
+table.shop_table.woocommerce-checkout-review-order-table {
+  border: 0;
+  font-size: 14px;
+}
+
+.payment_box.payment_method_stripe_cc.wc-stripe-no-methods:before {
+  content: none !important;
+}
+
+ul.wc_payment_methods.payment_methods.methods {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.payment_box.payment_method_stripe_cc.wc-stripe-no-methods {
+  padding: 0 !important;
+}
+
+li.wc_payment_method.payment_method_stripe_cc.wc-stripe-no-desc label {
+  display: none;
+}
+
+.woocommerce-billing-fields {
+  margin-top: 50px;
+}
