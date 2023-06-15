@@ -15,7 +15,7 @@ $row  = $page - 1;
 
             <?php
             for ($i = 1; $i <= 6; $i++) { ?>
-                <span class="step">
+                <span class="step <?= ($page/2) >= $i ? 'active': ''  ?>">
 					<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<path d="M16 0L19.1265 4.33162L24 2.14359L24.5419 7.45815L29.8564 8L27.6684 12.8735L32 16L27.6684 19.1265L29.8564 24L24.5419 24.5419L24 29.8564L19.1265 27.6684L16 32L12.8735 27.6684L8 29.8564L7.45815 24.5419L2.14359 24L4.33162 19.1265L0 16L4.33162 12.8735L2.14359 8L7.45815 7.45815L8 2.14359L12.8735 4.33162L16 0Z" fill="white" />
 					</svg>
@@ -23,13 +23,13 @@ $row  = $page - 1;
             <?php }
             ?>
 
-            <div class="steps-progress"><div class="inner"></div></div>
+            <div class="steps-progress"><div class="inner" data-percent="<?= ($page/10)*100  ?>" ></div></div>
         </div>
 
         <?php
 
 
-        $prev = ($page - 1) <= 0 ? get_permalink(324) : get_permalink(). $page - 1;  ?>
+        $prev = ($page - 1) <= 0 ? get_permalink(324) : get_permalink(). ($page - 1);  ?>
 
             <a href="<?= $prev ?>" class="btn-previous btn-previous-active">
                 <svg width="38" height="15" viewBox="0 0 38 15" fill="none" xmlns="http://www.w3.org/2000/svg">

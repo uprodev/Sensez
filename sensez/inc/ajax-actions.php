@@ -9,9 +9,9 @@ $actions = [
     'apply_coupon',
     'order_viewed',
     'save_personal_data',
+
+
     'create_coupon',
-
-
     'add_to_cart',
     'submit_quiz'
 
@@ -187,7 +187,7 @@ function create_coupon() {
     /**
      * Create a coupon programatically
      */
-    $coupon_code = rand(10000000000, 90000000000); // Code
+    $coupon_code = rand(10000000000, 99900000000); // Code
     $amount = '15.99'; // Amount
     $discount_type = 'fixed_cart'; // Type: fixed_cart, percent, fixed_product, percent_product
 
@@ -455,17 +455,73 @@ function submit_quiz() {
     if ($data) {
         $answers = [];
         foreach ( $data as $key => $value) {
-            $post_id = substr($key, 1);
+            $post_id = explode('-',$key)[1];
             $answers[] = [
                 'question' => (int)$post_id,
-                'answer' => $value,
+                'answer' => (int)$value,
                 ];
 
         }
 
         update_field('field_6447f54ae4c15', $answers, $result_id );
 
-        wp_send_json($answers);
+
+        $answers = get_field('field_6447f54ae4c15', $result_id);
+
+        $calc = [];
+        foreach ($answers as $answer) {
+            $cat = get_the_terms($answer['question']->ID, 'question_cat')[0];
+            $cat_name = $cat->name;
+            $cat_parent = get_term($cat->parent);
+            $cat_parent_name = $cat_parent->name;
+            $calc_array[$cat_parent_name][$cat_name] += $answer['answer'];
+            $calc[$cat_parent_name] += $answer['answer'];
+            $calc_ext[$cat_parent_name . $cat_name] += $answer['answer'];
+        }
+
+        $plus = [
+            'Д' => 0.1,
+            'Ю' => 0.2,
+            'В' => 0.3,
+            'З' => 0.4
+        ];
+
+        $initial = $calc;
+        foreach ($calc as $key => $cat) {
+            $calc[$key] = $cat + $plus[$key];
+        }
+
+        arsort($calc);
+        $profile = implode('', array_keys($calc));
+
+        $DDMMYY = get_the_date('Ymd',$post_id);
+
+        $X = get_field('code', 'term_'. get_field('gender', $result_id));
+        $YY = get_term(  get_field('age'))->name;
+        $Z = get_field('code', 'term_'.  get_field('orientation', $result_id));
+
+        $CAA = $initial['Д'];
+        $DBB = $initial['Ю'];
+        $ECC = $initial['В'];
+        $FDD = $initial['З'];
+
+        $code = "$DDMMYY$X$YY$Z$CAA$DBB$ECC$FDD";
+
+
+
+        update_field('calc', $calc, $result_id );
+        update_field('calc_ext', $calc_ext, $result_id );
+        update_field('profile_txt', $profile, $result_id );
+        update_field('code', $code, $result_id );
+
+
+        wp_send_json([
+            'calc' => $calc,
+            'calc_ext' => $calc_ext,
+            'profile' =>  $profile,
+            'code' => $code,
+            'data' => $data
+        ]);
     }
 }
 

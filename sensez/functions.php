@@ -57,7 +57,7 @@ function test_4_steps(){
     if ((int)$_POST['gender'] == 10 && (int)$_POST['orientation'] == 19)
         $link = get_permalink(400);
     elseif((int)$_POST['gender'] == 11 && (int)$_POST['orientation'] == 19)
-        $link = get_permalink(376);
+        $link = get_permalink(472);
     else
         $link = get_permalink(401);
 

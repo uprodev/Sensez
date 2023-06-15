@@ -1,5 +1,11 @@
 
 jQuery(document).ready(function($){
+
+  /**
+   * formGift
+   */
+
+
   if($('#formGift').length)
     $('#formGift').validate({
 
@@ -14,6 +20,9 @@ jQuery(document).ready(function($){
           success:function(data){
             if (data) {
               console.log(data)
+
+              $('.gift-success input').val(data.id)
+              $('.gift-success').submit()
 
              // location.href = data.redirect
             }
@@ -39,21 +48,28 @@ jQuery(document).ready(function($){
   var an = Cookies.getJSON('an')
   console.log( an)
 
-  $('#testChoices input').change(function(){
-    answersCookie = an ? an : {};
-    $('#test_questions li input[data-id]').each(function(){
-      var id = $(this).attr('data-id')
-      var val = $(this).val()
-      if (val > 0 && id > 0)
-        answersCookie['q' + id] = $(this).val()
-    })
+
+
+  $(document).on('saveData', function(){
+
+      answersCookie = an ? an : {};
+      $('#test_questions li input[data-id]').each(function(){
+        var id = $(this).attr('data-id')
+        var val = $(this).val()
+        if (val && id > 0)
+          answersCookie['p'+ page + '-' + id] = $(this).val()
+      })
 
       Cookies.set('an', JSON.stringify(answersCookie))
-    // Cookies.set('an', answersCookie);
-    console.log(answersCookie)
+      // Cookies.set('an', answersCookie);
+      console.log(answersCookie)
+
 
   })
 
+  /**
+   * submitQuiz
+   */
   $(document).on('submitQuiz', function(){
 
 
@@ -70,6 +86,7 @@ jQuery(document).ready(function($){
         if (data) {
           console.log(data)
 
+          Cookies.remove('an')
           // location.href = data.redirect
         }
       }

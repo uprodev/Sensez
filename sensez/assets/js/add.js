@@ -1,4 +1,4 @@
-jQuery(document).ready(function($) { 
+jQuery(document).ready(function($) {
 	function test_4_steps() {
 
 		let _this = $(this);
@@ -17,7 +17,8 @@ jQuery(document).ready(function($) {
 			type: 'POST',
 			success:function(data){
 				if (data) {
-					let result = $.parseJSON(data); 
+          console.log(data)
+					let result = $.parseJSON(data);
 					document.cookie = "result_id=" + result[0] + "; path=/";
 					window.location.href = result[1];
 				} else {

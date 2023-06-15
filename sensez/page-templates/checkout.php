@@ -18,7 +18,7 @@
 <body>
 
 <div class="page-wrapper single-screen">
-    <section class=" <?php if ($_GET['key']) { ?> section <?php } ?> block-payment">
+    <section class=" section block-payment">
 
         <?php if ($_GET['key']) { ?>
         <div class="elements">

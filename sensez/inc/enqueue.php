@@ -42,6 +42,8 @@ function add_scripts() {
 
     wp_enqueue_script('jqueryvalidation',  'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js', array(), false, 1);
 
+    wp_enqueue_script( 'add', get_template_directory_uri() . '/assets/js/add.js', array(), false, true);
+
     wp_enqueue_script( 'actions', get_template_directory_uri() . '/assets/js/actions.js', array(), false, true);
 
 

@@ -74,6 +74,10 @@
             </div>
         </section>
 
+        <form class="gift-success" action="<?= get_permalink(529) ?>" method="POST">
+            <input type="hidden" name="coupon_id" value="">
+        </form>
+
     </div>
 
     <?php wp_footer(); ?>

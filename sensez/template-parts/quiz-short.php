@@ -4,6 +4,26 @@
 $page = (int)$args['page'];
 $row = $page - 1;
 
+wp_reset_query();
+//print_r(get_field('pages'));
+//
+//
+//foreach (get_field('pages') as $pages) {
+//    foreach ($pages['questions'] as $question) {
+//       $id = $question->ID;
+//         $ids[] = $id;
+//
+//    //    print_r($question);
+//    }
+//}
+//asort($ids);
+//
+//echo '<pre>';
+//echo print_r($ids);
+//echo count($ids);
+//
+//die();
+
  ?>
 
 <div class="step-main-wrapper">
@@ -64,12 +84,14 @@ $row = $page - 1;
                     <form action="#" id="testChoices">
                         <ul>
 
-                            <?php while( have_rows('test_answers', 'option') ): the_row(); ?>
+                            <?php while( have_rows('test_answers', 'option') ): the_row();
+                            $k++
+                                ?>
 
                                 <?php if ($field = get_sub_field('text')): ?>
                                     <li>
                                         <label>
-                                            <input type="radio" name="test" value="<?= get_row_index() - 1 ?>" />
+                                            <input type="radio" name="test" value="<?= 5 - $k ?>" />
                                             <span>
 											<figure>
 												<div class="flame-lightblue">
