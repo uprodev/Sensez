@@ -1,3 +1,4 @@
+
 <?php
 
 $page = (int)$args['page'];
@@ -23,16 +24,19 @@ $row = $page - 1;
         </div>
 
 
+
         <?php
 
         $prev = ($page - 1) <= 0 ? get_permalink(324) : get_permalink(get_the_id()). ($page - 1); ?>
 
             <a href="<?= $prev ?>" class="btn-previous btn-previous-active">
+
                 <svg width="38" height="15" viewBox="0 0 38 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M37 11.7705C30.3354 7.70205 17.857 4.45488 1 10.0833M10.6542 0.464844C9.87826 2.53492 7.33556 7.20864 3.372 9.34295M3.4043 9.27846C5.58829 9.41773 10.6808 10.65 13.5787 14.4648" stroke="white" />
                 </svg>
                 <?php _e('previous', 'Sensez') ?>
             </a>
+
 
 
 
@@ -101,7 +105,9 @@ $row = $page - 1;
             <?php endif; ?>
 
             <?php
+
             $featured_posts =  get_field('pages')[$row]['questions'];
+
             if($featured_posts): ?>
 
                 <div class="container">
@@ -137,7 +143,9 @@ $row = $page - 1;
 
                                     setup_postdata($post); ?>
                                     <li>
+
                                         <input type="hidden" data-id="<?= $post->ID ?>" name="questions[<?= $post->ID ?>]"  readonly />
+
                                         <div class="image">
                                             <?php the_post_thumbnail('full') ?>
                                         </div>

@@ -36,9 +36,6 @@ function add_scripts() {
     }
 
 
-    wp_enqueue_script( 'cookie',   'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js', array(), false, true);
-
-    wp_enqueue_script( 'my-add', get_template_directory_uri() . '/assets/js/add.js', array(), false, true);
 
 
 
