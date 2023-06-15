@@ -215,7 +215,7 @@
 
     h2 {
       margin-bottom: 10px;
-      font-size: 2.375rem;
+      font-size: 38px;
     }
 
     .cards {
@@ -247,6 +247,12 @@
       display: block;
       padding: 42px 0 0;
       margin: 0 -15px;
+    }
+  }
+
+  @media (max-width: 374px) {
+    h2 {
+      font-size: 32px;
     }
   }
 

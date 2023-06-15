@@ -224,7 +224,6 @@
 
     &.block-locked {
       margin: 80px 0 0;
-      // margin: -10px -10px 0;
       padding: 10px 10px 0;
       height: 468px;
       overflow: hidden;
@@ -232,6 +231,7 @@
 
       .overlay {
         @include abs;
+        -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
         display: flex;
         flex-direction: column;

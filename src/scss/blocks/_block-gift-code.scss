@@ -4,6 +4,7 @@
   color: #0a0517;
   padding: 40px 0;
   position: relative;
+  height: auto !important;
 
   .elements {
     .el {
@@ -79,6 +80,10 @@
     font-size: 2.833rem;
     line-height: 1.25;
     margin: 0 0 20px;
+
+    br {
+      display: none;
+    }
   }
 
   p {
@@ -91,7 +96,7 @@
   }
 
   .form {
-    max-width: 434px;
+    max-width: 312px;
     margin: auto;
 
     .field {
@@ -199,9 +204,13 @@
       }
     }
 
+    .logo {
+      display: none;
+    }
+
     h1 {
-      font-size: 46px;
-      line-height: 1;
+      font-size: 38px;
+      line-height: 1.1;
       margin: 0 20px 20px;
     }
 
@@ -222,8 +231,22 @@
       }
 
       .submit {
-        padding: 20px 0 0;
+        padding: 30px 0 0;
       }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 0 0 40px;
+
+    h1 {
+      br {
+        display: block;
+      }
+    }
+
+    .form {
+      max-width: none;
     }
   }
 }

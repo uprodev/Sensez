@@ -33,7 +33,7 @@ jQuery(document).ready(function ($) {
     copyTextToClipboard($(this).text());
   });
 
-  $("#inputCode").mask("99999999999");
+  $("#inputCode").mask("9999");
 
   $(".contact-us-close").on("click", function () {
     $(".contact-us").hide(200);

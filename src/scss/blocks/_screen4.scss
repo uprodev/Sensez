@@ -132,7 +132,13 @@
 
   @include media-breakpoint-down(md) {
     h2 {
-      font-size: 2.375rem;
+      font-size: 38px;
+    }
+  }
+
+  @media (max-width: 374px) {
+    h2 {
+      font-size: 32px;
     }
   }
 }
@@ -365,7 +371,7 @@
       padding: 15px 0;
 
       h2 {
-        margin: 0 20px;
+        margin: 0;
       }
     }
 
@@ -375,14 +381,6 @@
       .text {
         padding: 7px 10px;
         font-size: 14px;
-      }
-    }
-  }
-
-  @media (max-width: 460px) {
-    .screen-04 {
-      h2 {
-        margin: 0 -20px;
       }
     }
   }

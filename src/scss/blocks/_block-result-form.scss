@@ -4,6 +4,8 @@
   color: #0a0517;
   padding: 40px 0;
   position: relative;
+  height: auto !important;
+  overflow: hidden;
 
   .elements {
     .el {
@@ -228,6 +230,52 @@
         right: 0;
         bottom: 0;
         padding: 0 15px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    position: relative;
+    padding: 100px 0 163px;
+
+    .logo {
+      display: none;
+    }
+
+    .subtitle {
+      margin: 0 0 20px;
+    }
+
+    .bar {
+      margin: 0 auto 47px;
+    }
+
+    .form .check-field label span {
+      text-align: left;
+    }
+
+    .text {
+      position: static;
+
+      .label {
+        background-image: url(../img/bg/bg-confidence-m.svg);
+        width: 246px;
+        height: 137px;
+        left: 50%;
+        bottom: 0;
+        top: auto;
+        background-color: transparent;
+        border-radius: 0;
+        transform: translateX(-50%);
+
+        span {
+          transform: none;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 125%;
+          height: auto;
+          padding: 63px 0 0;
+        }
       }
     }
   }

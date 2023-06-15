@@ -4,6 +4,7 @@
   color: #0a0517;
   padding: 40px 0 25px;
   position: relative;
+  height: auto !important;
 
   &:before {
     content: "";
@@ -76,8 +77,10 @@
   }
 
   .container {
-    position: relative;
-    z-index: 2;
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
   }
 
   .gift-support {
@@ -100,6 +103,9 @@
     font-size: 2.833rem;
     line-height: 1.25;
     margin: 0 0 20px;
+    br {
+      display: none;
+    }
   }
 
   p {
@@ -229,7 +235,7 @@
     }
 
     h1 {
-      font-size: 46px;
+      font-size: 38px;
       line-height: 1.1;
       margin: 0 20px 20px;
     }
@@ -251,6 +257,31 @@
       }
       .code-copy {
         font-size: 10px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    min-height: 650px;
+    h1 {
+      br {
+        display: block;
+      }
+    }
+    p {
+      margin: 0 0 40px;
+    }
+    .gift-support {
+      position: absolute;
+      left: 0px;
+      bottom: 12px;
+    }
+
+    .code {
+      .code-value {
+        width: 100%;
+        padding: 18px 67px 13px;
+        margin: 0 0 4px;
       }
     }
   }
