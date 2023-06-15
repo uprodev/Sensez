@@ -213,6 +213,7 @@ jQuery(document).ready(function ($) {
           backgroundColor: "#FF9072",
           duration: 1,
           onComplete: function () {
+
             $(".btn-next").get(0).click();
           },
         });
@@ -479,6 +480,7 @@ jQuery(document).ready(function ($) {
                       if (page === 10) {
                         $(document).trigger("submitQuiz");
                       } else {
+                        $(document).trigger("saveData");
                         $(".btn-next").get(0).click();
                       }
                     },
@@ -521,6 +523,7 @@ jQuery(document).ready(function ($) {
                       if (page === 10) {
                         $(document).trigger("submitQuiz");
                       } else {
+                        $(document).trigger("saveData");
                         $(".btn-next").get(0).click();
                       }
                     },
@@ -653,6 +656,7 @@ jQuery(document).ready(function ($) {
                       if (page === 10) {
                         $(document).trigger("submitQuiz");
                       } else {
+                        $(document).trigger("saveData");
                         $(".btn-next").get(0).click();
                       }
                     },
