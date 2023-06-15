@@ -1,1 +1,115 @@
-if(jQuery(document).ready((function(e){window.visualViewport.height<800&&e(".page-wrapper").addClass("less-height"),e(window).on("resize",(function(){window.visualViewport.height<800?e(".page-wrapper").addClass("less-height"):e(".page-wrapper").removeClass("less-height")}));var o=e(".bar-inner"),t=e(".bar-icon");gsap.to(o,{width:"100%",duration:1.5,delay:1,ease:Power1.easeIn}),gsap.to(t,{left:"100%",duration:1.5,delay:1,ease:Power1.easeIn}),e(".code-copy").on("click",(function(){copyTextToClipboard(e(".code-value").text())})),e(".code-value").on("click",(function(){copyTextToClipboard(e(this).text())})),e("#inputCode").mask("99999999999"),e(".contact-us-close").on("click",(function(){e(".contact-us").hide(200)}))})),document.getElementById("textarea")){var observe;function initTextarea(){var e=document.getElementById("textarea");function o(){""!==e.value?(e.style.height="auto",e.style.height=e.scrollHeight+"px"):e.removeAttribute("style")}function t(){window.setTimeout(o,0)}observe(e,"change",o),observe(e,"cut",t),observe(e,"paste",t),observe(e,"drop",t),observe(e,"keydown",t),o()}observe=window.attachEvent?function(e,o,t){e.attachEvent("on"+o,t)}:function(e,o,t){e.addEventListener(o,t,!1)},initTextarea()}function fallbackCopyTextToClipboard(e){var o=document.createElement("textarea");o.value=e,o.style.top="0",o.style.left="0",o.style.position="fixed",document.body.appendChild(o),o.focus(),o.select();try{var t=document.execCommand("copy")?"successful":"unsuccessful";console.log("Fallback: Copying text command was "+t)}catch(e){console.error("Fallback: Oops, unable to copy",e)}document.body.removeChild(o)}function copyTextToClipboard(e){navigator.clipboard?navigator.clipboard.writeText(e).then((function(){console.log("Async: Copying to clipboard was successful!")}),(function(e){console.error("Async: Could not copy text: ",e)})):fallbackCopyTextToClipboard(e)}
+jQuery(document).ready(function ($) {
+  if (window.visualViewport.height < 800) {
+    $(".page-wrapper").addClass("less-height");
+  }
+  $(window).on("resize", function () {
+    if (window.visualViewport.height < 800) {
+      $(".page-wrapper").addClass("less-height");
+    } else {
+      $(".page-wrapper").removeClass("less-height");
+    }
+  });
+
+  var barInner = $(".bar-inner"),
+    barIcon = $(".bar-icon");
+
+  gsap.to(barInner, {
+    width: "100%",
+    duration: 1.5,
+    delay: 1,
+    ease: Power1.easeIn,
+  });
+  gsap.to(barIcon, {
+    left: "100%",
+    duration: 1.5,
+    delay: 1,
+    ease: Power1.easeIn,
+  });
+
+  $(".code-copy").on("click", function () {
+    copyTextToClipboard($(".code-value").text());
+  });
+  $(".code-value").on("click", function () {
+    copyTextToClipboard($(this).text());
+  });
+
+  $("#inputCode").mask("9999");
+
+  $(".contact-us-close").on("click", function () {
+    $(".contact-us").hide(200);
+  });
+
+  // $(".formGift .field:not(.field-optional) input").on('');
+});
+
+if (document.getElementById("textarea")) {
+  var observe;
+  if (window.attachEvent) {
+    observe = function (element, event, handler) {
+      element.attachEvent("on" + event, handler);
+    };
+  } else {
+    observe = function (element, event, handler) {
+      element.addEventListener(event, handler, false);
+    };
+  }
+  function initTextarea() {
+    var text = document.getElementById("textarea");
+    function resize() {
+      if (text.value !== "") {
+        text.style.height = "auto";
+        text.style.height = text.scrollHeight + "px";
+      } else {
+        text.removeAttribute("style");
+      }
+    }
+    function delayedResize() {
+      window.setTimeout(resize, 0);
+    }
+    observe(text, "change", resize);
+    observe(text, "cut", delayedResize);
+    observe(text, "paste", delayedResize);
+    observe(text, "drop", delayedResize);
+    observe(text, "keydown", delayedResize);
+    resize();
+  }
+  initTextarea();
+}
+
+function fallbackCopyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+
+  // Avoid scrolling to bottom
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand("copy");
+    var msg = successful ? "successful" : "unsuccessful";
+    console.log("Fallback: Copying text command was " + msg);
+  } catch (err) {
+    console.error("Fallback: Oops, unable to copy", err);
+  }
+
+  document.body.removeChild(textArea);
+}
+function copyTextToClipboard(text) {
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(
+    function () {
+      console.log("Async: Copying to clipboard was successful!");
+    },
+    function (err) {
+      console.error("Async: Could not copy text: ", err);
+    }
+  );
+}
