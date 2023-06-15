@@ -75,3 +75,27 @@ function tsm_convert_id_to_term_in_query($query)
         $q_vars[$taxonomy] = $term->slug;
     }
 }
+
+
+function myplugin_register_query_vars( $vars ) {
+    $vars[] = 'quiz_page';
+    return $vars;
+}
+add_filter( 'query_vars', 'myplugin_register_query_vars' );
+
+
+
+
+
+
+function gp_rewrite()
+{
+
+    add_rewrite_rule('^test_page/([^/]*)/([^/]*)/?','index.php?post_type=test_page&name=$matches[1]&quiz_page=$matches[2]','top');
+
+    add_rewrite_tag('%quiz_page%', '([^/]+)');
+    // add_rewrite_tag('%review_type%','([^/]+)');
+}
+
+add_action('init', 'gp_rewrite', 999);
+

@@ -12,7 +12,8 @@ $actions = [
     'create_coupon',
 
 
-    'add_to_cart'
+    'add_to_cart',
+    'submit_quiz'
 
 ];
 foreach ($actions as $action) {
@@ -447,7 +448,34 @@ function add_to_cart()
 }
 
 
+function submit_quiz() {
+    $result_id = (int)$_POST['result_id'];
+    $data =  $_POST['data'];
+
+    if ($data) {
+        $answers = [];
+        foreach ( $data as $key => $value) {
+            $post_id = substr($key, 1);
+            $answers[] = [
+                'question' => (int)$post_id,
+                'answer' => $value,
+                ];
+
+        }
+
+        update_field('field_6447f54ae4c15', $answers, $result_id );
+
+        wp_send_json($answers);
+    }
+}
+
+
 add_action('template_redirect', function(){
     WC()->cart->empty_cart();
     WC()->cart->add_to_cart(146, 1);
+
+//    $answers =  get_field('answers'  );
+//
+//    print_r($answers);
+//    die();
 });
