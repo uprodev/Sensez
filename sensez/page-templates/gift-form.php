@@ -7,6 +7,10 @@
  Template Name: Gift Form
 */
 
+
+
+
+
 ?><!DOCTYPE html>
 <html <?php language_attributes() ?>>
     <head>
@@ -74,9 +78,9 @@
             </div>
         </section>
 
-        <form class="gift-success" action="<?= get_permalink(529) ?>" method="POST">
-            <input type="hidden" name="coupon_id" value="">
-        </form>
+<!--        <form class="gift-success" action="--><?//= get_permalink(529) ?><!--" method="POST">-->
+<!--            <input type="hidden" name="coupon_id" value="">-->
+<!--        </form>-->
 
     </div>
 

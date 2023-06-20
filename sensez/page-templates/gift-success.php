@@ -7,9 +7,31 @@
  Template Name: Gift Success
 */
 
-$id = $_POST['coupon_id'];
 
-$coupon = get_post($id);
+
+
+if (!$_GET['order_id'])
+    wp_redirect(get_permalink(391));
+
+$order = new WC_Order($_GET['order_id']);
+
+foreach ($order->get_items() as $item) {
+
+
+    if (!$item['product_id'] == 611) {
+        wp_redirect(get_permalink(391). '?order_id='. $order->get_id());
+    } else {
+
+        $new_coupon_id = ($item->get_meta( 'new_coupon_id', true ));
+        if (!$new_coupon_id)
+            wp_redirect(get_permalink(391));
+        else {
+            $coupon = get_post($new_coupon_id);
+        }
+
+
+    }
+}
 
 
 ?><!DOCTYPE html>

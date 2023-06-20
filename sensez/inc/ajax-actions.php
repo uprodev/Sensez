@@ -2,13 +2,11 @@
 
 $actions = [
     'ajax_registration',
-    'ajax_login',
-    'ajax_reset',
+//    'ajax_login',
+//    'ajax_reset',
     'qty_cart',
     'remove_item_from_cart',
     'apply_coupon',
-    'order_viewed',
-    'save_personal_data',
 
 
     'create_coupon',
@@ -25,161 +23,27 @@ foreach ($actions as $action) {
 function ajax_registration()
 {
 
-    // First check the nonce, if it fails the function will break
-    //  check_ajax_referer( 'ajax-registration-nonce', 'security' );
-
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        echo json_encode(array(
-            'update' => false,
-            'status' => '<p class="error">Email address ' . $_POST['email'] . ' is incorrect</p>',
-        ));
-        wp_die();
-    }
-
     if ($_POST['email']  ) {
 
 
-        $login = $_POST['email'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
-        $role = $_POST['role'] ?: 'subscriber';
-
-        $i = 1;
-
-        while (username_exists($login)) {
-            ++$i;
-            $login = $login . $i;
-        }
-
-        $user = get_user_by('email', $email);
+        $name = $_POST['name'];
+        $result_id = $_POST['result_id'];
+        update_field('user_email', $email, $result_id);
+        update_field('user_name', $name, $result_id);
 
 
-        if (empty($user)) {
-
-            $password =  wp_generate_password( 8, false );
-
-            // $user_id = register_new_user( $login, $email );
-            // $user_id = wp_create_user( $login, $password, $email );
+        wp_send_json([
+            'url' => get_permalink($result_id)
+        ]);
 
 
-            $userdata = [
-                'user_login' =>$login,
-                'user_pass'  => $password,
-                'user_email' => $login,
-            ];
-
-            /**
-             * Проверять/очищать передаваемые поля не обязательно,
-             * WP сделает это сам.
-             */
-
-            $user_id = wp_insert_user( $userdata ) ;
-            wp_new_user_notification( $user_id, 'both' );
-
-            if ($user_id) {
-                $data = array(
-                    'update' => true,
-                    'status' => '<p class="success">' . __('Регистрация успешная', 'sage') . '</p>',
-                    'redirect' => get_permalink(444),
-                    'user_id' => $user_id,
-                );
-
-            }
-
-        } else {
-            $data = array(
-                'update' => false,
-                'status' => '<p class="error">' . __('<br>Un compte existe déjà pour cette adresse email. Identifiez-vous ou utilisez un mot de passe oublié', 'sage') . '</p>',
-            );
-        }
-    } else {
-        $data = array(
-            'update' => false,
-            'status' => '<p class="error">' . __('Email and password fields are required', 'sage') . '</p>',
-        );
+        wp_die();
     }
-
-    if (empty($data))
-        $data = array(
-            'update' => false,
-            'status' => '<p class="error">' . __('Unknow error', 'sage') . '</p>',
-        );
-
-    echo json_encode($data);
-
-    wp_die();
 }
 
-add_filter('wp_new_user_notification_email', 'change_notification_message', 10, 3);
 
 
-
-function validate_email()
-{
-    if (($_GET['email'])) {
-        if (!email_exists($_GET['email']))
-            echo "true";
-        else
-            echo "false";
-
-    }
-
-    die();
-}
-
-function ajax_reset()
-{
-
-    // First check the nonce, if it fails the function will break
-    check_ajax_referer('ajax-reset-nonce', 'security');
-
-    if ($_POST['email']) {
-
-        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            echo json_encode(array(
-                'update' => false,
-                'status' => '<p class="error">Email address ' . $_POST['email'] . ' is incorrect</p>',
-            ));
-            wp_die();
-        }
-
-        if ($user = get_user_by('email', $_POST['email'])) {
-
-            $pass = wp_generate_password();
-
-            wp_mail($_POST['email'], 'Reset password', 'Новый пароль ' . $pass);
-
-            $data = array(
-                'update' => true,
-                'status' => '<p>Новый пароль отправлен на email.</p>',
-                'data' => $user
-            );
-
-
-            wp_send_json($data);
-
-        } else {
-            $data = array(
-                'update' => false,
-
-                'status' => '<p class="error">' . sprintf(__('User with email %s does not exist', 'sage'), $_POST['email']) . '</p>',
-            );
-        }
-
-    }
-
-
-    if (empty($data))
-        $data = array(
-            'update' => false,
-            'status' => '<p class="error">' . __('Unknow email', 'sage') . '</p>',
-        );
-
-    echo json_encode($data);
-
-    wp_die();
-
-}
 
 
 function create_coupon() {
@@ -211,213 +75,71 @@ function create_coupon() {
     update_post_meta( $new_coupon_id, 'apply_before_tax', 'yes' );
     update_post_meta( $new_coupon_id, 'free_shipping', 'no' );
 
+    WC()->cart->empty_cart();
+    WC()->cart->add_to_cart(611, 1, '', '', ['new_coupon_id' => $new_coupon_id]);
 
-    wp_send_json(['id' => $new_coupon_id]);
+
+
+    wp_send_json([
+        'id' => $new_coupon_id,
+        'url' => get_permalink(142)
+    ]);
 }
+
+function plugin_republic_add_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
+    if( isset( $_POST['new_coupon_id'] ) ) {
+        $cart_item_data['new_coupon_id'] = sanitize_text_field( $_POST['new_coupon_id'] );
+    }
+    return $cart_item_data;
+}
+add_filter( 'woocommerce_add_cart_item_data', 'plugin_republic_add_cart_item_data', 10, 3 );
+
+
+function plugin_republic_checkout_create_order_line_item( $item, $cart_item_key, $values, $order ) {
+    if( isset( $values['new_coupon_id'] ) ) {
+        $item->add_meta_data(
+            __( 'new_coupon_id', 'plugin-republic' ),
+            $values['new_coupon_id'],
+            true
+        );
+    }
+}
+add_action( 'woocommerce_checkout_create_order_line_item', 'plugin_republic_checkout_create_order_line_item', 10, 4 );
+
+
+
 function apply_coupon()
 {
-    $coupon = $_POST['coupon'];
 
-    WC()->cart->apply_coupon( $coupon );
+    WC()->cart->remove_coupons( );
 
+    $coupon = trim($_POST['code']);
+
+    $result = WC()->cart->apply_coupon( (int)$coupon );
+
+    $result_id = $_POST['result_id'];
+
+    if (!$result)
+        $msg = 'Code is invalid!';
+    else {
+
+        $coupon_id = wc_get_coupon_id_by_code($coupon);
+        update_field('payment', 'Advanced', $result_id);
+        update_field('gift_code', $coupon, $result_id);
+        update_field('usage_count', 1, $coupon_id);
+
+    }
 
     wp_send_json(
         [
-            'coupon' => $coupon,
+            'msg' => $msg,
+            'url' => get_permalink($result_id),
+            'code' => get_metadata('post', $coupon_id   )
         ]
     );
     die();
 }
 
-
-function order_viewed()
-{
-
-
-    $user_id = $_GET['user_id'];
-    $orderby = $_GET['order'];
-    $viewed = get_field('viewed', 'user_'.$user_id);
-
-
-    if ($viewed)
-        $viewed = json_decode($viewed, true);
-
-    $post__in = array_keys($viewed);
-
-    if ( 'price' === $orderby ) {
-        $rlv_wc_order = 'asc';
-    }
-    if ( 'price-desc' === $orderby ) {
-        $rlv_wc_order = 'desc';
-    }
-
-    if ( in_array( $orderby, array( 'price', 'price-desc' ), true ) ) {
-        $orderby = 'meta_value_num';
-        $meta_key = '_price';
-    }
-
-    if ( 'date' === $orderby ) {
-        $orderby = 'post__in';
-    }
-    if ( 'popularity' === $orderby ) {
-
-        $orderby = 'meta_value_num';
-        $rlv_wc_order = 'desc';
-        $meta_key = 'total_sales';
-    }
-
-
-
-    $args = [
-        'post_type' => 'product',
-        'post__in' => $post__in,
-        'posts_per_page' => 30,
-        'orderby' => $orderby,
-        'order' => $rlv_wc_order,
-        'meta_key' => $meta_key
-
-    ];
-
-    $q = new WP_query($args);
-
-    ob_start();
-
-    if ($q->have_posts() ) {
-        while ($q->have_posts()) {
-            $q->the_post();
-            wc_get_template_part('content', 'product');
-        }
-    } else {
-        get_template_part( 'parts/account/empty', 'viewed' );
-    }
-
-
-
-    $html = ob_get_clean();
-
-    wp_send_json(
-        [
-            'result' => $html,
-            'found' => $q->found_posts
-        ]
-    );
-    die();
-}
-
-function save_personal_data()
-{
-
-//    print_r($_POST);
-//
-//    die();
-    $user_id = $_POST['user_id'];
-    $key = $_POST['field_name'];
-    $value = $_POST['field_value'];
-
-    $pass = $_POST['pass'];
-    $pass2 = $_POST['pass2'];
-    $pass3 = $_POST['pass3'];
-
-    $bank = $_POST['bank'];
-
-
-    if ($user_id > 0 && $key && $value) {
-
-        if ('billing_email' == $key) {
-            $fail = is_email($value);
-            $fail_message = 'Введите корректный E-mail';
-        }
-
-
-        update_user_meta($user_id, $key, sanitize_text_field( $value ));
-        //  update_field($key,  sanitize_text_field( $value ), 'user_' .$user_id  );
-    }
-
-    if ($user_id > 0 && $pass) {
-        if ($pass2 !== $pass3) {
-            $fail = true;
-            $fail_message = 'Пароли не совпадают';
-        } elseif (strlen($pass3) < 8) {
-            $fail = true;
-            $fail_message = 'Минимальная длина должна быть 8 симоволов ';
-        } else {
-            wp_update_user([
-                'ID' => $user_id,
-                'user_pass' => $pass3
-            ]);
-
-        }
-
-    }
-
-    if ($user_id > 0 && !empty($bank)) {
-
-        foreach ($bank as $key => $value) {
-            update_field($key,  sanitize_text_field( $value ), 'user_' . $user_id  );
-        }
-
-        $bacs_meta = bacs_meta();
-        ob_start(); ?>
-
-        <?php foreach ($bacs_meta as $key=>$item) { ?>
-            <li>
-                <p><span><?= $item ?></span></p>
-                <p><?= get_field($key, 'user_'. $user_id) ?></p>
-            </li>
-        <?php } ?>
-        <?php
-
-        $html = ob_get_clean();
-
-        wp_send_json(
-            [
-                'html' => $html,
-
-            ]
-        );
-
-        die();
-    }
-
-
-
-    wp_send_json(
-        [
-            'fail' => $fail,
-            'fail_message' => $fail_message,
-            'data' => $_POST
-        ]
-    );
-    die();
-}
-
-
-function add_ticket() {
-
-
-    check_ajax_referer( 'add_ticket', 'security' );
-
-    $post_id = wp_insert_post([
-        'post_type' => 'ticket',
-        'post_status' => 'publish',
-        'post_title' => $_POST['message'],
-        'post_author' => $_POST['user_id'],
-    ]);
-
-    update_field('status', 'В процессе', $post_id);
-    update_field('order_id', $_POST['order_id'], $post_id);
-
-
-    wp_send_json(
-        [
-            'post_id' => $post_id,
-
-        ]
-    );
-
-    wp_die();
-
-}
 
 
 /**
@@ -429,17 +151,15 @@ function add_to_cart()
 {
 
     $product_id = (int)$_GET['product_id'];
-    $variation_id = (int)$_GET['variation_id'];
-    $qty = $_GET['qty'] > 0 ? (int)$_GET['qty'] : 1;
-    $added = WC()->cart->add_to_cart($product_id, $qty, $variation_id);
+
+    $qty = 1;
+    WC()->cart->empty_cart();
+    $added = WC()->cart->add_to_cart($product_id, $qty);
 
 
-
-    $count = WC()->cart->get_cart_contents_count();
-
-    wp_send_json_success(
+    wp_send_json(
         [
-            'count' => $count,
+            'url' => get_permalink(142),
         ]
     );
 
@@ -514,8 +234,25 @@ function submit_quiz() {
         update_field('profile_txt', $profile, $result_id );
         update_field('code', $code, $result_id );
 
+        $q = new WP_Query([
+            'post_type' => 'profile',
+            'meta_key' => 'profile',
+            'meta_value' => $profile
+        ]);
 
+        if($q->found_posts) {
+            $profile_id = $q->posts[0]->ID;
+            update_field('profile', $profile_id, $result_id );
+        }
+
+
+
+        wp_update_post([
+            'ID' => $result_id,
+            'post_name' => $code
+        ]);
         wp_send_json([
+            'url' => get_permalink(389),
             'calc' => $calc,
             'calc_ext' => $calc_ext,
             'profile' =>  $profile,
@@ -527,8 +264,12 @@ function submit_quiz() {
 
 
 add_action('template_redirect', function(){
-    WC()->cart->empty_cart();
-    WC()->cart->add_to_cart(146, 1);
+//    WC()->cart->empty_cart();
+//    WC()->cart->add_to_cart(146, 1);
+
+
+
+
 
 //    $answers =  get_field('answers'  );
 //

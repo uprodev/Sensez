@@ -18,7 +18,10 @@
 <body>
 
 <div class="page-wrapper single-screen">
-    <section class=" section block-payment">
+    <section class=" section block-payment"
+        <?php if (!$_GET['key']) { ?>
+            style="height: auto !important;"
+        <?php } ?>>
 
         <?php if ($_GET['key']) { ?>
         <div class="elements">

@@ -18,8 +18,35 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
+<?php
+$result_id = $_COOKIE['result_id'];
+foreach ($order->get_items() as $item) {
+    if ($item['product_id'] == 611) {
+        wp_redirect(get_permalink(529). '?order_id='. $order->get_id());
+        die();
+    } else {
+        update_field('order', $order->get_id(), $result_id);
+    }
 
+    if ($item['product_id'] == 146) {
+        update_field('payment', 'Advanced', $result_id);
+    }
 
+    if ($item['product_id'] == 145) {
+        update_field('payment', 'Basic', $result_id);
+    }
+
+}
+
+?>
+
+<script>
+    jQuery(document).ready(function(){
+        setTimeout(function(){
+            location.href = '<?= get_permalink($result_id) ?>'
+        }, 2500)
+    })
+</script>
 
             <h1>Payment successful</h1>
             <p>We have your results ready</p>

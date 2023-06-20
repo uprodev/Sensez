@@ -11,9 +11,12 @@ function add_styles() {
 }
 
 function add_scripts() {
+
     wp_enqueue_script( 'my-imagesloaded', get_template_directory_uri() . '/assets/js/imagesloaded.pkgd.min.js', array(), false, true);
     wp_enqueue_script( 'my-gsap', get_template_directory_uri() . '/assets/js/gsap.js', array(), false, true);
     wp_enqueue_script( 'my-ScrollTrigger', get_template_directory_uri() . '/assets/js/ScrollTrigger.js', array(), false, true);
+
+
 
     if (is_page_template('page-templates/landing.php')) {
         wp_enqueue_script( 'my-fullpage', get_template_directory_uri() . '/assets/js/fullpage.js', array(), false, true);
@@ -32,12 +35,18 @@ function add_scripts() {
     if (is_singular('result')) {
         wp_enqueue_script( 'my-fullpage', get_template_directory_uri() . '/assets/js/fullpage.js', array(), false, true);
         wp_enqueue_script( 'my-graph', get_template_directory_uri() . '/assets/js/graph.js', array(), false, true);
-        wp_enqueue_script( 'my-result-advanced', get_template_directory_uri() . '/assets/js/result-advanced.js', array(), false, true);
+
+        if (get_field('payment') == 'Demo') wp_enqueue_script( 'my-result', get_template_directory_uri() . '/assets/js/result.js', array(), false, true);
+        if (get_field('payment') == 'Basic') wp_enqueue_script( 'my-result-basic', get_template_directory_uri() . '/assets/js/result-basic.js', array(), false, true);
+        if (get_field('payment') == 'Advanced') wp_enqueue_script( 'my-result-advanced', get_template_directory_uri() . '/assets/js/result-advanced.js', array(), false, true);
+
     }
 
 
 
+    wp_enqueue_script( 'jquery.maskedinput', get_template_directory_uri() . '/assets/js/jquery.maskedinput.js', array(), false, true);
 
+    wp_enqueue_script( 'forms', get_template_directory_uri() . '/assets/js/forms.js', array(), false, true);
 
 
     wp_enqueue_script('jqueryvalidation',  'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js', array(), false, 1);

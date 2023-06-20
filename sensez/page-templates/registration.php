@@ -7,47 +7,80 @@
  Template Name: Registration Page
 */
 
-get_header();
+
 ?>
+<!DOCTYPE html>
+<html <?php language_attributes() ?>>
+<head>
+    <meta charset="utf-8" />
+    <?php wp_head(); ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-    <div class="page-wrapper single-screen less-height">
-        <section class="section block-payment">
-            <div class="elements">
-                <div class="el el-01"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-01.svg" alt=""></div>
-                <div class="el el-02"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-02.svg" alt=""></div>
-                <div class="el el-03"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-03.svg" alt=""></div>
-                <div class="el el-04"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-04.svg" alt=""></div>
-                <div class="el el-05"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-05.svg" alt=""></div>
-                <div class="el el-06"><img src="<?= get_template_directory_uri() ?>/assets/img/elements/payment/el-06.svg" alt=""></div>
+<body>
+
+<div class="page-wrapper single-screen">
+    <section class="section block-result-form">
+        <div class="elements">
+            <div class="el el-01"></div>
+        </div>
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.svg" alt="" /></a>
             </div>
-            <div class="container">
-                <div class="logo">
-                    <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.svg" alt=""></a>
-                </div>
-                <h1>Payment successful</h1>
-                <p>We have your results ready</p>
-
-                <div class="bar">
-                    <div class="bar-inner" style="width: 100%;"></div>
-                    <div class="bar-icon" style="left: 100%;"></div>
-                </div>
-                <div class="image">
-                    <img src="<?= get_template_directory_uri() ?>/assets/img/payment.svg" alt="">
-                </div>
+            <div class="text">
+                <div class="label"><span>CONFIDENTIALITY GUARANTEED</span></div>
+                <div class="subtitle">Oh, what an adventure this was!</div>
+                <h1>We have your results ready</h1>
             </div>
-        </section>
-
-        <footer class="page-footer">
-            <div class="container">
-                <p>© 2023 Sensez. <br>ALL RIGHTS RESERVED.</p>
-                <ul>
-                    <li><a href="#">TERMS OF SERVICE</a></li>
-                    <li><a href="#">PRIVACY POLICY</a></li>
-                </ul>
+            <div class="bar">
+                <div class="bar-inner"></div>
+                <div class="bar-icon"></div>
             </div>
-        </footer>
-    </div>
+            <div class="form">
+                <form id="regForm" action="#">
+                    <div class="field">
+                        <input type="text" name="name" placeholder="Your name/nickname*"  required />
+                    </div>
+                    <div class="field">
+                        <input type="email" name="email" placeholder="Your email*" required />
+                    </div>
+                    <div class="check-field">
+                        <label>
+                            <input name="agree" required type="checkbox" checked />
+                            <span>By clicking you agree to our Privacy Policy and Terms & Conditions</span>
+                        </label>
+                    </div>
+                    <div class="submit">
+                        <button type="submit" class="btn btn-white">
+                            <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.5 0L21.2717 5.8563L26.3099 1.78256L26.2662 8.26151L32.573 6.77718L29.7225 12.5955L36.0487 13.9946L30.956 18L36.0487 22.0054L29.7225 23.4045L32.573 29.2228L26.2662 27.7385L26.3099 34.2174L21.2717 30.1437L18.5 36L15.7283 30.1437L10.6901 34.2174L10.7338 27.7385L4.42703 29.2228L7.27753 23.4045L0.951298 22.0054L6.044 18L0.951298 13.9946L7.27753 12.5955L4.42703 6.77718L10.7338 8.26151L10.6901 1.78256L15.7283 5.8563L18.5 0Z" fill="#F24EB6" />
+                            </svg>
+                            next
+                        </button>
+                    </div>
+                    <input type="hidden" name="action" value="ajax_registration">
+                    <input type="hidden" name="result_id" value="<?= $_COOKIE['result_id'] ?>">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="page-footer">
+        <div class="container">
+            <p>&copy; 2023 Sensez. <br />ALL RIGHTS RESERVED.</p>
+            <ul>
+                <li><a href="#">TERMS OF SERVICE</a></li>
+                <li><a href="#">PRIVACY POLICY</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<?php wp_footer(); ?>
+</body>
+</html>
 
 
 
-<?php get_footer();
+
