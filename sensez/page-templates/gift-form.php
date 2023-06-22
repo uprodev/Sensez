@@ -36,7 +36,7 @@
                     <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.svg" alt=""></a>
                 </div>
                 <div class="link-back">
-                    <a href="#">
+                    <a onclick="history.back()" href="#">
                         <img src="<?= get_template_directory_uri() ?>/assets/img/icons/previous-dark.svg" alt="">
                         Back<span>&nbsp;to results</span>
                     </a>

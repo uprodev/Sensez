@@ -289,10 +289,10 @@ $profile_txt = get_field('profile_txt') ;
                     <picture>
 
                         <?php if ($field = get_field('img_description', $profile_id)): ?>
-                           <source media="(min-width: 768px)" srcset="<?= $field['url'] ?>" />
-                           <?php endif ?>
+                         <source media="(min-width: 768px)" srcset="<?= $field['url'] ?>" />
+                         <?php endif ?>
 
-                           <?php if ($field = get_field('img_description_mobile', $profile_id)): ?>
+                         <?php if ($field = get_field('img_description_mobile', $profile_id)): ?>
                             <?= wp_get_attachment_image($field['ID'], 'full') ?>
                         <?php endif ?>
 
@@ -314,28 +314,61 @@ $profile_txt = get_field('profile_txt') ;
         <div class="container">
             <div class="block-scales">
                 <h2><?php _e('Your resource distribution chart', 'Sensez') ?></h2>
+
+                <?php
+                $scales_json =   get_field('calc');
+                $scales = is_array($scales_json) ? $scales_json : json_decode($scales_json, 1)
+                ?>
+
                 <div class="wrapper">
-
-                    <?php while( have_rows('levels', $profile_id) ): the_row(); ?>
-
-                        <div class="item">
-                            <p><?php the_sub_field('title') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
-                            <div class="scale color-<?php the_sub_field('color') ?>">
-                                <div class="scale-title"><span class="counter" data-text="<?php the_sub_field('level') ?>">0</span><span class="divider">/</span><small>60</small></div>
-                                <div class="bar">
-                                    <div class="bar-inner" data-width="<?php the_sub_field('data_width') ?>"></div>
-                                    <div class="bar-text-start">01</div>
-                                    <div class="bar-text-end">60</div>
-                                </div>
-                            </div>
-                        </div>
-
-                    <?php endwhile; ?>
-
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="item">
+                        <p><?php _e('Your energy level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
+                      <div class="scale color-pink">
+                        <div class="scale-title"><span class="counter" data-text="<?= $scales['Д'] ?>">0</span><span class="divider">/</span><small>60</small></div>
+                        <div class="bar">
+                          <div class="bar-inner" data-width="<?= calc_data_width($scales['Д']) ?>"></div>
+                          <div class="bar-text-start">01</div>
+                          <div class="bar-text-end">60</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="item">
+                <p><?php _e('Your sexuality level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
+                  <div class="scale color-orange">
+                    <div class="scale-title"><span class="counter" data-text="<?= $scales['Ю'] ?>">0</span><span class="divider">/</span><small>60</small></div>
+                    <div class="bar">
+                      <div class="bar-inner" data-width="<?= calc_data_width($scales['Ю']) ?>"></div>
+                      <div class="bar-text-start">01</div>
+                      <div class="bar-text-end">60</div>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+            <p><?php _e('Your self-regulation level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
+              <div class="scale color-yellow">
+                <div class="scale-title"><span class="counter" data-text="<?= $scales['В'] ?>">0</span><span class="divider">/</span><small>60</small></div>
+                <div class="bar">
+                  <div class="bar-inner" data-width="<?= calc_data_width($scales['В']) ?>"></div>
+                  <div class="bar-text-start">01</div>
+                  <div class="bar-text-end">60</div>
+              </div>
+          </div>
+      </div>
+      <div class="item">
+        <p><?php _e('Your mindfulness level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
+          <div class="scale color-blue">
+            <div class="scale-title"><span class="counter" data-text="<?= $scales['З'] ?>">0</span><span class="divider">/</span><small>60</small></div>
+            <div class="bar">
+              <div class="bar-inner" data-width="<?= calc_data_width($scales['З']) ?>"></div>
+              <div class="bar-text-start">01</div>
+              <div class="bar-text-end">60</div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
 
 <?php endif; ?>
 

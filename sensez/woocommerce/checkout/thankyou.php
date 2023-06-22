@@ -32,6 +32,10 @@ foreach ($order->get_items() as $item) {
         update_field('payment', 'Advanced', $result_id);
     }
 
+    if ($item['product_id'] == 901) {
+        update_field('payment', 'Advanced', $result_id);
+    }
+
     if ($item['product_id'] == 145) {
         update_field('payment', 'Basic', $result_id);
     }

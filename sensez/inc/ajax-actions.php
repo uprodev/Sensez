@@ -185,7 +185,6 @@ function submit_quiz() {
 
         update_field('field_6447f54ae4c15', $answers, $result_id );
 
-
         $answers = get_field('field_6447f54ae4c15', $result_id);
 
         $calc = [];
@@ -249,7 +248,8 @@ function submit_quiz() {
 
         wp_update_post([
             'ID' => $result_id,
-            'post_name' => $code
+            'post_name' => $code,
+            'post_status' => 'publish'
         ]);
         wp_send_json([
             'url' => get_permalink(389),

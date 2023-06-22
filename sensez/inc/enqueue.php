@@ -66,5 +66,8 @@ function add_scripts() {
         )
     );*/
 
+    $coordinates =   get_field('calc_ext', get_the_id());
+    $coordinates_array = is_array($coordinates) ? $coordinates : json_decode($coordinates, 1);
+    wp_localize_script('my-graph', 'coordinates', $coordinates_array);
 
 }

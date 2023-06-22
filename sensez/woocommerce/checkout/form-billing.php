@@ -17,6 +17,7 @@
  */
 
 defined( 'ABSPATH' ) || exit;
+$result_id = $_COOKIE['result_id']
 ?>
 <div class="woocommerce-billing-fields">
 
@@ -26,15 +27,21 @@ defined( 'ABSPATH' ) || exit;
     <div class="woocommerce-billing-fields__field-wrapper">
         <?php
         $fields = $checkout->get_checkout_fields( 'billing' );
+        $values = [
+            'billing_email' =>get_field('user_email', $result_id),
+            'billing_first_name' =>get_field('user_name', $result_id),
+        ];
+
 
 
         foreach ( $fields as $key => $field ) {
             $field['placeholder'] =  $field['label'];
-           $field['label'] =  '';
+            $field['label'] =  '';
             $field['class'] = 'field';
 
 
-            woocommerce_form_field( $key, $field, $checkout->get_value( $key ) );
+
+            woocommerce_form_field( $key, $field, $values[$key] );
         }
         ?>
     </div>
