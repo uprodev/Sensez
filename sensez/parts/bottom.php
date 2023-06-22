@@ -1,5 +1,5 @@
 <!-- start page footer-->
-<footer class="section fp-auto-height page-footer">
+<footer class="page-footer<?php if(!is_page_template('page-templates/registration.php')) echo ' section fp-auto-height' ?>">
   <div class="container">
 
     <?php if ($field = get_field('text', 'option')): ?>

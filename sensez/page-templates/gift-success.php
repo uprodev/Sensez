@@ -8,7 +8,7 @@
 */
 
 
-
+$result_id = get_permalink($_COOKIE['result_id']);
 
 if (!$_GET['order_id'])
     wp_redirect(get_permalink(391));
@@ -57,10 +57,10 @@ foreach ($order->get_items() as $item) {
         </div>
         <div class="container">
             <div class="logo">
-                <a href="#"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.svg" alt="" /></a>
+                <a href="/"><img src="<?= get_template_directory_uri() ?>/assets/img/logo.svg" alt="" /></a>
             </div>
             <div class="link-back">
-                <a href="#">
+                <a href="<?= get_permalink($result_id) ?>">
                     <img src="<?= get_template_directory_uri() ?>/assets/img/icons/previous-dark.svg" alt="" />
                     Back<span>&nbsp;to results</span>
                 </a>
@@ -78,15 +78,7 @@ foreach ($order->get_items() as $item) {
         </div>
     </section>
 
-    <footer class="page-footer">
-        <div class="container">
-            <p>&copy; 2023 Sensez. <br />ALL RIGHTS RESERVED.</p>
-            <ul>
-                <li><a href="#">TERMS OF SERVICE</a></li>
-                <li><a href="#">PRIVACY POLICY</a></li>
-            </ul>
-        </div>
-    </footer>
+    <?php get_template_part('parts/bottom') ?>
 </div>
 
 <?php wp_footer(); ?>
