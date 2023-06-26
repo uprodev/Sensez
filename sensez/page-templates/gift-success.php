@@ -8,7 +8,7 @@
 */
 
 
-$result_id = get_permalink($_COOKIE['result_id']);
+$result_id =  ($_COOKIE['result_id']);
 
 if (!$_GET['order_id'])
     wp_redirect(get_permalink(391));
@@ -78,7 +78,9 @@ foreach ($order->get_items() as $item) {
         </div>
     </section>
 
-    <?php get_template_part('parts/bottom') ?>
+    <footer class="page-footer">
+        <?php get_template_part('parts/footer', 'content') ?>
+    </footer>
 </div>
 
 <?php wp_footer(); ?>

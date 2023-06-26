@@ -47,7 +47,7 @@ $result_id = get_permalink($_COOKIE['result_id']);
             <div class="form">
                 <form id="giftSubmit" action="#">
                     <div class="field">
-                        <input type="text" required name="code" id="inputCode" placeholder="____" />
+                        <input type="text" required name="code" id="inputCode" placeholder="______" />
                         <p class="result field-message"></p>
                     </div>
 
@@ -72,7 +72,9 @@ $result_id = get_permalink($_COOKIE['result_id']);
         </div>
     </section>
 
-    <?php get_template_part('parts/bottom') ?>
+    <footer class="page-footer">
+        <?php get_template_part('parts/footer', 'content') ?>
+    </footer>
 </div>
 
 <?php wp_footer(); ?>

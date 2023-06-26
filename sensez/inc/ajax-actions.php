@@ -2,8 +2,7 @@
 
 $actions = [
     'ajax_registration',
-//    'ajax_login',
-//    'ajax_reset',
+
     'qty_cart',
     'remove_item_from_cart',
     'apply_coupon',
@@ -51,7 +50,7 @@ function create_coupon() {
     /**
      * Create a coupon programatically
      */
-    $coupon_code = rand(10000000000, 99900000000); // Code
+    $coupon_code = rand(100000, 999999); // Code
     $amount = '15.99'; // Amount
     $discount_type = 'fixed_cart'; // Type: fixed_cart, percent, fixed_product, percent_product
 
@@ -267,6 +266,28 @@ add_action('template_redirect', function(){
 //    WC()->cart->empty_cart();
 //    WC()->cart->add_to_cart(146, 1);
 
+    if ($_GET['tr']) {
+
+
+
+        $q = new WP_Query([
+            'post_type' => 'question',
+            'posts_per_page' => '-1',
+
+        ]);
+
+        while ($q->have_posts()) {
+            $q->the_post();
+            $terms[] = count(get_the_terms(get_the_id(), 'question_cat'));
+        }
+
+
+        echo '<pre>';
+
+        print_r($terms);
+
+        die();
+    }
 
 
 
