@@ -6,5 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body>
-  <div class="page-wrapper<?php if(is_singular('result')) echo ' page-result' ?>">
+<body <?php body_class(); ?>>
+  <?php wp_body_open(); ?>
+  <div class="page-wrapper<?php if(is_singular('result')) echo ' page-result'; if(is_page_template('page-templates/registration.php')) echo ' single-screen' ?>">

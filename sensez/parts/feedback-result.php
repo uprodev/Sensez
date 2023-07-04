@@ -18,7 +18,7 @@
                         <?php endif ?>
 
                         <?php if ($field = get_sub_field('text')): ?>
-                            <p><?= $field ?> <span class="code">191100F22OC12D45E35F26</span></p>
+                            <p><?= $field ?> <span class="code"><?php the_field('code') ?></span></p>
                         <?php endif ?>
                         
                         <?php if ($field = get_sub_field('link')): ?>

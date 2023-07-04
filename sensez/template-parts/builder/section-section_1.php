@@ -9,9 +9,9 @@ if($args):
 		<?php if ($images): ?>
 			<div class="elements">
 
-				<?php foreach($images as $image): ?>
+				<?php foreach($images as $index => $image): ?>
 
-					<div class="el el-01">
+					<div class="el el-<?php if($index < 9) echo '0'; echo $index + 1; ?>">
 						<?= wp_get_attachment_image($image['ID'], 'full') ?>
 					</div>
 

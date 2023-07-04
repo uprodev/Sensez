@@ -167,7 +167,7 @@ if($page == 9 || $page == 10) $data_step = 6;
                         $post_id = $post->ID ?>
                         <li>
 
-                            <input type="hidden" data-value="<?= isset($answers["p$page-$post_id"]) ? $answers["p$page-$post_id"] :'' ?>"  data-id="<?= $post->ID ?>" name="questions[<?= $post->ID ?>]" readonly />
+                            <input type="hidden" value="<?= isset($answers["p$page-$post_id"]) ? $answers["p$page-$post_id"] :'' ?>"  data-id="<?= $post->ID ?>" name="questions[<?= $post->ID ?>]" readonly />
 
 
                             <h3><?php the_title() ?></h3>

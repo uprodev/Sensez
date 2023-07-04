@@ -51,7 +51,7 @@ function create_coupon() {
      * Create a coupon programatically
      */
     $coupon_code = rand(100000, 999999); // Code
-    $amount = '15.99'; // Amount
+    $amount = '49.99'; // Amount
     $discount_type = 'fixed_cart'; // Type: fixed_cart, percent, fixed_product, percent_product
 
     $coupon = array(
@@ -75,7 +75,11 @@ function create_coupon() {
     update_post_meta( $new_coupon_id, 'free_shipping', 'no' );
 
     WC()->cart->empty_cart();
-    WC()->cart->add_to_cart(611, 1, '', '', ['new_coupon_id' => $new_coupon_id]);
+    WC()->cart->add_to_cart(611, 1, '', '', [
+        'new_coupon_id' => $new_coupon_id,
+        'recepient_email' => $_POST['recepient_email'],
+        'note' => $_POST['note'],
+    ]);
 
 
 
@@ -89,6 +93,13 @@ function plugin_republic_add_cart_item_data( $cart_item_data, $product_id, $vari
     if( isset( $_POST['new_coupon_id'] ) ) {
         $cart_item_data['new_coupon_id'] = sanitize_text_field( $_POST['new_coupon_id'] );
     }
+    if( isset( $_POST['recepient_email'] ) ) {
+        $cart_item_data['recepient_email'] = sanitize_text_field( $_POST['recepient_email'] );
+    }
+
+    if( isset( $_POST['note'] ) ) {
+        $cart_item_data['note'] = sanitize_text_field( $_POST['note'] );
+    }
     return $cart_item_data;
 }
 add_filter( 'woocommerce_add_cart_item_data', 'plugin_republic_add_cart_item_data', 10, 3 );
@@ -99,6 +110,21 @@ function plugin_republic_checkout_create_order_line_item( $item, $cart_item_key,
         $item->add_meta_data(
             __( 'new_coupon_id', 'plugin-republic' ),
             $values['new_coupon_id'],
+            true
+        );
+    }
+    if( isset( $values['recepient_email'] ) ) {
+        $item->add_meta_data(
+            __( 'recepient_email', 'plugin-republic' ),
+            $values['recepient_email'],
+            true
+        );
+    }
+
+    if( isset( $values['note'] ) ) {
+        $item->add_meta_data(
+            __( 'note', 'plugin-republic' ),
+            $values['note'],
             true
         );
     }
@@ -150,7 +176,7 @@ function add_to_cart()
 {
 
     $product_id = (int)$_GET['product_id'];
-
+    $result_id = (int)$_GET['result_id'];
     $qty = 1;
     WC()->cart->empty_cart();
     $added = WC()->cart->add_to_cart($product_id, $qty);
@@ -158,7 +184,7 @@ function add_to_cart()
 
     wp_send_json(
         [
-            'url' => get_permalink(142),
+            'url' => get_permalink(142) . '?result_id='. $result_id,
         ]
     );
 
@@ -267,8 +293,6 @@ add_action('template_redirect', function(){
 //    WC()->cart->add_to_cart(146, 1);
 
     if ($_GET['tr']) {
-
-
 
         $q = new WP_Query([
             'post_type' => 'question',

@@ -1,9 +1,14 @@
-<?php get_header('empty') ?>
+<?php
+
+
+
+get_header('empty') ?>
 
 <?php $profile_id = get_field('profile') ;
 
 
 $profile_txt = get_field('profile_txt') ;
+
 
 
 ?>
@@ -14,7 +19,26 @@ $profile_txt = get_field('profile_txt') ;
     <span><?php _e('contact us', 'Sensez') ?></span>
 </div>
 <div class="page-content" id="fullpage">
-    <section class="section fp-noscroll screen res-screen-01 res-orange" data-bg="#F9F3E9">
+
+    <?php
+    switch (get_field('primary', $profile_id)) {
+        case 'Mindfulness':
+        $color_class = 'blue';
+        break;
+        case 'Energy':
+        $color_class = 'pink';
+        break;
+        case 'Passion':
+        $color_class = 'orange';
+        break;
+
+        default:
+        $color_class = 'yellow';
+        break;
+    }
+    ?>
+
+    <section class="section fp-noscroll screen res-screen-01 res-<?= $color_class ?>" data-bg="#F9F3E9">
         <div class="elements">
             <div class="el el-01"></div>
             <div class="el el-02"></div>
@@ -26,7 +50,7 @@ $profile_txt = get_field('profile_txt') ;
             <?php if ($field = get_field('logo', 'option')): ?>
                 <div class="logo">
                     <a href="<?= get_home_url() ?>">
-                        <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                        <?= wp_get_attachment_image($field['ID'], 'full', false, array('loading' => 'eager')) ?>
                     </a>
                 </div>
             <?php endif ?>
@@ -42,7 +66,9 @@ $profile_txt = get_field('profile_txt') ;
             <?php endif ?>
 
             <div class="graph">
-                <a href="#" class="btn-share"><img src="<?= get_stylesheet_directory_uri() ?>/assets/img/share.svg" alt="" /></a>
+
+                <?php get_template_part('parts/share', 'result_start') ?>
+
                 <svg class="graph-main graph-main--desktop" width="1238" height="400" viewBox="0 0 1238 400">
                     <path class="path" fill="url(#paint2_linear_1526_19835)" stroke="url(#paint3_linear_1526_19835)" stroke-width="2" />
                     <path class="path" fill="url(#paint0_linear_1526_19835)" stroke="url(#paint1_linear_1526_19835)" stroke-width="2" />
@@ -265,6 +291,9 @@ $profile_txt = get_field('profile_txt') ;
             </div>
 
             <div class="buttons">
+              <div class="box-share-hidden">
+                <?php get_template_part('parts/share', 'result_start_inner') ?>
+              </div>
               <a href="#" class="btn btn-outlined">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M20 7.18561L12.91 0V4.45282C12.5175 4.49498 12.1249 4.54774 11.7325 4.59343C10.7155 4.76679 9.71898 5.04613 8.75892 5.42722C6.82634 6.22049 5.07009 7.39725 3.59343 8.88816C2.13606 10.3398 1.06118 12.1379 0.46705 14.1185C-0.0602951 15.982 -0.142385 17.9459 0.227456 19.8481C0.24467 19.9225 0.302823 19.9802 0.376796 19.996C0.425645 20.0063 0.47659 19.9964 0.518227 19.9689C0.559866 19.9411 0.588944 19.8978 0.598948 19.8481C0.916237 18.1383 1.56175 16.5084 2.49919 15.0505C3.36939 13.7206 4.54461 12.6235 5.92427 11.8533C7.26599 11.1286 8.72473 10.6521 10.2319 10.4465C10.9753 10.3233 11.722 10.2248 12.4794 10.1476L12.9102 10.109L12.91 14.3575L20 7.18561Z" fill="#652FEB" />
@@ -289,11 +318,11 @@ $profile_txt = get_field('profile_txt') ;
                     <picture>
 
                         <?php if ($field = get_field('img_description', $profile_id)): ?>
-                         <source media="(min-width: 768px)" srcset="<?= $field['url'] ?>" />
-                         <?php endif ?>
+                           <source media="(min-width: 768px)" srcset="<?= $field['url'] ?>" />
+                           <?php endif ?>
 
-                         <?php if ($field = get_field('img_description_mobile', $profile_id)): ?>
-                            <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                           <?php if ($field = get_field('img_description_mobile', $profile_id)): ?>
+                            <?= wp_get_attachment_image($field['ID'], 'full', false, array('loading' => 'eager')) ?>
                         <?php endif ?>
 
                     </picture>
@@ -308,22 +337,20 @@ $profile_txt = get_field('profile_txt') ;
     </div>
 </section>
 
-<?php if( have_rows('levels', $profile_id) ): ?>
+<section class="section screen res-screen-02" data-bg="#949AF6">
+    <div class="container">
+        <div class="block-scales">
+            <h2><?php _e('Your resource distribution chart', 'Sensez') ?></h2>
 
-    <section class="section screen res-screen-02" data-bg="#949AF6">
-        <div class="container">
-            <div class="block-scales">
-                <h2><?php _e('Your resource distribution chart', 'Sensez') ?></h2>
+            <?php
+            $scales_json =   get_field('calc');
+            $scales = is_array($scales_json) ? $scales_json : json_decode($scales_json, 1)
+            ?>
 
-                <?php
-                $scales_json =   get_field('calc');
-                $scales = is_array($scales_json) ? $scales_json : json_decode($scales_json, 1)
-                ?>
-
-                <div class="wrapper">
-                    <div class="item">
-                        <p><?php _e('Your energy level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
-                      <div class="scale color-pink">
+            <div class="wrapper">
+                <div class="item">
+                    <p><?php _e('Your energy level', 'Sensez') ?></p>
+                    <div class="scale color-pink">
                         <div class="scale-title"><span class="counter" data-text="<?= $scales['Д'] ?>">0</span><span class="divider">/</span><small>60</small></div>
                         <div class="bar">
                           <div class="bar-inner" data-width="<?= calc_data_width($scales['Д']) ?>"></div>
@@ -333,8 +360,8 @@ $profile_txt = get_field('profile_txt') ;
                   </div>
               </div>
               <div class="item">
-                <p><?php _e('Your sexuality level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
-                  <div class="scale color-orange">
+                <p><?php _e('Your sexuality level', 'Sensez') ?></p>
+                <div class="scale color-orange">
                     <div class="scale-title"><span class="counter" data-text="<?= $scales['Ю'] ?>">0</span><span class="divider">/</span><small>60</small></div>
                     <div class="bar">
                       <div class="bar-inner" data-width="<?= calc_data_width($scales['Ю']) ?>"></div>
@@ -344,8 +371,8 @@ $profile_txt = get_field('profile_txt') ;
               </div>
           </div>
           <div class="item">
-            <p><?php _e('Your self-regulation level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
-              <div class="scale color-yellow">
+            <p><?php _e('Your self-regulation level', 'Sensez') ?></p>
+            <div class="scale color-yellow">
                 <div class="scale-title"><span class="counter" data-text="<?= $scales['В'] ?>">0</span><span class="divider">/</span><small>60</small></div>
                 <div class="bar">
                   <div class="bar-inner" data-width="<?= calc_data_width($scales['В']) ?>"></div>
@@ -355,8 +382,8 @@ $profile_txt = get_field('profile_txt') ;
           </div>
       </div>
       <div class="item">
-        <p><?php _e('Your mindfulness level', 'Sensez') ?> <img src="<?= get_stylesheet_directory_uri() ?>/assets/img/question.svg" alt="" /></p>
-          <div class="scale color-blue">
+        <p><?php _e('Your mindfulness level', 'Sensez') ?></p>
+        <div class="scale color-blue">
             <div class="scale-title"><span class="counter" data-text="<?= $scales['З'] ?>">0</span><span class="divider">/</span><small>60</small></div>
             <div class="bar">
               <div class="bar-inner" data-width="<?= calc_data_width($scales['З']) ?>"></div>
@@ -370,26 +397,23 @@ $profile_txt = get_field('profile_txt') ;
 </div>
 </section>
 
-<?php endif; ?>
+<?php if (!get_field('payment') || get_field('payment') == 'Demo'): ?>
 
+<?php get_template_part('parts/learn_more_demo', 'result') ?>
 
-<?php if (get_field('payment') == 'Demo'): ?>
+<?php get_template_part('parts/payment_demo', 'result') ?>
 
-    <?php get_template_part('parts/learn_more_demo', 'result') ?>
+<?php get_template_part('parts/reviews_demo', 'result') ?>
 
-    <?php get_template_part('parts/payment_demo', 'result') ?>
+<?php get_template_part('parts/methodology_demo', 'result') ?>
 
-    <?php get_template_part('parts/reviews_demo', 'result') ?>
-
-    <?php get_template_part('parts/methodology_demo', 'result') ?>
-
-    <?php get_template_part('parts/gift', 'result') ?>
+<?php get_template_part('parts/gift', 'result') ?>
 
 <?php endif ?>
 
-<?php if(have_rows('texts_basic', $profile_id) && get_field('payment') != 'Demo'): ?>
+<?php if(have_rows('texts_basic', $profile_id) && get_field('payment') && get_field('payment') != 'Demo' ): ?>
 
-<section class="section screen res-screen-02 res-screen-02--advanced res-screen-scroll-container" data-bg="#949AF6">
+<section class="section screen res-screen-02 res-screen-scroll-container<?php if(get_field('payment') == 'Advanced') echo ' res-screen-02--advanced' ?>" data-bg="#949AF6">
   <div class="container">
 
     <?php while( have_rows('texts_basic', $profile_id) ): the_row(); ?>
@@ -399,7 +423,7 @@ $profile_txt = get_field('profile_txt') ;
 
                 <?php if ($field = get_sub_field('image')): ?>
                     <div class="image">
-                        <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                        <?= wp_get_attachment_image($field['ID'], 'full', false, array('loading' => 'eager')) ?>
                     </div>
                 <?php endif ?>
 
@@ -411,7 +435,7 @@ $profile_txt = get_field('profile_txt') ;
 
                     <?php if ($field = get_sub_field('image_mobile')): ?>
                         <div class="image-mobile">
-                            <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                            <?= wp_get_attachment_image($field['ID'], 'full', false, array('loading' => 'eager')) ?>
                         </div>
                     <?php endif ?>
 
@@ -452,7 +476,7 @@ $profile_txt = get_field('profile_txt') ;
 
                     <?php if ($field = get_sub_field('image')): ?>
                         <div class="image">
-                            <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                            <?= wp_get_attachment_image($field['ID'], 'full', false, array('loading' => 'eager')) ?>
                         </div>
                     <?php endif ?>
 
@@ -464,7 +488,7 @@ $profile_txt = get_field('profile_txt') ;
 
                         <?php if ($field = get_sub_field('image_mobile')): ?>
                             <div class="image-mobile">
-                                <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                                <?= wp_get_attachment_image($field['ID'], 'full', false, array('loading' => 'eager')) ?>
                             </div>
                         <?php endif ?>
 
@@ -533,7 +557,7 @@ $profile_txt = get_field('profile_txt') ;
 
                         <?php if ($field = get_sub_field('image')): ?>
                             <div class="image">
-                                <?= wp_get_attachment_image($field['ID'], 'full') ?>
+                                <?= wp_get_attachment_image($field['ID'], 'full', false, array('loading' => 'eager')) ?>
                             </div>
                         <?php endif ?>
 
@@ -557,13 +581,13 @@ $profile_txt = get_field('profile_txt') ;
 
 <?php endif ?>
 
-<?php if (get_field('payment') != 'Demo'): ?>
+<?php if (get_field('payment') && get_field('payment') != 'Demo'): ?>
 
-    <?php get_template_part('parts/gift', 'result') ?>
+<?php get_template_part('parts/gift', 'result') ?>
 
-    <?php get_template_part('parts/share', 'result') ?>
+<?php get_template_part('parts/share', 'result') ?>
 
-    <?php get_template_part('parts/feedback', 'result') ?>
+<?php get_template_part('parts/feedback', 'result') ?>
 
 <?php endif ?>
 

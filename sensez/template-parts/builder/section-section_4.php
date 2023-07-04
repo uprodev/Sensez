@@ -9,7 +9,7 @@ if($args):
 			<div class="elements">
 
 				<?php foreach ($images as $index => $image): ?>
-					<div class="el el-0<?= $index ?>">
+					<div class="el el-0<?= $index + 1 ?>">
 						<?= wp_get_attachment_image($image['ID'], 'full') ?>
 					</div>
 				<?php endforeach ?>

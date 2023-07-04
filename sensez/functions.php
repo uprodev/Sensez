@@ -4,6 +4,7 @@ include 'inc/ajax-actions.php'; // ajax
 include 'inc/enqueue.php';      // add styles and scripts
 include 'inc/acf.php';          // custom acf functions
 include 'inc/extras.php';       // custom functions
+//include 'classes/class-custom-email.php';       // custom functions
 include 'inc/woo.php';
 
 add_theme_support( 'post-thumbnails');
@@ -44,7 +45,7 @@ function test_4_steps(){
     $post_data = array(
         'post_title'    => 'Result ' . $number_title,
         'post_type'  => 'result',
-        'post_status'   => 'publish',
+        'post_status'   => 'draft',
     );
 
     $post_id = wp_insert_post($post_data);
@@ -88,3 +89,7 @@ function test_questions(){
 }
 
 
+
+function calc_data_width($data_text){
+    return $data_text * 100 / 60;
+}

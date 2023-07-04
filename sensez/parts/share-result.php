@@ -31,7 +31,7 @@
                 <?php endif ?>
 
                 <?php if (get_field('share_results', 'option')['snapchat']): ?>
-                    <a href="#" class="btn-share share-snapchat" target="_blank"><?php _e('snapchat', 'Sensez') ?></a>
+                    <a href="https://www.snapchat.com/scan?attachmentUrl=<?php the_permalink() ?>" class="btn-share share-snapchat" target="_blank"><?php _e('snapchat', 'Sensez') ?></a>
                 <?php endif ?>
 
 

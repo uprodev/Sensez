@@ -10,6 +10,18 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  $(".box-share .btn-share").on("click", function () {
+    $(".box-share").toggleClass("active");
+  });
+
+  $(".res-screen-01 .buttons .btn.btn-outlined").on("click", function () {
+    $(this).parent().find(".box-share-hidden").toggleClass("active");
+  });
+
+  $(".res-screen-06 .wrapper .text .share button").on("click", function () {
+    $(".res-screen-06 .wrapper .text .share").toggleClass("active");
+  });
+
   var bgBody;
   // fullpage
   new fullpage("#fullpage", {
@@ -26,7 +38,6 @@ jQuery(document).ready(function ($) {
       bgBody = screenStart.data("bg");
     },
     onLeave: function (origin, destination, direction, trigger) {
-      console.log(destination.index);
       if (destination.item.dataset.bg) {
         gsap.to("body", {
           backgroundColor: destination.item.dataset.bg,

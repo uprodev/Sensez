@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 ?>
 
 <?php
-$result_id = $_COOKIE['result_id'];
+$result_id = get_field('result_id', $order->get_id());
 foreach ($order->get_items() as $item) {
     if ($item['product_id'] == 611) {
         wp_redirect(get_permalink(529). '?order_id='. $order->get_id());
@@ -40,6 +40,7 @@ foreach ($order->get_items() as $item) {
         update_field('payment', 'Basic', $result_id);
     }
 
+   // update_field('result_id', $result_id, $order->get_id());
 }
 
 ?>

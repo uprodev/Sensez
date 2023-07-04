@@ -200,7 +200,7 @@ if($featured_posts): ?>
                         ?>
                         <li>
 
-                            <input type="hidden" data-value="<?= $answers["p$page-$post_id"] ? $answers["p$page-$post_id"] :'' ?>" data-id="<?= $post->ID ?>" name="questions[<?= $post->ID ?>]"  readonly />
+                            <input type="hidden" value="<?= isset($answers["p$page-$post_id"]) ? $answers["p$page-$post_id"] :'' ?>" data-id="<?= $post->ID ?>" name="questions[<?= $post->ID ?>]"  readonly />
 
                             <div class="image">
                                 <?php the_post_thumbnail('full') ?>

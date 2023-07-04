@@ -41,7 +41,7 @@ jQuery(document).ready(function($){
   $('.add-to-cart').click(function(e){
     e.preventDefault();
     var product_id = $(this).attr('data-product_id')
-    var result_id = Cookies.get('result_id');
+    var result_id =  $(this).attr('data-result_id')
 
     $.ajax({
       url: '/wp-admin/admin-ajax.php',

@@ -21,15 +21,6 @@ if($args):
 		<?php endif ?>
 		
 		<div class="bg-gradient"></div>
-
-		<?php if ($image): ?>
-			<div class="image">
-				<div class="inner">
-					<?= wp_get_attachment_image($image['ID'], 'full') ?>
-				</div>
-			</div>
-		<?php endif ?>
-		
 		<div class="container">
 
 			<?php if ($texts): ?>
@@ -44,6 +35,14 @@ if($args):
 
 			<?php endif ?>
 
+			<?php if ($image): ?>
+				<div class="image">
+					<div class="inner">
+						<?= wp_get_attachment_image($image['ID'], 'full') ?>
+					</div>
+				</div>
+			<?php endif ?>
+			
 			<?php if ($link): ?>
 				<div class="btn-wrapper">
 					<a href="<?= $link['url'] ?>" class="btn btn-start btn-start--white"<?php if($link['target']) echo ' target="_blank"' ?>>

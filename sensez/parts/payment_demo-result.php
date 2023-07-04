@@ -37,7 +37,7 @@
 
 
                 <?php if ($item['link']): ?>
-                  <a href="<?= $item['link']['url'] ?>" class="add-to-cart btn btn-<?= $item['link_color'] ?>" data-product_id="<?= $product_id ?>"<?php if($item['link']['target']) echo ' target="_blank"' ?>>
+                  <a href="<?= $item['link']['url'] ?>" class="add-to-cart btn btn-<?= $item['link_color'] ?>"  data-result_id="<?= the_id() ?>" data-product_id="<?= $product_id ?>"<?php if($item['link']['target']) echo ' target="_blank"' ?>>
 
                     <?php if ($item['link_color'] == 'white'): ?>
                       <svg width="37" height="36" viewBox="0 0 37 36" fill="none" xmlns="http://www.w3.org/2000/svg">

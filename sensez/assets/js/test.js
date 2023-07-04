@@ -3,6 +3,49 @@ jQuery(document).ready(function ($) {
     ScrollTrigger.refresh();
   });
 
+  function checkCookies() {
+    if (typeof Cookies !== "undefined") {
+      var resId = Cookies.get("result_id");
+      if (typeof resId !== "undefined") {
+        goToStep4();
+      }
+    }
+  }
+
+  function goToStep4() {
+    $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
+    $(".four-steps-relations").removeClass("step-current");
+    $(".four-steps-orientation").addClass("step-current");
+    gsap.utils.toArray(".four-steps-relations ul li, .four-steps-relations .el, .four-steps-relations .text").forEach((box, i) => {
+      gsap.set(box, {
+        y: "100vh",
+      });
+    });
+
+    gsap.set(".four-steps-orientation", {
+      y: 0,
+    });
+    gsap.to(".test-progress .steps .steps-progress .inner", {
+      width: "3.75%",
+      duration: 0.1,
+    });
+  }
+  function goToStep2() {
+    $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
+    $(".four-steps-relations").removeClass("step-current");
+    $(".four-steps-age").addClass("step-current");
+    gsap.utils.toArray(".four-steps-relations ul li, .four-steps-relations .el, .four-steps-relations .text").forEach((box, i) => {
+      gsap.set(box, {
+        y: "100vh",
+      });
+    });
+
+    gsap.set(".four-steps-age", {
+      y: 0,
+    });
+    progress();
+  }
+
   function progressInit() {
     var currentStepContainer = $("[data-step]");
     var currentStep = parseInt(currentStepContainer.data("step"));
@@ -15,9 +58,19 @@ jQuery(document).ready(function ($) {
     var progressWidth = 0;
     if (currentStep !== 1) {
       if (document.querySelector(".test-step--type2")) {
-        progressWidth = (currentStep - 2) * 19 + 20.83 + "%";
+        var filled = $(".test-scroller input.filled").length;
+        if (filled > 0) {
+          progressWidth = (currentStep - 2) * 19 + 20.83 + 1.583 + "%";
+        } else {
+          progressWidth = (currentStep - 2) * 19 + 20.83 + "%";
+        }
       } else if (document.querySelector(".test-step--type1")) {
-        progressWidth = (currentStep - 2) * 19 + 5 + "%";
+        var filled = $(".test-scroller input.filled").length;
+        if (filled > 0) {
+          progressWidth = (currentStep - 2) * 19 + 5 + 1.583 * 9 + "%";
+        } else {
+          progressWidth = (currentStep - 2) * 19 + 5 + "%";
+        }
       }
     }
 
@@ -32,7 +85,22 @@ jQuery(document).ready(function ($) {
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
       progressNext = progressCurrent + progressStep + "%";
-    $(".test-progress .steps .steps-progress .inner").css("width", progressNext);
+    gsap.to(".test-progress .steps .steps-progress .inner", {
+      width: progressNext,
+      duration: 0.1,
+    });
+  }
+  function progressBack() {
+    var progressStep = 1.583;
+    if ($(".four-steps-wrapper").length) {
+      progressStep = 1.25;
+    }
+    var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
+      progressNext = progressCurrent - progressStep + "%";
+    gsap.to(".test-progress .steps .steps-progress .inner", {
+      width: progressNext,
+      duration: 0.1,
+    });
   }
 
   function relationsAge() {
@@ -52,7 +120,7 @@ jQuery(document).ready(function ($) {
               ease: "none",
               duration: 0.7,
               onComplete: function () {
-                $(".btn-previous").css("opacity", 1);
+                $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
                 $(".four-steps-relations").css("opacity", 0).removeClass("step-current");
                 gsap.to(".four-steps-age", {
                   y: 0,
@@ -61,7 +129,7 @@ jQuery(document).ready(function ($) {
                   onComplete: function () {
                     if ($(window).width() < 1024) {
                       var d = 0;
-                      gsap.utils.toArray(".four-steps-age .col-text, .four-steps-age ul li").forEach((box, i) => {
+                      gsap.utils.toArray(".four-steps-age .col-text").forEach((box, i) => {
                         gsap.to(box, {
                           x: 0,
                           ease: "none",
@@ -85,6 +153,12 @@ jQuery(document).ready(function ($) {
   function animations() {
     // four-steps
     if (document.querySelector(".four-steps-wrapper")) {
+      checkCookies();
+
+      if (window.location.href.indexOf("q=") !== -1) {
+        goToStep2();
+      }
+
       // relations
       $(".four-steps-relations label").on("mouseup", function () {
         progress();
@@ -213,14 +287,13 @@ jQuery(document).ready(function ($) {
           backgroundColor: "#FF9072",
           duration: 1,
           onComplete: function () {
-
-
             $(".btn-next").get(0).click();
           },
         });
       });
 
       $(".btn-previous").on("click", function () {
+        progressBack();
         var stepCurrent = $(".step-current");
         if (stepCurrent.parent().hasClass("four-steps-wrapper")) {
           if (stepCurrent.hasClass("four-steps-age")) {
@@ -246,21 +319,25 @@ jQuery(document).ready(function ($) {
             });
             $(".four-steps-age").removeClass("step-current");
             $(".four-steps-relations").addClass("step-current");
-            $(".btn-previous").css("opacity", 0);
+            $(".btn-previous").css("opacity", 0).removeClass("btn-previous-active");
           } else if (stepCurrent.hasClass("four-steps-gender")) {
+            gsap.set(".four-steps-age ul li.active label", { scale: 1 });
             gsap.to(".four-steps-gender", {
               y: "100vh",
               ease: "none",
-              duration: 0,
+              duration: 0.3,
             });
-            gsap.to(".four-steps-age ul li.active label", {
-              scale: 1,
+            gsap.to(".four-steps-age", {
+              opacity: 1,
+              y: 0,
               ease: "none",
-              duration: 1,
+              duration: 0.3,
+              delay: 0.3,
             });
+
             $(".four-steps-gender").removeClass("step-current");
             $(".four-steps-age .container").css("overflow", "auto");
-            $(".four-steps-age").css("opacity", 1).addClass("step-current");
+            $(".four-steps-age").addClass("step-current");
           } else {
             $(".four-steps-gender").css("opacity, 1");
             gsap.to(".four-steps-gender", {
@@ -328,6 +405,7 @@ jQuery(document).ready(function ($) {
         },
       });
 
+      $(".test-scroller li:last-child").addClass("last");
       var scrollers = document.querySelectorAll(".test-scroller li");
       scrollers.forEach((li, i) => {
         gsap.to(li, {
@@ -352,9 +430,25 @@ jQuery(document).ready(function ($) {
           $(this).addClass("filled");
         }
       });
+      progressInit();
     }
 
     if (document.querySelector(".test-step--type1")) {
+      var totalQ = $(".test-scroller li").length;
+      if ($(".test-scroller .filled").length === totalQ) {
+        $(".test-step-inner").animate({ scrollTop: $(".test-scroller .last").outerHeight() * 9 }, 0);
+        setTimeout(() => {
+          var activeQ = $(".test-scroller li.last"),
+            activeValue = parseInt(activeQ.find("input").val());
+          $(".test-options").addClass("selected");
+          $(".test-options input").each(function () {
+            if (parseInt($(this).val()) === activeValue) {
+              $(this).prop("checked", true);
+            }
+          });
+        }, 200);
+      }
+
       document.querySelectorAll(".test-options ul li label").forEach((label) => {
         var lottieHover = label.querySelector(".hover");
         var lottieClick = label.querySelector(".click");
@@ -381,13 +475,15 @@ jQuery(document).ready(function ($) {
           animating = true;
           progress();
           var activeQ = $(".test-scroller li.active"),
-            activeVal = $("[name=test]:checked").val(),
-            totalQ = $(".test-scroller li").length;
+            activeVal = $("[name=test]:checked").val();
+
           if (activeQ.length) {
             var input = activeQ.find("input");
             input.addClass("filled").val(activeVal);
           }
-          if ($(".test-scroller .filled").length === totalQ) {
+
+          if (activeQ.hasClass("last")) {
+            $(".test-options").removeClass("selected");
             $("#testChoices").addClass("disabled");
             gsap.to(".test-progress", {
               opacity: 0,
@@ -420,7 +516,7 @@ jQuery(document).ready(function ($) {
                   ".test-options li:nth-child(1)",
                   {
                     y: spacer * 2,
-                    duration: 0.3,
+                    duration: 0.6,
                   },
                   "-=0,6"
                 )
@@ -428,45 +524,37 @@ jQuery(document).ready(function ($) {
                   ".test-options li:nth-child(2)",
                   {
                     y: spacer,
-                    duration: 0.3,
+                    duration: 0.6,
                   },
-                  "-=0.3"
+                  "-=0.6"
                 )
                 .to(
                   ".test-options li:nth-child(4)",
                   {
                     y: spacer * -1,
-                    duration: 0.3,
+                    duration: 0.6,
                   },
-                  "-=0.3"
+                  "-=0.6"
                 )
                 .to(
                   ".test-options li:nth-child(5)",
                   {
                     y: spacer * -2,
-                    duration: 0.3,
+                    duration: 0.6,
                   },
-                  "-=0.3"
+                  "-=0.6"
                 )
-                .to(
-                  ".test-options li:nth-child(1),.test-options li:nth-child(2),.test-options li:nth-child(3),.test-options li:nth-child(4), .test-options li:nth-child(5) lottie-player",
-                  {
-                    opacity: 0,
-                    duration: 0.1,
-                  },
-                  "-=0.3"
-                )
-                .to(
-                  ".test-options li:nth-child(5) svg",
-                  {
-                    opacity: 1,
-                    duration: 0.1,
-                  },
-                  "-=0.3"
-                )
+                .to(".test-options li:nth-child(1),.test-options li:nth-child(2),.test-options li:nth-child(3),.test-options li:nth-child(4), .test-options li:nth-child(5) lottie-player", {
+                  opacity: 0,
+                  duration: 0.1,
+                })
+                .to(".test-options li:nth-child(5) svg", {
+                  opacity: 1,
+                  duration: 0.1,
+                })
                 .to(".test-options li:nth-child(5) figure", {
                   scale: 330,
-                  duration: 1,
+                  duration: 2,
                 })
                 .to(".step-main-wrapper", {
                   opacity: 0,
@@ -498,24 +586,24 @@ jQuery(document).ready(function ($) {
                 })
                 .to(".test-final svg", {
                   opacity: 1,
-                  duration: 0.3,
+                  duration: 0,
+                })
+                .to(".test-final svg", {
+                  scale: 0.3,
+                  duration: 1,
                 })
                 .to(
                   ".test-final svg",
                   {
                     scale: 1,
-                    duration: 1,
+                    duration: 1.5,
                   },
-                  "-=0.3"
+                  "-=0.5"
                 )
-                .to(
-                  ".step-main-wrapper",
-                  {
-                    opacity: 0,
-                    duration: 0.3,
-                  },
-                  "-=0.3"
-                )
+                .to(".step-main-wrapper", {
+                  opacity: 0,
+                  duration: 0.3,
+                })
                 .to(
                   "body",
                   {
@@ -526,7 +614,6 @@ jQuery(document).ready(function ($) {
                       if (page === 10) {
                         $(document).trigger("submitQuiz");
                       } else {
-
                         $(".btn-next").get(0).click();
                       }
                     },
@@ -545,13 +632,13 @@ jQuery(document).ready(function ($) {
       });
 
       $(document).on("click", ".btn-previous", function (e) {
+        progressBack();
         if (!$(".test-scroller li:first-child").hasClass("active")) {
           e.preventDefault();
           var prevQ = $(".test-scroller li.active").prev("li");
           $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() - prevQ.outerHeight() }, 500, function () {
             var activeQ = $(".test-scroller li.active"),
               activeValue = parseInt(activeQ.find("input").val());
-            // console.log(activeValue);
             $(".test-options").addClass("selected");
             $(".test-options input").each(function () {
               if (parseInt($(this).val()) === activeValue) {
@@ -564,6 +651,22 @@ jQuery(document).ready(function ($) {
     }
 
     if (document.querySelector(".test-step--type2")) {
+      var totalQ = $(".test-scroller li").length;
+      if ($(".test-scroller .filled").length === totalQ) {
+        $(".images-scroller").animate({ scrollTop: $(".images-scroller").scrollTop() + $(window).height() }, 300);
+        $(".test-step-inner").animate({ scrollTop: $(".test-scroller .last").outerHeight() }, 0);
+        setTimeout(() => {
+          var activeQ = $(".test-scroller li.last"),
+            activeValue = parseInt(activeQ.find("input").val());
+          $(".test-options").addClass("selected");
+          $(".test-options input").each(function () {
+            if (parseInt($(this).val()) === activeValue) {
+              $(this).prop("checked", true);
+            }
+          });
+        }, 200);
+      }
+
       document.querySelectorAll(".test-options ul li label").forEach((label) => {
         var lottieHover = label.querySelector(".flame-lightblue .hover");
         var lottieClick = label.querySelector(".flame-lightblue .click");
@@ -594,14 +697,14 @@ jQuery(document).ready(function ($) {
           var activeLabel = $(this);
           var nextColor = $(".test-step").attr("data-nextcolor");
           var activeQ = $(".test-scroller li.active"),
-            activeVal = $("[name=test]:checked").val(),
-            totalQ = $(".test-scroller li").length;
+            activeVal = $("[name=test]:checked").val();
           if (activeQ.length) {
             var input = activeQ.find("input");
             input.addClass("filled").val(activeVal);
           }
-          if ($(".test-scroller .filled").length === totalQ) {
+          if (activeQ.hasClass("last")) {
             setTimeout(() => {
+              $(".test-options").removeClass("selected");
               $("#testChoices").addClass("disabled");
               $(".test-progress .steps .step.active").next().addClass("active");
               const timeline = gsap
@@ -618,21 +721,21 @@ jQuery(document).ready(function ($) {
                   },
                   "-=0.3"
                 )
+                .to(".test-final svg", {
+                  opacity: 1,
+                  duration: 0,
+                })
+                .to(".test-final svg", {
+                  scale: 0.3,
+                  duration: 1,
+                })
                 .to(
                   ".test-final svg",
                   {
-                    opacity: 1,
-                    duration: 0.3,
+                    scale: 1,
+                    duration: 1.5,
                   },
-                  "-=0.3"
-                )
-                .to(
-                  ".test-final svg",
-                  {
-                    scale: 2,
-                    duration: 1,
-                  },
-                  "-=0.3"
+                  "-=0.5"
                 )
                 .to(
                   ".test-final svg path",
@@ -640,7 +743,7 @@ jQuery(document).ready(function ($) {
                     fill: nextColor,
                     duration: 1,
                   },
-                  "-=1"
+                  "-=2"
                 )
                 .to(
                   "body",
@@ -660,7 +763,6 @@ jQuery(document).ready(function ($) {
                       if (page === 10) {
                         $(document).trigger("submitQuiz");
                       } else {
-
                         $(".btn-next").get(0).click();
                       }
                     },
@@ -714,6 +816,7 @@ jQuery(document).ready(function ($) {
       });
 
       $(document).on("click", ".btn-previous", function (e) {
+        progressBack();
         if (!$(".test-scroller li:first-child").hasClass("active")) {
           e.preventDefault();
           var prevQ = $(".test-scroller li.active").prev("li");

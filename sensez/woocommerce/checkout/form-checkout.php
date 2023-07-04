@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-
+$result_id = $_GET['result_id'] ? $_GET['result_id'] : $_COOKIE['result_id'];
 ?>
 <h1>Checkout</h1>
 
@@ -28,10 +28,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <?php if ( $checkout->get_checkout_fields() ) : ?>
 
-        <?php //do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+        <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
         <div class="col2-set" id="customer_details">
             <div class="col-1 ">
+                <?php do_action( 'woocommerce_payment_placement' ); ?>
+            </div>
+
+            <div class="col-2">
+
                 <?php do_action( 'woocommerce_checkout_billing' ); ?>
 
                 <?php //do_action( 'woocommerce_checkout_shipping' ); ?>
@@ -51,10 +56,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             </div>
 
-            <div class="col-2">
-                <?php do_action( 'woocommerce_payment_placement' ); ?>
-            </div>
-
 
 
         </div>
@@ -66,6 +67,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <?php endif; ?>
 
 
+    <input type="hidden" name="result_id" value="<?= $result_id ?>">
 
 </form>
 

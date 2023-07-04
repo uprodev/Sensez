@@ -20,7 +20,11 @@ Template Name: 4 steps
 
 			<div class="steps-progress"><div class="inner"></div></div>
 		</div>
-		<button class="btn-previous"><img src="<?= get_stylesheet_directory_uri() ?>/assets/img/icons/previous.svg" alt="" /><?php _e('previous', 'Sensez') ?></button>
+		<button class="btn-previous">
+			<svg width="38" height="15" viewBox="0 0 38 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M37 11.7705C30.3354 7.70205 17.857 4.45488 1 10.0833M10.6542 0.464844C9.87826 2.53492 7.33556 7.20864 3.372 9.34295M3.4043 9.27846C5.58829 9.41773 10.6808 10.65 13.5787 14.4648" stroke="white" />
+            </svg>
+		<?php _e('previous', 'Sensez') ?></button>
 		<a href="#" class="btn-next"></a>
 	</div>
 	<!-- start content-->
@@ -59,7 +63,7 @@ Template Name: 4 steps
 									<?php foreach ($terms as $term): ?>
 										<li>
 											<label>
-												<input type="radio" name="relations" value="<?= $term->term_id ?>" />
+												<input type="radio" name="relations" value="<?= $term->term_id ?>"<?php if($term->term_id == $_GET['q']) echo ' checked' ?> />
 												<span><?= $term->name ?></span>
 											</label>
 										</li>
@@ -93,6 +97,7 @@ Template Name: 4 steps
 				<?php 
 				$terms = get_terms( [
 					'taxonomy' => 'age',
+					'orderby' => 'slug',
 					'hide_empty' => false,
 				] ); 
 				?>

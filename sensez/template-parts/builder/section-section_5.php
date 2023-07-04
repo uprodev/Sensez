@@ -27,9 +27,9 @@ if($args):
 
 							<?php if ($item['text']): ?>
 								<div class="col">
-									<div class="card">
+									<a href="" class="card">
 										<p><?= $item['text'] ?></p>
-									</div>
+									</a>
 								</div>
 							<?php endif ?>
 							
