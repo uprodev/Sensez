@@ -10,6 +10,17 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  function recommendImgHeight() {
+    $(".res-screen-10 .recommendation .block-main").each(function () {
+      var textHt = $(this).find(".text").outerHeight();
+      $(this).find(".image").css("height", textHt);
+    });
+  }
+  recommendImgHeight();
+  $(window).on("resize", function () {
+    recommendImgHeight();
+  });
+
   var bgBody;
   // fullpage
   new fullpage("#fullpage", {
@@ -56,6 +67,11 @@ jQuery(document).ready(function ($) {
           duration: 0.3,
         });
       }
+      if (destination.item.querySelector(".block-scales")) {
+        setTimeout(() => {
+          scales();
+        }, 300);
+      }
     },
   });
 
@@ -63,17 +79,30 @@ jQuery(document).ready(function ($) {
     fullpage_api.moveSectionDown();
   });
 
+  $(".res-screen-06 .wrapper .text .share a").on("click", function (e) {
+    e.preventDefault();
+    fullpage_api.moveSectionDown();
+  });
+
+  $(".res-screen-01 .buttons .btn.btn-outlined").on("click", function () {
+    $(this).parent().find(".box-share-hidden").toggleClass("active");
+  });
+
+  $(".box-share .btn-share").on("click", function () {
+    $(".box-share").toggleClass("active");
+  });
+
   function isElementInViewport(el, offset = 0) {
     var rect = el.getBoundingClientRect();
     return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset /* or $(window).height() */ && rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */;
   }
 
-  document.querySelector(".res-screen-02 .fp-overflow").addEventListener("scroll", function () {
-    console.log(isElementInViewport(document.querySelector(".block-scales")));
-    if (isElementInViewport(document.querySelector(".block-scales")) && !scalesAnimated && !scalesAnimating) {
-      scales();
-    }
-  });
+  // document.querySelector(".res-screen-02 .fp-overflow").addEventListener("scroll", function () {
+  //   console.log(isElementInViewport(document.querySelector(".block-scales")));
+  //   if (isElementInViewport(document.querySelector(".block-scales")) && !scalesAnimated && !scalesAnimating) {
+  //     scales();
+  //   }
+  // });
 
   var scalesAnimated = false;
   var scalesAnimating = false;

@@ -1,6 +1,7 @@
 .form {
   .field {
     margin: 0 0 14px;
+    position: relative;
 
     input,
     textarea {
@@ -19,6 +20,16 @@
       resize: none;
       margin: 0;
       @include placeholder-text(#0a0517, 0.4);
+
+      &.error {
+        border-color: $error;
+        color: $error;
+        @include placeholder-text($error, 1);
+      }
+    }
+
+    label.error {
+      display: none !important;
     }
 
     textarea {

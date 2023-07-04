@@ -2,7 +2,7 @@
   position: relative;
 
   &--advanced {
-    background: linear-gradient(180.64deg, #949af6 0.57%, #fdab96 99.48%);
+    // background: linear-gradient(180.64deg, #949af6 0.57%, #fdab96 99.48%);
   }
 
   .elements {
@@ -658,6 +658,9 @@
 
       &.img-right {
         .wrapper {
+          flex-direction: column;
+          padding: 30px 20px;
+          border-radius: 20px;
           padding: 30px 20px;
         }
       }
@@ -674,6 +677,12 @@
         border-radius: 22px;
         height: 160px;
         margin: 0 0 21px;
+
+        img {
+          display: block;
+          max-height: 80%;
+          width: auto;
+        }
       }
 
       h3 {

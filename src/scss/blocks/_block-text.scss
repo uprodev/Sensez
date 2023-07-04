@@ -1,0 +1,116 @@
+.block-text {
+  background-color: #f9f3e9;
+  color: #0a0517;
+  padding: 50px 0 100px;
+  font-family: $ff-opensans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+
+  &--primary {
+    background-color: #652feb;
+    color: #fff;
+  }
+
+  a {
+    font-weight: 800;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .logo {
+    text-align: center;
+    margin: 0 auto 63px;
+    width: 5.1rem;
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .block-text-header {
+    margin: 0 0 -17px;
+
+    p {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.27;
+    }
+  }
+
+  p {
+    margin: 0 0 25px;
+  }
+
+  h2 {
+    margin: 45px 0 59px;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 135%;
+    font-family: $ff-opensans;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 27px;
+    margin: 27px 0;
+    font-family: $ff-opensans;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 25px;
+    margin: 25px 0;
+    font-family: $ff-opensans;
+  }
+
+  ul {
+    list-style: disc;
+    padding: 0 0 0 17px;
+    margin: 0 0 25px;
+  }
+
+  ol {
+    list-style: decimal;
+    padding: 0 0 0 24px;
+  }
+
+  @media (min-width: 1920px) {
+    .container {
+      max-width: 1082px;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .logo {
+      width: 70px;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    font-size: 16px;
+    line-height: 22px;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    h4 {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+}

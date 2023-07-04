@@ -28,18 +28,80 @@ jQuery(document).ready(function ($) {
 
   $(".code-copy").on("click", function () {
     copyTextToClipboard($(".code-value").text());
+    $(".code-copy").text("Copied!");
   });
   $(".code-value").on("click", function () {
     copyTextToClipboard($(this).text());
+    $(".code-copy").text("Copied!");
   });
 
-  $("#inputCode").mask("9999");
+  $("#inputCode").mask("999999");
 
   $(".contact-us-close").on("click", function () {
     $(".contact-us").hide(200);
   });
 
-  // $(".formGift .field:not(.field-optional) input").on('');
+  $("#regForm input").on("blur", function () {
+    var err = false;
+    $("#regForm input").each(function () {
+      if ($(this).val() === "") {
+        err = true;
+      }
+    });
+    $("#regForm .check-field input").each(function () {
+      if (!$(this).prop("checked")) {
+        err = true;
+      }
+    });
+    if (!$("#regForm input.error").length && !err) {
+      $("#regForm [type=submit]").removeAttr("disabled");
+    }
+  });
+  $("#regForm .check-field input").each(function () {
+    $(this).on("change", function () {
+      if (!$(this).prop("checked")) {
+        $("#regForm [type=submit]").attr("disabled", "disabled");
+      } else {
+        if (!$("#regForm input.error").length) {
+          $("#regForm [type=submit]").removeAttr("disabled");
+        }
+      }
+    });
+  });
+
+  $("#formGift .field:not(.field-optional) input").on("blur", function () {
+    var err = false;
+    $("#formGift .field:not(.field-optional) input").each(function () {
+      if ($(this).val() === "") {
+        err = true;
+      }
+    });
+    $("#formGift .check-field input").each(function () {
+      if (!$(this).prop("checked")) {
+        err = true;
+      }
+    });
+    if (!$("#formGift input.error").length && !err) {
+      $("#formGift [type=submit]").removeAttr("disabled");
+    }
+  });
+  $("#formGift .check-field input").each(function () {
+    $(this).on("change", function () {
+      if (!$(this).prop("checked")) {
+        $("#formGift [type=submit]").attr("disabled", "disabled");
+      } else {
+        if (!$("#formGift input.error").length) {
+          $("#formGift [type=submit]").removeAttr("disabled");
+        }
+      }
+    });
+  });
+
+  $("#giftSubmit input").on("keyup", function () {
+    if ($(this).val().length === 4 && $(this).val().indexOf("_") === -1) {
+      $("#giftSubmit [type=submit]").removeAttr("disabled");
+    }
+  });
 });
 
 if (document.getElementById("textarea")) {

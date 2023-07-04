@@ -51,7 +51,6 @@
         left: 0;
         top: 0;
         background-color: var(--step);
-        transition: width 0.1s linear;
       }
     }
 
@@ -125,6 +124,10 @@
 
     &.btn-previous-active {
       opacity: 1;
+    }
+
+    &:not(.btn-previous-active) {
+      pointer-events: none;
     }
 
     @include media-breakpoint-down(lg) {

@@ -22,11 +22,13 @@ jQuery(document).ready(function ($) {
     [12, 25, 13, 25, 14, 25, 15, 25, 16, 25, 17, 25],
   ];
 
+  console.log(coordinates);
+
   var newPoints = [
-    [0, 25, 1, 10, 2, 5, 3, 11, 4, 15, 5, 25],
-    [4, 25, 5, 10, 6, 1, 7, 0, 8, 5, 9, 25],
-    [8, 25, 9, 11, 10, 2, 11, 10, 12, 5, 13, 25],
-    [12, 25, 13, 11, 14, 0, 15, 10, 16, 7, 17, 25],
+    [0, 25, 1, parseInt(coordinates["ДC"]), 2, parseInt(coordinates["ДD"]), 3, parseInt(coordinates["ДE"]), 4, parseInt(coordinates["ДF"]), 5, 25],
+    [4, 25, 5, parseInt(coordinates["ЮC"]), 6, parseInt(coordinates["ЮD"]), 7, parseInt(coordinates["ЮE"]), 8, parseInt(coordinates["ЮF"]), 9, 25],
+    [8, 25, 9, parseInt(coordinates["ВC"]), 10, parseInt(coordinates["ВD"]), 11, parseInt(coordinates["ВE"]), 12, parseInt(coordinates["ВF"]), 13, 25],
+    [12, 25, 13, parseInt(coordinates["ЗC"]), 14, parseInt(coordinates["ЗD"]), 15, parseInt(coordinates["ЗE"]), 16, parseInt(coordinates["ЗF"]), 17, 25],
   ];
 
   paths.forEach((path, i) => {
@@ -57,13 +59,13 @@ jQuery(document).ready(function ($) {
         opacity: 1,
         stagger: 0.3,
       });
-      gsap.to(".path-dot", {
-        duration: 2,
-        scale: 0.7,
-        transformOrigin: "center",
-        repeat: -1,
-        yoyo: true,
-      });
+      // gsap.to(".path-dot", {
+      //   duration: 2,
+      //   scale: 0.7,
+      //   transformOrigin: "center",
+      //   repeat: -1,
+      //   yoyo: true,
+      // });
     }
   }, 2200);
 
@@ -123,7 +125,7 @@ jQuery(document).ready(function ($) {
       }
     });
     texts[i].setAttribute("x", x * kHor);
-    texts[i].setAttribute("y", y * kVer + 30);
+    texts[i].setAttribute("y", y * kVer + 15);
   }
 
   function drawPath(i) {

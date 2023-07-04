@@ -51,9 +51,19 @@
     position: absolute;
 
     .steps {
+      .step {
+        &.active {
+          svg {
+            path {
+              fill: $white;
+            }
+          }
+        }
+      }
+
       .steps-progress {
         .inner {
-          width: 5%;
+          width: 0;
         }
       }
     }

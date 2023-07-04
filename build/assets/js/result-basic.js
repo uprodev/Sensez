@@ -77,6 +77,19 @@ jQuery(document).ready(function ($) {
     fullpage_api.moveSectionDown();
   });
 
+  $(".box-share .btn-share").on("click", function () {
+    $(".box-share").toggleClass("active");
+  });
+
+  $(".res-screen-01 .buttons .btn.btn-outlined").on("click", function () {
+    $(this).parent().find(".box-share-hidden").toggleClass("active");
+  });
+
+  $(".res-screen-06 .wrapper .text .share a").on("click", function (e) {
+    e.preventDefault();
+    fullpage_api.moveSectionDown();
+  });
+
   function isElementInViewport(el, offset = 0) {
     var rect = el.getBoundingClientRect();
     return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + offset /* or $(window).height() */ && rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */;

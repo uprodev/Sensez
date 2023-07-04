@@ -78,6 +78,12 @@
               top: 50%;
               transform: translate3d(-50%, -50%, 0);
 
+              &.hover {
+                @include media-breakpoint-down(md) {
+                  display: none;
+                }
+              }
+
               svg path {
                 fill: #cbc7f7;
               }
@@ -101,6 +107,24 @@
           li,
           label {
             pointer-events: none;
+          }
+        }
+      }
+
+      &.selected {
+        ul {
+          li {
+            label {
+              input {
+                &:not(:checked) {
+                  & + span {
+                    figure {
+                      opacity: 0.3;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -387,11 +411,6 @@
     }
 
     @include media-breakpoint-down(md) {
-      .test-final {
-        left: 100%;
-        top: 100%;
-      }
-
       .test-options {
         ul {
           max-width: 350px;

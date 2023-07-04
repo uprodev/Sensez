@@ -56,7 +56,7 @@
         font-weight: 600;
         line-height: 1;
         position: absolute;
-        top: 65px;
+        bottom: -55px;
         right: 115px;
         transform: rotate(-12deg);
       }
@@ -65,13 +65,13 @@
     .block-main {
       background-color: $white;
       border-radius: 0 0 70px 70px;
-      padding: 60px 8.4% 100px;
+      padding: 60px 8.4%;
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
 
       .headline {
-        width: 100%;
+        width: 88%;
         margin: 0 0 60px;
         font-size: 2.083rem;
         line-height: 150%;
@@ -79,10 +79,14 @@
 
       .image {
         width: 27.2%;
+        display: flex;
+        align-items: flex-end;
 
         img {
           display: block;
           max-width: 100%;
+          max-height: 100%;
+          width: auto;
           height: auto;
         }
       }
@@ -128,8 +132,8 @@
           width: 80px;
           height: 80px;
           font-size: 20px;
-          top: 55px;
-          right: 55px;
+          bottom: -40px;
+          right: 40px;
         }
       }
 
@@ -138,6 +142,7 @@
         padding: 40px 8.5% 60px;
 
         .headline {
+          width: 98%;
           margin: 0 0 30px;
           font-size: 1.67rem;
           line-height: 155%;
@@ -191,6 +196,7 @@
         flex-direction: column;
 
         .headline {
+          width: 100%;
           font-weight: 500;
           font-size: 22px;
           line-height: 140%;
@@ -201,6 +207,7 @@
           width: 100%;
           padding: 0 20px;
           margin: 0 0 30px;
+          height: auto !important;
 
           img {
             margin: auto;

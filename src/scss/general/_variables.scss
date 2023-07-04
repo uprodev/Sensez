@@ -1,6 +1,7 @@
 // Fonts
 $font-family-base: "graphik", sans-serif;
 $ff-kaisei: "Kaisei Decol", serif;
+$ff-opensans: "Open Sans", sans-serif;
 
 // Colors
 $white: #fff;
@@ -10,9 +11,6 @@ $primary: #b9ff1f;
 $primary-light: #84bf00;
 
 $text-color: $white;
-
-$placeholder-color: $text-color;
-$error: #ff4140;
 
 $red: #fe0100;
 $green: #b9ff1f;
@@ -26,6 +24,9 @@ $blue-res: #949af6;
 $blue-text: #685de7;
 $yellow-res: #ffd583;
 $yellow-text: #f59e0c;
+
+$placeholder-color: $text-color;
+$error: $orange;
 
 // Container
 

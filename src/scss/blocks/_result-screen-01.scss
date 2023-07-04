@@ -185,16 +185,87 @@
     }
 
     .btn-share {
-      position: absolute;
-      top: -20px;
-      right: 0;
-      z-index: 9;
       width: 6.83rem;
+      display: block;
 
       img {
         display: block;
         width: 100%;
         height: auto;
+      }
+    }
+
+    .box-share {
+      position: absolute;
+      top: -20px;
+      right: 0;
+      z-index: 999;
+      cursor: pointer;
+
+      &.active {
+        .box-share-hidden {
+          opacity: 1;
+        }
+      }
+    }
+
+    .box-share-hidden {
+      position: absolute;
+      left: 50%;
+      top: -94px;
+      transform: translateX(-50%);
+      width: 380px;
+      height: 50%;
+      opacity: 0;
+    }
+
+    .box-share-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 35px;
+      background-color: #652feb;
+      height: 66px;
+      border-radius: 50px;
+      position: relative;
+
+      a {
+        display: block;
+
+        svg {
+          display: block;
+          max-width: 100%;
+          height: auto;
+
+          path {
+            transition: all 0.2s;
+          }
+        }
+
+        &:hover {
+          svg {
+            path {
+              &.fill {
+                fill: #949af6;
+              }
+              &.stroke {
+                stroke: #949af6;
+              }
+            }
+          }
+        }
+      }
+
+      &:after {
+        content: "";
+        border: 26px solid transparent;
+        border-width: 26px 28px;
+        border-bottom: none;
+        border-top-color: #652feb;
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translate3d(-50%, -12px, 0);
       }
     }
   }
@@ -257,6 +328,47 @@
       .btn-share {
         width: 4.9rem;
       }
+
+      .box-share {
+        top: -20px;
+        right: -50px;
+      }
+
+      .box-share-hidden {
+        top: -72px;
+        width: 276px;
+      }
+
+      .box-share-panel {
+        padding: 0 25px;
+        height: 48px;
+
+        &:after {
+          border-width: 18px 20px;
+          transform: translate3d(-50%, -8px, 0);
+        }
+
+        a {
+          &.copy {
+            width: 18px;
+          }
+          &.twitter {
+            width: 21px;
+          }
+          &.inst {
+            width: 19px;
+          }
+          &.reddit {
+            width: 21px;
+          }
+          &.facebook {
+            width: 12px;
+          }
+          &.snapchat {
+            width: 20px;
+          }
+        }
+      }
     }
   }
 
@@ -285,6 +397,23 @@
     }
   }
 
+  @media (max-width: 1115px) {
+    .graph {
+      .box-share {
+        top: -100px;
+        right: 40px;
+
+        .box-share-hidden {
+          width: 200px;
+        }
+
+        .box-share-panel {
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     .elements {
       display: none;
@@ -306,6 +435,7 @@
       flex-direction: column;
       align-items: center;
       padding: 30px 0 0;
+      position: relative;
 
       .btn {
         border-color: #652feb;
@@ -328,6 +458,89 @@
           margin-bottom: 19px;
         }
       }
+
+      .box-share-hidden {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 276px;
+        transform: translate3d(-50%, -55%, 0);
+        height: 60px;
+        opacity: 0;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+
+      .box-share-panel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 25px;
+        height: 48px;
+        background-color: #652feb;
+        border-radius: 50px;
+        position: relative;
+
+        a {
+          display: block;
+
+          svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+
+            path {
+              transition: all 0.2s;
+            }
+          }
+
+          &.copy {
+            width: 18px;
+          }
+          &.twitter {
+            width: 21px;
+          }
+          &.inst {
+            width: 19px;
+          }
+          &.reddit {
+            width: 21px;
+          }
+          &.facebook {
+            width: 12px;
+          }
+          &.snapchat {
+            width: 20px;
+          }
+
+          &:hover {
+            svg {
+              path {
+                &.fill {
+                  fill: #949af6;
+                }
+                &.stroke {
+                  stroke: #949af6;
+                }
+              }
+            }
+          }
+        }
+
+        &:after {
+          content: "";
+          border: 26px solid transparent;
+          border-bottom: none;
+          border-top-color: #652feb;
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          border-width: 18px 20px;
+          transform: translate3d(-50%, -8px, 0);
+        }
+      }
     }
 
     .graph {
@@ -340,7 +553,7 @@
       .graph-scale,
       .graph-main--desktop,
       .path-title,
-      .btn-share {
+      .box-share {
         display: none;
       }
 
