@@ -1,8 +1,25 @@
 .res-screen-02 {
   position: relative;
 
-  &--advanced {
-    // background: linear-gradient(180.64deg, #949af6 0.57%, #fdab96 99.48%);
+  &.res-orange {
+    --theme: #{$orange};
+    --theme-text: #{$orange-text};
+    --theme-bg: #{$orange};
+  }
+  &.res-blue {
+    --theme: #{$blue-res};
+    --theme-text: #{$blue-text};
+    --theme-bg: #{$blue-res};
+  }
+  &.res-pink {
+    --theme: #{$pink};
+    --theme-text: #{$pink-text};
+    --theme-bg: #{$pink};
+  }
+  &.res-yellow {
+    --theme: #{$yellow-res};
+    --theme-text: #{$yellow-text};
+    --theme-bg: #ffb436;
   }
 
   .elements {
@@ -71,12 +88,20 @@
   .block-inner {
     margin: 0 0 80px;
 
-    // &.block-first {
-    //   margin: 0 0 120px;
-    // }
-
     &.block-first {
       margin: 0;
+      text-align: center;
+
+      .wrapper {
+        padding: 78px 60px;
+      }
+
+      h3 {
+        strong {
+          text-transform: uppercase;
+          color: var(--theme-text);
+        }
+      }
     }
 
     .wrapper {
@@ -625,14 +650,13 @@
   }
 
   @include media-breakpoint-down(md) {
-    // .fp-overflow {
-    //   padding: 30px 0 0;
-    // }
+    .block-scroll {
+      opacity: 1;
+      transform: none;
+    }
 
     .block-inner {
       &.block-first {
-        // margin: 0 0 40px;
-
         .wrapper {
           padding: 40px 20px;
         }
@@ -753,7 +777,7 @@
 
     .block-scales {
       border-radius: 20px;
-      // margin: 0 0 40px;
+      margin: 40px 0 0;
       padding: 30px 20px 55px;
 
       h2 {

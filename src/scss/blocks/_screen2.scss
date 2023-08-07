@@ -251,4 +251,11 @@
       transform: translateY(50px);
     }
   }
+
+  @media (orientation: landscape) and (max-height: 550px) {
+    .container .text-wrapper {
+      flex-direction: row;
+      font-size: 2rem;
+    }
+  }
 }

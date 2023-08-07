@@ -1,0 +1,490 @@
+.section-pricing-01 {
+  position: relative;
+  background-color: #f9f3e9;
+  color: #0a0517;
+
+  .wrapper {
+    position: relative;
+
+    &:before {
+      content: "";
+      width: 50vw;
+      height: 50vw;
+      background-color: #fe5122;
+      filter: blur(200px);
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      transform: translate3d(-50%, 15%, 0);
+      border-radius: 100%;
+    }
+
+    .elements {
+      .el {
+        position: absolute;
+        z-index: 2;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(../img/icons/star-orange.svg);
+
+        &.el-01 {
+          width: 84px;
+          height: 84px;
+          left: 15.5vw;
+          top: 127px;
+        }
+        &.el-02 {
+          width: 53px;
+          height: 53px;
+          left: 13.5vw;
+          top: 244px;
+        }
+        &.el-03 {
+          width: 78px;
+          height: 78px;
+          right: 13vw;
+          top: 96px;
+        }
+        &.el-04 {
+          width: 53px;
+          height: 53px;
+          right: 10.3vw;
+          top: 207px;
+        }
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo {
+    width: 3.75rem;
+    margin: 0 auto;
+    padding: 6vh 0 13px;
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  h1 {
+    font-size: 2.67rem;
+    font-weight: 700;
+    line-height: 125%;
+    margin: 0 0 6.5vh;
+    color: #fe5122;
+    text-align: center;
+  }
+
+  ul {
+    max-width: 925px;
+    margin: 0 auto 10vh;
+    padding: 0 0 0 95px;
+    list-style: none;
+    font-size: 1.33rem;
+    font-weight: 400;
+    line-height: 120%;
+
+    li {
+      position: relative;
+      padding: 0 0 0 35px;
+      margin: 0 0 3.5vh;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.25em;
+        width: 20px;
+        height: 20px;
+        background: url(../img/icons/star-li-dark.svg) 0 0 no-repeat;
+        background-size: cover;
+      }
+
+      strong {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .price {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 2.833rem;
+    font-weight: 600;
+    line-height: 110%;
+  }
+
+  .btn-wrapper {
+    margin: 0 0 6vh;
+
+    .btn {
+      background-color: #fe5122;
+      color: $white;
+      width: 400px;
+      height: 76px;
+      font-size: 26px;
+
+      svg {
+        width: 36px;
+        height: 36px;
+        margin: 0 14px 0 0;
+      }
+    }
+  }
+
+  .image-wrapper {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .image-fixed {
+    position: absolute;
+    bottom: 0;
+    right: 11.56vw;
+    width: 33.5vw;
+    transform: translateY(40px);
+    z-index: 2;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .logo {
+      width: 3.35rem;
+      padding-top: 35px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 40px;
+    }
+
+    ul {
+      width: max-content;
+      padding: 0 0 0 50px;
+      font-size: 1.2rem;
+    }
+
+    .btn-wrapper {
+      margin: 0 0 70px;
+
+      .btn {
+        width: 300px;
+        height: 60px;
+        font-size: 22px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .wrapper {
+      .elements {
+        .el {
+          &.el-01 {
+            width: 17px;
+            height: 17px;
+            left: 29px;
+            top: 88px;
+          }
+          &.el-02 {
+            display: none;
+          }
+          &.el-03 {
+            width: 17px;
+            height: 17px;
+            right: 82px;
+            top: 33px;
+          }
+          &.el-04 {
+            width: 28px;
+            height: 28px;
+            right: 40px;
+            top: 91px;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .wrapper {
+      &:before {
+        width: 100vw;
+        height: 100vw;
+        filter: blur(100px);
+        bottom: auto;
+        top: 0;
+        transform: translate3d(-50%, -80%, 0);
+      }
+    }
+
+    .logo {
+      width: 69px;
+      padding: 30px 0 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+    }
+
+    ul {
+      padding: 0 20px 0 0;
+      margin-bottom: 47px;
+      font-size: 18px;
+      line-height: 140%;
+
+      li {
+        padding: 0 0 0 32px;
+        margin: 0 0 12px;
+
+        &:before {
+          top: 0.25em;
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    .price {
+      margin: 0 0 15px;
+      font-size: 40px;
+    }
+
+    .btn-wrapper {
+      margin: 0 0 15px;
+
+      .btn {
+        width: 295px;
+        height: 48px;
+        font-size: 16px;
+
+        svg {
+          width: 28px;
+          height: 28px;
+          margin-right: 7px;
+        }
+      }
+    }
+
+    .image-wrapper {
+      display: flex;
+      justify-content: center;
+      img {
+        width: auto;
+        height: 112px;
+      }
+    }
+
+    .image-fixed {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    ul {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.section-pricing-02 {
+  background-color: #4953e9;
+  position: relative;
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 1;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(../img/icons/star-white.svg);
+      width: 36px;
+      height: 36px;
+
+      &.el-01 {
+        left: 103px;
+        top: 105px;
+      }
+      &.el-02 {
+        left: 139px;
+        bottom: 92px;
+      }
+      &.el-03 {
+        left: 52%;
+        top: 36px;
+      }
+      &.el-04 {
+        right: 204px;
+        top: 194px;
+      }
+    }
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .images {
+    width: 44%;
+    flex: 0 0 auto;
+    padding: 33px 5.3% 38px 4.3%;
+
+    .inner {
+      padding: 93% 0 0;
+      position: relative;
+
+      figure {
+        position: absolute;
+        margin: 0;
+        width: 47.84%;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+
+        &.image-01 {
+          left: 31%;
+          top: 0;
+        }
+
+        &.image-02 {
+          left: 0;
+          top: 44%;
+        }
+
+        &.image-03 {
+          right: 0;
+          top: 49%;
+        }
+      }
+    }
+  }
+
+  .text {
+    color: $white;
+    font-family: $ff-kaisei;
+    font-weight: 700;
+
+    .title {
+      font-size: 5.83rem;
+      line-height: 125%;
+    }
+
+    p {
+      font-size: 2.67rem;
+      line-height: 125%;
+      margin: 20px 0 10px;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .text {
+      .title {
+        font-size: 4.5rem;
+      }
+
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .elements {
+      .el {
+        width: 26px;
+        height: 26px;
+
+        &.el-01 {
+          left: 50px;
+        }
+        &.el-02 {
+          display: none;
+        }
+        &.el-04 {
+          right: 60px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .elements {
+      .el {
+        &.el-01 {
+          left: 9px;
+          top: auto;
+          bottom: 59px;
+        }
+        &.el-03 {
+          display: none;
+        }
+        &.el-04 {
+          width: 36px;
+          height: 36px;
+          right: 17px;
+          top: 243px;
+        }
+      }
+    }
+
+    .container {
+      flex-direction: column-reverse;
+    }
+
+    .images {
+      padding: 0 0 32px;
+      width: auto;
+
+      .inner {
+        width: 239px;
+        height: 218px;
+        margin: auto;
+        padding: 0;
+      }
+    }
+
+    .text {
+      text-align: center;
+      padding: 32px 0 27px;
+
+      .title {
+        font-size: 96px;
+        line-height: 1;
+      }
+
+      p {
+        margin: 28px 30px 0;
+        font-size: 36px;
+      }
+    }
+  }
+}

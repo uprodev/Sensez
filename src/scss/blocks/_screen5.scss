@@ -262,6 +262,12 @@
       }
     }
   }
+
+  @media (orientation: landscape) and (max-height: 650px) {
+    .container {
+      height: auto;
+    }
+  }
 }
 
 .less-height {

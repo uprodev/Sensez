@@ -69,20 +69,74 @@
     }
   }
 
-  .container {
-    .row {
-      display: flex;
-      margin: 0 -20px;
-      row-gap: 20px;
+  .text {
+    margin: 0 0 56px;
+  }
 
-      .col {
-        width: 50%;
-        padding: 0 20px;
+  ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    margin: 0 -40px;
 
-        &:last-child {
-          display: flex;
-          justify-content: flex-end;
-          padding-top: 13px;
+    li {
+      padding: 0 40px;
+      width: 100%;
+
+      a {
+        display: block;
+        cursor: pointer;
+        position: relative;
+        z-index: 9;
+
+        & > span {
+          display: block;
+          text-align: center;
+          font-family: $ff-kaisei;
+          font-weight: 700;
+          font-size: 28px;
+          line-height: 1.5;
+
+          figure {
+            margin: 0 0 4px;
+            padding: 15px 0 0;
+            display: flex;
+            background: #ffffff;
+            border: 3px solid #1d1d1b;
+            border-radius: 40px;
+            height: 28.57vh;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s;
+          }
+
+          img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+          }
+        }
+
+        &:hover {
+          & > span {
+            figure {
+              border-radius: 200px;
+            }
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        a {
+          & > span {
+            figure {
+              padding: 15px;
+              align-items: center;
+            }
+          }
         }
       }
     }
@@ -95,38 +149,6 @@
   p {
     margin: 0;
     font-size: 0.833rem;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    row-gap: 17px;
-
-    li {
-      text-align: center;
-
-      a {
-        display: inline-flex;
-        align-items: center;
-        text-align: center;
-        padding: 17px 37px;
-        background: #ffffff;
-        border: 3px solid #0a0517;
-        border-radius: 80px;
-        font-weight: 500;
-        font-size: 1.333rem;
-        line-height: 1.25;
-        color: #0a0517;
-        text-decoration: none;
-
-        &:hover {
-          background-color: #cbc7f7;
-        }
-      }
-    }
   }
 
   @include media-breakpoint-down(xxl) {
@@ -169,32 +191,21 @@
         }
       }
     }
-    .container {
-      .row {
-        .col {
-          width: 43%;
-          &:first-child {
-            width: 57%;
-          }
-          &:last-child {
-            justify-content: center;
-          }
-        }
-      }
-    }
+
     h3 {
       font-size: 1.89rem;
     }
     p {
       font-size: 14px;
     }
+  }
+
+  @include media-breakpoint-down(xl) {
     ul {
-      row-gap: 10px;
+      margin: 0 -20px;
+
       li {
-        a {
-          font-size: 0.944rem;
-          padding: 0.55em 0.9em;
-        }
+        padding: 0 20px;
       }
     }
   }
@@ -202,35 +213,6 @@
   @include media-breakpoint-down(lg) {
     .elements {
       display: none;
-    }
-
-    .container {
-      .row {
-        .col {
-          &:last-child {
-            justify-content: center;
-            padding-top: 0;
-          }
-        }
-      }
-    }
-
-    ul {
-      row-gap: 0;
-
-      li {
-        margin: 0 0 14px;
-
-        &:last-child {
-          margin: 0;
-        }
-        a {
-          padding: 10px 15px;
-          border-width: 2px;
-          border-radius: 40px;
-          font-size: 1rem;
-        }
-      }
     }
 
     h3 {
@@ -241,21 +223,42 @@
       font-size: 12px;
       margin: 0 0 26px;
     }
+
+    .text {
+      transform: none !important;
+    }
+
+    ul {
+      li {
+      }
+    }
+
+    ul {
+      li {
+        transform: none !important;
+        a {
+          & > span {
+            font-size: 18px;
+            figure {
+              height: 18.5vh;
+              margin: 0 0 -4px;
+            }
+          }
+        }
+      }
+    }
   }
 
   @include media-breakpoint-down(md) {
     h3 {
       font-size: 1.5rem;
     }
+  }
 
-    .container {
-      .row {
-        flex-wrap: wrap;
-
-        .col {
-          width: 100% !important;
-        }
-      }
+  @media (orientation: landscape) and (max-height: 650px) {
+    .test-progress {
+      position: static;
+      margin: 20px;
     }
   }
 }
@@ -273,10 +276,6 @@
 
       p {
         margin: 0;
-      }
-
-      ul li a {
-        font-size: 14px;
       }
     }
   }

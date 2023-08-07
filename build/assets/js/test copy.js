@@ -3,41 +3,45 @@ jQuery(document).ready(function ($) {
     ScrollTrigger.refresh();
   });
 
-  function goToStep3() {
-    $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
-    $(".four-steps-gender").removeClass("step-current");
-    $(".four-steps-age").addClass("step-current");
+  function checkCookies() {
+    if (typeof Cookies !== "undefined") {
+      var resId = Cookies.get("result_id");
+      if (typeof resId !== "undefined") {
+        goToStep4();
+      }
+    }
+  }
 
-    gsap.set(".four-steps-gender", {
-      y: "100vh",
-      opacity: 0,
-    });
-    gsap.set(".four-steps-age", {
-      y: 0,
-    });
-    gsap.utils.toArray(".four-steps-age .col-text").forEach((box, i) => {
+  function goToStep4() {
+    $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
+    $(".four-steps-relations").removeClass("step-current");
+    $(".four-steps-orientation").addClass("step-current");
+    gsap.utils.toArray(".four-steps-relations ul li, .four-steps-relations .el, .four-steps-relations .text").forEach((box, i) => {
       gsap.set(box, {
-        x: 0,
+        y: "100vh",
       });
     });
+
+    gsap.set(".four-steps-orientation", {
+      y: 0,
+    });
     gsap.to(".test-progress .steps .steps-progress .inner", {
-      width: "3.333333%",
+      width: "3.75%",
       duration: 0.1,
     });
   }
-
   function goToStep2() {
     $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
-    $(".four-steps-gender").removeClass("step-current");
-    $(".four-steps-orientation").addClass("step-current");
-
-    gsap.set(".four-steps-gender", {
-      y: "100vh",
-      opacity: 0,
+    $(".four-steps-relations").removeClass("step-current");
+    $(".four-steps-age").addClass("step-current");
+    gsap.utils.toArray(".four-steps-relations ul li, .four-steps-relations .el, .four-steps-relations .text").forEach((box, i) => {
+      gsap.set(box, {
+        y: "100vh",
+      });
     });
-    gsap.set(".four-steps-orientation", {
+
+    gsap.set(".four-steps-age", {
       y: 0,
-      opacity: 1,
     });
     progress();
   }
@@ -77,7 +81,7 @@ jQuery(document).ready(function ($) {
   function progress() {
     var progressStep = 1.583;
     if ($(".four-steps-wrapper").length) {
-      progressStep = 1.66667;
+      progressStep = 1.25;
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
       progressNext = progressCurrent + progressStep + "%";
@@ -89,7 +93,7 @@ jQuery(document).ready(function ($) {
   function progressBack() {
     var progressStep = 1.583;
     if ($(".four-steps-wrapper").length) {
-      progressStep = 1.66667;
+      progressStep = 1.25;
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
       progressNext = progressCurrent - progressStep + "%";
@@ -99,82 +103,66 @@ jQuery(document).ready(function ($) {
     });
   }
 
+  function relationsAge() {
+    var degrees = [9.73, -3.95, 3.75, -3.74, 2.67, 4.67, -5.94],
+      degreeText = -5.94;
+    gsap.utils.toArray(".four-steps-relations ul li, .four-steps-relations .text").forEach((box, i) => {
+      gsap.to(box, {
+        rotate: degrees[i],
+        transformOrigin: "center",
+        ease: "none",
+        duration: 0.3,
+        onComplete: function () {
+          gsap.utils.toArray(".four-steps-relations ul li, .four-steps-relations .el, .four-steps-relations .text").forEach((box, i) => {
+            gsap.to(box, {
+              y: "100vh",
+              transformOrigin: "center",
+              ease: "none",
+              duration: 0.7,
+              onComplete: function () {
+                $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
+                $(".four-steps-relations").css("opacity", 0).removeClass("step-current");
+                gsap.to(".four-steps-age", {
+                  y: 0,
+                  ease: "none",
+                  duration: 0.5,
+                  onComplete: function () {
+                    if ($(window).width() < 1024) {
+                      var d = 0;
+                      gsap.utils.toArray(".four-steps-age .col-text").forEach((box, i) => {
+                        gsap.to(box, {
+                          x: 0,
+                          ease: "none",
+                          duration: 0.5,
+                          delay: d,
+                        });
+                        d += 0.2;
+                      });
+                    }
+                  },
+                });
+                $(".four-steps-age").addClass("step-current");
+              },
+            });
+          });
+        },
+      });
+    });
+  }
+
   function animations() {
     // four-steps
     if (document.querySelector(".four-steps-wrapper")) {
-      if (window.location.href.indexOf("prev=") !== -1) {
-        goToStep3();
-      } else {
-        if (window.location.href.indexOf("q=") !== -1) {
-          goToStep2();
-        }
+      checkCookies();
+
+      if (window.location.href.indexOf("q=") !== -1) {
+        goToStep2();
       }
 
-      // gender
-      $(".four-steps-gender label").on("mouseup", function () {
+      // relations
+      $(".four-steps-relations label").on("mouseup", function () {
         progress();
-        gsap.to(".four-steps-gender", {
-          y: "-100vh",
-          opacity: 0,
-          ease: "none",
-          duration: 0.5,
-        });
-        gsap.to(".four-steps-orientation", {
-          y: 0,
-          ease: "none",
-          duration: 0.5,
-          onComplete: function () {
-            $(".btn-previous").css("opacity", 1).addClass("btn-previous-active");
-            $(".four-steps-gender").css("opacity, 0");
-            var d = 0;
-            gsap.utils.toArray(".four-steps-orientation .text, .four-steps-orientation ul li").forEach((box, i) => {
-              gsap.to(box, {
-                x: 0,
-                ease: "none",
-                duration: 0.5,
-                delay: d,
-              });
-              d += 0.2;
-            });
-            $(".four-steps-gender").removeClass("step-current");
-            $(".four-steps-orientation").addClass("step-current");
-          },
-        });
-      });
-
-      // orientation
-      $(".four-steps-orientation label").on("mouseup", function () {
-        progress();
-
-        gsap.to(".four-steps-orientation", {
-          y: "-100vh",
-          opacity: 0,
-          ease: "none",
-          duration: 0.5,
-          onComplete: function () {
-            gsap.to(".four-steps-age", {
-              y: 0,
-              ease: "none",
-              duration: 0.5,
-              onComplete: function () {
-                if ($(window).width() < 1024) {
-                  var d = 0;
-                  gsap.utils.toArray(".four-steps-age .col-text").forEach((box, i) => {
-                    gsap.to(box, {
-                      x: 0,
-                      ease: "none",
-                      duration: 0.5,
-                      delay: d,
-                    });
-                    d += 0.2;
-                  });
-                }
-              },
-            });
-            $(".four-steps-orientation").removeClass("step-current");
-            $(".four-steps-age").addClass("step-current");
-          },
-        });
+        relationsAge();
       });
 
       // age
@@ -211,69 +199,97 @@ jQuery(document).ready(function ($) {
         });
       });
 
-      function test_4_steps() {
-        let _this = $(this);
-
-        let data = {
-          action: "test_4_steps",
-          //'relation': $('input[name="relations"]:checked').val(),
-          age: $('input[name="age"]:checked').val(),
-          gender: $('input[name="gender"]:checked').val(),
-          orientation: $('input[name="orientation"]:checked').val(),
-        };
-
-        $.ajax({
-          url: "/wp-admin/admin-ajax.php",
-          data: data,
-          type: "POST",
-          success: function (data) {
-            if (data) {
-              console.log(data);
-              let result = $.parseJSON(data);
-              document.cookie = "result_id=" + result[0] + "; path=/";
-              window.location.href = result[1];
-            } else {
-              console.log("Error!");
-            }
-          },
-        });
-      }
-
-      function chooseAge(label) {
+      $(".four-steps-age label").on("mouseup", function () {
         progress();
-        $(".test-progress .steps .step:nth-child(1)").addClass("active");
-        $(".four-steps-age .btn-next-wrapper").css("z-index", 1);
-
+        var currentLabel = $(this);
         $(".four-steps-age .container").css("overflow", "hidden");
         const timelineAge = gsap
           .timeline()
-          .to(label, {
-            scale: 5,
+          .to(currentLabel, {
+            scale: 10,
             opacity: 1,
             duration: 1,
             ease: "none",
+          })
+          .to(
+            ".four-steps-age",
+            {
+              opacity: 0,
+              duration: 0.5,
+            },
+            "-=0.5"
+          )
+          .to(".four-steps-gender", {
+            y: 0,
+            duration: 0.5,
             onComplete: function () {
               var d = 0;
-              test_4_steps();
-              // $(".btn-next").get(0).click();
+              gsap.utils.toArray(".four-steps-gender .text, .four-steps-gender ul li").forEach((box, i) => {
+                gsap.to(box, {
+                  x: 0,
+                  ease: "none",
+                  duration: 0.5,
+                  delay: d,
+                });
+                d += 0.2;
+              });
+              $(".four-steps-age").removeClass("step-current");
+              $(".four-steps-gender").addClass("step-current");
             },
-          })
-          .to(label, {
-            scale: 10,
-            duration: 1,
-            ease: "none",
           });
-      }
-
-      $(".four-steps-age label").on("mouseup", function () {
-        var currentLabel = $(this);
-        chooseAge(currentLabel);
       });
 
-      $(".four-steps-age .btn-next-wrapper .btn").on("click", function () {
-        $(".four-steps-age ul li.active input").prop("checked", true);
-        var currentLabel = $(".four-steps-age ul li.active label");
-        chooseAge(currentLabel);
+      // gender
+      $(".four-steps-gender label").on("mouseup", function () {
+        progress();
+        gsap.to(".four-steps-gender", {
+          y: "-100vh",
+          ease: "none",
+          duration: 1,
+        });
+        gsap.to(
+          ".four-steps-orientation",
+          {
+            y: 0,
+            ease: "none",
+            duration: 1,
+            onComplete: function () {
+              $(".four-steps-gender").css("opacity, 0");
+              var d = 0;
+              gsap.utils.toArray(".four-steps-orientation .text, .four-steps-orientation ul li").forEach((box, i) => {
+                gsap.to(box, {
+                  x: 0,
+                  ease: "none",
+                  duration: 0.5,
+                  delay: d,
+                });
+                d += 0.2;
+              });
+              $(".four-steps-gender").removeClass("step-current");
+              $(".four-steps-orientation").addClass("step-current");
+            },
+          },
+          "-=1"
+        );
+      });
+
+      // orientation
+      $(".four-steps-orientation label").on("mouseup", function () {
+        progress();
+        $(".test-progress .steps .step:nth-child(1)").addClass("active");
+        gsap.to(".four-steps-orientation", {
+          y: "-100vh",
+          opacity: 0,
+          ease: "none",
+          duration: 1,
+        });
+        gsap.to(".four-steps-wrapper", {
+          backgroundColor: "#FF9072",
+          duration: 1,
+          onComplete: function () {
+            $(".btn-next").get(0).click();
+          },
+        });
       });
 
       $(".btn-previous").on("click", function () {
@@ -281,34 +297,59 @@ jQuery(document).ready(function ($) {
         var stepCurrent = $(".step-current");
         if (stepCurrent.parent().hasClass("four-steps-wrapper")) {
           if (stepCurrent.hasClass("four-steps-age")) {
-            $(".four-steps-orientation").css("opacity", 1);
+            $(".four-steps-relations").css("opacity", 1);
             gsap.to(".four-steps-age", {
               y: "100vh",
               ease: "none",
               duration: 0.5,
             });
-            gsap.to(".four-steps-orientation", {
-              y: "0",
-              opacity: 1,
-              ease: "none",
-              duration: 0.5,
+            gsap.utils.toArray(".four-steps-relations ul li, .four-steps-relations .el, .four-steps-relations .text").forEach((el, i) => {
+              gsap.to(el, {
+                y: 0,
+                transformOrigin: "center",
+                ease: "none",
+                duration: 0.5,
+              });
+              gsap.to(".four-steps-relations ul li, .four-steps-relations .text", {
+                rotate: 0,
+                transformOrigin: "center",
+                ease: "none",
+                duration: 0.5,
+              });
             });
             $(".four-steps-age").removeClass("step-current");
-            $(".four-steps-orientation").addClass("step-current");
-          } else if (stepCurrent.hasClass("four-steps-orientation")) {
-            gsap.to(".four-steps-orientation", {
+            $(".four-steps-relations").addClass("step-current");
+            $(".btn-previous").css("opacity", 0).removeClass("btn-previous-active");
+          } else if (stepCurrent.hasClass("four-steps-gender")) {
+            gsap.set(".four-steps-age ul li.active label", { scale: 1 });
+            gsap.to(".four-steps-gender", {
               y: "100vh",
               ease: "none",
               duration: 0.3,
             });
-            gsap.to(".four-steps-gender", {
+            gsap.to(".four-steps-age", {
               opacity: 1,
               y: 0,
               ease: "none",
               duration: 0.3,
               delay: 0.3,
             });
-            $(".btn-previous").css("opacity", 0).removeClass("btn-previous-active");
+
+            $(".four-steps-gender").removeClass("step-current");
+            $(".four-steps-age .container").css("overflow", "auto");
+            $(".four-steps-age").addClass("step-current");
+          } else {
+            $(".four-steps-gender").css("opacity, 1");
+            gsap.to(".four-steps-gender", {
+              y: 0,
+              ease: "none",
+              duration: 0.5,
+            });
+            gsap.to(".four-steps-orientation", {
+              y: "100vh",
+              ease: "none",
+              duration: 0.5,
+            });
             $(".four-steps-orientation").removeClass("step-current");
             $(".four-steps-gender").addClass("step-current");
           }

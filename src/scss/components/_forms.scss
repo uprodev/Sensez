@@ -50,6 +50,13 @@
     margin: 23px auto 14px;
     text-align: center;
 
+    p {
+      display: inline-block;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 125%;
+    }
+
     label {
       display: inline-block;
       font-weight: 400;
@@ -115,8 +122,11 @@
     }
 
     .check-field {
-      max-width: 340px;
       margin: 0 auto 10px;
+
+      p {
+        font-size: 10px;
+      }
 
       label {
         font-size: 10px;
@@ -168,6 +178,10 @@
 
     .check-field {
       max-width: none;
+
+      p {
+        font-size: 12px;
+      }
 
       label {
         font-size: 12px;

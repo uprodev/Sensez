@@ -130,12 +130,12 @@
 
   @include media-breakpoint-down(md) {
     &.fp-auto-height.fp-section {
-      height: 100% !important;
+      height: 100vh !important;
     }
     .fp-overflow,
     .container,
     .wrapper {
-      height: 100%;
+      height: 100% !important;
     }
     .wrapper {
       flex-direction: column;

@@ -99,3 +99,36 @@ a {
 .fp-watermark {
   display: none !important;
 }
+
+.fp-responsive {
+  .fp-overflow {
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
+.fp-overflow {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.screen-01 .container p,
+.screen-01 .container h1,
+.marquee span,
+.screen-02 .container h2,
+.screen-02 .container .text-wrapper span.text,
+.screen-02 .container p,
+.screen-03 .screen-headlines h2,
+.screen-03 .lock-wrapper li,
+.screen-04 h2,
+.screen-04-animation .text,
+.screen-05 h2,
+.screen-05 .card,
+.screen-05 .image img,
+.screen-08 .h1 div,
+.screen-08 .image img {
+  cursor: pointer;
+}

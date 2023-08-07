@@ -320,6 +320,32 @@
       }
     }
   }
+
+  @media (orientation: landscape) and (max-height: 550px) {
+    .fp-overflow {
+      height: 100%;
+      scrollbar-width: none;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .container {
+      padding-top: 150px;
+      padding-bottom: 50px;
+    }
+
+    .btn-scroll {
+      position: relative;
+      display: block;
+      margin: 0 auto 50px;
+      left: 0;
+      bottom: auto;
+      transform: none;
+    }
+  }
 }
 
 .less-height {

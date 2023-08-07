@@ -325,32 +325,6 @@ jQuery(document).ready(function ($) {
             y: 0,
             delay: 0.5,
           });
-          // gsap.to(".screen-08 .el-01, .screen-08 .el-02,  .screen-08 .h1", {
-          //   duration: 0.8,
-          //   delay: 0.5,
-          //   x: 0,
-          //   y: 0,
-          // });
-          // gsap.to(".screen-08 .image", {
-          //   duration: 0.8,
-          //   delay: 1,
-          //   x: 0,
-          //   y: 0,
-          //   onComplete: function () {
-          //     document.querySelector(".screen-08 .image .inner").classList.add("rotating");
-          //   },
-          // });
-          // gsap.to(".screen-08 .h1 div", {
-          //   duration: 0.8,
-          //   delay: 0.5,
-          //   left: 0,
-          //   x: 0,
-          //   y: 0,
-          // });
-          // gsap.to(".screen-08 .btn", {
-          //   opacity: 1,
-          //   delay: 1.5,
-          // });
         }
       }
     },
@@ -459,5 +433,10 @@ jQuery(document).ready(function ($) {
       Cookies.remove("an");
       Cookies.remove("result_id");
     }
+  });
+
+  $(".screen-01 .elements .el, .screen-08 .elements .el, .screen-01 .container p, .screen-01 .container h1, .marquee span, .screen-02 .container h2, .screen-02 .container .text-wrapper span.text, .screen-02 .container p, .screen-03 .screen-headlines h2, .screen-03 .lock-wrapper li, .screen-04 h2, .screen-04-animation .text, .screen-05 h2, .screen-05 .card, .screen-05 .image img, .screen-08 .h1 div, .screen-08 .image img").on("click", function () {
+    var start = $(".header .btn-main");
+    start.trigger("click");
   });
 });

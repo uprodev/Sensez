@@ -29,6 +29,7 @@ jQuery(document).ready(function ($) {
     scrollingSpeed: 500,
     fitToSectionDelay: false,
     verticalCentered: true,
+    responsiveWidth: 768,
     afterRender: function () {
       var screenStart = $(".res-screen-01");
       gsap.to("body", {

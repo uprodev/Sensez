@@ -133,201 +133,201 @@
   }
 }
 
-.four-steps-relations {
-  transform: none;
+// .four-steps-relations {
+//   transform: none;
 
-  .elements {
-    .el {
-      position: absolute;
-      z-index: 2;
+//   .elements {
+//     .el {
+//       position: absolute;
+//       z-index: 2;
 
-      img {
-        display: block;
-        height: auto;
-      }
+//       img {
+//         display: block;
+//         height: auto;
+//       }
 
-      &.el-01 {
-        left: 3.8vw;
-        top: 17.4vh;
+//       &.el-01 {
+//         left: 3.8vw;
+//         top: 17.4vh;
 
-        img {
-          width: 35px;
-        }
-      }
-      &.el-02 {
-        left: 7.5vw;
-        bottom: 18vh;
-      }
-      &.el-03 {
-        left: 33.9vw;
-        bottom: 7.2vh;
-      }
-      &.el-04 {
-        right: 5.6vw;
-        top: 13.4vh;
-      }
+//         img {
+//           width: 35px;
+//         }
+//       }
+//       &.el-02 {
+//         left: 7.5vw;
+//         bottom: 18vh;
+//       }
+//       &.el-03 {
+//         left: 33.9vw;
+//         bottom: 7.2vh;
+//       }
+//       &.el-04 {
+//         right: 5.6vw;
+//         top: 13.4vh;
+//       }
 
-      &.el-05 {
-        right: 2.8vw;
-        bottom: 11.5vh;
+//       &.el-05 {
+//         right: 2.8vw;
+//         bottom: 11.5vh;
 
-        img {
-          width: 35px;
-        }
-      }
-    }
-  }
+//         img {
+//           width: 35px;
+//         }
+//       }
+//     }
+//   }
 
-  .container {
-    .row {
-      display: flex;
-      margin: 0 -20px;
-      row-gap: 20px;
+//   .container {
+//     .row {
+//       display: flex;
+//       margin: 0 -20px;
+//       row-gap: 20px;
 
-      .col {
-        width: 50%;
-        padding: 0 20px;
+//       .col {
+//         width: 50%;
+//         padding: 0 20px;
 
-        &:last-child {
-          display: flex;
-          justify-content: flex-end;
-        }
-      }
-    }
-  }
+//         &:last-child {
+//           display: flex;
+//           justify-content: flex-end;
+//         }
+//       }
+//     }
+//   }
 
-  ul {
-    margin: 0;
-    padding: 10px 0 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    row-gap: 17px;
+//   ul {
+//     margin: 0;
+//     padding: 10px 0 0;
+//     list-style: none;
+//     display: flex;
+//     flex-direction: column;
+//     row-gap: 17px;
 
-    li {
-      text-align: center;
+//     li {
+//       text-align: center;
 
-      label {
-        cursor: pointer;
+//       label {
+//         cursor: pointer;
 
-        input {
-          display: none;
+//         input {
+//           display: none;
 
-          &:checked {
-            & + span {
-              background-color: #cbc7f7;
-            }
-          }
-        }
+//           &:checked {
+//             & + span {
+//               background-color: #cbc7f7;
+//             }
+//           }
+//         }
 
-        span {
-          display: inline-flex;
-          align-items: center;
-          text-align: center;
-          padding: 17px 37px;
-          background: #ffffff;
-          border: 3px solid #0a0517;
-          border-radius: 80px;
-          font-weight: 500;
-          font-size: 1.333rem;
-          line-height: 1.25;
-          color: #0a0517;
-          text-decoration: none;
-          transition: all 0.3s ease;
-        }
+//         span {
+//           display: inline-flex;
+//           align-items: center;
+//           text-align: center;
+//           padding: 17px 37px;
+//           background: #ffffff;
+//           border: 3px solid #0a0517;
+//           border-radius: 80px;
+//           font-weight: 500;
+//           font-size: 1.333rem;
+//           line-height: 1.25;
+//           color: #0a0517;
+//           text-decoration: none;
+//           transition: all 0.3s ease;
+//         }
 
-        &:hover {
-          span {
-            background-color: #cbc7f7;
-          }
-        }
-      }
-    }
-  }
+//         &:hover {
+//           span {
+//             background-color: #cbc7f7;
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  @include media-breakpoint-down(xxl) {
-    .elements {
-      .el {
-        &.el-01 {
-          left: 7.7vw;
-          top: 19vh;
-          img {
-            width: 24px;
-          }
-        }
-        &.el-02 {
-          left: 11vw;
-          img {
-            width: 46px;
-          }
-        }
-        &.el-03 {
-          left: 35.5vw;
-          img {
-            width: 46px;
-          }
-        }
-        &.el-04 {
-          right: 8vw;
-          top: 15vh;
-          img {
-            width: 46px;
-          }
-        }
+//   @include media-breakpoint-down(xxl) {
+//     .elements {
+//       .el {
+//         &.el-01 {
+//           left: 7.7vw;
+//           top: 19vh;
+//           img {
+//             width: 24px;
+//           }
+//         }
+//         &.el-02 {
+//           left: 11vw;
+//           img {
+//             width: 46px;
+//           }
+//         }
+//         &.el-03 {
+//           left: 35.5vw;
+//           img {
+//             width: 46px;
+//           }
+//         }
+//         &.el-04 {
+//           right: 8vw;
+//           top: 15vh;
+//           img {
+//             width: 46px;
+//           }
+//         }
 
-        &.el-05 {
-          right: 5.4vw;
-          bottom: 13vh;
+//         &.el-05 {
+//           right: 5.4vw;
+//           bottom: 13vh;
 
-          img {
-            width: 24px;
-          }
-        }
-      }
-    }
-    ul {
-      row-gap: 10px;
-      li {
-        label {
-          span {
-            font-size: 0.944rem;
-            padding: 0.55em 0.9em;
-          }
-        }
-      }
-    }
-  }
+//           img {
+//             width: 24px;
+//           }
+//         }
+//       }
+//     }
+//     ul {
+//       row-gap: 10px;
+//       li {
+//         label {
+//           span {
+//             font-size: 0.944rem;
+//             padding: 0.55em 0.9em;
+//           }
+//         }
+//       }
+//     }
+//   }
 
-  @include media-breakpoint-down(lg) {
-    .container {
-      .row {
-        flex-direction: column;
+//   @include media-breakpoint-down(lg) {
+//     .container {
+//       .row {
+//         flex-direction: column;
 
-        .col {
-          width: 100%;
+//         .col {
+//           width: 100%;
 
-          &:last-child {
-            justify-content: center;
-          }
-        }
-      }
-    }
+//           &:last-child {
+//             justify-content: center;
+//           }
+//         }
+//       }
+//     }
 
-    ul {
-      row-gap: 14px;
+//     ul {
+//       row-gap: 14px;
 
-      li {
-        label {
-          span {
-            border-width: 2px;
-            padding: 10px 15px;
-            font-size: 1rem;
-          }
-        }
-      }
-    }
-  }
-}
+//       li {
+//         label {
+//           span {
+//             border-width: 2px;
+//             padding: 10px 15px;
+//             font-size: 1rem;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
 
 .four-steps-age {
   padding: 0;
@@ -504,6 +504,43 @@
     }
   }
 
+  .btn-next-wrapper {
+    position: absolute;
+    left: 11.46vw;
+    bottom: 140px;
+    width: 240px;
+    z-index: 99;
+
+    .btn {
+      width: 100%;
+    }
+
+    @include media-breakpoint-down(xxl) {
+      left: 13.2vw;
+    }
+
+    @include media-breakpoint-down(xl) {
+      left: 40px;
+    }
+
+    @include media-breakpoint-down(lg) {
+      left: 20px;
+    }
+    @include media-breakpoint-down(md) {
+      right: 20px;
+      width: auto;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @include media-breakpoint-up(xxxl) {
+      left: 50%;
+      transform: translateX(-740px);
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     padding-top: 0;
 
@@ -564,6 +601,7 @@
 
 .four-steps-gender {
   overflow: hidden;
+  transform: none;
 
   .elements {
     .el {
@@ -709,7 +747,6 @@
 
   @include media-breakpoint-down(lg) {
     .text {
-      transform: translateX(100vw);
       margin: 0 0 22px;
     }
 
@@ -718,8 +755,6 @@
       row-gap: 8px;
 
       li {
-        transform: translateX(100vw);
-
         label {
           span {
             font-size: 18px;
@@ -739,8 +774,6 @@
       row-gap: 12px;
 
       li {
-        transform: translateX(100vw);
-
         label {
           input {
             &:checked + span {
