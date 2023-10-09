@@ -12,10 +12,28 @@
     width: 19px;
     height: 19px;
     vertical-align: middle;
+    margin: 0 20px;
+  }
+
+  @include media-breakpoint-down(xxl) {
+    font-size: 18px;
+    padding: 12.5px 0;
+
+    img {
+      width: 14px;
+      height: 14px;
+      margin: 0 16px;
+    }
   }
 
   @include media-breakpoint-down(md) {
     font-size: 16px;
-    padding: 10px 0 7px;
+    padding: 10px 0;
+
+    img {
+      width: 12px;
+      height: 12px;
+      margin: 0 12px;
+    }
   }
 }

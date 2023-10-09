@@ -1,0 +1,253 @@
+.res-new-10 {
+  position: relative;
+  background-color: #0a0517;
+  color: #fff;
+  padding: 80px 0 18px;
+
+  .elements {
+    .el {
+      position: absolute;
+      background: url(../img/icons/star.svg) 0 / cover no-repeat;
+      width: 36px;
+      height: 36px;
+
+      &.el-01 {
+        left: 5.36vw;
+        top: 105px;
+      }
+      &.el-02 {
+        top: 69px;
+        right: 7vw;
+      }
+      &.el-03 {
+        bottom: 38px;
+        width: 54px;
+        height: 54px;
+        right: 8.85vw;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    padding: 0 11.46vw;
+    margin: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -20px 56px;
+  }
+
+  .col {
+    width: 50%;
+    max-width: 645px;
+    padding: 0 20px;
+
+    &:first-child {
+      text-align: right;
+    }
+
+    h2 {
+      margin: 0 0 31px;
+    }
+
+    .btn {
+      align-self: flex-start;
+      margin-top: auto;
+      width: 16.6rem;
+
+      &.btn-white {
+        box-shadow: 4px 6px #f24eb6;
+        &:hover {
+          box-shadow: none;
+        }
+      }
+
+      &.btn-blue {
+        &:hover {
+          background-color: #fff;
+          color: #0a0517;
+        }
+      }
+    }
+  }
+
+  .text-center {
+    text-align: center;
+
+    p {
+      font-size: 18px;
+      line-height: 1.25;
+      margin: 0 0 60px;
+      .code {
+        cursor: pointer;
+      }
+    }
+
+    .btn-top {
+      background: none;
+      border: none;
+      color: #fff;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      column-gap: 9px;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    .container {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 45px 0 18px;
+
+    .container {
+      padding: 0 8.87vw;
+    }
+
+    .elements {
+      .el {
+        width: 24px;
+        height: 24px;
+
+        &.el-01 {
+          left: 4.2vw;
+          top: 65px;
+        }
+        &.el-02 {
+          top: 50px;
+          right: 5vw;
+        }
+        &.el-03 {
+          width: 36px;
+          height: 36px;
+          right: 6.4vw;
+          bottom: 50px;
+        }
+      }
+    }
+
+    .wrapper {
+      margin: 0 -20px 50px;
+    }
+
+    .col {
+      max-width: 508px;
+
+      h2 {
+        font-size: 2rem;
+        margin: 0 0 24px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 400px;
+        height: 76px;
+        font-size: 22px;
+
+        svg {
+          width: 36px;
+          height: 36px;
+        }
+      }
+    }
+
+    .text-center {
+      p {
+        margin: 0 0 50px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .container {
+      padding: 0 80px;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .container {
+      padding: 0 40px;
+    }
+
+    .elements {
+      display: none;
+    }
+
+    .col {
+      h2 {
+        font-size: 1.51rem;
+      }
+
+      .btn {
+        max-width: 335px;
+        height: 62px;
+        font-size: 20px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 40px 0 24px;
+
+    .container {
+      padding: 0 20px;
+    }
+
+    .wrapper {
+      flex-direction: column;
+      margin: 0;
+    }
+
+    .col {
+      width: 100%;
+      max-width: none;
+      padding: 0;
+      text-align: center;
+      margin: 0 0 61px;
+
+      &:first-child {
+        text-align: center;
+        margin: 0 0 65px;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin: 0 0 30px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 335px;
+        height: 48px;
+        font-size: 16px;
+
+        &.btn-white {
+          box-shadow: 5px 5px #f24eb6;
+        }
+      }
+    }
+
+    .text-center {
+      p {
+        font-size: 16px;
+        margin: 0 0 60px;
+      }
+    }
+  }
+}

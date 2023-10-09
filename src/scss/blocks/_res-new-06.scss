@@ -1,0 +1,291 @@
+.res-new-06 {
+  background: #f9f3e9;
+  color: #0a0517;
+  padding: 0;
+  position: relative;
+
+  .container {
+    position: relative;
+    z-index: 2;
+    padding: 0 8.33vw;
+  }
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(../img/icons/star-orange.svg);
+
+      &.el-01 {
+        width: 53px;
+        height: 53px;
+        right: 1.77vw;
+        bottom: 181px;
+      }
+      &.el-02 {
+        width: 84px;
+        height: 84px;
+        right: 1.77vw;
+        bottom: 60px;
+      }
+    }
+  }
+
+  .row {
+    margin: 0 -10px;
+    display: flex;
+
+    .col {
+      width: 50%;
+      padding: 0 10px;
+
+      &:first-child {
+        align-self: center;
+      }
+    }
+  }
+
+  .item {
+    max-width: 550px;
+    margin: 0 0 38px 3.125vw;
+
+    h3 {
+      font-size: 2.083rem;
+      font-weight: 700;
+      line-height: 150%;
+      margin: 0 0 30px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #5a5a5a;
+
+      li {
+        position: relative;
+        margin: 0 0 24px;
+        padding: 0 0 0 38px;
+
+        &:before {
+          content: "";
+          width: 24px;
+          height: 25px;
+          background: url(../img/icons/cross-red.svg) 0 0 / cover no-repeat;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+    }
+
+    &--main {
+      background-color: $white;
+      border-radius: 40px;
+      margin: -56px 0;
+      padding: 68px 110px 68px 86px;
+      max-width: none;
+
+      ul {
+        font-weight: 600;
+        color: #0a0517;
+
+        li {
+          padding: 0 0 0 40px;
+
+          &:before {
+            content: "";
+            width: 26px;
+            height: 35px;
+            background: url(../img/icons/flame-pink.svg) 0 0 / cover no-repeat;
+            position: absolute;
+            left: 0;
+            top: 0;
+          }
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .container {
+      padding: 0 40px;
+    }
+
+    .elements {
+      .el {
+        &.el-01 {
+          width: 35px;
+          height: 35px;
+          left: 44px;
+          top: 47px;
+        }
+        &.el-02 {
+          width: 56px;
+          height: 56px;
+          left: 44px;
+          top: 108px;
+        }
+      }
+    }
+
+    .item {
+      max-width: 450px;
+      margin: 0 0 22px 10.3vw;
+
+      h3 {
+        font-size: 2rem;
+        margin: 0 0 30px;
+      }
+
+      ul {
+        font-size: 0.944rem;
+        max-width: 340px;
+
+        li {
+          padding: 0 0 0 34px;
+
+          &:before {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+
+      &--main {
+        border-radius: 30px;
+        margin: -46px 0;
+        padding: 49px 12%;
+        max-width: none;
+
+        ul {
+          max-width: none;
+          li {
+            margin: 0 0 25px;
+            padding: 0 0 0 40px;
+
+            &:before {
+              width: 26px;
+              height: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .elements {
+      display: none;
+    }
+
+    .item {
+      margin: 0 0 22px;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      ul {
+        max-width: none;
+      }
+
+      &--main {
+        margin: -46px 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 50px 0;
+
+    .container {
+      padding: 0 40px;
+    }
+
+    .row {
+      margin: 0;
+      flex-direction: column;
+
+      .col {
+        width: 100%;
+        padding: 0;
+      }
+    }
+
+    .item {
+      max-width: none;
+      margin: 0 42px;
+
+      h3 {
+        font-size: 24px;
+      }
+
+      ul {
+        li {
+          margin: 0 0 16px;
+          padding: 0 0 0 30px;
+
+          &:before {
+            width: 16px;
+            height: 24px;
+            background-image: url(../img/icons/cross-gray.svg);
+          }
+        }
+      }
+
+      &--main {
+        background-color: transparent;
+        border-radius: 20px;
+        border: 3px solid #ff99c2;
+        margin: 30px 0 0;
+        padding: 30px 39px;
+
+        h3 {
+          margin: 0 0 20px;
+        }
+
+        ul {
+          li {
+            padding: 0 0 0 30px;
+
+            &:before {
+              width: 16px;
+              height: 22px;
+              background-image: url(../img/icons/flame-pink.svg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .container {
+      padding: 0 17px;
+    }
+
+    .item {
+      ul {
+        font-size: 16px;
+      }
+    }
+  }
+}

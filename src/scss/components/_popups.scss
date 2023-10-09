@@ -1,3 +1,7 @@
+body.compensate-for-scrollbar {
+  overflow: visible !important;
+}
+
 .fancybox-slide {
   padding: 0 !important;
 }
@@ -8,7 +12,10 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  position: relative;
+  position: fixed;
+  z-index: 999999;
+  left: 0;
+  top: 0;
 
   .popup-main {
     position: relative;
@@ -1129,6 +1136,19 @@
       top: 290px;
       left: 83px;
     }
+
+    &:before {
+      content: "";
+      width: 833px;
+      height: 794px;
+      border-radius: 833px;
+      background: var(--Pink, #f24eb6);
+      filter: blur(161px);
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate3d(-50%, -84%, 0);
+    }
   }
 
   .image-wrapper {
@@ -1277,11 +1297,21 @@
 
   @include media-breakpoint-down(lg) {
     .bg {
-      display: none;
+      .img-1 {
+        display: none;
+      }
     }
   }
 
   @include media-breakpoint-down(md) {
+    .bg {
+      &:before {
+        width: 283px;
+        height: 270px;
+        filter: blur(88px);
+        transform: translate3d(-50%, -63%, 0);
+      }
+    }
     .image-wrapper {
       figure {
         height: 203px;

@@ -1,0 +1,259 @@
+.res-new-09 {
+  position: relative;
+  color: #0a0517;
+  padding: 100px 0 62px;
+  background: #cbc7f7;
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      &.el-01 {
+        right: 11.46vw;
+        top: -18px;
+        width: 176px;
+      }
+    }
+  }
+
+  .block-title {
+    color: $black;
+    font-size: 1.667rem;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 50px;
+  }
+
+  .accordion {
+    .item {
+      border-bottom: 3px solid #0a0517;
+
+      &:last-child {
+        border: none;
+      }
+
+      .item-header {
+        button {
+          font-size: 2rem;
+          line-height: 1.1;
+          display: flex;
+          background: none;
+          border: none;
+          border-radius: 0;
+          box-shadow: none;
+          outline: none;
+          font-weight: 400;
+          padding: 36px 50px 36px 0;
+          text-align: left;
+          width: 100%;
+          position: relative;
+
+          span {
+            transition: all 0.2s;
+            color: #0a0517;
+          }
+
+          svg {
+            display: block;
+            width: 1.1em;
+            height: 1.1em;
+            margin-right: 0.9375em;
+            transition: transform 0.3s ease;
+            flex: 0 0 auto;
+
+            path {
+              transition: all 0.3s;
+            }
+          }
+
+          &:hover {
+            span {
+              color: #652feb;
+            }
+            svg path {
+              fill: #652feb;
+            }
+          }
+        }
+      }
+
+      .item-body {
+        display: none;
+        line-height: 1.5;
+        padding: 0 13vw 6.2vh 5.2em;
+
+        p,
+        ul {
+          margin: 0 0 10px;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+
+        ul {
+          padding: 0;
+          list-style: none;
+
+          li {
+            padding: 0 0 0 35px;
+            background: url(../img/icons/star-dark.svg) 9.5px 8px no-repeat;
+            background-size: 17px auto;
+          }
+        }
+      }
+
+      &.active {
+        .item-header {
+          button {
+            svg {
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 70px 0 47px;
+
+    .elements {
+      display: none;
+    }
+
+    .block-title {
+      font-size: 32px;
+      margin: 0 0 42px;
+      text-align: left;
+    }
+
+    .accordion {
+      .item {
+        .item-header {
+          button {
+            font-size: 1.51rem;
+            padding: 24px 0;
+
+            svg {
+              width: 1.3125em;
+              height: 1.3125em;
+              margin: -4px 44px 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    min-height: 0;
+    padding: 100px 0 34px;
+
+    .container {
+      padding: 0 40px;
+    }
+
+    .accordion {
+      .item {
+        border-bottom-width: 2px;
+
+        .item-header {
+          button {
+            font-size: 1.5rem;
+            padding: 16.5px 0;
+            align-items: flex-start;
+
+            svg {
+              width: 21px;
+              height: 21px;
+              margin-right: 23px;
+              margin-top: 2px;
+            }
+
+            &:after {
+              left: 30px;
+              right: 0;
+            }
+          }
+        }
+
+        .item-body {
+          line-height: 1.35;
+          padding: 0 0 40px 30px;
+
+          ul {
+            li {
+              padding: 0 0 0 22px;
+              background-position: 2px 6px;
+              background-size: 12px auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 70px 0 54px;
+
+    .container {
+      padding: 0 20px;
+    }
+
+    .block-title {
+      font-size: 24px;
+      margin: 0 0 22px;
+      text-align: center;
+    }
+
+    .accordion {
+      .item {
+        &.active {
+          .item-header {
+            button {
+              span {
+                color: #0a0517;
+              }
+              svg path {
+                fill: #0a0517;
+              }
+
+              &:hover {
+                span {
+                  color: #652feb;
+                }
+                svg path {
+                  fill: #652feb;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.less-height {
+  @include media-breakpoint-down(lg) {
+    .screen-07 {
+      padding: 80px 0 40px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    .screen-07 {
+      .accordion .item .item-header button {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

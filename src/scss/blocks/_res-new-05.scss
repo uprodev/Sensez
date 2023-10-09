@@ -1,0 +1,277 @@
+.res-new-05 {
+  background: #652feb;
+  color: $white;
+  padding: 100px 0 150px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  .container {
+    margin: 0 auto;
+    padding: 0 40px;
+    max-width: 1184px;
+  }
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url(../img/icons/star-white.svg);
+
+      &.el-01 {
+        width: 66px;
+        height: 66px;
+        left: 6.6vw;
+        top: 420px;
+      }
+      &.el-02 {
+        width: 40px;
+        height: 40px;
+        left: 8vw;
+        top: 1132px;
+      }
+      &.el-03 {
+        width: 36px;
+        height: 36px;
+        left: 6.5vw;
+        top: 1308px;
+      }
+      &.el-04 {
+        width: 36px;
+        height: 36px;
+        right: 8.3vw;
+        top: 606px;
+      }
+      &.el-05 {
+        width: 46px;
+        height: 46px;
+        right: 6.6vw;
+        top: 678px;
+      }
+    }
+  }
+
+  .section-header {
+    text-align: center;
+    h2 {
+      font-size: 2.833rem;
+      line-height: 1.25;
+      text-transform: none;
+      margin: 0 auto;
+      max-width: 15em;
+    }
+
+    p {
+      display: inline-block;
+      width: fit-content;
+      padding: 14px 30px;
+      border-radius: 200px;
+      background: #ff99c2;
+      font-family: $ff-kaisei;
+      font-size: 2.083rem;
+      line-height: 1.5;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+      margin: 25px 0 0;
+    }
+  }
+
+  .section-image {
+    margin: 48px 0 -106px;
+
+    img {
+      display: block;
+      max-width: 82%;
+      height: auto;
+      margin: auto;
+    }
+  }
+
+  .section-text {
+    font-size: 1.667rem;
+    line-height: 1.2;
+    transform: translateX(62px);
+
+    .title {
+      font-family: $ff-kaisei;
+      font-weight: 700;
+      line-height: 1.25;
+      margin: 0 0 26px;
+    }
+
+    .subtitle {
+      font-size: 32px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      margin: 0 0 46px;
+
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    p {
+      margin: 0 0 1.2em;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 80px 0 100px;
+
+    .container {
+      max-width: none;
+      padding: 0 13.5vw;
+    }
+
+    .elements {
+      .el {
+        &.el-01 {
+          width: 50px;
+          height: 50px;
+          left: 4.6vw;
+          top: 300px;
+        }
+        &.el-02 {
+          width: 30px;
+          height: 30px;
+          left: 6vw;
+          top: 831px;
+        }
+        &.el-03 {
+          width: 27px;
+          height: 27px;
+          left: 4.5vw;
+          top: 962px;
+        }
+        &.el-04 {
+          width: 27px;
+          height: 27px;
+          right: 6.3vw;
+          top: 439px;
+        }
+        &.el-05 {
+          width: 34px;
+          height: 34px;
+          right: 4.6vw;
+          top: 493px;
+        }
+      }
+    }
+
+    .section-header {
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 2rem;
+        margin: 34px 0 0;
+        padding: 18px 30px;
+      }
+    }
+
+    .section-image {
+      margin: 40px 0 -88px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .section-text {
+      font-size: 1.51rem;
+      transform: none;
+      max-width: 92%;
+
+      .subtitle {
+        font-size: 1.13rem;
+        margin: 0 0 40px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .container {
+      max-width: none;
+      padding: 0 80px;
+    }
+
+    .section-text {
+      max-width: none;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 60px 0 70px;
+
+    .container {
+      padding: 0 40px;
+    }
+
+    .elements {
+      display: none;
+    }
+
+    .section-header {
+      p {
+        font-size: 1.5rem;
+      }
+    }
+
+    .section-image {
+      margin: 40px 0 -40px;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .container {
+      padding: 0 20px;
+    }
+
+    .section-header {
+      h2 {
+        font-size: 32px;
+      }
+
+      p {
+        padding: 2px 30px;
+        font-size: 24px;
+        margin: 33px 0 0;
+      }
+    }
+
+    .section-image {
+      margin: 25px -48px -38px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .section-text {
+      font-size: 1rem;
+      line-height: 1.2;
+
+      .title {
+        font-size: 1.5rem;
+        margin: 0 0 16px;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        margin: 0 0 26px;
+      }
+
+      p {
+        margin: 0 0 1.2em;
+      }
+    }
+  }
+}

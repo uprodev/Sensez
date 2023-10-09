@@ -6,7 +6,7 @@
   color: #1d1d1b;
 
   .container {
-    padding: 27px 4.17vw 22px;
+    padding: 27px 11.5vw 22px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -34,30 +34,38 @@
   }
 
   @include media-breakpoint-down(xxl) {
-    font-size: 10px;
     .container {
-      padding: 22px 4.4vw 15px;
+      padding: 29px 13.2vw 21px;
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .container {
+      padding: 29px 80px 21px;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .container {
+      padding: 29px 40px 21px;
     }
   }
 
   @include media-breakpoint-down(md) {
-    line-height: 1.9;
+    line-height: 1.25;
 
     .container {
-      padding: 16px 20px;
+      padding: 18px 20px;
+      flex-direction: column-reverse;
     }
+  }
 
-    p {
-      br {
-        display: block;
-      }
-    }
+  @include media-breakpoint-down(sm) {
+    font-size: 12px;
+    line-height: 0.7;
 
-    ul {
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: flex-start;
-      row-gap: 0;
+    .container {
+      padding: 22px 20px 21px;
     }
   }
 }

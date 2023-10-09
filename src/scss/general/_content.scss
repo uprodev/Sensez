@@ -41,6 +41,10 @@ body {
     overflow: auto;
   }
 
+  &.overflow-normal {
+    height: auto;
+  }
+
   .page-content,
   .section {
     width: 100%;

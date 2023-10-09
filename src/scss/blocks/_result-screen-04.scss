@@ -95,7 +95,6 @@
     bottom: 16vh;
     left: 0;
     right: 0;
-    display: none;
   }
 
   .swiper-button-prev,
@@ -211,6 +210,7 @@
     .swiper-controls {
       column-gap: 40px;
       bottom: 6vh;
+      display: none;
     }
 
     .swiper-button-prev,
