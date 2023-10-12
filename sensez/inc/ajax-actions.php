@@ -33,7 +33,7 @@ function ajax_registration()
 
 
         wp_send_json([
-            'url' => get_permalink($result_id)
+            'url' => get_permalink(2274)
         ]);
 
 

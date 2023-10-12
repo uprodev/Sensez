@@ -29,6 +29,7 @@ jQuery(document).ready(function ($) {
     scrollingSpeed: 500,
     fitToSectionDelay: false,
     verticalCentered: true,
+    responsiveWidth: 768,
     afterRender: function () {
       var screenStart = $(".res-screen-01");
       gsap.to("body", {
@@ -172,21 +173,23 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  ScrollTrigger.create({
-    scroller: ".res-screen-05 .fp-overflow",
-    trigger: ".cite .inner",
-    start: "top 90%",
-    toggleActions: "play none none none",
-    onEnter: function () {
-      gsap.to(".cite .inner", {
-        duration: 0.5,
-        y: 0,
-        autoAlpha: 1,
-        ease: "none",
-        overwrite: "auto",
-      });
-    },
-  });
+  if ($(".res-screen-05").length) {
+    ScrollTrigger.create({
+      scroller: ".res-screen-05 .fp-overflow",
+      trigger: ".cite .inner",
+      start: "top 90%",
+      toggleActions: "play none none none",
+      onEnter: function () {
+        gsap.to(".cite .inner", {
+          duration: 0.5,
+          y: 0,
+          autoAlpha: 1,
+          ease: "none",
+          overwrite: "auto",
+        });
+      },
+    });
+  }
 
   // swiper
   if ($(".reviews-swiper").length) {

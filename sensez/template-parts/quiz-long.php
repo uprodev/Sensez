@@ -56,7 +56,7 @@ if (!empty($_COOKIE['an'])) {
       <?php
 
 
-      $prev = ($page - 1) <= 0 ? get_permalink(324) : get_permalink(). ($page - 1);  ?>
+      $prev = ($page - 1) <= 0 ? get_permalink(324) . '?prev=true' : get_permalink(). ($page - 1);  ?>
 
       <a href="<?= $prev ?>" class="btn-previous btn-previous-active">
         <svg width="38" height="15" viewBox="0 0 38 15" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -2,7 +2,7 @@
 if($args):
 	foreach($args as $key=>$arg) $$key = $arg; ?>
 
-	<section class="section fp-noscroll screen screen-05" data-start="#949AF6" data-end="#F9F3E9">
+	<section class="section screen screen-05" data-start="#949AF6" data-end="#F9F3E9">
 		<div class="elements">
 
 			<?php 
@@ -27,7 +27,7 @@ if($args):
 
 							<?php if ($item['text']): ?>
 								<div class="col">
-									<a href="" class="card">
+									<a href="<?php the_permalink(324) ?>" class="card">
 										<p><?= $item['text'] ?></p>
 									</a>
 								</div>

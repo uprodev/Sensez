@@ -70,7 +70,7 @@
       <div class="wrapper">
 
         <?php if ($field = get_field('payment_results_demo', 'option')['gift_link']): ?>
-          <a href="<?= $field['url'] ?>" class="btn btn-pink"<?php if($field['target']) echo ' target="_blank"' ?>><?= $field['title'] ?></a>
+          <a href="<?= the_permalink(537) ?>" class="btn btn-pink"<?php if($field['target']) echo ' target="_blank"' ?>><?= $field['title'] ?></a>
         <?php endif ?>
 
         <?php $images = get_field('payment_results_demo', 'option')['methods'];

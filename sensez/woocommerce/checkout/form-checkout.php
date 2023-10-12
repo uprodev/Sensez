@@ -24,7 +24,7 @@ $result_id = $_GET['result_id'] ? $_GET['result_id'] : $_COOKIE['result_id'];
 ?>
 <h1>Checkout</h1>
 
-<form name="checkout" method="post" class="form checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+<form  name="checkout" method="post" class="form checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
     <?php if ( $checkout->get_checkout_fields() ) : ?>
 

@@ -70,7 +70,7 @@ if ($result_id) {
                     <div class="check-field">
                         <label>
                             <input type="checkbox" value="1" name="terms" checked="" required>
-                            <span>By clicking you agree to our Privacy Policy and Terms &amp; Conditions</span>
+                            <span>By clicking you agree to our <a href="<?php the_permalink(1243) ?>" target="_blank">Privacy Policy</a> and <a href="<?php the_permalink(1248) ?>" target="_blank">Terms &amp; Conditions</a></span>
                         </label>
                     </div>
                     <div class="submit">

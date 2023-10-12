@@ -2,7 +2,7 @@
 if($args):
 	foreach($args as $key=>$arg) $$key = $arg; ?>
 
-	<section class="section fp-noscroll screen screen-04 cursor-container" data-start="#652FEB" data-end="#949AF6">
+	<section class="section screen screen-04 cursor-container" data-start="#652FEB" data-end="#949AF6">
 		<div class="cursor"></div>
 
 		<?php if ($images): ?>
@@ -45,7 +45,7 @@ if($args):
 			
 			<?php if ($link): ?>
 				<div class="btn-wrapper">
-					<a href="<?= $link['url'] ?>" class="btn btn-black"<?php if($link['target']) echo ' target="_blank"' ?>>
+					<a href="<?= the_permalink(324) ?>" class="btn btn-black"<?php if($link['target']) echo ' target="_blank"' ?> id="start_3">
 						<span><?= $link['title'] ?></span>
 					</a>
 				</div>

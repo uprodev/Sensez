@@ -50,7 +50,7 @@ function test_4_steps(){
 
     $post_id = wp_insert_post($post_data);
 
-    update_field('relation', array($_POST['relation']), $post_id);
+    //update_field('relation', array($_POST['relation']), $post_id);
     update_field('age', array($_POST['age']), $post_id);
     update_field('gender', array($_POST['gender']), $post_id);
     update_field('orientation', array($_POST['orientation']), $post_id);
@@ -93,3 +93,40 @@ function test_questions(){
 function calc_data_width($data_text){
     return $data_text * 100 / 60;
 }
+
+
+
+add_action( 'wp_head', 'sensez_head_action' );
+function sensez_head_action(){ ?>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MLJJBQC');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BYN8T2TCJ4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BYN8T2TCJ4');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '294016849863327');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=294016849863327&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <script>
+        var arrPreviousPageUrl = document.referrer.split('?')
+        if (undefined !== arrPreviousPageUrl[1]) {
+            var newUrl = window.location.href + '?' + arrPreviousPageUrl[1]
+            history.pushState(null, null,  newUrl)
+        }
+    </script>
+<?php }

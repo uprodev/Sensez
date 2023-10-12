@@ -40,10 +40,13 @@ add_action('woocommerce_payment_placement', 'woocommerce_checkout_payment', 20);
 add_action( 'woocommerce_payment_complete', 'so_payment_complete' );
 function so_payment_complete( $order_id ){
     $order = wc_get_order( $order_id );
-    $user = $order->get_user();
-    if( $user ){
+
+    foreach ($order->get_items() as $item) {
+        if ($item['product_id'] == 611) {
+
     //   wp_mail('oleg.derimedved@gmail.com', 'tst', 'order '.$order_id);
-        WC()->mailer()->emails['Custom_Email']->trigger( $order_id );
+            WC()->mailer()->emails['Custom_Email']->trigger( $order_id );
+        }
     }
 }
 
@@ -92,3 +95,15 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
 
 
 }
+
+add_action('template_redirect', function(){
+
+    if ($_GET['offer_id']) {
+        WC()->cart->empty_cart();
+        WC()->cart->add_to_cart($_GET['offer_id'], 1, '', '', [
+
+        ]);
+
+    }
+});
+

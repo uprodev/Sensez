@@ -17,7 +17,11 @@
                             <h2><?= $field ?></h2>
                         <?php endif ?>
 
-                        <?php if ($field = get_sub_field('text')): ?>
+                        <?php if (get_row_index() == 1): ?>
+                        <a href="<?php the_permalink(4515) ?>" class="link-claim">Claim Refund</a>
+                        <?php endif ?>
+
+                        <?php if (($field = get_field('feedback_bottom_text', 'option')) && get_row_index() == 2): ?>
                             <p><?= $field ?> <span class="code"><?php the_field('code') ?></span></p>
                         <?php endif ?>
                         
