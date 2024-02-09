@@ -1,0 +1,262 @@
+.landing-05 {
+  background: #f9f3e9 url(../img/landing/bg-05.png) 50% 0 no-repeat;
+  font-family: $ff-playfair;
+  color: #1d1d1b;
+
+  .elements {
+    .el {
+      position: absolute;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      &.el-01 {
+        left: 4.3vw;
+        top: 9.8vh;
+        width: 184px;
+      }
+      &.el-02 {
+        top: 3.1vh;
+        right: 7vw;
+        width: 151px;
+      }
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    text-align: center;
+    padding: 17.5vh 0 0;
+    margin: 0 0 1.8vh;
+  }
+
+  h2 {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 4.167vw;
+    line-height: 1.32;
+    color: #000;
+    letter-spacing: 0;
+    margin: 0 0 3.2vh;
+
+    em {
+      font-style: normal;
+      color: $white;
+    }
+
+    span {
+      display: inline-block;
+      padding: 0 30px;
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0.1em;
+        bottom: -0.2em;
+        border: 2px solid #000;
+        border-radius: 50px;
+      }
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0 0 5vh;
+  }
+
+  .col-image {
+    width: 55.3%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .col-text {
+    width: 41.5%;
+    font-weight: 400;
+    font-size: 1.875vw;
+    line-height: 133%;
+    padding: 42px 0 0 30px;
+
+    h3 {
+      font-size: 3.125vw;
+      line-height: 1.233;
+      font-family: inherit;
+      color: #000;
+      margin: 0 0 12px -30px;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      font-family: $ff-notosans;
+      font-weight: 400;
+      font-size: 1.5625vw;
+      line-height: 140%;
+      text-transform: uppercase;
+      color: #f83d5e;
+      margin: 0 0 59px;
+    }
+
+    p {
+      margin: 0;
+      span {
+        font-weight: 700;
+        color: #f83d5e;
+        text-shadow: 0 0 5px #f83d5e;
+      }
+    }
+
+    ul {
+      margin: 40px 0 63px;
+      padding: 0;
+      list-style: none;
+      font-size: 1.875vw;
+      line-height: 1.333;
+
+      li {
+        position: relative;
+        padding: 0 0 0 54px;
+        margin: 0 0 20px;
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 22px;
+          top: 0.7em;
+          width: 10px;
+          height: 10px;
+          background-color: #000;
+          border-radius: 100%;
+        }
+      }
+    }
+
+    .btn {
+      background-color: #f83d5e;
+      color: #fff;
+      padding: 0 42px;
+    }
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    .container {
+      max-width: 1790px;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    height: auto;
+    min-height: 0 !important;
+    background-position: 50% -300px;
+
+    .elements {
+      .el {
+        &.el-01 {
+          left: -20px;
+          top: 188px;
+          width: 55px;
+        }
+        &.el-02 {
+          top: 85px;
+          right: -30px;
+          width: 65px;
+        }
+      }
+    }
+
+    .section-header {
+      text-align: center;
+      padding: 40px 0 0;
+      margin: 0 0 34px;
+    }
+
+    h2 {
+      font-size: 38px;
+      line-height: 1.26;
+      margin: 0 0 25px;
+
+      span {
+        padding: 0 20px;
+      }
+    }
+
+    .wrapper {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .col-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 0 16px;
+
+      figure {
+        margin: 0;
+        max-width: 280px;
+      }
+    }
+
+    .col-text {
+      width: 100%;
+      font-size: 16px;
+      line-height: 133%;
+      padding: 0;
+
+      h3 {
+        font-size: 37px;
+        margin: 0 -29px 13px 0;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        margin: 0 0 30px 24px;
+      }
+
+      p {
+        margin: 0 0 0 24px;
+        line-height: 1.3;
+        span {
+          text-shadow: 0 0 5px #ff9bb9;
+        }
+      }
+
+      ul {
+        margin: 15px 15px 0 20px;
+        font-size: 16px;
+        line-height: 1.25;
+
+        li {
+          padding: 0 0 0 30px;
+          margin: 0 0 20px;
+
+          &:before {
+            left: 14px;
+            top: 0.6em;
+            width: 5px;
+            height: 5px;
+          }
+        }
+      }
+
+      .btn {
+        display: none;
+      }
+    }
+  }
+}

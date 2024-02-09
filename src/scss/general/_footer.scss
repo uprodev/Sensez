@@ -4,9 +4,10 @@
   font-size: 14px;
   text-transform: uppercase;
   color: #1d1d1b;
+  font-family: $ff-notosans;
 
   .container {
-    padding: 27px 11.5vw 22px;
+    padding: 27px 4.2vw 22px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,7 +36,7 @@
 
   @include media-breakpoint-down(xxl) {
     .container {
-      padding: 29px 13.2vw 21px;
+      padding: 29px 4.2vw 21px;
     }
   }
 

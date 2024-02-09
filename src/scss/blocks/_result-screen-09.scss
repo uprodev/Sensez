@@ -71,6 +71,17 @@
         }
       }
     }
+
+    .link-claim {
+      font-family: $ff-kaisei;
+      font-weight: 700;
+      color: $white;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   @include media-breakpoint-down(xxl) {
@@ -162,6 +173,11 @@
       .btn {
         width: 100%;
         margin: 0;
+      }
+
+      .link-claim {
+        display: inline-block;
+        margin: 0 0 50px;
       }
 
       &:last-child {
