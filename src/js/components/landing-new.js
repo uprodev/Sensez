@@ -55,7 +55,6 @@ jQuery(document).ready(function ($) {
       if (destination.index === 2 && direction === "down") {
         gsap.to(".landing-03 .item", {
           duration: 0.5,
-          delay: 2,
           scale: 1,
           opacity: 1,
           stagger: 0.2,

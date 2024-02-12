@@ -110,8 +110,17 @@
         background: url(../img/landing/el-3-4.svg) 0 0 / cover no-repeat;
         width: 38.54vw;
         height: 14.746vw;
-        filter: drop-shadow(0 4px 250px #f83e5f);
+        position: relative;
         padding: 8.5% 0 0;
+
+        &:before {
+          content: "";
+          @include abs-center;
+          width: 158.1%;
+          height: 276.6%;
+          background: url(../img/landing/el-3-4-blur.svg) 0 0 / cover no-repeat;
+          transform: translate3d(-53.1%, -49.5%, 0);
+        }
       }
 
       p {
@@ -223,6 +232,13 @@
           filter: drop-shadow(0 2px 50px #f83e5f);
           padding: 13% 0 0;
           margin: 0 0 3px;
+
+          &:before {
+            width: 157.56%;
+            height: 220.44%;
+            background-image: url(../img/landing/el-3-4-blur-m.svg);
+            transform: translate3d(-50%, -57.5%, 0);
+          }
         }
 
         p {

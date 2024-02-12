@@ -229,9 +229,13 @@ button {
 .page-landing {
   .btn {
     font-family: $ff-notosans;
-    font-size: 24px;
+    font-size: 1.25vw;
     font-weight: 700;
-    height: 76px;
+    height: 3.17em;
+
+    svg {
+      width: 1.5em;
+    }
 
     @include media-breakpoint-down(lg) {
       font-size: 18px;
