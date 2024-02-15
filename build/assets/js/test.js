@@ -52,20 +52,28 @@ jQuery(document).ready(function ($) {
       }
     });
     var progressWidth = 0;
+    console.log(currentStep);
     if (currentStep !== 1) {
       if (document.querySelector(".test-step--type2")) {
         var filled = $(".test-scroller input.filled").length;
         if (filled > 0) {
-          progressWidth = (currentStep - 2) * 19 + 20.83 + 1.583 + "%";
+          progressWidth = (currentStep - 2) * 16 + 17.33 + 1.333 + "%";
         } else {
-          progressWidth = (currentStep - 2) * 19 + 20.83 + "%";
+          progressWidth = (currentStep - 2) * 16 + 17.33 + "%";
         }
       } else if (document.querySelector(".test-step--type1")) {
         var filled = $(".test-scroller input.filled").length;
         if (filled > 0) {
-          progressWidth = (currentStep - 2) * 19 + 5 + 1.583 * 9 + "%";
+          progressWidth = (currentStep - 2) * 16 + 4 + 1.333 * 9 + "%";
         } else {
-          progressWidth = (currentStep - 2) * 19 + 5 + "%";
+          progressWidth = (currentStep - 2) * 16 + 4 + "%";
+        }
+      } else if (document.querySelector(".test-step--type3")) {
+        var filled = $("input.filled").length;
+        if (filled > 0) {
+          progressWidth = (currentStep - 2) * 16 + 4 + 1.6 * 9 + "%";
+        } else {
+          progressWidth = (currentStep - 2) * 16 + 4 + "%";
         }
       }
     }
@@ -75,9 +83,9 @@ jQuery(document).ready(function ($) {
   progressInit();
 
   function progress() {
-    var progressStep = 1.583;
-    if ($(".four-steps-wrapper").length) {
-      progressStep = 1.66667;
+    var progressStep = 1.3333;
+    if ($(".test-step--type3").length) {
+      progressStep = 1.6;
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
       progressNext = progressCurrent + progressStep + "%";
@@ -87,9 +95,9 @@ jQuery(document).ready(function ($) {
     });
   }
   function progressBack() {
-    var progressStep = 1.583;
-    if ($(".four-steps-wrapper").length) {
-      progressStep = 1.66667;
+    var progressStep = 1.333;
+    if ($(".test-step--type3").length) {
+      progressStep = 1.6;
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
       progressNext = progressCurrent - progressStep + "%";

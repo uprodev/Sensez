@@ -47,11 +47,19 @@
     }
   }
 
+  @include media-breakpoint-down(xxl) {
+    h2 {
+      font-size: 3.075vw;
+      line-height: 1.25;
+      margin: 10px 0;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     height: auto;
     min-height: 0 !important;
     background-size: 1110px auto;
-    padding: 61px 0 215px;
+    padding: 61px 0 145px;
 
     .bg {
       background-image: url(../img/landing/bg-09-1-m.png);

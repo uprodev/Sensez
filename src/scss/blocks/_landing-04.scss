@@ -1,9 +1,5 @@
 .landing-04 {
-  background-color: #7f53e9;
-  background-image: linear-gradient(to bottom, #8a61ec 0%, #7a50e6 50%, #7041e5 100%);
-  background-position: 0 0;
-  background-size: auto;
-  background-repeat: repeat;
+  background: #7f53e9 radial-gradient(54.13% 72.1% at 57.38% 88.25%, #693be2 0%, rgba(101, 47, 235, 0) 97.5%);
   font-family: $ff-playfair;
   color: #fff;
   position: relative;
@@ -49,11 +45,14 @@
     right: 0;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    width: 62.4vw;
 
     img {
       display: block;
-      width: auto;
-      height: 100%;
+      width: 100%;
+      height: auto;
+      transform: translateX(60px);
     }
   }
 
@@ -73,10 +72,10 @@
   }
 
   ul {
-    margin: 6vh 0;
+    margin: 6vh 0 0;
     padding: 0;
     list-style: none;
-    font-size: 1.875vw;
+    font-size: 1.5vw;
     line-height: 1.333;
 
     li {
@@ -110,6 +109,41 @@
   @include media-breakpoint-up(xxxl) {
     .container {
       max-width: 1520px;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .container {
+      padding-left: 8.7vw;
+    }
+
+    .image {
+      width: 55vw;
+
+      img {
+        transform: translateX(0);
+      }
+    }
+
+    .wrapper {
+      width: 33vw;
+    }
+
+    h2 {
+      margin: 0 2vw 0 0;
+    }
+
+    ul {
+      li {
+        padding: 0 0 0 37px;
+        margin: 0 0 1.9vh;
+
+        &:before {
+          left: 15px;
+          width: 7px;
+          height: 7px;
+        }
+      }
     }
   }
 
@@ -154,15 +188,16 @@
     .image {
       position: static;
       display: block;
-      margin: 0 0 -24px;
+      margin: 30px 0 0;
       overflow: hidden;
+      width: auto;
 
       img {
         display: block;
-        width: 160%;
+        width: 140%;
         height: auto;
         float: right;
-        transform: translate(15px, 0);
+        transform: translate(45px, 0);
       }
     }
 

@@ -1,5 +1,5 @@
 .landing-02 {
-  background: #f9f3e9 url(../img/landing/bg-02.png) 50% bottom no-repeat;
+  background: #f9f3e9 url(../img/landing/bg-02.png) 50% bottom / 100% auto no-repeat;
   position: relative;
   font-family: $ff-playfair;
 
@@ -139,6 +139,80 @@
     }
   }
 
+  @include media-breakpoint-down(xxl) {
+    .container {
+      max-width: 1246px;
+      margin: auto;
+    }
+
+    .wrapper {
+      .box {
+        margin: 0 20px;
+
+        .inner {
+          border-radius: 30px;
+          padding: 10.5% 10.4% 9%;
+          min-height: 350px;
+        }
+
+        h2 {
+          line-height: 1.25;
+        }
+
+        p {
+          margin: 1.5em 0 0;
+          font-size: 20px;
+          line-height: 1.5;
+        }
+
+        &:nth-child(1) {
+          &:after {
+            top: 17%;
+            width: 130px;
+            height: 158px;
+            transform: translateX(-52px);
+          }
+
+          .inner {
+            &:before {
+              bottom: 13%;
+              width: 8.1vw;
+              height: 13.5vw;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          &:after {
+            top: 23%;
+            width: 92px;
+            height: 152px;
+            transform: translateX(-26px);
+          }
+
+          p {
+            padding: 4px 24px;
+            border-radius: 30px;
+            margin: 1em 0 0;
+          }
+        }
+
+        &:nth-child(3) {
+          .inner {
+            &:before {
+              width: 5.4vw;
+              height: 5.4vw;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      padding: 50px 0 30px;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     height: auto;
     min-height: 0 !important;
@@ -233,6 +307,7 @@
 
   @include media-breakpoint-down(md) {
     background-position: left 50% bottom -350px;
+    background-size: auto;
 
     .buttons {
       padding: 0;

@@ -122,6 +122,75 @@
     }
   }
 
+  @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01 {
+          left: 6.5vw;
+          top: 21vh;
+        }
+      }
+    }
+
+    .testimonials-swiper {
+      .swiper-controls {
+        padding: 8.2vh 0 0;
+
+        & > div {
+          margin: 0 20px;
+        }
+      }
+
+      .item {
+        padding: 30px 20px 31px;
+
+        .rate {
+          img {
+            display: block;
+            width: 212px;
+            height: auto;
+            margin: auto;
+          }
+        }
+
+        p {
+          font-size: 24px;
+          line-height: 30px;
+          margin: 25px 0 30px;
+        }
+
+        .author {
+          .avatar {
+            width: 60px;
+            margin: 0 15px 0 0;
+          }
+
+          .name {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-between(lg, xxl) {
+    .elements {
+      .el {
+        &.el-02 {
+          display: none;
+        }
+      }
+    }
+
+    .section-header {
+      margin: 0 0 10.5vh;
+    }
+
+    .testimonials-swiper {
+      padding: 0 0 0 29px;
+    }
+  }
+
   @include media-breakpoint-down(lg) {
     height: auto;
     min-height: 0 !important;

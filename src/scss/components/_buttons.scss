@@ -235,6 +235,21 @@ button {
 
     svg {
       width: 1.5em;
+      flex: 0 0 auto;
+    }
+
+    @include media-breakpoint-down(xxl) {
+      font-size: 18px;
+      height: 50px;
+
+      svg {
+        width: 24px;
+      }
+    }
+
+    @include media-breakpoint-between(lg, xxl) {
+      width: 260px;
+      padding: 0;
     }
 
     @include media-breakpoint-down(lg) {

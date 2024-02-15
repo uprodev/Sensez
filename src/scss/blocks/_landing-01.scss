@@ -56,7 +56,7 @@
     position: absolute;
     right: 5.9vw;
     bottom: 3rem;
-    width: 30.5vw;
+    width: 584px;
 
     img {
       display: block;
@@ -85,6 +85,12 @@
     font-size: 5.2vw;
     color: #fff;
     margin: 17px 0 2px;
+
+    @include media-breakpoint-up(md) {
+      br {
+        display: none;
+      }
+    }
   }
   h2 {
     font-family: inherit;
@@ -101,8 +107,54 @@
   }
 
   @include media-breakpoint-down(xxl) {
+    overflow: hidden;
+
+    .elements {
+      .el {
+        &.el-01 {
+          left: 19vw;
+          top: 11.5vh;
+        }
+        &.el-02 {
+          top: 13.8vh;
+          width: 150px;
+          right: 6.5vw;
+        }
+        &.el-03 {
+          left: 19vw;
+          bottom: 16.5vh;
+        }
+      }
+    }
+
+    .container {
+      padding-bottom: 29vh;
+    }
+
+    .landing-logo {
+      img {
+        display: inline-block;
+        width: 120px;
+        height: auto;
+      }
+    }
+
+    h2 {
+      font-size: 3.1vw;
+      line-height: 1.33;
+    }
+
+    .img-left {
+      transform: translateY(-44.3%);
+      width: 19.5vw;
+    }
+
     .img-bottom {
-      bottom: 2.2rem;
+      bottom: -3rem;
+    }
+
+    .text-line {
+      padding: 9px 0;
     }
   }
 
@@ -133,6 +185,12 @@
       padding-bottom: 0;
     }
 
+    .landing-logo {
+      img {
+        width: 100px;
+      }
+    }
+
     .img-left {
       display: none;
     }
@@ -151,14 +209,6 @@
 
     .headline {
       padding: 42px 0 22px;
-    }
-
-    .landing-logo {
-      img {
-        display: inline-block;
-        width: 100px;
-        height: auto;
-      }
     }
 
     h1 {
