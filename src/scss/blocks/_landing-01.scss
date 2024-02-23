@@ -1,9 +1,11 @@
 .landing-01 {
-  background: #f83d5e url(../img/landing/bg-01.png) 0 0 / cover no-repeat;
+  background: #f83d5e url(../img/landing/bg-01.svg) 0 0 / cover no-repeat;
   position: relative;
   font-family: $ff-playfair;
   height: 100vh !important;
   z-index: 999;
+  --logo1: 0deg;
+  --logo2: 0deg;
 
   .container {
     padding-bottom: 27vh;
@@ -85,12 +87,8 @@
     font-size: 5.2vw;
     color: #fff;
     margin: 17px 0 2px;
-
-    @include media-breakpoint-up(md) {
-      br {
-        display: none;
-      }
-    }
+    opacity: 0;
+    transform: translateY(-50%);
   }
   h2 {
     font-family: inherit;
@@ -99,10 +97,38 @@
     margin: 0;
     letter-spacing: 0;
     line-height: 1.15;
+    opacity: 0;
+    transform: translateY(-50%);
 
-    span {
+    &:last-child {
       display: block;
       color: #1f0e36;
+    }
+
+    br {
+      display: none;
+    }
+  }
+
+  .landing-logo {
+    opacity: 0;
+  }
+
+  @include media-breakpoint-up(lg) {
+    .landing-logo {
+      .logo-part1,
+      .logo-part2 {
+        transform-origin: center;
+        transition: all 0.5s ease-in-out;
+      }
+      &:hover {
+        .logo-part1 {
+          transform: rotate(var(--logo1));
+        }
+        .logo-part2 {
+          transform: rotate(var(--logo2));
+        }
+      }
     }
   }
 
@@ -218,6 +244,14 @@
     h2 {
       font-size: 32px;
       line-height: 1.33;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    h2 {
+      br {
+        display: block;
+      }
     }
   }
 

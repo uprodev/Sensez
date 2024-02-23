@@ -1,15 +1,61 @@
 .landing-09 {
-  background: #1d1d1b url(../img/landing/bg-09.png) 50% 0 / 100% auto no-repeat;
+  background: #1d1d1b url(../img/landing/bg-09.svg) 50% 0 / 100% auto no-repeat;
   position: relative;
   text-align: center;
 
-  .bg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: url(../img/landing/bg-09-1.png) center / 100% auto no-repeat;
+  .elements {
+    .el {
+      position: absolute;
+      transform: scale(0.5);
+      opacity: 0;
+      transform-origin: center;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      &.el-01 {
+        left: 4.7vw;
+        top: 28.4vh;
+        width: 9.68vw;
+      }
+      &.el-02 {
+        top: 8.8vh;
+        left: 17.7vw;
+        width: 13.54vw;
+      }
+      &.el-03 {
+        top: 18vh;
+        left: 37.1vw;
+        width: 8.8vw;
+      }
+      &.el-04 {
+        top: 9.1vh;
+        left: 61.3vw;
+        width: 7.55vw;
+      }
+      &.el-05 {
+        top: 5.2vh;
+        right: 9vw;
+        width: 9.58vw;
+      }
+      &.el-06 {
+        bottom: 13.5vh;
+        left: 13.7vw;
+        width: 8.7vw;
+      }
+      &.el-07 {
+        bottom: 13.4vh;
+        right: 6.4vw;
+        width: 10.9vw;
+      }
+    }
+  }
+
+  .text {
+    padding: 220px 0 0;
   }
 
   .h1 {
@@ -18,6 +64,9 @@
     font-size: 5.2vw;
     line-height: 110%;
     color: #fff;
+    opacity: 0;
+    transform: translateY(-50%);
+
     span {
       color: #949af6;
     }
@@ -36,6 +85,7 @@
     color: #fff;
     overflow: hidden;
     position: relative;
+    margin: 10px 0 0;
 
     span {
       position: absolute;
@@ -43,11 +93,74 @@
       top: 0;
       right: 0;
       color: #949af6;
-      transform: translateY(100%);
+
+      .word {
+        white-space: nowrap;
+      }
+
+      .char {
+        opacity: 0;
+      }
+    }
+
+    &:last-child {
+      opacity: 0;
+      transform: translateY(-50%);
     }
   }
 
+  .icon {
+    display: block;
+    margin: 40px 0 0;
+    transform: scaleY(0);
+    transform-origin: center top;
+  }
+
   @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01 {
+          left: 3vw;
+          top: 25vh;
+          width: 10vw;
+        }
+        &.el-02 {
+          top: 4.5vh;
+          left: 16.8vw;
+          width: 14vw;
+        }
+        &.el-03 {
+          top: 14vh;
+        }
+        &.el-04 {
+          top: 5vh;
+          left: 62.9vw;
+        }
+        &.el-05 {
+          top: 1vh;
+          right: 5.6vw;
+          width: 10vw;
+        }
+        &.el-06 {
+          bottom: 14.8vh;
+          left: 12.7vw;
+        }
+        &.el-07 {
+          bottom: 14.4vh;
+          right: 2.9vw;
+          width: 11.4vw;
+        }
+      }
+    }
+
+    .text {
+      padding: 150px 0 0;
+    }
+
+    .icon {
+      margin: 35px 0 0;
+    }
+
     h2 {
       font-size: 3.075vw;
       line-height: 1.25;
@@ -59,11 +172,56 @@
     height: auto;
     min-height: 0 !important;
     background-size: 1110px auto;
-    padding: 61px 0 145px;
+    padding: 61px 0 55px;
 
-    .bg {
-      background-image: url(../img/landing/bg-09-1-m.png);
-      background-size: auto 100%;
+    .elements {
+      .el {
+        opacity: 0.2;
+
+        &.el-01 {
+          display: none;
+        }
+        &.el-02 {
+          top: 37px;
+          left: 0;
+          width: 115px;
+        }
+        &.el-03 {
+          top: 41%;
+          left: auto;
+          width: 90px;
+          right: -10px;
+        }
+        &.el-04 {
+          top: 69%;
+          left: 28px;
+          width: 80px;
+        }
+        &.el-05 {
+          top: 41%;
+          left: -25px;
+          width: 85px;
+        }
+        &.el-06 {
+          top: 15px;
+          left: auto;
+          width: 85px;
+          right: 11px;
+        }
+        &.el-07 {
+          top: 65%;
+          right: 20px;
+          width: 100px;
+        }
+      }
+    }
+
+    .text {
+      padding: 0;
+    }
+
+    .icon {
+      margin: 45px 0 0;
     }
 
     .h1 {

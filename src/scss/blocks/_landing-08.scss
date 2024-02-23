@@ -3,7 +3,10 @@
   overflow: hidden;
 
   .bg {
-    background: #d5d0ff url(../img/landing/bg-08.png) 50% / cover no-repeat;
+    background-color: #d5d0ff;
+    background-image: url(../img/landing/bg-08-1.svg), url(../img/landing/bg-08-2.svg);
+    background-position: left top, right top;
+    background-repeat: no-repeat;
     @include abs(50%, 50%, 0, 0);
     transform: translate3d(-50%, -50%, 0);
     width: 1480px;
@@ -35,6 +38,8 @@
     line-height: 140%;
     text-transform: uppercase;
     color: #1d1d1b;
+    opacity: 0;
+    transform: translateY(-50%);
   }
 
   h2 {
@@ -44,11 +49,18 @@
     line-height: 123%;
     color: #1d1d1b;
     margin: 20px 0 60px;
+    visibility: hidden;
+
+    .line {
+      opacity: 0;
+      transform: translateY(-50%);
+    }
 
     span {
       display: inline-block;
       padding: 0 30px;
       position: relative;
+      white-space: nowrap;
 
       &:before {
         content: "";
@@ -59,6 +71,14 @@
         bottom: -0.2em;
         border: 2px solid #000;
         border-radius: 50px;
+        opacity: 0;
+        transition: all 0.2s;
+      }
+
+      &.outlined {
+        &:before {
+          opacity: 1;
+        }
       }
     }
   }

@@ -1,11 +1,11 @@
 .landing-02 {
-  background: #f9f3e9 url(../img/landing/bg-02.png) 50% bottom / 100% auto no-repeat;
+  background: #f9f3e9 url(../img/landing/bg-02.svg) 50% bottom / 100% auto no-repeat;
   position: relative;
   font-family: $ff-playfair;
 
   .container {
     max-width: 1810px;
-    padding: 0 20px;
+    padding: 50px 20px;
   }
 
   .wrapper {
@@ -31,6 +31,8 @@
         padding: 11% 10.4% 10.6%;
         height: 100%;
         min-height: 330px;
+        cursor: pointer;
+        transition: all 0.3s ease;
 
         &:before,
         &:after {
@@ -57,6 +59,12 @@
         line-height: 153%;
         text-transform: uppercase;
         color: #000;
+      }
+
+      &:hover {
+        .inner {
+          transform: translateY(-5%);
+        }
       }
 
       &:nth-child(1) {
@@ -306,8 +314,9 @@
   }
 
   @include media-breakpoint-down(md) {
-    background-position: left 50% bottom -350px;
-    background-size: auto;
+    background-image: url(../img/landing/bg-02-m.svg);
+    background-position: center bottom;
+    background-size: 100% 80%;
 
     .buttons {
       padding: 0;

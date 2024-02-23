@@ -1,5 +1,5 @@
 .landing-10 {
-  background: #1d1d1b url(../img/landing/bg-10.png) 50% bottom no-repeat;
+  background: #1d1d1b url(../img/landing/bg-10.svg) 50% bottom no-repeat;
 
   .fp-overflow {
     padding: 20px 0 70px;
@@ -45,6 +45,8 @@
       line-height: 123%;
       margin: 0;
       max-width: 15em;
+      opacity: 0;
+      transform: translateY(-50%);
 
       span {
         color: #fff;
@@ -56,6 +58,8 @@
       font-size: 7.8125vw;
       color: #fff;
       margin: 0 0.8em 0 0;
+      opacity: 0;
+      transform: translateY(-30%);
     }
   }
 
@@ -281,7 +285,12 @@
   }
 
   @include media-breakpoint-down(md) {
+    padding-top: 6px;
+
     .section-header {
+      .section-header-number {
+        line-height: 1;
+      }
       h2 {
         max-width: 244px;
         margin: auto;
