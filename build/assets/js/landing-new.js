@@ -199,7 +199,7 @@ jQuery(document).ready(function ($) {
           duration: 0.3,
           stagger: 0.15,
           ease: "none",
-          delay: 0.5,
+          delay: 0.2,
           onComplete: () => {
             $(".landing-05 h2 span").addClass("outlined");
             gsap.to(".landing-05 .icon", {

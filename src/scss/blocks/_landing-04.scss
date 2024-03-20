@@ -1,6 +1,6 @@
 .landing-04 {
   background: #7f53e9 radial-gradient(54.13% 72.1% at 57.38% 88.25%, #693be2 0%, rgba(101, 47, 235, 0) 97.5%);
-  font-family: $ff-playfair;
+  font-family: $ff-notosans;
   color: #fff;
   position: relative;
 
@@ -21,21 +21,19 @@
         width: 69px;
       }
       &.el-02 {
-        bottom: 6vh;
+        bottom: 3.5vh;
         width: 69px;
         left: 48.6vw;
       }
       &.el-03 {
         right: 3.1vw;
         top: 6.6vh;
-        width: 104px;
+        width: 35px;
+      }
+      &.el-04 {
+        display: none;
       }
     }
-  }
-
-  .container {
-    position: relative;
-    z-index: 2;
   }
 
   .image {
@@ -46,18 +44,33 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 62.4vw;
+    width: 59vw;
+    padding: 5% 0 0;
 
     img {
       display: block;
       width: 100%;
       height: auto;
-      transform: translateX(60px);
+    }
+
+    .buttons {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 19%;
+      text-align: center;
+      padding: 0 0 0 8.5vw;
+
+      .btn {
+        background-color: #f83d5e;
+        color: #fff;
+        padding: 0 42px;
+      }
     }
   }
 
   h2 {
-    font-family: inherit;
+    font-family: $ff-playfair;
     font-weight: 700;
     font-size: 3.125vw;
     line-height: 120%;
@@ -71,6 +84,8 @@
   .wrapper {
     width: 30.3125vw;
     padding: 30px 0;
+    position: relative;
+    z-index: 2;
   }
 
   ul {
@@ -78,7 +93,7 @@
     padding: 0;
     list-style: none;
     font-size: 1.5vw;
-    line-height: 1.333;
+    line-height: 1.6;
 
     li {
       position: relative;
@@ -100,16 +115,6 @@
     }
   }
 
-  .buttons {
-    padding: 0 0 10px;
-
-    .btn {
-      background-color: #f83d5e;
-      color: #fff;
-      padding: 0 42px;
-    }
-  }
-
   @include media-breakpoint-up(xxxl) {
     .container {
       max-width: 1520px;
@@ -122,7 +127,7 @@
     }
 
     .image {
-      width: 55vw;
+      width: 59vw;
 
       img {
         transform: translateX(0);
@@ -174,8 +179,7 @@
         &.el-03 {
           right: 26px;
           top: 422px;
-          width: 43px;
-          transform: scaleX(-1);
+          width: 24px;
         }
       }
     }
@@ -215,8 +219,8 @@
     }
 
     ul {
-      margin: 20px 10px 0 32px;
-      font-size: 16px;
+      margin: 20px 0 0 10px;
+      font-size: 17px;
       line-height: 1.25;
 
       li {

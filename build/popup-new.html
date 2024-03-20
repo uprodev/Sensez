@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ua">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sensez</title>
+    <meta name="description" content="description" />
+    <meta name="keywords" content="keywords" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+  </head>
+
+  <body>
+    <div><a href="#new5" class="fancybox" style="color: #000">Popup open</a></div>
+
+    <div class="popup-new popup-new-5" id="new5" style="display: none">
+      <div class="popup-main">
+        <button class="popup-close" data-popup="#new5"></button>
+        <div class="elements">
+          <div class="el el-01"><img src="assets/img/icons/star-white.svg" alt="" /></div>
+          <div class="el el-02"><img src="assets/img/icons/star-white.svg" alt="" /></div>
+          <div class="el el-03"><img src="assets/img/icons/star-white.svg" alt="" /></div>
+          <div class="el el-04"><img src="assets/img/icons/star-white.svg" alt="" /></div>
+          <div class="el el-05"><img src="assets/img/icons/star-white.svg" alt="" /></div>
+          <div class="el el-06"><img src="assets/img/icons/star-white.svg" alt="" /></div>
+        </div>
+        <div class="container">
+          <div class="popup-inner">
+            <h2>Ми ще працюємо над створенням цього сервісу</h2>
+            <p>і обов'язково вас повідомимо коли все запрацює, тільки залишьтее свій емейл!</p>
+            <form action="#">
+              <div class="field">
+                <input type="email" placeholder="my_email@domain.com" />
+              </div>
+              <button type="submit">Відправити ></button>
+            </form>
+            <div class="image-wrapper">
+              <figure><img src="assets/img/popup.svg" alt="" /></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/gsap.js"></script>
+    <script src="assets/js/ScrollTrigger.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/fullpage.js"></script>
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("a.fancybox").on("click", function (e) {
+          e.preventDefault();
+          var id = $(this).attr("href");
+          $.fancybox.open($(id), {
+            touch: false,
+            autoFocus: false,
+          });
+        });
+
+        $(".popup-close").on("click", function () {
+          var id = $(this).attr("data-popup");
+          $.fancybox.close($(id));
+        });
+      });
+    </script>
+  </body>
+</html>

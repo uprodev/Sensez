@@ -68,7 +68,9 @@ jQuery(document).ready(function ($) {
         } else {
           progressWidth = (currentStep - 2) * 16 + 4 + "%";
         }
-      } else if (document.querySelector(".test-step--type3")) {
+      } else if (document.querySelector(".test-step--type3") || document.querySelector(".test-step--type4")) {
+        progressWidth = (currentStep - 2) * 16 + 4 + "%";
+      } else if (document.querySelector(".test-step--type5")) {
         var filled = $("input.filled").length;
         if (filled > 0) {
           progressWidth = (currentStep - 2) * 16 + 4 + 1.6 * 9 + "%";
@@ -84,7 +86,7 @@ jQuery(document).ready(function ($) {
 
   function progress() {
     var progressStep = 1.3333;
-    if ($(".test-step--type3").length) {
+    if ($(".test-step--type5").length) {
       progressStep = 1.6;
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
@@ -96,7 +98,7 @@ jQuery(document).ready(function ($) {
   }
   function progressBack() {
     var progressStep = 1.333;
-    if ($(".test-step--type3").length) {
+    if ($(".test-step--type5").length) {
       progressStep = 1.6;
     }
     var progressCurrent = document.querySelector(".steps-progress .inner").style.width ? parseFloat(document.querySelector(".steps-progress .inner").style.width) : 0,
@@ -392,7 +394,7 @@ jQuery(document).ready(function ($) {
         });
       });
 
-      $(".test-scroller input").each(function () {
+      $(".test-scroller input[readonly]").each(function () {
         if ($(this).val() !== "") {
           $(this).addClass("filled");
         }
@@ -534,12 +536,8 @@ jQuery(document).ready(function ($) {
                     duration: 0.3,
                     onComplete: function () {
                       $(document).trigger("saveData");
-
-                      if (page === 10) {
-                        $(document).trigger("submitQuiz");
-                      } else {
-                        $(".btn-next").get(0).click();
-                      }
+                      $(document).trigger("saveData");
+                      $(".btn-next").get(0).click();
                     },
                   },
                   "-=0.3"
@@ -578,11 +576,7 @@ jQuery(document).ready(function ($) {
                     duration: 0.3,
                     onComplete: function () {
                       $(document).trigger("saveData");
-                      if (page === 10) {
-                        $(document).trigger("submitQuiz");
-                      } else {
-                        $(".btn-next").get(0).click();
-                      }
+                      $(".btn-next").get(0).click();
                     },
                   },
                   "-=0.3"
@@ -727,11 +721,7 @@ jQuery(document).ready(function ($) {
                     duration: 0.5,
                     onComplete: function () {
                       $(document).trigger("saveData");
-                      if (page === 10) {
-                        $(document).trigger("submitQuiz");
-                      } else {
-                        $(".btn-next").get(0).click();
-                      }
+                      $(".btn-next").get(0).click();
                     },
                   },
                   "-=0.2"
@@ -798,6 +788,66 @@ jQuery(document).ready(function ($) {
               }
             });
           });
+        }
+      });
+    }
+
+    if (document.querySelector(".test-step--type5")) {
+      var totalQ = $(".test-scroller li").length;
+      if ($(".test-scroller .filled").length === totalQ) {
+        $(".test-step-inner").animate({ scrollTop: $(".test-scroller .last").outerHeight() * 9 }, 0);
+        setTimeout(() => {
+          var activeQ = $(".test-scroller li.last"),
+            activeValue = activeQ.find("[type=radio]:checked").val();
+          activeQ.find("input[type=radio]").each(function () {
+            if (parseInt($(this).val()) === activeValue) {
+              $(this).prop("checked", true);
+            }
+          });
+        }, 200);
+      }
+
+      var animating = false;
+      $(".test-step--type5 .options input[type=radio]").on("change", function (e) {
+        if (!animating) {
+          animating = true;
+          progress();
+          var activeQ = $(".test-scroller li.active");
+          if (activeQ.length) {
+            var activeVal;
+            var radios = activeQ.find("[type=radio]");
+            radios.each(function () {
+              if ($(this).prop("checked")) {
+                activeVal = $(this).val();
+              }
+            });
+            var input = activeQ.find("input[readonly]");
+            input.addClass("filled").val(activeVal);
+          }
+
+          setTimeout(() => {
+            $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() + activeQ.outerHeight() }, 500, function () {
+              animating = false;
+            });
+          }, 200);
+        }
+      });
+
+      $(document).on("click", ".test-step--type5 .btn-test-next .btn", function (e) {
+        gsap.to(".test-progress", {
+          opacity: 0,
+          duration: 0.3,
+        });
+        $(document).trigger("saveData");
+        $(document).trigger("submitQuiz");
+      });
+
+      $(document).on("click", ".btn-previous", function (e) {
+        progressBack();
+        if (!$(".test-scroller li:first-child").hasClass("active")) {
+          e.preventDefault();
+          var prevQ = $(".test-scroller li.active").prev("li");
+          $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() - prevQ.outerHeight() }, 500, function () {});
         }
       });
     }

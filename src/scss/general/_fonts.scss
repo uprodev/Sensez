@@ -1,45 +1,63 @@
-@import url("https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
 @font-face {
   font-family: "graphik";
-  src: url("../fonts/graphiklight-webfont.woff2") format("woff2"), url("../fonts/graphiklight-webfont.woff") format("woff");
+  src: url("../fonts/GraphikLCG-Light.woff2") format("woff2"), url("../fonts/GraphikLCG-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "graphik";
-  src: url("../fonts/graphikregular-webfont.woff2") format("woff2"), url("../fonts/graphikregular-webfont.woff") format("woff");
+  src: url("../fonts/GraphikLCG-Regular.woff2") format("woff2"), url("../fonts/GraphikLCG-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "graphik";
-  src: url("../fonts/graphikmedium-webfont.woff2") format("woff2"), url("../fonts/graphikmedium-webfont.woff") format("woff");
+  src: url("../fonts/GraphikLCG-Medium.woff2") format("woff2"), url("../fonts/GraphikLCG-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "graphik";
-  src: url("../fonts/graphiksemibold-webfont.woff2") format("woff2"), url("../fonts/graphiksemibold-webfont.woff") format("woff");
+  src: url("../fonts/GraphikLCG-Semibold.woff2") format("woff2"), url("../fonts/GraphikLCG-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "graphik";
-  src: url("../fonts/graphikbold-webfont.woff2") format("woff2"), url("../fonts/graphikbold-webfont.woff") format("woff");
+  src: url("../fonts/GraphikLCG-Bold.woff2") format("woff2"), url("../fonts/GraphikLCG-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "graphik";
-  src: url("../fonts/graphikblack-webfont.woff2") format("woff2"), url("../fonts/graphikblack-webfont.woff") format("woff");
+  src: url("../fonts/GraphikLCG-Black.woff2") format("woff2"), url("../fonts/GraphikLCG-Black.woff") format("woff");
   font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Kaisei Decol";
+  src: url("../fonts/kaiseidecol-regular.woff2") format("woff2"), url("../fonts/kaiseidecol-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Kaisei Decol";
+  src: url("../fonts/kaiseidecol-medium.woff2") format("woff2"), url("../fonts/kaiseidecol-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Kaisei Decol";
+  src: url("../fonts/kaiseidecol-bold.woff2") format("woff2"), url("../fonts/kaiseidecol-bold.woff") format("woff");
+  font-weight: 700;
   font-style: normal;
 }

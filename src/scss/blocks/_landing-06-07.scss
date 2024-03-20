@@ -1,7 +1,7 @@
 .landing-06,
 .landing-07 {
   background-color: var(--bg-color);
-  font-family: $ff-playfair;
+  font-family: $ff-notosans;
   color: #fff;
   position: relative;
 
@@ -78,7 +78,7 @@
     h3 {
       font-size: 3.125vw;
       line-height: 1.233;
-      font-family: inherit;
+      font-family: $ff-playfair;
       color: inherit;
       margin: 0;
       letter-spacing: 0;
@@ -211,7 +211,7 @@
 
     .wrapper {
       flex-direction: column;
-      padding: 60px 10px 40px;
+      padding: 60px 0 40px;
     }
 
     .col-image {
@@ -241,7 +241,7 @@
 
     .col-text {
       width: 100%;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 133%;
 
       h3 {
@@ -251,19 +251,19 @@
 
         .num {
           flex: 0 0 auto;
-          margin: 0 15px 0 0;
+          margin: 0 5px 0 0;
         }
       }
 
       p {
-        margin: 48px 0 -10px 0;
-        font-size: 16px;
+        margin: 48px 0 -10px 24px;
+        font-size: 17px;
         line-height: 1.25;
       }
 
       ul {
-        margin: 0;
-        font-size: 16px;
+        margin: 0 0 0 24px;
+        font-size: 17px;
         line-height: 1.25;
 
         li {
@@ -288,8 +288,7 @@
   @include media-breakpoint-down(md) {
     .col-text {
       ul {
-        width: 240px;
-        margin: auto;
+        margin: 0 0 0 20px;
       }
     }
   }
@@ -514,7 +513,7 @@
     }
 
     .wrapper {
-      padding: 60px 10px 37px;
+      padding: 60px 0 37px;
     }
 
     .col-image {
@@ -532,11 +531,7 @@
       padding-left: 0;
 
       p {
-        margin: 0 50px 15px 42px;
-      }
-
-      ul {
-        margin-left: auto;
+        margin: 0 50px 15px 24px;
       }
     }
   }

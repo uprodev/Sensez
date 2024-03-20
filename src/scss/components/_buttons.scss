@@ -155,6 +155,15 @@ button {
         height: 24px;
       }
     }
+
+    &.btn-start {
+      font-size: 18px;
+      height: 50px;
+
+      svg {
+        width: 24px;
+      }
+    }
   }
 
   @include media-breakpoint-down(lg) {

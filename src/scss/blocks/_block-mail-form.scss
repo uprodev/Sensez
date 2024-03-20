@@ -1,0 +1,135 @@
+.block-mail-form {
+  text-align: center;
+  background-color: #cbc7f7;
+  color: #0a0517;
+  padding: 40px 0;
+  position: relative;
+  height: auto !important;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  .elements {
+    .el {
+      position: absolute;
+      z-index: 2;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &.el-01 {
+        width: 10vw;
+        height: 10vw;
+        left: 7.2vw;
+        bottom: 141px;
+        background-image: url(../img/elements/res03.svg);
+      }
+    }
+  }
+
+  .logo {
+    width: 3.75rem;
+    margin: 0 auto;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  h1 {
+    font-size: 2.833rem;
+    line-height: 1.25;
+    margin: 0 0 0.7em;
+  }
+
+  .text {
+    position: relative;
+    padding: 75px 0 0;
+  }
+
+  .form {
+    max-width: 730px;
+    margin: auto;
+    padding: 0 0 18vh;
+
+    .submit {
+      padding: 30px 0 0;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 36px 0;
+
+    .elements {
+      .el {
+        &.el-01 {
+          width: 9.5vw;
+          height: 9.5vw;
+          left: 12.6vw;
+          bottom: 100px;
+        }
+      }
+    }
+
+    .logo {
+      width: 70px;
+    }
+
+    h1 {
+      font-size: 1.889rem;
+      margin: 0 0 1em;
+    }
+
+    .form {
+      max-width: 492px;
+
+      .submit {
+        padding: 13px 0 0;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 40px 0;
+
+    .elements {
+      display: none;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 110%;
+      margin: 0 0 26px;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .form {
+      max-width: none;
+      position: relative;
+      padding: 0 0 64px;
+
+      .check-field {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 15px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    position: relative;
+    padding: 100px 0 163px;
+
+    .form .check-field label span {
+      text-align: left;
+    }
+
+    .text {
+      position: static;
+    }
+  }
+}

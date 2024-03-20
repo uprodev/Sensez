@@ -133,6 +133,16 @@
       pointer-events: none;
     }
 
+    @include media-breakpoint-down(xxl) {
+      font-size: 14px;
+
+      svg {
+        width: 22px;
+        height: 9px;
+        margin-right: 10px;
+      }
+    }
+
     @include media-breakpoint-down(lg) {
       font-size: 12px;
 

@@ -57,4 +57,27 @@ jQuery(document).ready(function ($) {
   $(".btn-top").on("click", function () {
     $("html,body").animate({ scrollTop: 0 }, 800);
   });
+
+  // article navigation menu
+  function buildSectionAnchorElement(index, heading) {
+    var a = $("<a>");
+    var name = $(heading).attr("data-nav");
+    var id = $(heading).attr("id");
+    a.attr("href", "#" + id);
+    a.text(name);
+    return a;
+  }
+  var blocks = $(".res-block-main [data-nav]");
+  var sections = blocks.map(function (i, e) {
+    var a = buildSectionAnchorElement(i, e);
+    var li = $("<li>");
+    li.append(a);
+    $(".content-nav ul").append(li);
+    return li;
+  });
+  $(".content-nav a").on("click", function (e) {
+    e.preventDefault();
+    var dest = $($(this).attr("href"));
+    $("html, body").animate({ scrollTop: dest.offset().top }, 1000);
+  });
 });
