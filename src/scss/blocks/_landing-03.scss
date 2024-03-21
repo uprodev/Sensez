@@ -160,8 +160,18 @@
       box-shadow: none;
       padding: 0 42px;
 
+      svg path {
+        transition: all 0.2s;
+      }
+
       &:hover {
         transform: none;
+        background-color: #fff;
+        color: #f83d5e;
+
+        svg path {
+          fill: #f83d5e;
+        }
       }
     }
   }

@@ -13,7 +13,7 @@ gsap.to(".animation-header", {
   onComplete: function () {
     gsap.to("#percent", {
       textContent: 100,
-      duration: 20,
+      duration: 14,
       ease: "none",
       snap: { textContent: 1 },
       stagger: {
@@ -27,7 +27,7 @@ gsap.to(".animation-header", {
   },
 });
 
-var d1 = 4;
+var d1 = 2.5;
 
 function box1() {
   gsap.to(".box-preload-01", {
@@ -225,11 +225,15 @@ function box4() {
             duration: 0.1,
             ease: "none",
           })
-          .to(".animation-wrapper .box .btn", {
-            scale: 1,
-            duration: 0.5,
-            ease: "none",
-          })
+          .to(
+            ".animation-wrapper .box .btn",
+            {
+              scale: 1,
+              duration: 0.2,
+              ease: "none",
+            },
+            "-=0.1"
+          )
           .to(".animation-wrapper .button .btn", {
             color: "#ffffff",
             duration: 0.1,

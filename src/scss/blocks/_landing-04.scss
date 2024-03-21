@@ -16,18 +16,18 @@
       }
 
       &.el-01 {
-        left: 51.4vw;
+        left: 54.7vw;
         top: 10vh;
         width: 69px;
       }
       &.el-02 {
-        bottom: 3.5vh;
+        bottom: 11vh;
         width: 69px;
-        left: 48.6vw;
+        left: 50vw;
       }
       &.el-03 {
-        right: 3.1vw;
-        top: 6.6vh;
+        right: 16.4vw;
+        top: 8vh;
         width: 35px;
       }
       &.el-04 {
@@ -44,8 +44,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 59vw;
-    padding: 5% 0 0;
+    width: 55.5vw;
 
     img {
       display: block;
@@ -57,9 +56,9 @@
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 19%;
+      bottom: 15%;
       text-align: center;
-      padding: 0 0 0 8.5vw;
+      padding: 0 0 0 3vw;
 
       .btn {
         background-color: #f83d5e;
@@ -79,34 +78,60 @@
     margin: 0;
     opacity: 0;
     transform: translateY(-50%);
+
+    span {
+      display: inline-block;
+      padding: 10px 39px;
+      position: relative;
+      margin: 0 0 10px -39px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -0.1em;
+        bottom: -0.1em;
+        border: 2px solid #fff;
+        border-radius: 50px;
+        opacity: 0;
+        transition: all 0.2s;
+      }
+
+      &.outlined {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   .wrapper {
     width: 30.3125vw;
-    padding: 30px 0;
+    padding: 20px 0 0;
     position: relative;
     z-index: 2;
+    font-size: 1.5625vw;
+    line-height: 1.25;
   }
 
   ul {
-    margin: 6vh 0 0;
+    margin: 8vh 0 0;
     padding: 0;
     list-style: none;
-    font-size: 1.5vw;
-    line-height: 1.6;
 
     li {
       position: relative;
-      padding: 0 0 0 54px;
-      margin: 0 0 1.9vh;
+      padding: 0 0 0 46px;
+      margin: 0 0 2.5vh;
       opacity: 0;
       transform: translateY(-50%);
 
       &:before {
         content: "";
         position: absolute;
-        left: 22px;
-        top: 0.7em;
+        left: 18px;
+        top: 0.5em;
         width: 10px;
         height: 10px;
         background-color: #fff;
@@ -122,12 +147,34 @@
   }
 
   @include media-breakpoint-down(xxl) {
+    .elements {
+      .el {
+        &.el-01,
+        &.el-02,
+        &.el-03 {
+          width: 35px;
+        }
+        &.el-01 {
+          left: 50.7vw;
+          top: 9.6vh;
+        }
+        &.el-02 {
+          bottom: 14vh;
+          left: 45vw;
+        }
+        &.el-03 {
+          right: 6.2vw;
+          top: 5vh;
+        }
+      }
+    }
+
     .container {
       padding-left: 8.7vw;
     }
 
     .image {
-      width: 59vw;
+      width: 50vw;
 
       img {
         transform: translateX(0);
@@ -136,16 +183,27 @@
 
     .wrapper {
       width: 33vw;
+      font-size: 20px;
     }
 
     h2 {
       margin: 0 2vw 0 0;
+
+      span {
+        padding: 5px 30px;
+        margin: 0 0 10px -30px;
+
+        &:before {
+          top: 0;
+          bottom: -0.15em;
+        }
+      }
     }
 
     ul {
       li {
-        padding: 0 0 0 37px;
-        margin: 0 0 1.9vh;
+        padding: 0 0 0 30px;
+        margin: 0 0 20px;
 
         &:before {
           left: 15px;
@@ -167,19 +225,26 @@
     .elements {
       .el {
         &.el-01 {
-          left: -4px;
-          top: 194px;
+          left: 20px;
+          top: 430px;
           width: 18px;
         }
         &.el-02 {
-          bottom: 17px;
-          width: 37px;
-          left: 130px;
+          top: 395px;
+          width: 18px;
+          left: auto;
+          right: 117px;
         }
         &.el-03 {
-          right: 26px;
-          top: 422px;
-          width: 24px;
+          right: 93px;
+          top: 415px;
+          width: 25px;
+        }
+        &.el-04 {
+          display: block;
+          width: 37px;
+          bottom: 25px;
+          left: 40%;
         }
       }
     }
@@ -190,13 +255,15 @@
 
     .wrapper {
       width: auto;
-      padding: 42px 0 0;
+      padding: 60px 0 0;
+      font-size: 16px;
+      line-height: 20px;
     }
 
     .image {
       position: static;
       display: block;
-      margin: 30px 0 0;
+      margin: 0 0 -15px;
       overflow: hidden;
       width: auto;
 
@@ -205,7 +272,7 @@
         width: 140%;
         height: auto;
         float: right;
-        transform: translate(45px, 0);
+        transform: translate(30px, 0);
       }
     }
 
@@ -214,28 +281,32 @@
     }
 
     h2 {
-      font-size: 38px;
-      line-height: 1.26;
+      font-size: 32px;
+      line-height: 40px;
+      span {
+        padding: 5px 20px 5px 10px;
+        margin: 0 0 5px -10px;
+
+        &:before {
+          border-width: 1px;
+        }
+      }
     }
 
     ul {
-      margin: 20px 0 0 10px;
-      font-size: 17px;
-      line-height: 1.25;
+      margin: 25px 0 0;
 
       li {
-        padding: 0 0 0 30px;
-        margin: 0 0 20px;
+        padding: 0 0 0 16px;
 
         &:last-child {
           margin: 0;
         }
 
         &:before {
-          left: 15px;
-          top: 0.7em;
-          width: 5px;
-          height: 5px;
+          left: 2px;
+          width: 4px;
+          height: 4px;
         }
       }
     }

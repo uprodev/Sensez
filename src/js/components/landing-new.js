@@ -173,6 +173,9 @@ jQuery(document).ready(function ($) {
           duration: 0.5,
           ease: "none",
           delay: 0.5,
+          onComplete: () => {
+            $(".landing-04 h2 span").addClass("outlined");
+          },
         });
         gsap.to(".landing-04 ul li", {
           y: 0,
