@@ -58,6 +58,24 @@ jQuery(document).ready(function ($) {
     $("html,body").animate({ scrollTop: 0 }, 800);
   });
 
+  // more text
+  $('.text-overflow').each(function () {
+    var $text = $(this);
+    var emHeight = parseInt($text.css('font-size')) * 22.5;
+    var fullHeight = $text.height();
+    if (fullHeight > emHeight) {
+      $text.height(emHeight).next('.more-link').css('display', 'inline-block');
+    }
+    $text.next('.more-link').on('click', function (e) {
+      e.preventDefault();
+      if ($(this).hasClass('active')) {
+        $(this).removeClass('active').text('Докладніше >').prev('.text-overflow').animate({ height: emHeight }, 200)
+      } else {
+        $(this).addClass('active').text('Звернути >').prev('.text-overflow').animate({ height: fullHeight }, 200)
+      }
+    })
+  })
+
   // article navigation menu
   function buildSectionAnchorElement(index, heading) {
     var a = $("<a>");
@@ -75,9 +93,43 @@ jQuery(document).ready(function ($) {
     $(".content-nav ul").append(li);
     return li;
   });
+
+  $(".res-block-main [data-nav]").waypoint(
+    function (direction) {
+      if (direction === "down") {
+        $(".content-nav .active").removeClass("active");
+        var selector = ".content-nav a[href='#" + this.element.id + "']";
+        $(selector).parent().addClass("active");
+      }
+    },
+    {
+      offset: '50%',
+    }
+  );
+
+  $(".res-block-main [data-nav]").waypoint(
+    function (direction) {
+      if (direction === "up") {
+        $(".content-nav .active").removeClass("active");
+        var selector = ".content-nav a[href='#" + this.element.id + "']";
+        $(selector).parent().prev().addClass("active");
+      }
+    },
+    {
+      offset: '50%',
+    }
+  );
+
   $(".content-nav a").on("click", function (e) {
     e.preventDefault();
     var dest = $($(this).attr("href"));
     $("html, body").animate({ scrollTop: dest.offset().top }, 1000);
   });
+
+  var contentNav = document.querySelector(".res-block-main .content-nav");
+  var headroom = new Headroom(contentNav, { offset: contentNav.getBoundingClientRect().top });
+  headroom.init();
+
+
+
 });
