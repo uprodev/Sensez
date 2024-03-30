@@ -41,23 +41,30 @@ jQuery(document).ready(function ($) {
     $(".contact-us").hide(200);
   });
 
-  $("#regForm input").on("blur", function () {
-    var err = false;
-    $("#regForm input").each(function () {
-      if ($(this).val() === "") {
-        err = true;
-      }
-    });
-    $("#regForm .check-field input").each(function () {
-      if (!$(this).prop("checked")) {
-        err = true;
-      }
-    });
-    if (!$("#regForm input.error").length && !err) {
-      $("#regForm [type=submit]").removeAttr("disabled");
-    }
-  });
+  // $("#regForm input").on("blur", function () {
+  //   var err = false;
+  //   $("#regForm input").each(function () {
+  //     if ($(this).val() === "") {
+  //       err = true;
+  //     }
+  //   });
+  //   $("#regForm .check-field input").each(function () {
+  //     if (!$(this).prop("checked")) {
+  //       err = true;
+  //     }
+  //   });
+  //   if (!$("#regForm input.error").length && !err) {
+  //     $("#regForm [type=submit]").removeAttr("disabled");
+  //   }
+  // });
   $("#regForm .check-field input").each(function () {
+    if (!$(this).prop("checked")) {
+      $("#regForm [type=submit]").attr("disabled", "disabled");
+    } else {
+      if (!$("#regForm input.error").length) {
+        $("#regForm [type=submit]").removeAttr("disabled");
+      }
+    }
     $(this).on("change", function () {
       if (!$(this).prop("checked")) {
         $("#regForm [type=submit]").attr("disabled", "disabled");
