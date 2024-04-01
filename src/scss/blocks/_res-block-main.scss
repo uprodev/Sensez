@@ -529,7 +529,6 @@
 
       .text-overflow {
         overflow: hidden;
-        // height: 21em;
       }
 
       .block-link {
@@ -542,10 +541,6 @@
         &:hover {
           text-decoration: underline;
           color: #652FEB;
-        }
-
-        &.more-link {
-          display: none;
         }
       }
     }

@@ -61,11 +61,9 @@ jQuery(document).ready(function ($) {
   // more text
   $('.text-overflow').each(function () {
     var $text = $(this);
-    var emHeight = parseInt($text.css('font-size')) * 22.5;
+    var emHeight = 0;
     var fullHeight = $text.height();
-    if (fullHeight > emHeight) {
-      $text.height(emHeight).next('.more-link').css('display', 'inline-block');
-    }
+    $text.height(emHeight);
     $text.next('.more-link').on('click', function (e) {
       e.preventDefault();
       if ($(this).hasClass('active')) {
