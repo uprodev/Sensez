@@ -724,6 +724,11 @@ jQuery(document).ready(function ($) {
                       } else {
                         $(".btn-next").get(0).click();
                       }
+                      if (page === 10) {
+                        $(document).trigger("submitQuiz");
+                      } else {
+                        $(".btn-next").get(0).click();
+                      }
                     },
                   },
                   "-=0.2"
