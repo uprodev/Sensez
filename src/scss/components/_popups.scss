@@ -269,6 +269,7 @@ body.compensate-for-scrollbar {
       .img-1 {
         width: 32px;
       }
+
       .img-2 {
         width: 50px;
       }
@@ -288,6 +289,7 @@ body.compensate-for-scrollbar {
           font-size: 1.04rem;
           margin: 0 0 24px;
         }
+
         .title {
           font-size: 1.51rem;
           margin-bottom: 6px;
@@ -311,6 +313,7 @@ body.compensate-for-scrollbar {
 
   @include media-breakpoint-down(lg) {
     .bg {
+
       .img-1,
       .img-2 {
         display: none;
@@ -714,6 +717,7 @@ body.compensate-for-scrollbar {
 
   @include media-breakpoint-down(lg) {
     .bg {
+
       .img-2,
       .img-1 {
         display: none;
@@ -737,11 +741,13 @@ body.compensate-for-scrollbar {
         line-height: 125%;
         margin: 0 0 16px;
       }
+
       figure {
         width: 292px;
         height: 200px;
         overflow: hidden;
       }
+
       .text-border {
         display: block;
         margin: 0 0 29px;
@@ -760,6 +766,7 @@ body.compensate-for-scrollbar {
         .item-1 {
           margin: 0 8px -20px 0;
           float: right;
+
           p {
             transform: rotate(-3.955deg);
           }
@@ -1312,6 +1319,7 @@ body.compensate-for-scrollbar {
         transform: translate3d(-50%, -63%, 0);
       }
     }
+
     .image-wrapper {
       figure {
         height: 203px;
@@ -1387,26 +1395,31 @@ body.compensate-for-scrollbar {
         top: 36vh;
         width: 40px;
       }
+
       &.el-02 {
         top: 61.3vh;
         left: 2.3vw;
         width: 47px;
       }
+
       &.el-03 {
         left: 38.6vw;
         bottom: 3.5vh;
         width: 38px;
       }
+
       &.el-04 {
         right: 14.4vw;
         top: 3.7vh;
         width: 40px;
       }
+
       &.el-05 {
         right: 6.7vw;
         bottom: 10.7vh;
         width: 47px;
       }
+
       &.el-06 {
         right: 13.5vw;
         bottom: 3.4vh;
@@ -1431,25 +1444,25 @@ body.compensate-for-scrollbar {
     font-family: $ff-notosans;
 
     h2 {
-      font-size: 72px;
+      font-size: 3.75vw;
       font-weight: 700;
-      line-height: 72px;
+      line-height: 1;
       letter-spacing: 0em;
       max-width: 15em;
-      margin: 0 0 60px;
+      margin: 0 0 0.83em;
     }
 
     p {
-      font-size: 30px;
+      font-size: 1.5625vw;
       font-weight: 400;
-      line-height: 42px;
+      line-height: 1.4;
       max-width: 25em;
-      margin: 0 0 94px;
+      margin: 0 0 3.13em;
     }
 
     form {
       .field {
-        width: 720px;
+        width: 37.5vw;
         margin: 0 0 28px;
 
         input {
@@ -1498,6 +1511,211 @@ body.compensate-for-scrollbar {
 
       img {
         @include img-fit;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    .popup-close {
+      right: 50px;
+      top: 50px;
+      width: 50px;
+      height: 50px;
+    }
+
+    .elements {
+      .el {
+        &.el-01 {
+          left: 7vw;
+          top: 36.2vh;
+          width: 28px;
+        }
+
+        &.el-02 {
+          top: 61vh;
+          left: 3.4vw;
+          width: 32px;
+        }
+
+        &.el-03 {
+          left: 38.4vw;
+          bottom: 4.7vh;
+          width: 28px;
+        }
+
+        &.el-04 {
+          right: 16.4vw;
+          top: 5vh;
+          width: 28px;
+        }
+
+        &.el-05 {
+          right: 8.8vw;
+          bottom: 11.8vh;
+          width: 32px;
+        }
+
+        &.el-06 {
+          right: 15.4vw;
+          bottom: 5vh;
+          width: 28px;
+        }
+      }
+    }
+
+    .popup-inner {
+      padding: 58px 9% 84px;
+      border-radius: 40px;
+
+      h2 {
+        font-size: 42px;
+        line-height: 55.99px;
+        margin: 0 0 40px;
+      }
+
+      p {
+        font-size: 20px;
+        line-height: 1.4;
+        max-width: 25em;
+        margin: 0 0 3.4em;
+      }
+
+      form {
+        .field {
+          width: 35.87vw;
+          margin: 0 0 15px;
+
+          input {
+            font-size: 24px;
+            line-height: 40px;
+            letter-spacing: 0.01em;
+            padding: 8px 0;
+          }
+        }
+
+        button {
+          font-size: 20px;
+          line-height: 32px;
+        }
+      }
+
+      .image-wrapper {
+        right: -4.6%;
+        bottom: -8%;
+        width: 56%;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    .popup-close {
+      right: 20px;
+      top: 20px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .elements {
+      .el {
+        &.el-02 {
+          left: 0.6vw;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .popup-close {
+      right: 30px;
+      top: 30px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .elements {
+      .el {
+        &.el-01 {
+          left: 15.5vw;
+          top: 4.8vh;
+          width: 16px;
+        }
+
+        &.el-02 {
+          top: 7vh;
+          left: 34.5vw;
+          width: 24px;
+        }
+
+        &.el-03 {
+          left: 10.8vw;
+          bottom: 9.7vh;
+          width: 24px;
+        }
+
+        &.el-04 {
+          right: auto;
+          top: auto;
+          bottom: 3vh;
+          width: 16px;
+          left: 33vw;
+        }
+
+        &.el-05 {
+          right: 23.8vw;
+          bottom: 8.2vh;
+          width: 16px;
+        }
+
+        &.el-06 {
+          right: 9.8vw;
+          bottom: 6.2vh;
+          width: 24px;
+        }
+      }
+    }
+
+    .popup-inner {
+      padding: 38px 18px 0;
+      border-radius: 30px;
+
+      h2 {
+        font-size: 24px;
+        line-height: 32px;
+        margin: 0 0 24px;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 22px;
+        max-width: none;
+        margin: 0 0 60px;
+        letter-spacing: -0.04em;
+      }
+
+      form {
+        .field {
+          width: 100%;
+          margin: 0 0 8px;
+
+          input {
+            font-size: 18px;
+            line-height: 32px;
+          }
+        }
+
+        button {
+          font-size: 16px;
+          line-height: 32px;
+          width: 100%;
+          text-align: right;
+        }
+      }
+
+      .image-wrapper {
+        position: static;
+        width: auto;
+        margin: 0 -20px -60px;
+        transform: translateY(-23px);
       }
     }
   }

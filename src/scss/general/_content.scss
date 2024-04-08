@@ -7,11 +7,16 @@
 input,
 select,
 textarea {
+
   &:hover,
   &:focus {
     outline: none;
     box-shadow: none;
   }
+}
+
+html {
+  scroll-behavior: unset !important;
 }
 
 html,

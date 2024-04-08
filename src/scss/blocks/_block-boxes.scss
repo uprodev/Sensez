@@ -1,0 +1,381 @@
+.block-boxes {
+  background-color: #E4E1FF;
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px 20px;
+
+  .container {
+    padding: 0;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  h2 {
+    color: $black;
+    margin: 0 0 30px;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 60px;
+    text-align: center;
+  }
+
+  .wrapper {
+    display: flex;
+    margin: 0 -20px;
+
+    .box-1 {
+      --box-color: #4F42E5;
+    }
+
+    .box-2 {
+      --box-color: #F24EA7;
+    }
+
+    .box {
+      margin: 0 20px;
+      width: 530px;
+      border: 3px solid var(--box-color);
+      border-radius: 60px;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      padding: 21px 37px 29px;
+      position: relative;
+      font-family: $ff-notosans;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 24.52px;
+      color: var(--box-color);
+
+      .box-sticker {
+        position: absolute;
+        top: -36px;
+        right: -27px;
+        background: url(../img/box-sticker.png) 0 0 / cover no-repeat;
+        width: 170px;
+        height: 170px;
+        font-size: 40px;
+        font-weight: 900;
+        line-height: 50px;
+        text-align: center;
+        line-height: 160px;
+        color: $white;
+        padding: 0 0 0 20px;
+      }
+
+      figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 270px;
+        margin: 0 0 6px;
+
+        img {
+          display: block;
+          width: auto;
+          max-height: 100%;
+          margin: auto;
+        }
+      }
+
+      .text {
+        margin: 0 0 20px;
+
+        .text-sticker {
+          background-color: var(--box-color);
+          height: 47px;
+          position: absolute;
+          top: 294px;
+          right: -2px;
+          padding: 12px 24px 12px 24px;
+          border-radius: 30px 0px 0px 30px;
+          font-size: 18px;
+          font-weight: 900;
+          line-height: 22.5px;
+          color: $white;
+          text-transform: uppercase;
+        }
+
+        h3 {
+          color: #0A0517;
+          font-family: $ff-notosans;
+          font-size: 32px;
+          font-weight: 700;
+          line-height: 43.58px;
+          margin: 0 0 16px;
+        }
+
+        ul {
+          margin: 0 -5px 0 0;
+          padding: 0 0 0 26px;
+
+          li {
+            margin: 0 0 12px;
+          }
+        }
+      }
+
+      .box-footer {
+        margin-top: auto;
+        text-align: center;
+
+        .price {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32px;
+          font-weight: 700;
+          line-height: 35.2px;
+          text-align: center;
+          color: #0A0517;
+
+          img {
+            display: block;
+            width: 32px;
+            height: 32px;
+            flex: 0 0 auto;
+            margin: 0 8px 0 0;
+          }
+
+          span {
+            text-decoration: line-through;
+            color: #AAAAAA;
+            font-size: 24px;
+            margin: 0 10px 0 0;
+          }
+        }
+
+        .btn {
+          background-color: var(--box-color);
+          color: $white;
+          height: 83px;
+          font-size: 22px;
+          font-weight: 600;
+          line-height: 28.6px;
+          text-align: left;
+          font-family: $ff-notosans;
+          box-shadow: none;
+          margin: 10px 25px 0;
+          display: block;
+
+          &:hover {
+            transform: none;
+          }
+
+          .btn-main {
+            padding: 0 2em;
+
+            svg {
+              margin-right: 7px;
+              width: 36px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .boxes-note {
+    font-family: $ff-notosans;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    color: #4F42E5;
+    padding: 41px 0 0;
+
+    br {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down(xxl) {
+    padding: 40px 20px;
+
+    .container {
+      max-width: 784px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: 38px;
+      line-height: 51px;
+    }
+
+    .wrapper {
+      margin: 0 -28px;
+
+      .box {
+        margin: 0 28px;
+        width: 364px;
+        border-radius: 40px;
+        padding: 5px 21px 15px;
+        font-size: 14px;
+        line-height: 19px;
+
+        .box-sticker {
+          top: -20px;
+          right: -15px;
+          width: 128px;
+          height: 128px;
+          font-size: 30px;
+          line-height: 37px;
+          line-height: 118px;
+          padding: 0 0 0 15px;
+        }
+
+        figure {
+          height: 190px;
+          margin: 0 0 4px;
+        }
+
+        .text {
+          margin: 0 0 14px;
+
+          .text-sticker {
+            height: 31px;
+            top: 200px;
+            right: 0;
+            padding: 8px 24px;
+            font-size: 12px;
+            line-height: 15px;
+          }
+
+          h3 {
+            font-size: 24px;
+            line-height: 33px;
+            margin: 0 0 10px;
+          }
+
+          ul {
+            margin: 0;
+            padding: 0 0 0 21px;
+
+            li {
+              margin: 0 0 7.5px;
+            }
+          }
+        }
+
+        .box-footer {
+          .price {
+            font-size: 24px;
+            line-height: 26px;
+
+            img {
+              width: 24px;
+              height: 24px;
+              margin: 0 8px 0 0;
+            }
+
+            span {
+              font-size: 18px;
+              margin: 0 10px 0 0;
+            }
+          }
+
+          .btn {
+            height: 50px;
+            font-size: 18px;
+            margin: 10px 25px 0;
+
+            .btn-main {
+
+              svg {
+                margin-right: 7px;
+                width: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .boxes-note {
+      padding: 17px 0 0;
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding: 40px 20px;
+
+    .container {
+      max-width: none;
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      font-size: 32px;
+      line-height: 43px;
+    }
+
+    .wrapper {
+      margin: 0;
+      flex-direction: column;
+
+      .box {
+        margin: 0 auto 40px;
+        width: 100%;
+        max-width: 364px;
+        border-radius: 30px;
+        padding: 5px 0 17px;
+        font-size: 12px;
+        line-height: 16.34px;
+
+        .box-sticker {
+          top: -28px;
+          right: -17px;
+        }
+
+        figure {
+          height: 240px;
+          margin: 0 0 21px;
+        }
+
+        .text {
+          margin: 0 17px 16px;
+
+          .text-sticker {
+            top: 267px;
+          }
+
+          h3 {
+            margin: 0 0 6px;
+          }
+
+          ul {
+            padding: 0 0 0 18px;
+
+            li {
+              margin: 0 0 5px;
+            }
+          }
+        }
+
+        .box-footer {
+          .btn {
+            height: 48px;
+            font-size: 16px;
+            margin: 9px 17px 0;
+            width: auto;
+
+            .btn-main {
+              padding: 0;
+
+              svg {
+                width: 28px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .boxes-note {
+      padding: 0;
+
+      br {
+        display: block;
+      }
+    }
+  }
+}

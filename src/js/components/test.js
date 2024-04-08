@@ -52,7 +52,6 @@ jQuery(document).ready(function ($) {
       }
     });
     var progressWidth = 0;
-    console.log(currentStep);
     if (currentStep !== 1) {
       if (document.querySelector(".test-step--type2")) {
         var filled = $(".test-scroller input.filled").length;
@@ -79,7 +78,6 @@ jQuery(document).ready(function ($) {
         }
       }
     }
-
     $(".test-progress .steps .steps-progress .inner").css("width", progressWidth);
   }
   progressInit();
@@ -471,7 +469,7 @@ jQuery(document).ready(function ($) {
                 .timeline()
                 .to(".test-options li span", {
                   color: "transparent",
-                  duration: 0.3,
+                  duration: 0.2,
                 })
                 .to(
                   ".test-options li path",
@@ -479,39 +477,39 @@ jQuery(document).ready(function ($) {
                     fill: "#F9F3E9",
                     duration: 0.3,
                   },
-                  "-=0.3"
+                  "-=0.2"
                 )
                 .to(
                   ".test-options li:nth-child(1)",
                   {
                     y: spacer * 2,
-                    duration: 0.6,
+                    duration: 0.3,
                   },
-                  "-=0,6"
+                  "-=0.2"
                 )
                 .to(
                   ".test-options li:nth-child(2)",
                   {
                     y: spacer,
-                    duration: 0.6,
+                    duration: 0.3,
                   },
-                  "-=0.6"
+                  "-=0.3"
                 )
                 .to(
                   ".test-options li:nth-child(4)",
                   {
                     y: spacer * -1,
-                    duration: 0.6,
+                    duration: 0.3,
                   },
-                  "-=0.6"
+                  "-=0.3"
                 )
                 .to(
                   ".test-options li:nth-child(5)",
                   {
                     y: spacer * -2,
-                    duration: 0.6,
+                    duration: 0.3,
                   },
-                  "-=0.6"
+                  "-=0.3"
                 )
                 .to(".test-options li:nth-child(1),.test-options li:nth-child(2),.test-options li:nth-child(3),.test-options li:nth-child(4), .test-options li:nth-child(5) lottie-player", {
                   opacity: 0,
@@ -523,7 +521,7 @@ jQuery(document).ready(function ($) {
                 })
                 .to(".test-options li:nth-child(5) figure", {
                   scale: 330,
-                  duration: 2,
+                  duration: 0.5,
                 })
                 .to(".step-main-wrapper", {
                   opacity: 0,
@@ -721,7 +719,11 @@ jQuery(document).ready(function ($) {
                     duration: 0.5,
                     onComplete: function () {
                       $(document).trigger("saveData");
-                      $(".btn-next").get(0).click();
+                      if (page === 10) {
+                        $(document).trigger("submitQuiz");
+                      } else {
+                        $(".btn-next").get(0).click();
+                      }
                     },
                   },
                   "-=0.2"
@@ -808,38 +810,77 @@ jQuery(document).ready(function ($) {
       }
 
       var animating = false;
-      $(".test-step--type5 .options input[type=radio]").on("change", function (e) {
-        if (!animating) {
-          animating = true;
-          progress();
-          var activeQ = $(".test-scroller li.active");
-          if (activeQ.length) {
-            var activeVal;
-            var radios = activeQ.find("[type=radio]");
-            radios.each(function () {
-              if ($(this).prop("checked")) {
-                activeVal = $(this).val();
-              }
-            });
-            var input = activeQ.find("input[readonly]");
-            input.addClass("filled").val(activeVal);
-          }
+      $(".test-step--type5 .options input[type=radio]").on("click", function (e) {
+        var activeQ = $(".test-scroller li.active");
+        if (activeQ.hasClass("last")) {
+          gsap.to(".test-progress", {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: function () {
+              $(document).trigger("saveData");
+              $(".btn-next").get(0).click();
+            },
+          });
+        } else {
+          if (!animating) {
+            animating = true;
+            progress();
+            if (activeQ.length) {
+              var activeVal;
+              var radios = activeQ.find("[type=radio]");
+              radios.each(function () {
+                if ($(this).prop("checked")) {
+                  activeVal = $(this).val();
+                }
+              });
+              var input = activeQ.find("input[readonly]");
+              input.addClass("filled").val(activeVal);
+            }
 
-          setTimeout(() => {
-            $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() + activeQ.outerHeight() }, 500, function () {
-              animating = false;
-            });
-          }, 200);
+            setTimeout(() => {
+              $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() + activeQ.outerHeight() }, 500, function () {
+                animating = false;
+              });
+            }, 200);
+          }
         }
       });
 
       $(document).on("click", ".test-step--type5 .btn-test-next .btn", function (e) {
-        gsap.to(".test-progress", {
-          opacity: 0,
-          duration: 0.3,
-        });
-        $(document).trigger("saveData");
-        $(document).trigger("submitQuiz");
+        var activeQ = $(".test-scroller li.active");
+        if (activeQ.hasClass("last")) {
+          gsap.to(".test-progress", {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: function () {
+              $(document).trigger("saveData");
+              $(".btn-next").get(0).click();
+            },
+          });
+        } else {
+          if (!animating) {
+            animating = true;
+            progress();
+
+            if (activeQ.length) {
+              var activeVal;
+              var radios = activeQ.find("[type=radio]");
+              radios.each(function () {
+                if ($(this).prop("checked")) {
+                  activeVal = $(this).val();
+                }
+              });
+              var input = activeQ.find("input[readonly]");
+              input.addClass("filled").val(activeVal);
+            }
+
+            setTimeout(() => {
+              $(".test-step-inner").animate({ scrollTop: $(".test-step-inner").scrollTop() + activeQ.outerHeight() }, 500, function () {
+                animating = false;
+              });
+            }, 200);
+          }
+        }
       });
 
       $(document).on("click", ".btn-previous", function (e) {

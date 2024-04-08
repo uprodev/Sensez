@@ -52,21 +52,13 @@
       color: #0a0517;
       min-width: 230px;
 
-      svg {
-        path {
-          fill: #ffc821;
-        }
-      }
 
-      & + .btn {
+
+      &+.btn {
         margin: 0 0 0 35px;
         padding: 0 38px;
 
-        svg {
-          path {
-            fill: #f83d5e;
-          }
-        }
+
       }
     }
   }
@@ -117,7 +109,7 @@
         min-width: 0;
         padding: 0 10px;
 
-        & + .btn {
+        &+.btn {
           padding: 0 10px;
         }
       }
@@ -193,7 +185,7 @@
       margin: 0 0 32px;
 
       .btn {
-        & + .btn {
+        &+.btn {
           margin: 20px 0 0;
           padding: 0 15px;
         }
@@ -204,6 +196,7 @@
 
 .result-page {
   .landing-11 {
+
     h2,
     .subtitle {
       opacity: 1;

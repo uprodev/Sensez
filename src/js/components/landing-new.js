@@ -21,8 +21,8 @@ jQuery(document).ready(function ($) {
   tl9
     .to(text91.chars, {
       opacity: 1,
-      duration: 0.2,
-      stagger: 0.1,
+      duration: 0.1,
+      stagger: 0.05,
     })
     .to(text91.chars, {
       opacity: 0,
@@ -30,8 +30,8 @@ jQuery(document).ready(function ($) {
     })
     .to(text92.chars, {
       opacity: 1,
-      duration: 0.2,
-      stagger: 0.1,
+      duration: 0.1,
+      stagger: 0.05,
     })
     .to(text92.chars, {
       opacity: 0,
@@ -39,8 +39,8 @@ jQuery(document).ready(function ($) {
     })
     .to(text93.chars, {
       opacity: 1,
-      duration: 0.2,
-      stagger: 0.1,
+      duration: 0.1,
+      stagger: 0.05,
     })
     .to(text93.chars, {
       opacity: 0,

@@ -18,8 +18,10 @@ jQuery(document).ready(function ($) {
     var bars = document.querySelectorAll(".bar");
     gsap.utils.toArray(bars).forEach(function (bar) {
       var barInner = bar.querySelector(".bar-inner"),
-        barInnerW = barInner.dataset.width + "%",
-        barTtitle = bar.previousElementSibling;
+        barTotal = document.querySelector(".block-scales").dataset.total,
+        barTtitle = bar.previousElementSibling,
+        barCurrent = barTtitle.querySelector(".counter").dataset.text,
+        barInnerW = (parseInt(barCurrent) * 100) / parseInt(barTotal) + "%";
       gsap.to(barInner, {
         width: barInnerW,
         duration: 1,
@@ -39,7 +41,7 @@ jQuery(document).ready(function ($) {
 
   ScrollTrigger.create({
     trigger: ".block-scales",
-    start: "bottom bottom",
+    start: "top center",
     onEnter: function () {
       scales();
     },
@@ -58,26 +60,73 @@ jQuery(document).ready(function ($) {
     $("html,body").animate({ scrollTop: 0 }, 800);
   });
 
-  // article navigation menu
-  function buildSectionAnchorElement(index, heading) {
-    var a = $("<a>");
-    var name = $(heading).attr("data-nav");
-    var id = $(heading).attr("id");
-    a.attr("href", "#" + id);
-    a.text(name);
-    return a;
-  }
-  var blocks = $(".res-block-main [data-nav]");
-  var sections = blocks.map(function (i, e) {
-    var a = buildSectionAnchorElement(i, e);
-    var li = $("<li>");
-    li.append(a);
-    $(".content-nav ul").append(li);
-    return li;
+  // more text
+  $(".text-overflow").each(function () {
+    var $text = $(this);
+    var emHeight = 0;
+    var fullHeight = $text.height();
+    $text.height(emHeight);
+    $text.next(".more-link").on("click", function (e) {
+      e.preventDefault();
+      if ($(this).hasClass("active")) {
+        $(this).removeClass("active").text("Докладніше >").prev(".text-overflow").animate({ height: emHeight }, 200);
+      } else {
+        $(this).addClass("active").text("Звернути >").prev(".text-overflow").animate({ height: fullHeight }, 200);
+      }
+    });
   });
+
+  // article navigation menu
+  // function buildSectionAnchorElement(index, heading) {
+  //   var a = $("<a>");
+  //   var name = $(heading).attr("data-nav");
+  //   var id = $(heading).attr("id");
+  //   a.attr("href", "#" + id);
+  //   a.text(name);
+  //   return a;
+  // }
+  // var blocks = $(".res-block-main [data-nav]");
+  // var sections = blocks.map(function (i, e) {
+  //   var a = buildSectionAnchorElement(i, e);
+  //   var li = $("<li>");
+  //   li.append(a);
+  //   $(".content-nav ul").append(li);
+  //   return li;
+  // });
+
+  $(".res-block-main [data-nav]").waypoint(
+    function (direction) {
+      if (direction === "down") {
+        $(".content-nav .active").removeClass("active");
+        var selector = ".content-nav a[href='#" + this.element.id + "']";
+        $(selector).parent().addClass("active");
+      }
+    },
+    {
+      offset: "50%",
+    }
+  );
+
+  $(".res-block-main [data-nav]").waypoint(
+    function (direction) {
+      if (direction === "up") {
+        $(".content-nav .active").removeClass("active");
+        var selector = ".content-nav a[href='#" + this.element.id + "']";
+        $(selector).parent().prev().addClass("active");
+      }
+    },
+    {
+      offset: "50%",
+    }
+  );
+
   $(".content-nav a").on("click", function (e) {
     e.preventDefault();
     var dest = $($(this).attr("href"));
     $("html, body").animate({ scrollTop: dest.offset().top }, 1000);
   });
+
+  var contentNav = document.querySelector(".res-block-main .content-nav");
+  var headroom = new Headroom(contentNav, { offset: contentNav.getBoundingClientRect().top });
+  headroom.init();
 });
