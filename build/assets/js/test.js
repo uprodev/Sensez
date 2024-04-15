@@ -258,7 +258,7 @@ jQuery(document).ready(function ($) {
           .to(label, {
             scale: 5,
             opacity: 1,
-            duration: 1,
+            duration: 0.5,
             ease: "none",
             onComplete: function () {
               var d = 0;
@@ -268,7 +268,7 @@ jQuery(document).ready(function ($) {
           })
           .to(label, {
             scale: 10,
-            duration: 1,
+            duration: 0.5,
             ease: "none",
           });
       }
@@ -421,10 +421,9 @@ jQuery(document).ready(function ($) {
         var lottieClick = label.querySelector(".click");
 
         label.addEventListener("mouseenter", function () {
-          lottieHover.play();
-        });
-        label.addEventListener("mouseleave", function () {
+          lottieHover.style.opacity = 1;
           lottieHover.stop();
+          lottieHover.play();
         });
         label.addEventListener("click", function () {
           lottieHover.style.opacity = 0;
