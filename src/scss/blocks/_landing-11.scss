@@ -46,19 +46,31 @@
 
   .buttons {
     display: flex;
+    align-items: center;
     padding: 70px 0 0;
 
     .btn {
       color: #0a0517;
       min-width: 230px;
 
-
-
-      &+.btn {
+      & + .btn {
         margin: 0 0 0 35px;
         padding: 0 38px;
+      }
+    }
 
+    .socials {
+      display: flex;
+      align-items: center;
+      margin-left: 50px;
 
+      a {
+        display: block;
+        margin: 0 30px 0 0;
+
+        img {
+          display: block;
+        }
       }
     }
   }
@@ -75,12 +87,6 @@
       height: auto;
     }
   }
-
-  // @include media-breakpoint-down(xxxl) {
-  //   .image {
-  //     width: 20vw;
-  //   }
-  // }
 
   @include media-breakpoint-down(xxl) {
     .container {
@@ -109,7 +115,7 @@
         min-width: 0;
         padding: 0 10px;
 
-        &+.btn {
+        & + .btn {
           padding: 0 10px;
         }
       }
@@ -185,9 +191,18 @@
       margin: 0 0 32px;
 
       .btn {
-        &+.btn {
+        & + .btn {
           margin: 20px 0 0;
           padding: 0 15px;
+        }
+      }
+
+      .socials {
+        justify-content: center;
+        margin: 30px 0 0;
+
+        a {
+          margin: 0 12px;
         }
       }
     }
@@ -196,7 +211,6 @@
 
 .result-page {
   .landing-11 {
-
     h2,
     .subtitle {
       opacity: 1;

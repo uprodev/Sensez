@@ -321,7 +321,6 @@
 
       p {
         margin: 20px 0 0;
-        text-align: justify;
       }
     }
 
@@ -484,7 +483,6 @@
           margin: 0 0 39px;
           padding: 0;
           list-style: none;
-          text-align: justify;
 
           li {
             position: relative;
@@ -523,7 +521,6 @@
 
       p {
         margin: 25px 0 0;
-        text-align: justify;
 
         strong {
           font-weight: 700;
@@ -642,7 +639,6 @@
 
           p {
             margin: 25px 0 0;
-            text-align: justify;
 
             strong {
               display: inline-block;
@@ -1446,7 +1442,7 @@
           .content-nav {
             width: 100%;
             overflow: auto;
-            background: linear-gradient(90deg, #eed9c0 0%, #eed9c0 15%, rgba(238, 217, 192, 0) 30%);
+            background: linear-gradient(90deg, #eed9c0 0%, #eed9c0 15%, rgba(238, 217, 192, 0.1) 100%);
             font-size: 16px;
             padding: 0 20px;
 

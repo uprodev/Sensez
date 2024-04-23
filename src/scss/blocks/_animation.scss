@@ -254,12 +254,8 @@
     &.box-02 {
       .image {
         width: 56.5%;
-        height: 134.6%;
+        height: 115%;
         transform: translate3d(-23%, -11%, 0);
-
-        img {
-          width: auto;
-        }
       }
 
       .text {
@@ -406,6 +402,53 @@
         figure {
           background-color: #949af6;
         }
+      }
+    }
+  }
+
+  &.not-animated {
+    .headline-initial {
+      display: none;
+    }
+    .animation-header {
+      opacity: 1;
+
+      h2 {
+        display: block;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .percent {
+        display: none;
+      }
+    }
+    .box {
+      opacity: 1;
+
+      .text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .image {
+        .image-inner {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .button {
+        opacity: 1;
+
+        .btn {
+          transform: scale(1);
+          color: $white;
+        }
+      }
+
+      .els {
+        opacity: 1;
       }
     }
   }

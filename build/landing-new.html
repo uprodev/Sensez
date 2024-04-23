@@ -1,565 +1,515 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sensez</title>
+    <meta name="description" content="description" />
+    <meta name="keywords" content="keywords" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <title>Sensez</title>
-  <meta name="description" content="description" />
-  <meta name="keywords" content="keywords" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="shortcut icon" href="favicon.ico" />
-</head>
-
-<body>
-  <div class="page-wrapper">
-    <!-- start content-->
-    <div class="page-content page-landing" id="fullpage">
-      <section class="section landing-01">
-        <div class="elements">
-          <div class="el el-01"><img src="assets/img/landing/el-1-1.svg" alt="" /></div>
-          <div class="el el-02"><img src="assets/img/landing/el-1-2.svg" alt="" /></div>
-          <div class="el el-03"><img src="assets/img/landing/el-1-3.svg" alt="" /></div>
-        </div>
-        <div class="container">
-          <div class="headline">
-            <div class="landing-logo">
-              <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g class="logo-part1">
-                  <path d="M55.2073 14.7932L125.207 55.2077L84.7928 125.208L14.7927 84.7932L55.2073 14.7932Z"
-                    fill="black" />
-                </g>
-                <g class="logo-part2">
-                  <path d="M69.9985 12.8457L127.153 70.0005L69.9985 127.155L12.8438 70.0005L69.9985 12.8457Z"
-                    fill="white" />
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M56.2649 47.7441L59.8611 51.3404L41.1202 70.0813L59.8611 88.8222L56.2649 92.4185L33.9277 70.0813L56.2649 47.7441Z"
-                    fill="black" />
-                  <path
-                    d="M66.6977 44.4857L62.313 41.6069C60.2757 43.9985 61.1172 47.5859 63.9517 50.4204C66.7862 53.255 70.2851 53.8307 72.3224 51.7934C75.9541 48.1617 68.7793 42.5812 70.728 40.6325C71.2152 40.1453 71.9902 40.2118 72.7653 40.9868C73.7397 41.9612 73.8282 43.0241 72.9425 43.9099L77.1056 46.6559C78.8994 44.685 78.235 41.319 75.4227 38.5066C72.7874 35.8714 69.7979 35.3621 67.8935 37.2665C64.2618 40.8983 71.1709 46.3901 69.2222 48.3388C68.6243 48.9368 67.6499 48.8039 66.8748 48.0288C65.8562 47.0102 65.7676 45.5043 66.6977 44.4857Z"
-                    fill="black" />
-                  <path
-                    d="M76.2178 62.5979C78.6094 64.9895 81.9754 65.6982 84.5442 64.5466L82.4183 60.472C81.4218 60.9814 80.0488 60.6713 79.1409 59.7634C77.9451 58.5676 77.9008 56.7517 78.9859 55.1795L86.5815 62.7751C86.7808 62.6201 87.0244 62.4207 87.3344 62.1107C90.7004 58.7447 90.8775 54.0501 87.7773 50.9498C84.5884 47.761 79.8495 47.8939 76.4835 51.2599C73.1175 54.6258 73.0068 59.3869 76.2178 62.5979ZM80.8239 53.4743C82.2411 52.6771 83.8134 52.7436 84.8763 53.8065C85.9393 54.8694 86.0057 56.5303 85.1642 57.8147L80.8239 53.4743Z"
-                    fill="black" />
-                  <path
-                    d="M69.2611 98.1207L66.3823 102.505C68.7739 104.543 72.3613 103.701 75.1958 100.867C78.0303 98.0321 78.6061 94.5333 76.5688 92.496C72.9371 88.8642 67.3566 96.0391 65.4079 94.0904C64.9207 93.6032 64.9872 92.8281 65.7622 92.0531C66.7366 91.0787 67.7995 90.9901 68.6853 91.8759L71.4312 87.7127C69.4604 85.919 66.0944 86.5833 63.282 89.3957C60.6468 92.0309 60.1375 95.0204 62.0419 96.9249C65.6736 100.557 71.1655 93.6475 73.1142 95.5962C73.7121 96.1941 73.5793 97.1685 72.8042 97.9435C71.7856 98.9622 70.2797 99.0508 69.2611 98.1207Z"
-                    fill="black" />
-                  <path
-                    d="M88.1557 88.6006C90.5474 86.209 91.256 82.843 90.1045 80.2742L86.0299 82.4001C86.5392 83.3966 86.2292 84.7696 85.3212 85.6775C84.1254 86.8733 82.3096 86.9176 80.7373 85.8325L88.3329 78.2369C88.1779 78.0376 87.9786 77.794 87.6686 77.484C84.3026 74.118 79.6079 73.9408 76.5077 77.0411C73.3188 80.2299 73.4517 84.9689 76.8177 88.3348C80.1837 91.7008 84.9448 91.8115 88.1557 88.6006ZM79.0322 83.9945C78.2349 82.5772 78.3014 81.005 79.3643 79.942C80.4273 78.8791 82.0881 78.8127 83.3725 79.6542L79.0322 83.9945Z"
-                    fill="black" />
-                  <path
-                    d="M95.3516 80.7696L105.981 70.1402L102.881 67.0399L95.8261 74.0946L97.8424 61.9804L94.9193 59.0573L84.3742 69.6024L87.4302 72.6583L94.2844 65.804L92.3399 77.7579L95.3516 80.7696Z"
-                    fill="black" />
-                </g>
-              </svg>
-            </div>
-            <h1>Sensez</h1>
-            <h2>підвищить твою <br />сексуальність та</h2>
-            <h2>задоволення від <br />життя</h2>
+  <body>
+    <div class="page-wrapper">
+      <!-- start content-->
+      <div class="page-content page-landing" id="fullpage">
+        <section class="section landing-01">
+          <div class="elements">
+            <div class="el el-01"><img src="assets/img/landing/el-1-1.svg" alt="" /></div>
+            <div class="el el-02"><img src="assets/img/landing/el-1-2.svg" alt="" /></div>
+            <div class="el el-03"><img src="assets/img/landing/el-1-3.svg" alt="" /></div>
           </div>
-          <div class="img-left"><img src="assets/img/landing/land-01.svg" alt="" /></div>
-          <div class="img-bottom">
-            <picture>
-              <source srcset="assets/img/landing/land-02.svg" media="(min-width: 1024px)" />
-              <img src="assets/img/landing/land-02-m.svg" alt="" />
-            </picture>
-          </div>
-        </div>
-
-        <div class="text-line">
-          <div class="marquee">
-            <div class="marquee__wrap">
-              <div class="marquee__inner">
-                <span>отримай індивідуальне рішення <img src="assets/img/icons/heart.svg" alt="" /></span>
-                <span>Небачений Раніше Рівень Персоналізації <img src="assets/img/icons/heart.svg" alt="" /></span>
-                <span>отримай індивідуальне рішення <img src="assets/img/icons/heart.svg" alt="" /></span>
-                <span>Небачений Раніше Рівень Персоналізації <img src="assets/img/icons/heart.svg" alt="" /></span>
-                <span>отримай індивідуальне рішення <img src="assets/img/icons/heart.svg" alt="" /></span>
-                <span>Небачений Раніше Рівень Персоналізації <img src="assets/img/icons/heart.svg" alt="" /></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-02">
-        <div class="container">
-          <div class="wrapper">
-            <div class="box">
-              <div class="inner">
-                <h2>Пройди <br />цікавий <br />тест</h2>
-                <p>9 років наукових досліджень</p>
-              </div>
-            </div>
-            <div class="box">
-              <div class="inner">
-                <h2>Отримуй <br />розгорнутий <br />аналіз з <br />порадами</h2>
-                <p>безкоштовно</p>
-              </div>
-            </div>
-            <div class="box">
-              <div class="inner">
-                <h2>Дізнайся як <br />покращити <br />своє інтимне <br />життя !</h2>
-              </div>
-            </div>
-          </div>
-          <div class="buttons">
-            <a href="#" class="btn btn-start btn-start--white">
-              <span class="btn-main">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                    fill="#F83D5E" />
+          <div class="container">
+            <div class="headline">
+              <div class="landing-logo">
+                <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g class="logo-part1">
+                    <path d="M55.2073 14.7932L125.207 55.2077L84.7928 125.208L14.7927 84.7932L55.2073 14.7932Z" fill="black" />
+                  </g>
+                  <g class="logo-part2">
+                    <path d="M69.9985 12.8457L127.153 70.0005L69.9985 127.155L12.8438 70.0005L69.9985 12.8457Z" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M56.2649 47.7441L59.8611 51.3404L41.1202 70.0813L59.8611 88.8222L56.2649 92.4185L33.9277 70.0813L56.2649 47.7441Z" fill="black" />
+                    <path d="M66.6977 44.4857L62.313 41.6069C60.2757 43.9985 61.1172 47.5859 63.9517 50.4204C66.7862 53.255 70.2851 53.8307 72.3224 51.7934C75.9541 48.1617 68.7793 42.5812 70.728 40.6325C71.2152 40.1453 71.9902 40.2118 72.7653 40.9868C73.7397 41.9612 73.8282 43.0241 72.9425 43.9099L77.1056 46.6559C78.8994 44.685 78.235 41.319 75.4227 38.5066C72.7874 35.8714 69.7979 35.3621 67.8935 37.2665C64.2618 40.8983 71.1709 46.3901 69.2222 48.3388C68.6243 48.9368 67.6499 48.8039 66.8748 48.0288C65.8562 47.0102 65.7676 45.5043 66.6977 44.4857Z" fill="black" />
+                    <path d="M76.2178 62.5979C78.6094 64.9895 81.9754 65.6982 84.5442 64.5466L82.4183 60.472C81.4218 60.9814 80.0488 60.6713 79.1409 59.7634C77.9451 58.5676 77.9008 56.7517 78.9859 55.1795L86.5815 62.7751C86.7808 62.6201 87.0244 62.4207 87.3344 62.1107C90.7004 58.7447 90.8775 54.0501 87.7773 50.9498C84.5884 47.761 79.8495 47.8939 76.4835 51.2599C73.1175 54.6258 73.0068 59.3869 76.2178 62.5979ZM80.8239 53.4743C82.2411 52.6771 83.8134 52.7436 84.8763 53.8065C85.9393 54.8694 86.0057 56.5303 85.1642 57.8147L80.8239 53.4743Z" fill="black" />
+                    <path d="M69.2611 98.1207L66.3823 102.505C68.7739 104.543 72.3613 103.701 75.1958 100.867C78.0303 98.0321 78.6061 94.5333 76.5688 92.496C72.9371 88.8642 67.3566 96.0391 65.4079 94.0904C64.9207 93.6032 64.9872 92.8281 65.7622 92.0531C66.7366 91.0787 67.7995 90.9901 68.6853 91.8759L71.4312 87.7127C69.4604 85.919 66.0944 86.5833 63.282 89.3957C60.6468 92.0309 60.1375 95.0204 62.0419 96.9249C65.6736 100.557 71.1655 93.6475 73.1142 95.5962C73.7121 96.1941 73.5793 97.1685 72.8042 97.9435C71.7856 98.9622 70.2797 99.0508 69.2611 98.1207Z" fill="black" />
+                    <path d="M88.1557 88.6006C90.5474 86.209 91.256 82.843 90.1045 80.2742L86.0299 82.4001C86.5392 83.3966 86.2292 84.7696 85.3212 85.6775C84.1254 86.8733 82.3096 86.9176 80.7373 85.8325L88.3329 78.2369C88.1779 78.0376 87.9786 77.794 87.6686 77.484C84.3026 74.118 79.6079 73.9408 76.5077 77.0411C73.3188 80.2299 73.4517 84.9689 76.8177 88.3348C80.1837 91.7008 84.9448 91.8115 88.1557 88.6006ZM79.0322 83.9945C78.2349 82.5772 78.3014 81.005 79.3643 79.942C80.4273 78.8791 82.0881 78.8127 83.3725 79.6542L79.0322 83.9945Z" fill="black" />
+                    <path d="M95.3516 80.7696L105.981 70.1402L102.881 67.0399L95.8261 74.0946L97.8424 61.9804L94.9193 59.0573L84.3742 69.6024L87.4302 72.6583L94.2844 65.804L92.3399 77.7579L95.3516 80.7696Z" fill="black" />
+                  </g>
                 </svg>
-                <span>Пройти тест</span>
-              </span>
-            </a>
-            <a href="#" class="btn btn-outlined">ДІЗНАТИСЬ БІЛЬШЕ</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-03">
-        <div class="container">
-          <div class="h1">
-            Що таке <span>Sensez <br />Тест?</span>
-          </div>
-          <div class="wrapper">
-            <ul>
-              <li>
-                <div class="item item-1">
-                  <span class="item-bg"><img src="assets/img/landing/el-3-1-blur.svg" alt="" /></span>
-                  <p>
-                    Цікавий процес <br />
-                    проходження тесту
-                  </p>
-                </div>
-              </li>
-              <li>
-                <div class="item item-2">
-                  <span class="item-bg"><img src="assets/img/landing/el-3-2-blur.svg" alt="" /></span>
-                  <p><strong>50</strong> питань, що <br />розкриють вас</p>
-                </div>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <div class="item item-3">
-                  <span class="item-bg"><img src="assets/img/landing/el-3-3-blur.svg" alt="" /></span>
-                  <p><strong>9</strong> років <br />наукових <br />досліджень</p>
-                </div>
-              </li>
-              <li>
-                <div class="item item-4">
-                  <span class="item-bg">
-                    <picture>
-                      <source srcset="assets/img/landing/el-3-4-blur.svg" media="(min-width: 1024px)" />
-                      <img src="assets/img/landing/el-3-4-blur-m.svg" alt="" />
-                    </picture>
-                  </span>
-                  <p>Створений кращими <br />психологами та сексологами</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="buttons">
-            <a href="#" class="btn btn-start">
-              <span class="btn-main">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                    fill="#fff" />
-                </svg>
-                <span>Пройти тест</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-04">
-        <div class="elements">
-          <div class="el el-01"><img src="assets/img/landing/star.svg" alt="" /></div>
-          <div class="el el-02"><img src="assets/img/landing/star.svg" alt="" /></div>
-          <div class="el el-03"><img src="assets/img/landing/star.svg" alt="" /></div>
-          <div class="el el-04"><img src="assets/img/landing/star.svg" alt="" /></div>
-        </div>
-        <div class="container">
-          <div class="wrapper">
-            <h2><span>Безкоштовно!</span> Персональний аналіз та поради</h2>
-            <ul>
-              <li><strong>16 сторінок</strong>, де ти відкриєш свою сексуальність з іншої сторони</li>
-              <li><strong>Практичні кроки</strong> для покращення сексуального життя</li>
-              <li>Аналіз ваших <strong>сильних сторін та зон зростання</strong></li>
-            </ul>
-          </div>
-        </div>
-        <div class="image">
-          <img src="assets/img/landing/land-07.png" alt="" />
-          <div class="buttons">
-            <a href="#" class="btn btn-start">
-              <span class="btn-main">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                    fill="#fff" />
-                </svg>
-                <span>Пройти тест</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-05">
-        <div class="elements">
-          <div class="el el-01"><img src="assets/img/landing/el-5-1.svg" alt="" /></div>
-          <div class="el el-02"><img src="assets/img/landing/el-5-2.svg" alt="" /></div>
-        </div>
-        <div class="container">
-          <div class="section-header">
-            <h2>Базуючись на <em>ваших</em> результатах <br />підберемо індивідуальні <br /><span>рішення</span></h2>
-            <span class="icon">
+              </div>
+              <h1>Sensez</h1>
+              <h2>підвищить твою <br />сексуальність та</h2>
+              <h2>задоволення від <br />життя</h2>
+            </div>
+            <div class="img-left"><img src="assets/img/landing/land-01.svg" alt="" /></div>
+            <div class="img-bottom">
               <picture>
-                <source srcset="assets/img/landing/el-5-3.svg" media="(min-width:1024px)" />
-                <img src="assets/img/landing/el-5-3-m.svg" alt="" />
+                <source srcset="assets/img/landing/land-02.svg" media="(min-width: 1024px)" />
+                <img src="assets/img/landing/land-02-m.svg" alt="" />
               </picture>
-            </span>
+            </div>
           </div>
-          <div class="wrapper">
-            <div class="col-text">
-              <div class="sticker">
-                <span>у колабі з</span>
-                <span class="sticker-img"><img src="assets/img/candor-w.svg" alt="" /></span>
+
+          <div class="text-line">
+            <div class="marquee">
+              <div class="marquee__wrap">
+                <div class="marquee__inner">
+                  <span>отримай індивідуальне рішення <img src="assets/img/icons/heart.svg" alt="" /></span>
+                  <span>Небачений Раніше Рівень Персоналізації <img src="assets/img/icons/heart.svg" alt="" /></span>
+                  <span>отримай індивідуальне рішення <img src="assets/img/icons/heart.svg" alt="" /></span>
+                  <span>Небачений Раніше Рівень Персоналізації <img src="assets/img/icons/heart.svg" alt="" /></span>
+                  <span>отримай індивідуальне рішення <img src="assets/img/icons/heart.svg" alt="" /></span>
+                  <span>Небачений Раніше Рівень Персоналізації <img src="assets/img/icons/heart.svg" alt="" /></span>
+                </div>
               </div>
-              <h3>1. Твій Sensez Box</h3>
-              <p>Коробка з індивідуально підібраними предметами, які зроблять ваше життя <span>яскравішим!</span></p>
-              <ul>
-                <li><strong>Тест враховує</strong> ваш досвід та вподобання.</li>
-                <li>Набір <strong>Sensez Box створюється індивідуально</strong> під вас.</li>
-                <li>В Sensez Box <strong>лише необхідне наповнення</strong> та бренди, які підходять під ваш запит.</li>
-              </ul>
-              <a href="#" class="btn btn-start">
+            </div>
+          </div>
+        </section>
+
+        <section class="section landing-02">
+          <div class="container">
+            <div class="wrapper">
+              <div class="box">
+                <div class="inner">
+                  <h2>Пройди <br />цікавий <br />тест</h2>
+                  <p>9 років наукових досліджень</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="inner">
+                  <h2>Отримуй <br />розгорнутий <br />аналіз з <br />порадами</h2>
+                  <p>безкоштовно</p>
+                </div>
+              </div>
+              <div class="box">
+                <div class="inner">
+                  <h2>Дізнайся як <br />покращити <br />своє інтимне <br />життя !</h2>
+                </div>
+              </div>
+            </div>
+            <div class="buttons">
+              <a href="#" class="btn btn-start btn-start--white">
                 <span class="btn-main">
                   <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                      fill="#fff" />
+                    <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#F83D5E" />
                   </svg>
                   <span>Пройти тест</span>
                 </span>
               </a>
-            </div>
-            <div class="col-image">
-              <figure><img src="assets/img/landing/land-03.png" alt="" /></figure>
+              <a href="#" class="btn btn-outlined">ДІЗНАТИСЬ БІЛЬШЕ</a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section landing-06">
-        <div class="elements">
-          <div class="el el-01"><img src="assets/img/landing/star.svg" alt="" /></div>
-          <div class="el el-02"><img src="assets/img/landing/star.svg" alt="" /></div>
-          <div class="el el-03"><img src="assets/img/landing/star-dbl.svg" alt="" /></div>
-        </div>
-        <div class="container">
-          <div class="wrapper">
-            <div class="col-text">
-              <h3><span class="num">2.</span> Особистий сексолог</h3>
+        <section class="section landing-03">
+          <div class="container">
+            <div class="h1">
+              Що таке <span>Sensez <br />Тест?</span>
+            </div>
+            <div class="wrapper">
               <ul>
-                <li><strong>Глибинний аналіз</strong> вашого запиту</li>
-                <li>Персональний <strong>план розвитку</strong> вашої сексуальності</li>
-                <li><strong>Конфеденційна</strong> підтримка</li>
-                <li>Тільки досвідчені і <strong>сертифіковані експерти</strong></li>
+                <li>
+                  <div class="item item-1">
+                    <span class="item-bg"><img src="assets/img/landing/el-3-1-blur.svg" alt="" /></span>
+                    <p>
+                      Цікавий процес <br />
+                      проходження тесту
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="item item-2">
+                    <span class="item-bg"><img src="assets/img/landing/el-3-2-blur.svg" alt="" /></span>
+                    <p><strong>50</strong> питань, що <br />розкриють вас</p>
+                  </div>
+                </li>
               </ul>
-              <a href="#" class="btn btn-start">
-                <span class="btn-main">
-                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                      fill="#fff" />
-                  </svg>
-                  <span>Пройти тест</span>
-                </span>
-              </a>
-            </div>
-            <div class="col-image">
-              <div class="image-outline"></div>
-              <figure class="img-rounded"><img src="assets/img/landing/land-04.png" alt="" /></figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-07">
-        <div class="elements">
-          <div class="el el-01"><img src="assets/img/landing/star.svg" alt="" /></div>
-          <div class="el el-02"><img src="assets/img/landing/star.svg" alt="" /></div>
-          <div class="el el-03"><img src="assets/img/landing/star-dbl.svg" alt="" /></div>
-        </div>
-        <div class="container">
-          <div class="wrapper">
-            <div class="col-text">
-              <h3><span class="num">3.</span> Sensez Освіта</h3>
-              <p>Відеокурси, що створені саме для вас:</p>
               <ul>
-                <li><strong>Унікальний контент</strong></li>
-                <li>Створений професіоналами <strong>для збагачення досвіду</strong></li>
-                <li><strong>Різноманітні</strong> інсайти</li>
-                <li>Регулярні <strong>оновлення</strong></li>
+                <li>
+                  <div class="item item-3">
+                    <span class="item-bg"><img src="assets/img/landing/el-3-3-blur.svg" alt="" /></span>
+                    <p><strong>9</strong> років <br />наукових <br />досліджень</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="item item-4">
+                    <span class="item-bg">
+                      <picture>
+                        <source srcset="assets/img/landing/el-3-4-blur.svg" media="(min-width: 1024px)" />
+                        <img src="assets/img/landing/el-3-4-blur-m.svg" alt="" />
+                      </picture>
+                    </span>
+                    <p>Створений кращими <br />психологами та сексологами</p>
+                  </div>
+                </li>
               </ul>
-              <a href="#" class="btn btn-start">
-                <span class="btn-main">
-                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                      fill="#fff" />
-                  </svg>
-                  <span>Пройти тест</span>
-                </span>
-              </a>
-            </div>
-            <div class="col-image">
-              <div class="image-outline"></div>
-              <figure class="img-rounded">
-                <!-- <video src="assets/img/video.mp4" controls></video> -->
-                <img src="assets/img/landing/land-05.png" alt="" />
-              </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-08 fp-auto-height">
-        <div class="bg"></div>
-        <div class="container">
-          <div class="wrapper">
-            <div class="subtitle">Цікаво?</div>
-            <h2>Пройдіть тест прямо зараз <br />і отримайте результати <span>безкоштовно!</span></h2>
-            <a href="#" class="btn btn-start">
-              <span class="btn-main">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                    fill="#F83D5E" />
-                </svg>
-                <span>ПОЧАТИ!</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-09">
-        <div class="elements">
-          <div class="el el-01"><img src="assets/img/landing/el-9-2.svg" alt="" /></div>
-          <div class="el el-02"><img src="assets/img/landing/el-9-3.svg" alt="" /></div>
-          <div class="el el-03"><img src="assets/img/landing/el-9-4.svg" alt="" /></div>
-          <div class="el el-04"><img src="assets/img/landing/el-9-5.svg" alt="" /></div>
-          <div class="el el-05"><img src="assets/img/landing/el-9-6.svg" alt="" /></div>
-          <div class="el el-06"><img src="assets/img/landing/el-9-7.svg" alt="" /></div>
-          <div class="el el-07"><img src="assets/img/landing/el-9-8.svg" alt="" /></div>
-        </div>
-        <div class="container">
-          <div class="text">
-            <div class="h1">Для кого <br /><span>SENSEZ</span>?</div>
-            <h2>
-              <span>Для тих, хто у пошуках себе</span>
-              <span>Для тих, хто знає чого хоче</span>
-              <span>Для тих, хто хоче здивувати себе</span>
-            </h2>
-            <h2>Для кожного. Для вас.</h2>
-          </div>
-          <span class="icon">
-            <picture>
-              <source srcset="assets/img/landing/el-9-1.svg" media="(min-width:1024px)" />
-              <img src="assets/img/landing/el-9-1-m.svg" alt="" />
-            </picture>
-          </span>
-        </div>
-      </section>
-
-      <section class="section landing-10">
-        <div class="elements">
-          <div class="el el-01"><img src="assets/img/landing/el-10-1.svg" alt="" /></div>
-          <div class="el el-02"><img src="assets/img/landing/el-10-2.svg" alt="" /></div>
-        </div>
-        <div class="container">
-          <div class="section-header">
-            <div class="section-header-number">90%</div>
-            <h2>задоволеності від <span>Sensez Box</span> на думку його користувачів</h2>
-          </div>
-          <div class="testimonials-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
-                  <p>Неймовірно! Sensez Box зумів покращити не лише мої стосунки, а й якість життя вцілому!</p>
-                  <div class="author">
-                    <span class="avatar"><img src="assets/img/landing/ava1.png" alt="" /></span>
-                    <span class="name">Денис, 24</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
-                  <p>Товари підібрані дуже вдало, а рекомендації приєно здивували. Небанально і круто.</p>
-                  <div class="author">
-                    <span class="avatar"><img src="assets/img/landing/ava2.png" alt="" /></span>
-                    <span class="name">Аліна, 30</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
-                  <p>Неймовірно! Sensez Box зумів покращити не лише мої стосунки, а й якість життя вцілому!</p>
-                  <div class="author">
-                    <span class="avatar"><img src="assets/img/landing/ava1.png" alt="" /></span>
-                    <span class="name">Денис, 24</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
-                  <p>Товари підібрані дуже вдало, а рекомендації приєно здивували. Небанально і круто.</p>
-                  <div class="author">
-                    <span class="avatar"><img src="assets/img/landing/ava2.png" alt="" /></span>
-                    <span class="name">Аліна, 30</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
-                  <p>Неймовірно! Sensez Box зумів покращити не лише мої стосунки, а й якість життя вцілому!</p>
-                  <div class="author">
-                    <span class="avatar"><img src="assets/img/landing/ava1.png" alt="" /></span>
-                    <span class="name">Денис, 24</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="item">
-                  <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
-                  <p>Товари підібрані дуже вдало, а рекомендації приєно здивували. Небанально і круто.</p>
-                  <div class="author">
-                    <span class="avatar"><img src="assets/img/landing/ava2.png" alt="" /></span>
-                    <span class="name">Аліна, 30</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-controls">
-              <div class="swiper-prev">
-                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M60 30L56.8302 26.977L59.2478 23.3244L55.4849 21.0825L57.0291 16.9835L52.8616 15.6351L53.4549 11.2953L49.0919 10.9081L48.7047 6.54505L44.3649 7.13845L43.0165 2.97093L38.9175 4.51515L36.6756 0.752162L33.023 3.16977L30 -1.26827e-06L26.977 3.16977L23.3244 0.752161L21.0825 4.51515L16.9835 2.97093L15.6351 7.13844L11.2953 6.54505L10.9081 10.9081L6.54506 11.2953L7.13845 15.6351L2.97093 16.9835L4.51515 21.0825L0.752165 23.3244L3.16977 26.977L1.35588e-06 30L3.16977 33.023L0.752164 36.6756L4.51515 38.9175L2.97093 43.0165L7.13845 44.3649L6.54506 48.7047L10.9081 49.0919L11.2953 53.4549L15.6351 52.8616L16.9835 57.0291L21.0825 55.4848L23.3244 59.2478L26.977 56.8302L30 60L33.023 56.8302L36.6756 59.2478L38.9175 55.4848L43.0165 57.0291L44.3649 52.8616L48.7047 53.4549L49.0919 49.0919L53.4549 48.7047L52.8616 44.3649L57.0291 43.0165L55.4849 38.9175L59.2478 36.6756L56.8302 33.023L60 30Z"
-                    fill="#F24EA7" />
-                  <path
-                    d="M15.9679 30.7141C15.5735 30.3274 15.5673 29.6943 15.9539 29.2999L22.2545 22.8732C22.6411 22.4788 23.2742 22.4726 23.6686 22.8592C24.063 23.2458 24.0693 23.879 23.6826 24.2733L18.0821 29.986L23.7948 35.5865C24.1891 35.9731 24.1954 36.6063 23.8088 37.0006C23.4221 37.395 22.789 37.4013 22.3946 37.0147L15.9679 30.7141ZM16.6581 29L44.432 28.7248L44.4518 30.7247L16.6779 31L16.6581 29Z"
-                    fill="#1D1D1B" />
-                </svg>
-              </div>
-              <div class="swiper-next">
-                <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M-1.35588e-06 30L3.16977 26.977L0.752161 23.3244L4.51515 21.0825L2.97093 16.9835L7.13844 15.6351L6.54505 11.2953L10.9081 10.9081L11.2953 6.54505L15.6351 7.13845L16.9835 2.97093L21.0825 4.51515L23.3244 0.752162L26.977 3.16977L30 -1.26827e-06L33.023 3.16977L36.6756 0.752161L38.9175 4.51515L43.0165 2.97093L44.3649 7.13844L48.7047 6.54505L49.0919 10.9081L53.4549 11.2953L52.8616 15.6351L57.0291 16.9835L55.4848 21.0825L59.2478 23.3244L56.8302 26.977L60 30L56.8302 33.023L59.2478 36.6756L55.4848 38.9175L57.0291 43.0165L52.8616 44.3649L53.4549 48.7047L49.0919 49.0919L48.7047 53.4549L44.3649 52.8616L43.0165 57.0291L38.9175 55.4848L36.6756 59.2478L33.023 56.8302L30 60L26.977 56.8302L23.3244 59.2478L21.0825 55.4848L16.9835 57.0291L15.6351 52.8616L11.2953 53.4549L10.9081 49.0919L6.54505 48.7047L7.13845 44.3649L2.97093 43.0165L4.51515 38.9175L0.752162 36.6756L3.16977 33.023L-1.35588e-06 30Z"
-                    fill="#F24EA7" />
-                  <path
-                    d="M45.1454 30.7141C45.5398 30.3274 45.546 29.6943 45.1594 29.2999L38.8588 22.8732C38.4722 22.4788 37.839 22.4726 37.4447 22.8592C37.0503 23.2458 37.044 23.879 37.4307 24.2733L43.0312 29.986L37.3185 35.5865C36.9242 35.9731 36.9179 36.6063 37.3045 37.0006C37.6911 37.395 38.3243 37.4013 38.7187 37.0147L45.1454 30.7141ZM44.4552 29L16.6813 28.7248L16.6614 30.7247L44.4354 31L44.4552 29Z"
-                    fill="#1D1D1B" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section landing-11 fp-auto-height">
-        <div class="container">
-          <div class="wrapper">
-            <div class="text">
-              <h2>Все ще вагаєтеся?</h2>
-              <div class="subtitle">МИ РАДО ЧЕКАЄМО БУДЬ-ЯКИЙ ВАШИХ ЗАПИТАНЬ ЧИ ВІДГУКІВ!</div>
             </div>
             <div class="buttons">
               <a href="#" class="btn btn-start">
                 <span class="btn-main">
                   <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                      fill="#FFC821" />
+                    <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#fff" />
                   </svg>
-                  <span>FAQ</span>
-                </span>
-              </a>
-              <a href="#" class="btn btn-start">
-                <span class="btn-main">
-                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                      fill="#F24EA7" />
-                  </svg>
-                  <span>Про Sensez</span>
-                </span>
-              </a>
-              <a href="#" class="btn btn-start">
-                <span class="btn-main">
-                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-                      fill="#F83D5E" />
-                  </svg>
-                  <span>Звя'затисЯ з нами</span>
+                  <span>Пройти тест</span>
                 </span>
               </a>
             </div>
-            <div class="image"><img src="assets/img/landing/land-06.png" alt="" /></div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- start page footer-->
-      <footer class="section fp-auto-height page-footer">
-        <div class="container">
-          <p>&copy; 2023 Sensez. <br />ALL RIGHTS RESERVED.</p>
-          <ul>
-            <li><a href="#">TERMS OF SERVICE</a></li>
-            <li><a href="#">PRIVACY POLICY</a></li>
-          </ul>
-        </div>
-      </footer>
-      <!-- end page footer-->
+        <section class="section landing-04">
+          <div class="elements">
+            <div class="el el-01"><img src="assets/img/landing/star.svg" alt="" /></div>
+            <div class="el el-02"><img src="assets/img/landing/star.svg" alt="" /></div>
+            <div class="el el-03"><img src="assets/img/landing/star.svg" alt="" /></div>
+            <div class="el el-04"><img src="assets/img/landing/star.svg" alt="" /></div>
+          </div>
+          <div class="container">
+            <div class="wrapper">
+              <h2><span>Безкоштовно!</span> Персональний аналіз та поради</h2>
+              <ul>
+                <li><strong>16 сторінок</strong>, де ти відкриєш свою сексуальність з іншої сторони</li>
+                <li><strong>Практичні кроки</strong> для покращення сексуального життя</li>
+                <li>Аналіз ваших <strong>сильних сторін та зон зростання</strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="image">
+            <img src="assets/img/landing/land-07.png" alt="" />
+            <div class="buttons">
+              <a href="#" class="btn btn-start">
+                <span class="btn-main">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#fff" />
+                  </svg>
+                  <span>Пройти тест</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section landing-05">
+          <div class="elements">
+            <div class="el el-01"><img src="assets/img/landing/el-5-1.svg" alt="" /></div>
+            <div class="el el-02"><img src="assets/img/landing/el-5-2.svg" alt="" /></div>
+          </div>
+          <div class="container">
+            <div class="section-header">
+              <h2>Базуючись на <em>ваших</em> результатах <br />підберемо індивідуальні <br /><span>рішення</span></h2>
+              <span class="icon">
+                <picture>
+                  <source srcset="assets/img/landing/el-5-3.svg" media="(min-width:1024px)" />
+                  <img src="assets/img/landing/el-5-3-m.svg" alt="" />
+                </picture>
+              </span>
+            </div>
+            <div class="wrapper">
+              <div class="col-text">
+                <div class="sticker">
+                  <span>у колабі з</span>
+                  <span class="sticker-img"><img src="assets/img/candor-w.svg" alt="" /></span>
+                </div>
+                <h3>1. Твій Sensez Box</h3>
+                <p>Коробка з індивідуально підібраними предметами, які зроблять ваше життя <span>яскравішим!</span></p>
+                <ul>
+                  <li><strong>Тест враховує</strong> ваш досвід та вподобання.</li>
+                  <li>Набір <strong>Sensez Box створюється індивідуально</strong> під вас.</li>
+                  <li>В Sensez Box <strong>лише необхідне наповнення</strong> та бренди, які підходять під ваш запит.</li>
+                </ul>
+                <a href="#" class="btn btn-start">
+                  <span class="btn-main">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#fff" />
+                    </svg>
+                    <span>Пройти тест</span>
+                  </span>
+                </a>
+              </div>
+              <div class="col-image">
+                <figure><img src="assets/img/landing/land-03.png" alt="" /></figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section landing-06">
+          <div class="elements">
+            <div class="el el-01"><img src="assets/img/landing/star.svg" alt="" /></div>
+            <div class="el el-02"><img src="assets/img/landing/star.svg" alt="" /></div>
+            <div class="el el-03"><img src="assets/img/landing/star-dbl.svg" alt="" /></div>
+          </div>
+          <div class="container">
+            <div class="wrapper">
+              <div class="col-text">
+                <h3><span class="num">2.</span> Особистий сексолог</h3>
+                <ul>
+                  <li><strong>Глибинний аналіз</strong> вашого запиту</li>
+                  <li>Персональний <strong>план розвитку</strong> вашої сексуальності</li>
+                  <li><strong>Конфеденційна</strong> підтримка</li>
+                  <li>Тільки досвідчені і <strong>сертифіковані експерти</strong></li>
+                </ul>
+                <a href="#" class="btn btn-start">
+                  <span class="btn-main">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#fff" />
+                    </svg>
+                    <span>Пройти тест</span>
+                  </span>
+                </a>
+              </div>
+              <div class="col-image">
+                <div class="image-outline"></div>
+                <figure class="img-rounded"><img src="assets/img/landing/land-04.png" alt="" /></figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section landing-07">
+          <div class="elements">
+            <div class="el el-01"><img src="assets/img/landing/star.svg" alt="" /></div>
+            <div class="el el-02"><img src="assets/img/landing/star.svg" alt="" /></div>
+            <div class="el el-03"><img src="assets/img/landing/star-dbl.svg" alt="" /></div>
+          </div>
+          <div class="container">
+            <div class="wrapper">
+              <div class="col-text">
+                <h3><span class="num">3.</span> Sensez Освіта</h3>
+                <p>Відеокурси, що створені саме для вас:</p>
+                <ul>
+                  <li><strong>Унікальний контент</strong></li>
+                  <li>Створений професіоналами <strong>для збагачення досвіду</strong></li>
+                  <li><strong>Різноманітні</strong> інсайти</li>
+                  <li>Регулярні <strong>оновлення</strong></li>
+                </ul>
+                <a href="#" class="btn btn-start">
+                  <span class="btn-main">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#fff" />
+                    </svg>
+                    <span>Пройти тест</span>
+                  </span>
+                </a>
+              </div>
+              <div class="col-image">
+                <div class="image-outline"></div>
+                <figure class="img-rounded">
+                  <!-- <video src="assets/img/video.mp4" controls></video> -->
+                  <img src="assets/img/landing/land-05.png" alt="" />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section landing-08 fp-auto-height">
+          <div class="bg"></div>
+          <div class="container">
+            <div class="wrapper">
+              <div class="subtitle">Цікаво?</div>
+              <h2>Пройдіть тест прямо зараз <br />і отримайте результати <span>безкоштовно!</span></h2>
+              <a href="#" class="btn btn-start">
+                <span class="btn-main">
+                  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#F83D5E" />
+                  </svg>
+                  <span>ПОЧАТИ!</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section landing-09">
+          <div class="elements">
+            <div class="el el-01"><img src="assets/img/landing/el-9-2.svg" alt="" /></div>
+            <div class="el el-02"><img src="assets/img/landing/el-9-3.svg" alt="" /></div>
+            <div class="el el-03"><img src="assets/img/landing/el-9-4.svg" alt="" /></div>
+            <div class="el el-04"><img src="assets/img/landing/el-9-5.svg" alt="" /></div>
+            <div class="el el-05"><img src="assets/img/landing/el-9-6.svg" alt="" /></div>
+            <div class="el el-06"><img src="assets/img/landing/el-9-7.svg" alt="" /></div>
+            <div class="el el-07"><img src="assets/img/landing/el-9-8.svg" alt="" /></div>
+          </div>
+          <div class="container">
+            <div class="text">
+              <div class="h1">Для кого <br /><span>SENSEZ</span>?</div>
+              <h2>
+                <span>Для тих, хто у пошуках себе</span>
+                <span>Для тих, хто знає чого хоче</span>
+                <span>Для тих, хто хоче здивувати себе</span>
+              </h2>
+              <h2>Для кожного. Для вас.</h2>
+            </div>
+            <span class="icon">
+              <picture>
+                <source srcset="assets/img/landing/el-9-1.svg" media="(min-width:1024px)" />
+                <img src="assets/img/landing/el-9-1-m.svg" alt="" />
+              </picture>
+            </span>
+          </div>
+        </section>
+
+        <section class="section landing-10">
+          <div class="elements">
+            <div class="el el-01"><img src="assets/img/landing/el-10-1.svg" alt="" /></div>
+            <div class="el el-02"><img src="assets/img/landing/el-10-2.svg" alt="" /></div>
+          </div>
+          <div class="container">
+            <div class="section-header">
+              <div class="section-header-number">90%</div>
+              <h2>задоволеності від <span>Sensez Box</span> на думку його користувачів</h2>
+            </div>
+            <div class="testimonials-swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
+                    <p>Неймовірно! Sensez Box зумів покращити не лише мої стосунки, а й якість життя вцілому!</p>
+                    <div class="author">
+                      <span class="avatar"><img src="assets/img/landing/ava1.png" alt="" /></span>
+                      <span class="name">Денис, 24</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
+                    <p>Товари підібрані дуже вдало, а рекомендації приєно здивували. Небанально і круто.</p>
+                    <div class="author">
+                      <span class="avatar"><img src="assets/img/landing/ava2.png" alt="" /></span>
+                      <span class="name">Аліна, 30</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
+                    <p>Неймовірно! Sensez Box зумів покращити не лише мої стосунки, а й якість життя вцілому!</p>
+                    <div class="author">
+                      <span class="avatar"><img src="assets/img/landing/ava1.png" alt="" /></span>
+                      <span class="name">Денис, 24</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
+                    <p>Товари підібрані дуже вдало, а рекомендації приєно здивували. Небанально і круто.</p>
+                    <div class="author">
+                      <span class="avatar"><img src="assets/img/landing/ava2.png" alt="" /></span>
+                      <span class="name">Аліна, 30</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
+                    <p>Неймовірно! Sensez Box зумів покращити не лише мої стосунки, а й якість життя вцілому!</p>
+                    <div class="author">
+                      <span class="avatar"><img src="assets/img/landing/ava1.png" alt="" /></span>
+                      <span class="name">Денис, 24</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="item">
+                    <div class="rate"><img src="assets/img/landing/stars.png" alt="" /></div>
+                    <p>Товари підібрані дуже вдало, а рекомендації приєно здивували. Небанально і круто.</p>
+                    <div class="author">
+                      <span class="avatar"><img src="assets/img/landing/ava2.png" alt="" /></span>
+                      <span class="name">Аліна, 30</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-controls">
+                <div class="swiper-prev">
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M60 30L56.8302 26.977L59.2478 23.3244L55.4849 21.0825L57.0291 16.9835L52.8616 15.6351L53.4549 11.2953L49.0919 10.9081L48.7047 6.54505L44.3649 7.13845L43.0165 2.97093L38.9175 4.51515L36.6756 0.752162L33.023 3.16977L30 -1.26827e-06L26.977 3.16977L23.3244 0.752161L21.0825 4.51515L16.9835 2.97093L15.6351 7.13844L11.2953 6.54505L10.9081 10.9081L6.54506 11.2953L7.13845 15.6351L2.97093 16.9835L4.51515 21.0825L0.752165 23.3244L3.16977 26.977L1.35588e-06 30L3.16977 33.023L0.752164 36.6756L4.51515 38.9175L2.97093 43.0165L7.13845 44.3649L6.54506 48.7047L10.9081 49.0919L11.2953 53.4549L15.6351 52.8616L16.9835 57.0291L21.0825 55.4848L23.3244 59.2478L26.977 56.8302L30 60L33.023 56.8302L36.6756 59.2478L38.9175 55.4848L43.0165 57.0291L44.3649 52.8616L48.7047 53.4549L49.0919 49.0919L53.4549 48.7047L52.8616 44.3649L57.0291 43.0165L55.4849 38.9175L59.2478 36.6756L56.8302 33.023L60 30Z" fill="#F24EA7" />
+                    <path d="M15.9679 30.7141C15.5735 30.3274 15.5673 29.6943 15.9539 29.2999L22.2545 22.8732C22.6411 22.4788 23.2742 22.4726 23.6686 22.8592C24.063 23.2458 24.0693 23.879 23.6826 24.2733L18.0821 29.986L23.7948 35.5865C24.1891 35.9731 24.1954 36.6063 23.8088 37.0006C23.4221 37.395 22.789 37.4013 22.3946 37.0147L15.9679 30.7141ZM16.6581 29L44.432 28.7248L44.4518 30.7247L16.6779 31L16.6581 29Z" fill="#1D1D1B" />
+                  </svg>
+                </div>
+                <div class="swiper-next">
+                  <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M-1.35588e-06 30L3.16977 26.977L0.752161 23.3244L4.51515 21.0825L2.97093 16.9835L7.13844 15.6351L6.54505 11.2953L10.9081 10.9081L11.2953 6.54505L15.6351 7.13845L16.9835 2.97093L21.0825 4.51515L23.3244 0.752162L26.977 3.16977L30 -1.26827e-06L33.023 3.16977L36.6756 0.752161L38.9175 4.51515L43.0165 2.97093L44.3649 7.13844L48.7047 6.54505L49.0919 10.9081L53.4549 11.2953L52.8616 15.6351L57.0291 16.9835L55.4848 21.0825L59.2478 23.3244L56.8302 26.977L60 30L56.8302 33.023L59.2478 36.6756L55.4848 38.9175L57.0291 43.0165L52.8616 44.3649L53.4549 48.7047L49.0919 49.0919L48.7047 53.4549L44.3649 52.8616L43.0165 57.0291L38.9175 55.4848L36.6756 59.2478L33.023 56.8302L30 60L26.977 56.8302L23.3244 59.2478L21.0825 55.4848L16.9835 57.0291L15.6351 52.8616L11.2953 53.4549L10.9081 49.0919L6.54505 48.7047L7.13845 44.3649L2.97093 43.0165L4.51515 38.9175L0.752162 36.6756L3.16977 33.023L-1.35588e-06 30Z" fill="#F24EA7" />
+                    <path d="M45.1454 30.7141C45.5398 30.3274 45.546 29.6943 45.1594 29.2999L38.8588 22.8732C38.4722 22.4788 37.839 22.4726 37.4447 22.8592C37.0503 23.2458 37.044 23.879 37.4307 24.2733L43.0312 29.986L37.3185 35.5865C36.9242 35.9731 36.9179 36.6063 37.3045 37.0006C37.6911 37.395 38.3243 37.4013 38.7187 37.0147L45.1454 30.7141ZM44.4552 29L16.6813 28.7248L16.6614 30.7247L44.4354 31L44.4552 29Z" fill="#1D1D1B" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section landing-11 fp-auto-height">
+          <div class="container">
+            <div class="wrapper">
+              <div class="text">
+                <h2>Все ще вагаєтеся?</h2>
+                <div class="subtitle">МИ РАДО ЧЕКАЄМО БУДЬ-ЯКИЙ ВАШИХ ЗАПИТАНЬ ЧИ ВІДГУКІВ!</div>
+              </div>
+              <div class="buttons">
+                <a href="#" class="btn btn-start">
+                  <span class="btn-main">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#FFC821" />
+                    </svg>
+                    <span>FAQ</span>
+                  </span>
+                </a>
+                <a href="#" class="btn btn-start">
+                  <span class="btn-main">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#F24EA7" />
+                    </svg>
+                    <span>Про Sensez</span>
+                  </span>
+                </a>
+                <div class="socials">
+                  <a href="#"><img src="assets/img/icons/instagram-w.svg" alt="" /></a>
+                  <a href="#"><img src="assets/img/icons/facebook-w.svg" alt="" /></a>
+                </div>
+              </div>
+              <div class="image"><img src="assets/img/landing/land-06.png" alt="" /></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- start page footer-->
+        <footer class="section fp-auto-height page-footer">
+          <div class="container">
+            <p>&copy; 2023 Sensez. <br />ALL RIGHTS RESERVED.</p>
+            <ul>
+              <li><a href="#">TERMS OF SERVICE</a></li>
+              <li><a href="#">PRIVACY POLICY</a></li>
+            </ul>
+          </div>
+        </footer>
+        <!-- end page footer-->
+      </div>
+
+      <div class="btn-fixed-mobile">
+        <a href="#" class="btn btn-start btn-start--white">
+          <span class="btn-main">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z" fill="#F83D5E" />
+            </svg>
+            <span>Пройти тест</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- end content-->
     </div>
 
-    <div class="btn-fixed-mobile">
-      <a href="#" class="btn btn-start btn-start--white">
-        <span class="btn-main">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M18 0L20.7717 5.8563L25.8099 1.78256L25.7662 8.26151L32.073 6.77718L29.2225 12.5955L35.5487 13.9946L30.456 18L35.5487 22.0054L29.2225 23.4045L32.073 29.2228L25.7662 27.7385L25.8099 34.2174L20.7717 30.1437L18 36L15.2283 30.1437L10.1901 34.2174L10.2338 27.7385L3.92703 29.2228L6.77753 23.4045L0.451298 22.0054L5.544 18L0.451298 13.9946L6.77753 12.5955L3.92703 6.77718L10.2338 8.26151L10.1901 1.78256L15.2283 5.8563L18 0Z"
-              fill="#F83D5E" />
-          </svg>
-          <span>Пройти тест</span>
-        </span>
-      </a>
-    </div>
-
-    <!-- end content-->
-  </div>
-
-  <script src="assets/js/jquery-3.6.0.min.js"></script>
-  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/js/gsap.js"></script>
-  <script src="assets/js/ScrollTrigger.js"></script>
-  <script src="assets/js/fullpage.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
-  <script src="assets/js/split-type.js"></script>
-  <script src="assets/js/landing-new.js"></script>
-</body>
-
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/gsap.js"></script>
+    <script src="assets/js/ScrollTrigger.js"></script>
+    <script src="assets/js/fullpage.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/split-type.js"></script>
+    <script src="assets/js/landing-new.js"></script>
+  </body>
 </html>
