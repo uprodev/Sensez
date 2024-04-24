@@ -403,7 +403,7 @@ jQuery(document).ready(function ($) {
     if (document.querySelector(".test-step--type1")) {
       var totalQ = $(".test-scroller li").length;
       if ($(".test-scroller .filled").length === totalQ) {
-        $(".test-step-inner").animate({ scrollTop: $(".test-scroller .last").outerHeight() * 9 }, 0);
+        $(".test-step-inner").animate({ scrollTop: $(".test-scroller .last").outerHeight() * 6 }, 0);
         setTimeout(() => {
           var activeQ = $(".test-scroller li.last"),
             activeValue = parseInt(activeQ.find("input").val());

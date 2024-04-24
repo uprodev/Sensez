@@ -102,287 +102,6 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  new fullpage("#fullpage", {
-    scrollOverflow: true,
-    scrollingSpeed: 500,
-    fitToSectionDelay: false,
-    verticalCentered: true,
-    responsiveWidth: 769,
-    onLeave: function (origin, destination, direction, trigger) {
-      // screen 03
-      if (destination.index === 2 && direction === "down") {
-        if ($(window).width() < 1024) {
-          gsap.to(".landing-03 .item", {
-            duration: 0.5,
-            scale: 1,
-            opacity: 1,
-            stagger: 0.3,
-            ease: "none",
-          });
-        } else {
-          var tl3 = gsap
-            .timeline()
-            .to(".landing-03 .item-3", {
-              duration: 0.6,
-              scale: 1,
-              opacity: 1,
-              ease: "none",
-            })
-            .to(
-              ".landing-03 .item-2",
-              {
-                duration: 0.6,
-                scale: 1,
-                opacity: 1,
-                stagger: 0.3,
-                ease: "none",
-              },
-              "-=0.3"
-            )
-            .to(
-              ".landing-03 .item-1",
-              {
-                duration: 0.6,
-                scale: 1,
-                opacity: 1,
-                stagger: 0.3,
-                ease: "none",
-              },
-              "-=0.3"
-            )
-            .to(
-              ".landing-03 .item-4",
-              {
-                duration: 0.6,
-                scale: 1,
-                opacity: 1,
-                stagger: 0.3,
-                ease: "none",
-              },
-              "-=0.3"
-            );
-        }
-      }
-
-      // screen 04
-      if (destination.index === 3 && direction === "down") {
-        gsap.to(".landing-04 h2", {
-          y: 0,
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.5,
-          ease: "none",
-          delay: 0.5,
-          onComplete: () => {
-            $(".landing-04 h2 span").addClass("outlined");
-          },
-        });
-        gsap.to(".landing-04 ul li", {
-          y: 0,
-          yPercent: 0,
-          opacity: 1,
-          stagger: 0.15,
-          duration: 0.3,
-          ease: "none",
-          delay: 1,
-        });
-      }
-
-      // screen 05
-      if (destination.index === 4 && direction === "down") {
-        var headline5 = SplitType.create(".landing-05 h2");
-        $(window).on("resize", () => {
-          headline5.split();
-        });
-        $(".landing-05 h2").css("visibility", "visible");
-        gsap.to(headline5.lines, {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          stagger: 0.15,
-          ease: "none",
-          delay: 0.2,
-          onComplete: () => {
-            $(".landing-05 h2 span").addClass("outlined");
-            gsap.to(".landing-05 .icon", {
-              scaleY: 1,
-              duration: 0.3,
-              ease: "none",
-              onComplete: () => {
-                $(".landing-05 .wrapper").css("opacity", 1);
-              },
-            });
-          },
-        });
-      }
-
-      // screen 06
-      if (destination.index === 5 && direction === "down") {
-        gsap.to(".landing-06 h3", {
-          y: 0,
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.3,
-          ease: "none",
-          delay: 0.5,
-        });
-        gsap.to(".landing-06 ul li", {
-          y: 0,
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.3,
-          stagger: 0.15,
-          ease: "none",
-          delay: 0.8,
-        });
-      }
-
-      // screen 07
-      if (destination.index === 6 && direction === "down") {
-        gsap.to(".landing-07 h3", {
-          y: 0,
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.3,
-          ease: "none",
-          delay: 0.5,
-        });
-        gsap.to(".landing-07 p", {
-          y: 0,
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.2,
-          ease: "none",
-          delay: 0.8,
-        });
-        gsap.to(".landing-07 ul li", {
-          y: 0,
-          yPercent: 0,
-          opacity: 1,
-          stagger: 0.15,
-          duration: 0.3,
-          ease: "none",
-          delay: 0.9,
-        });
-      }
-
-      // screen 08
-      if (destination.index === 7 && direction === "down") {
-        gsap.to(".landing-08 .bg", {
-          duration: 2,
-          width: "120%",
-          height: "120%",
-          borderRadius: 0,
-          delay: 0.5,
-        });
-
-        var headline8 = SplitType.create(".landing-08 h2");
-        $(window).on("resize", () => {
-          headline8.split();
-        });
-        $(".landing-08 h2").css("visibility", "visible");
-        gsap.to(".landing-08 .subtitle", {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          ease: "none",
-          delay: 0.5,
-        });
-        gsap.to(headline8.lines, {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          stagger: 0.15,
-          ease: "none",
-          delay: 1,
-          onComplete: () => {
-            $(".landing-08 h2 span").addClass("outlined");
-          },
-        });
-      }
-
-      // screen 09
-      if (destination.index === 8) {
-        gsap.to(".landing-09 .el", {
-          opacity: 1,
-          scale: 1,
-          duration: 0.3,
-          stagger: 0.15,
-          ease: "none",
-          delay: 0.5,
-        });
-        gsap.to(".landing-09 .h1", {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          ease: "none",
-          delay: 1,
-          onComplete: () => {
-            tl9.play();
-          },
-        });
-        gsap.to(".landing-09 h2:last-child", {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          ease: "none",
-          delay: 3.5,
-        });
-        gsap.to(".landing-09 .icon", {
-          scaleY: 1,
-          duration: 0.3,
-          ease: "none",
-          delay: 3.8,
-        });
-      }
-
-      // screen 10
-      if (destination.index === 9) {
-        gsap.to(".landing-10 .section-header-number", {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          ease: "none",
-          delay: 1,
-        });
-        gsap.to(".landing-10 h2", {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          ease: "none",
-          delay: 1.2,
-        });
-      }
-
-      // screen 11
-      if (destination.index === 10) {
-        gsap.to(".landing-11 h2", {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          ease: "none",
-          delay: 1,
-        });
-        gsap.to(".landing-11 .subtitle", {
-          opacity: 1,
-          y: 0,
-          yPercent: 0,
-          duration: 0.3,
-          ease: "none",
-          delay: 1.2,
-        });
-      }
-    },
-  });
-
   // swiper
   if ($(".testimonials-swiper").length) {
     const swiper = new Swiper(".testimonials-swiper", {
@@ -417,4 +136,296 @@ jQuery(document).ready(function ($) {
     var start = $(".landing-02 .btn-start");
     start.trigger("click");
   });
+
+  function fpInit() {
+    new fullpage("#fullpage", {
+      scrollOverflow: true,
+      scrollingSpeed: 500,
+      fitToSectionDelay: false,
+      verticalCentered: true,
+      responsiveWidth: 769,
+      onLeave: function (origin, destination, direction, trigger) {
+        // screen 03
+        if (destination.index === 2 && direction === "down") {
+          if ($(window).width() < 1024) {
+            gsap.to(".landing-03 .item", {
+              duration: 0.5,
+              scale: 1,
+              opacity: 1,
+              stagger: 0.3,
+              ease: "none",
+            });
+          } else {
+            var tl3 = gsap
+              .timeline()
+              .to(".landing-03 .item-3", {
+                duration: 0.6,
+                scale: 1,
+                opacity: 1,
+                ease: "none",
+              })
+              .to(
+                ".landing-03 .item-2",
+                {
+                  duration: 0.6,
+                  scale: 1,
+                  opacity: 1,
+                  stagger: 0.3,
+                  ease: "none",
+                },
+                "-=0.3"
+              )
+              .to(
+                ".landing-03 .item-1",
+                {
+                  duration: 0.6,
+                  scale: 1,
+                  opacity: 1,
+                  stagger: 0.3,
+                  ease: "none",
+                },
+                "-=0.3"
+              )
+              .to(
+                ".landing-03 .item-4",
+                {
+                  duration: 0.6,
+                  scale: 1,
+                  opacity: 1,
+                  stagger: 0.3,
+                  ease: "none",
+                },
+                "-=0.3"
+              );
+          }
+        }
+
+        // screen 04
+        if (destination.index === 3 && direction === "down") {
+          gsap.to(".landing-04 h2", {
+            y: 0,
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "none",
+            delay: 0.5,
+            onComplete: () => {
+              $(".landing-04 h2 span").addClass("outlined");
+            },
+          });
+          gsap.to(".landing-04 ul li", {
+            y: 0,
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.15,
+            duration: 0.3,
+            ease: "none",
+            delay: 1,
+          });
+        }
+
+        // screen 05
+        if (destination.index === 4 && direction === "down") {
+          var headline5 = SplitType.create(".landing-05 h2");
+          $(window).on("resize", () => {
+            headline5.split();
+          });
+          $(".landing-05 h2").css("visibility", "visible");
+          gsap.to(headline5.lines, {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            stagger: 0.15,
+            ease: "none",
+            delay: 0.2,
+            onComplete: () => {
+              $(".landing-05 h2 span").addClass("outlined");
+              gsap.to(".landing-05 .icon", {
+                scaleY: 1,
+                duration: 0.3,
+                ease: "none",
+                onComplete: () => {
+                  $(".landing-05 .wrapper").css("opacity", 1);
+                },
+              });
+            },
+          });
+        }
+
+        // screen 06
+        if (destination.index === 5 && direction === "down") {
+          gsap.to(".landing-06 h3", {
+            y: 0,
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.3,
+            ease: "none",
+            delay: 0.5,
+          });
+          gsap.to(".landing-06 ul li", {
+            y: 0,
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.15,
+            ease: "none",
+            delay: 0.8,
+          });
+        }
+
+        // screen 07
+        if (destination.index === 6 && direction === "down") {
+          gsap.to(".landing-07 h3", {
+            y: 0,
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.3,
+            ease: "none",
+            delay: 0.5,
+          });
+          gsap.to(".landing-07 p", {
+            y: 0,
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.2,
+            ease: "none",
+            delay: 0.8,
+          });
+          gsap.to(".landing-07 ul li", {
+            y: 0,
+            yPercent: 0,
+            opacity: 1,
+            stagger: 0.15,
+            duration: 0.3,
+            ease: "none",
+            delay: 0.9,
+          });
+        }
+
+        // screen 08
+        if (destination.index === 7 && direction === "down") {
+          gsap.to(".landing-08 .bg", {
+            duration: 2,
+            width: "120%",
+            height: "120%",
+            borderRadius: 0,
+            delay: 0.5,
+          });
+
+          var headline8 = SplitType.create(".landing-08 h2");
+          $(window).on("resize", () => {
+            headline8.split();
+          });
+          $(".landing-08 h2").css("visibility", "visible");
+          gsap.to(".landing-08 .subtitle", {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: 0.5,
+          });
+          gsap.to(headline8.lines, {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            stagger: 0.15,
+            ease: "none",
+            delay: 1,
+            onComplete: () => {
+              $(".landing-08 h2 span").addClass("outlined");
+            },
+          });
+        }
+
+        // screen 09
+        if (destination.index === 8) {
+          gsap.to(".landing-09 .el", {
+            opacity: 1,
+            scale: 1,
+            duration: 0.3,
+            stagger: 0.15,
+            ease: "none",
+            delay: 0.5,
+          });
+          gsap.to(".landing-09 .h1", {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: 1,
+            onComplete: () => {
+              tl9.play();
+            },
+          });
+          gsap.to(".landing-09 h2:last-child", {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: 3.5,
+          });
+          gsap.to(".landing-09 .icon", {
+            scaleY: 1,
+            duration: 0.3,
+            ease: "none",
+            delay: 3.8,
+          });
+        }
+
+        // screen 10
+        if (destination.index === 9) {
+          gsap.to(".landing-10 .section-header-number", {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: 1,
+          });
+          gsap.to(".landing-10 h2", {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: 1.2,
+          });
+        }
+
+        // screen 11
+        if (destination.index === 10) {
+          gsap.to(".landing-11 h2", {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: 1,
+          });
+          gsap.to(".landing-11 .subtitle", {
+            opacity: 1,
+            y: 0,
+            yPercent: 0,
+            duration: 0.3,
+            ease: "none",
+            delay: 1.2,
+          });
+        }
+      },
+    });
+  }
+
+  if ($(".popup-age").length) {
+    $(".popup-age .btn-submit").on("click", function () {
+      $(".popup-age").remove();
+      fpInit();
+    });
+  } else {
+    fpInit();
+  }
 });
